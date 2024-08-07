@@ -616,9 +616,9 @@ legend+* {
 
 ::file-selector-button {
     font: inherit;
-    -webkit-appearance: button
+    -webkit-appearance: button;
+    appearance: button; /* Add this line */
 }
-
 output {
     display: inline-block
 }
@@ -2761,7 +2761,7 @@ textarea.form-control-lg {
     background-size: contain;
     border: var(--bs-border-width) solid var(--bs-border-color);
     -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    print-color-adjust: exact;
     print-color-adjust: exact
 }
 
