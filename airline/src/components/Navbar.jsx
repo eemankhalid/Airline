@@ -18,43 +18,43 @@ const Navbar = () => {
                         <div className="nav-item dropdown">
                             <Link to="/plan" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plan</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/destination" className="dropdown-item">Book a Flight</Link>
-                                <Link to="/destination" className="dropdown-item">Group Travel Requests</Link>
-                                <Link to="/tour" className="dropdown-item">Charter Flight Requests</Link>
-                                <Link to="/tour" className="dropdown-item">Sky Cafe</Link>
+                                <Link to="/book-a-flight" className="dropdown-item">Book a Flight</Link>
+                                <Link to="/group-travel-request" className="dropdown-item">Group Travel Requests</Link>
+                                <Link to="/charter-flight-requests" className="dropdown-item">Charter Flight Requests</Link>
+                                <Link to="/sky-cafe" className="dropdown-item">Sky Cafe</Link>
                             </div>
                         </div>
                         <div className="nav-item dropdown">
-                            <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Manage</Link>
+                            <Link to="/Manage" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Manage</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/destination" className="dropdown-item">Modify Flight</Link>
-                                <Link to="/tour" className="dropdown-item">Cancel Flight</Link>
-                                <Link to="/booking" className="dropdown-item">Add AirRewards ID</Link>
-                                <Link to="/gallery" className="dropdown-item">Check Flight Status</Link>
+                                <Link to="/modify-flight" className="dropdown-item">Modify Flight</Link>
+                                <Link to="/cancel-flight" className="dropdown-item">Cancel Flight</Link>
+                                <Link to="/add-air-rewards-id" className="dropdown-item">Add AirRewards ID</Link>
+                                <Link to="/check-flight-status" className="dropdown-item">Check Flight Status</Link>
                             </div>
                         </div>
                         <div className="nav-item dropdown">
-                            <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Add Extras</Link>
+                            <Link to="/Add Extras" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Add Extras</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/destination" className="dropdown-item">Add Baggage</Link>
-                                <Link to="/tour" className="dropdown-item">Add Seats</Link>
-                                <Link to="/booking" className="dropdown-item">Add Meals</Link>
+                                <Link to="/add-baggage" className="dropdown-item">Add Baggage</Link>
+                                <Link to="/add-seats" className="dropdown-item">Add Seats</Link>
+                                <Link to="/add-meals" className="dropdown-item">Add Meals</Link>
                             </div>
                         </div>
-                        <Link to="/index" className="nav-item nav-link active">Check-In</Link>
+                        <Link to="/Check-In" className="nav-item nav-link active">Check-In</Link>
                         <div className="nav-item dropdown">
-                            <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Air Rewards</Link>
+                            <Link to="/Air Rewards" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Air Rewards</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/destination" className="dropdown-item">Login</Link>
-                                <Link to="/tour" className="dropdown-item">Join Rewards</Link>
+                                <Link to="/air-rewards-login" className="dropdown-item">Login</Link>
+                                <Link to="/join-air-rewards" className="dropdown-item">Join Rewards</Link>
                             </div>
                         </div>
-                        <Link to="/index" className="nav-item nav-link active">Blogs</Link>
+                        <Link to="/blog" className="nav-item nav-link active">Blogs</Link>
                         <div className="nav-item dropdown">
-                            <Link to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help</Link>
+                            <Link to="/Help" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/destination" className="dropdown-item">FAQs</Link>
-                                <Link to="/tour" className="dropdown-item">Contact Us</Link>
+                                <Link to="/faqs" className="dropdown-item">FAQs</Link>
+                                <Link to="/contact-us" className="dropdown-item">Contact Us</Link>
                             </div>
                         </div>
                     </div>
