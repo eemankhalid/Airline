@@ -1,15 +1,15 @@
 
 import React from 'react';
 import Navbar from './components/Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importing Bootstrap CSS
-import './styles/style.css'; // Importing custom CSS
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './css/bootstrap.min.css'; // Importing Bootstrap CSS
+import './css/style.css'; // Importing custom CSS
+
 
 const App = () => {
     return (
-        <Router>
+        <div>
             <Navbar />
-        </Router>
+        </div>
     );
 };
 
