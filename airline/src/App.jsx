@@ -1,10 +1,19 @@
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
 import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import './css/bootstrap.min.css'; // Importing Bootstrap CSS
 import './css/style.css'; // Importing custom CSS
 import { Helmet } from 'react-helmet';
-import Footer from './components/Footer';
 
+import MainLayout from './Layouts/MainLayout';
+
+const router= createBrowserRouter(
+    createRoutesFromElements(
+      <Route index element={<MainLayout/>}></Route>
+  
+    )
+  );
+  
 
 
 const App = () => {
