@@ -168,7 +168,7 @@
 
 .sticky-top.navbar-light .navbar-nav .nav-link {
     padding: 20px 15px;
-    color: var(--bs-dark) !important;
+    color: var(--bs-primary) !important;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
