@@ -7,11 +7,17 @@ import { Helmet } from 'react-helmet';
 
 import MainLayout from './Layouts/MainLayout';
 import HomePage from './Pages/HomePage';
+import BookFlightPage from './Pages/BookFlightPage';
+import GroupTravelRequestPage from './Pages/GroupTravelRequestPage'
+import CharterFlightRequestPage from './Pages/CharterFlightRequestPage'
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<MainLayout />}>
             <Route index element={<HomePage />} />
+            <Route path='book-a-flight' element={<BookFlightPage />} />
+            <Route path='group-travel-request' element={<GroupTravelRequestPage />} />
+            <Route path='charter-flight-requests' element={<CharterFlightRequestPage />} />
         </Route>
 
     )
