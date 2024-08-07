@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import './css/bootstrap.min.css'; // Importing Bootstrap CSS
 import './css/style.css'; // Importing custom CSS
 import { Helmet } from 'react-helmet';
+
 import MainLayout from './Layouts/MainLayout';
 
 const router= createBrowserRouter(
@@ -71,6 +72,7 @@ const App = () => {
                 <link href="css/style.css" rel="stylesheet" />
             </Helmet>
             <Navbar />
+            <Footer/>
             {/* Your other components here */}
         </>
     );
