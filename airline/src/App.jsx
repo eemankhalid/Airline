@@ -1,6 +1,6 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import Navbar from './components/Navbar';
+
 import './css/bootstrap.min.css'; // Importing Bootstrap CSS
 import './css/style.css'; // Importing custom CSS
 import { Helmet } from 'react-helmet';
@@ -8,15 +8,15 @@ import { Helmet } from 'react-helmet';
 import MainLayout from './Layouts/MainLayout';
 import HomePage from './Pages/HomePage';
 
-const router= createBrowserRouter(
+const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path='/' element={<MainLayout/>}>
-        <Route index element={<HomePage/>}/>
-          </Route>
-        
+        <Route path='/' element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+        </Route>
+
     )
-  );
-  
+);
+
 
 
 const App = () => {
@@ -74,8 +74,12 @@ const App = () => {
                 {/* Template Stylesheet */}
                 <link href="css/style.css" rel="stylesheet" />
             </Helmet>
-            <Navbar />
-            <Footer/>
+            <>
+
+                <RouterProvider router={router} />
+
+            </>
+
             {/* Your other components here */}
         </>
     );
