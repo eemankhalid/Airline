@@ -25,9 +25,9 @@ const Footer = () => {
                     <div className="col-md-6 col-lg-6 col-xl-3">
                         <div className="footer-item d-flex flex-column">
                             <h4 className="mb-2 text-white">Book your trip</h4>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> book flight</a>
+                            <a href="#"><i className="fas fa-angle-right me-2"></i> Book flight</a>
                             <a href="#"><i className="fas fa-angle-right me-2"></i> Charter booking</a>
-                            <a href="#"><i className="fas fa-angle-right me-2"></i> group booking</a>
+                            <a href="#"><i className="fas fa-angle-right me-2"></i> Group booking</a>
 
                             
                         </div>
@@ -43,14 +43,14 @@ const Footer = () => {
                
                     <div className="col-md-6 col-lg-6 col-xl-3">
                         <div className="footer-item d-flex flex-column">
-                            <h4 className="mb-2 text-white">loyalty</h4>
+                            <h4 className="mb-2 text-white">Loyalty</h4>
                             <a href="#"><i className="fas fa-angle-right me-2"></i> Join air rewards</a>
                             <a href="#"><i className="fas fa-angle-right me-2"></i> About air rewards</a>
                             <a href="#"><i className="fas fa-angle-right me-2"></i> General</a>
                             
                         </div>
                         <div className="footer-item d-flex flex-column">
-                            <h4 className="mb-2 mt-3 text-white">blogs</h4>
+                            <h4 className="mb-2 mt-3 text-white">Blogs</h4>
                             <a href="#"><i className="fas fa-angle-right me-2"></i> General</a>
                             <a href="#"><i className="fas fa-angle-right me-2"></i> Destination</a>
                             <a href="#"><i className="fas fa-angle-right me-2"></i> Air rewards</a>
