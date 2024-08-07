@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <div className="container-fluid position-relative p-0">
             <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="/" className="navbar-brand p-0">
+                <a href="" className="navbar-brand p-0">
                     <h1 className="m-0"><i className="fa fa-map-marker-alt me-3"></i>Travela</h1>
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -12,8 +12,9 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0">
+                    <a href="/" className="nav-item nav-link active">Home</a>
                         <div className="nav-item dropdown">
-                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plan</a>
+                            <a href="/plan" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plan</a>
                             <div className="dropdown-menu m-0">
                                 <a href="/destination" className="dropdown-item">Book a Flight</a>
                                 <a href="/destination" className="dropdown-item">Group Travel Requests</a>
@@ -119,14 +120,6 @@ const Navbar = () => {
                         <span className="carousel-control-next-icon btn bg-primary" aria-hidden="true"></span>
                         <span className="visually-hidden">Next</span>
                     </button>
-                </div>
-            </div>
-            <div className="container-fluid search-bar position-relative" style={{ top: '-50%', transform: 'translateY(-50%)' }}>
-                <div className="container">
-                    <div className="position-relative rounded-pill w-100 mx-auto p-5" style={{ background: 'rgba(19, 53, 123, 0.8)' }}>
-                        <input className="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Thailand" />
-                        <button type="button" className="btn btn-primary rounded-pill py-2 px-4 position-absolute me-2" style={{ top: '50%', right: '46px', transform: 'translateY(-50%)' }}>Search</button>
-                    </div>
                 </div>
             </div>
         </div>

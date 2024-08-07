@@ -6,11 +6,14 @@ import './css/style.css'; // Importing custom CSS
 import { Helmet } from 'react-helmet';
 
 import MainLayout from './Layouts/MainLayout';
+import HomePage from './Pages/HomePage';
 
 const router= createBrowserRouter(
     createRoutesFromElements(
-      <Route index element={<MainLayout/>}></Route>
-  
+        <Route path='/' element={<MainLayout/>}>
+        <Route index element={<HomePage/>}/>
+          </Route>
+        
     )
   );
   
