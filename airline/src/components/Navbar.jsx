@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/img/sample.png';  // Import the logo image
 
 const Navbar = () => {
     const location = useLocation();
@@ -7,7 +8,7 @@ const Navbar = () => {
         <div className="container-fluid position-relative p-0">
             <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <Link to="/" className="navbar-brand p-0">
-                    <h1 className="m-0"><i className="fa fa-map-marker-alt me-3"></i>Travela</h1>
+                    <img src={logo} alt="Travela Logo" style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span className="fa fa-bars"></span>
@@ -73,7 +74,6 @@ const Navbar = () => {
                         At Infinity Wings, we prioritize your comfort and convenience. Enjoy top-notch amenities and exceptional service on every flight. Sign up for WingPoints and unlock exclusive benefits. Let's make your travel dreams a reality.</p>
                         <div className="d-flex align-items-center justify-content-center">
                         <Link className="btn" to="#">Discover More</Link>
-
                         </div>
                     </div>
                 </div>
