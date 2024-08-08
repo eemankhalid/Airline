@@ -29,24 +29,24 @@ const Navbar = () => {
                             <div className="dropdown-menu m-0">
                                 <Link to="/modify-flight" className="dropdown-item">Modify Flight</Link>
                                 <Link to="/cancel-flight" className="dropdown-item">Cancel Flight</Link>
-                                <Link to="/add-air-rewards-id" className="dropdown-item">Add AirRewards ID</Link>
+                                <Link to="/add-wing-points-id" className="dropdown-item">Add WingPoints ID</Link>
                                 <Link to="/check-flight-status" className="dropdown-item">Check Flight Status</Link>
                             </div>
                         </div>
                         <div className="nav-item dropdown">
                             <Link to="/Add Extras" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Add Extras</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/add-baggage" className="dropdown-item">Add Baggage</Link>
-                                <Link to="/add-seats" className="dropdown-item">Add Seats</Link>
-                                <Link to="/add-meals" className="dropdown-item">Add Meals</Link>
+                                <Link to="/Add Extras#baggage" className="dropdown-item">Add Baggage</Link>
+                                <Link to="/Add Extras#seats" className="dropdown-item">Add Seats</Link>
+                                <Link to="/Add Extras#meals" className="dropdown-item">Add Meals</Link>
                             </div>
                         </div>
                         <Link to="/Check-In" className="nav-item nav-link active">Check-In</Link>
                         <div className="nav-item dropdown">
-                            <Link to="/Air Rewards" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Air Rewards</Link>
+                            <Link to="/Air Rewards" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Wing Points</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/air-rewards-login" className="dropdown-item">Login</Link>
-                                <Link to="/join-air-rewards" className="dropdown-item">Join Rewards</Link>
+                                <Link to="/wing-points-login" className="dropdown-item">Login</Link>
+                                <Link to="/join-wing-points" className="dropdown-item">Join WingPoints</Link>
                             </div>
                         </div>
                         <Link to="/blog" className="nav-item nav-link active">Blogs</Link>
