@@ -1300,37 +1300,51 @@ html, body {
 /*** copyright end ***/
 /*** wingpoint start ***/
 .wing-points {
-   
     padding: 50px;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 100%), 
                 url('/src/assets/img/wingpiont.jpg'); /* Add gradient overlay */
     background-size: cover; /* Ensure background image covers the whole area */
     background-position: center; /* Center the background image */
-    color: #000000; /* Darker text for better contrast */
+    color: #e6eee8; /* Light text color for better contrast */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center content vertically */
+    justify-content: flex-start; /* Align content to the left */
+    position: relative; /* Position relative to contain absolute children */
+    min-height: 400px; /* Set a minimum height to ensure content is properly positioned */
+    transition: background-size 1.0s ease-in-out, background-position 1.0s ease-in-out; /* Longer transition for smoother effect */
+}
+.wing-points:hover {
+    background-size: 100%; /* Slightly zoom in the background image on hover */
+    background-position: center top; /* Adjust position for a more dynamic effect */
 }
 
 .wing-points-content {
-
     position: relative;
     z-index: 2; /* Bring content above the image */
-   
-
     padding: 20px;
     border-radius: 10px;
-    
+    max-width: 50%; /* Limit the width of the content */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    
 }
 
 .wing-points h2 {
     font-size: 2.5rem; /* Larger heading */
-    color: #e6eee8; /* Dark green color for heading */
+    color: #e6eee8; /* Light color for heading */
     margin-bottom: 20px;
 }
 
 .wing-points p {
     font-size: 1.2rem;
-    color:  #e6eee8; /* Slightly lighter color for paragraph text */
+    color: #e6eee8; /* Light color for paragraph text */
     margin-bottom: 30px;
+}
+
+.join-now-container {
+    position: absolute;
+    right: 50px; /* Position button to the right */
+    bottom: 50px; /* Position button at the bottom */
+    z-index: 3; /* Ensure the button is above other elements */
 }
 
 .join-now-button {
@@ -1347,8 +1361,9 @@ html, body {
 
 .join-now-button:hover {
     background-color: #161616; /* Light black shade on hover */
-    color: #f0f0f0;/* Darker shade on hover */
+    color: #f0f0f0; /* Darker shade on hover */
 }
+
 /*** wingpoint end ***/
 
 /*** Flight Options Start ***/
