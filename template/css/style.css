@@ -1245,3 +1245,37 @@
     background: var(--bs-dark) !important;
 }
 /*** copyright end ***/
+.wing-points {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+.wing-points-content {
+    display: inline-block;
+    text-align: left;
+    max-width: 600px;
+}
+
+.wing-points h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.wing-points p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.join-now-button {
+    background-color: #d42f2f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.join-now-button:hover {
+    background-color: #a02626;
+}
