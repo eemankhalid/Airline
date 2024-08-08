@@ -1,6 +1,13 @@
 
 /*** Spinner Start ***/
 /*** Spinner ***/
+.homepage-container {
+    background-color: white !important;
+    min-height: 100vh;
+    padding: 5px; /* Decreased padding value */
+  }
+  
+  
 #spinner {
     opacity: 0;
     visibility: hidden;
@@ -471,6 +478,10 @@
 
 
 /*** Packages Start ***/
+.packages
+{
+    background-color: white;
+}
 .packages .packages-item .packages-img {
     position: relative;
     overflow: hidden;
@@ -594,7 +605,7 @@
     padding: 0 0 20px 0;
 }
 .ExploreTour .tab-class .nav-item a.active {
-    background: var(--bs-primary) !important;
+    background: var(--bs-white) !important;
 }
 
 .ExploreTour .tab-class .nav-item a.active span {
