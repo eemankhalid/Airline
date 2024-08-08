@@ -67,13 +67,13 @@ const Navbar = () => {
                 </video>
                 <div className="carousel-caption">
                     <div className="p-3" style={{ maxWidth: '900px' }}>
-                        <h4 className="text-white text-uppercase fw-bold mb-4" style={{ letterSpacing: '3px' }}>Explore The World</h4>
-                        <h1 className="display-2 text-capitalize text-white mb-4">Let's The World Together!</h1>
+                        <h4 className="text-white text-uppercase fw-bold mb-4" style={{ letterSpacing: '3px' }}>Fly Beyond Limits with Infinity Wings</h4>
+                        <h2 className="display-2 text-capitalize text-white mb-4">Your Journey, Our Passion</h2>
                         <p className="mb-5 fs-5">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        </p>
+                        At Infinity Wings, we prioritize your comfort and convenience. Enjoy top-notch amenities and exceptional service on every flight. Sign up for WingPoints and unlock exclusive benefits. Let's make your travel dreams a reality.</p>
                         <div className="d-flex align-items-center justify-content-center">
-                            <Link className="btn-hover-bg btn btn-primary rounded-pill text-white py-3 px-5" to="#">Discover Now</Link>
+                        <Link className="btn" to="#">Discover More</Link>
+
                         </div>
                     </div>
                 </div>
