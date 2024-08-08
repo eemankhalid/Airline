@@ -1,9 +1,9 @@
 import React from 'react';
 
-
 const WingPoints = () => {
     return (
         <div className="wing-points">
+            <div className="wing-points-image"></div>
             <div className="wing-points-content">
                 <h2>WingPoints – Loyalty Program</h2>
                 <p>
@@ -19,3 +19,4 @@ const WingPoints = () => {
 };
 
 export default WingPoints;
+
