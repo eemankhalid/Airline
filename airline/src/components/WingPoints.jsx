@@ -12,7 +12,7 @@ const WingPoints = () => {
                     the maximum value for points earned. Join now and discover new possibilities
                     with WingPoints.
                 </p>
-                <button className="join-now-button">JOIN NOW</button>
+                <button className="join-now-button">Join Now</button>
             </div>
         </div>
     );
