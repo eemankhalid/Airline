@@ -428,7 +428,6 @@
     background: rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     transition: 0.5s;
-
 }
 
 .destination .tab-class .tab-content .tab-pane .destination-img .search-icon a i {
@@ -439,6 +438,7 @@
 .destination .tab-class .nav-item {
     padding: 0 0 20px 0;
 }
+
 .destination .tab-class .nav-item a.active {
     background: var(--bs-primary) !important;
 }
@@ -448,7 +448,7 @@
 }
 
 .destination .tab-class .tab-content .destination-img:hover .search-icon {
-    background: rgba(19, 53, 123, 0.4);
+    background: #777; /* Changed from #333 to a lighter grey */
 }
 
 .destination .tab-class .tab-content .destination-img:hover .destination-overlay {
@@ -465,6 +465,7 @@
 
 .destination .tab-class .tab-content .destination-img:hover img {
     transform: scale(1.2);
+    filter: grayscale(50%); /* Added to apply a grey effect */
 }
 /*** Destination End ***/
 
@@ -632,7 +633,7 @@
 }
 
 .ExploreTour #NationalTab-1 .national-item:hover .national-content {
-    background: rgba(19, 53, 123, .6);
+    background: rgba(46, 46, 46, 0.6);
 }
 
 .ExploreTour #NationalTab-1 .national-item .national-plus-icon {
@@ -705,7 +706,7 @@
 }
 
 .ExploreTour #InternationalTab-2 .international-item:hover .international-content {
-    background: rgba(19, 53, 123, .6);
+    background: rgba(78, 80, 83, 0.6);
 }
 
 .ExploreTour #InternationalTab-2 .international-item .international-content .international-info a {
@@ -815,7 +816,7 @@
 }
 
 .gallery .gallery-item:hover .gallery-content {
-    background: rgba(19, 53, 123, 0.8);
+    background: rgba(82, 83, 84, 0.8);
 }
 
 .gallery .tab-class .nav-item {
