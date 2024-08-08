@@ -12,11 +12,23 @@ const ExploreTour = () => {
     return (
         <div className="container-fluid ExploreTour py-5">
             <div className="container py-5">
-            <div className="mx-auto text-center mb-5" style={{ maxWidth: '200px' }}>
-    <h3 className="section-title px-3" style={{ fontSize: '24px', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold' ,color:'white'}}>
-        Where We Fly?
+  <div className="mx-auto text-center mb-1" style={{ maxWidth: '200px' }}>
+    <h3 
+      className="section-title px-3" 
+      style={{ 
+        fontSize: '32px', 
+        fontFamily: 'Roboto, sans-serif', 
+        fontWeight: 'bold', 
+        color: 'grey', 
+        textAlign: 'center',  /* Ensures the text is centered */
+        whiteSpace: 'nowrap'  /* Keeps the text on a single line */
+      }}
+    >
+      Where We Fly?
     </h3>
+  </div>
 </div>
+
 
                 <div className="tab-class text-center">
                    
@@ -186,7 +198,7 @@ const ExploreTour = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        
     );
 };
 
