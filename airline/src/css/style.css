@@ -83,7 +83,15 @@
 
 
 /*** Navbar ***/
-/* Default navbar styling */
+.navbar-light .navbar-brand img {
+    max-width: 300px;  /* Adjust the maximum width as needed */
+    max-height: 300px; /* Adjust the maximum height as needed */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Ensures the logo keeps its aspect ratio */
+    transition: max-height 0.5s; /* Smooth logo size transition */
+}
+
 .navbar-light {
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5)); /* Linear gradient background */
     border-bottom: 1px solid #333; /* Subtle bottom border */
