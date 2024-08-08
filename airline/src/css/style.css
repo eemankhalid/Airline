@@ -1315,6 +1315,95 @@ html, body {
 }
 
 /*** copyright end ***/
+
+/*** wingpoint start ***/
+.wing-points {
+    padding: 50px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 100%), 
+                url('/src/assets/img/wingpiont.jpg'); /* Add gradient overlay */
+    background-size: cover; /* Ensure background image covers the whole area */
+    background-position: center; /* Center the background image */
+    color: #e6eee8; /* Light text color for better contrast */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center content vertically */
+    justify-content: flex-start; /* Align content to the left */
+    position: relative; /* Position relative to contain absolute children */
+    min-height: 400px; /* Set a minimum height to ensure content is properly positioned */
+    transition: background-size 1.0s ease-in-out, background-position 1.0s ease-in-out;
+    border-radius: 15px; /* Longer transition for smoother effect */
+}
+.wing-points:hover {
+    background-size: 100%; /* Slightly zoom in the background image on hover */
+    background-position: center top; /* Adjust position for a more dynamic effect */
+}
+
+.wing-points-content {
+    position: relative;
+    z-index: 2; /* Bring content above the image */
+    text-align: justify;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    
+}
+
+.wing-points h2 {
+    font-size: 2.5rem; /* Larger heading */
+    color: #e6eee8; /* Light color for heading */
+    margin-bottom: 20px;
+}
+
+.wing-points p {
+    font-size: 1.2rem;
+    color: #e6eee8; /* Light color for paragraph text */
+    margin-bottom: 30px;
+}
+
+.join-now-container {
+    position: absolute;
+    right: 50px; /* Position button to the right */
+    bottom: 50px; /* Position button at the bottom */
+    z-index: 3; /* Ensure the button is above other elements */
+}
+
+.join-now-button {
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+    padding: 0.75rem 2rem; /* Adjust padding as needed */
+    font-size: 1rem;
+    border-radius: 8px; /* Less round corners */
+    color: #fff; /* Default text color */
+    background-color: #333; /* Default button background color */
+    border: none; /* Remove border */
+    cursor: pointer; 
+}
+
+.join-now-button:hover {
+    background-color: #161616; /* Light black shade on hover */
+    color: #f0f0f0; /* Darker shade on hover */
+}
+
+/*** wingpoint end ***/
+
+/*** Flight Options Start ***/
+.flight-options {
+    padding: 30px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7a8288, #070707); /* Gradient for a modern look */
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.flight-options h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+}
+
+/*** wingpoint end ***/
+
 /*** WhyInfinityWings start ***/
 .why-infinity-wings-container {
     padding: 60px 30px;
@@ -1474,3 +1563,4 @@ html, body {
 }
 
 /*** Flight Options End ***/
+
