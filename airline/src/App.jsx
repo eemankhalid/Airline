@@ -10,14 +10,37 @@ import HomePage from './Pages/HomePage';
 import BookFlightPage from './Pages/BookFlightPage';
 import GroupTravelRequestPage from './Pages/GroupTravelRequestPage'
 import CharterFlightRequestPage from './Pages/CharterFlightRequestPage'
+import ModifyFlightPage from './Pages/ModifyFlightPage';
+import CancelFlightPage from './Pages/CancelFlightPage';
+import AddWingPointsPage from './Pages/AddWingPointsPage';
+import FlightStatusPage from './components/FlightStatusPage';
+import AddExtrasPages from './Pages/AddExtrasPages';
+import CheckInPage from './Pages/CheckInPage';
+import LoginPage from './Pages/LoginPage';
+import JoinPage from './Pages/JoinPage';
+import BlogsPage from './Pages/BlogsPage';
+import FAQsPage from './Pages/FAQsPage';
+import ContactUsPage from './Pages/ContactUsPage';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path='/' element={<MainLayout />}>
             <Route index element={<HomePage />} />
-            <Route path='book-a-flight' element={<BookFlightPage />} />
-            <Route path='group-travel-request' element={<GroupTravelRequestPage />} />
-            <Route path='charter-flight-requests' element={<CharterFlightRequestPage />} />
+            <Route path='/book-a-flight' element={<BookFlightPage />} />
+            <Route path='/group-travel-request' element={<GroupTravelRequestPage />} />
+            <Route path='/charter-flight-requests' element={<CharterFlightRequestPage />} />
+            <Route path='/modify-flight' element={<ModifyFlightPage />} />
+            <Route path='/cancel-flight' element={<CancelFlightPage />} />
+            <Route path='/add-wing-points-id' element={<AddWingPointsPage />} />
+            <Route path='/check-flight-status' element={<FlightStatusPage />} />
+            <Route path='/Add Extras' element={<AddExtrasPages />} />
+            <Route path='/Check-In' element={<CheckInPage />} />
+            <Route path='/wing-points-login' element={<LoginPage />} />
+            <Route path='/join-wing-points' element={<JoinPage />} />
+            <Route path='/blog' element={<BlogsPage />} />
+            <Route path='/faqs' element={<FAQsPage />} />
+            <Route path='/contact-us' element={<ContactUsPage />} />
+            
         </Route>
 
     )

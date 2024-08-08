@@ -83,7 +83,15 @@
 
 
 /*** Navbar ***/
-/* Default navbar styling */
+.navbar-light .navbar-brand img {
+    max-width: 300px;  /* Adjust the maximum width as needed */
+    max-height: 300px; /* Adjust the maximum height as needed */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Ensures the logo keeps its aspect ratio */
+    transition: max-height 0.5s; /* Smooth logo size transition */
+}
+
 .navbar-light {
     background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5)); /* Linear gradient background */
     border-bottom: 1px solid #333; /* Subtle bottom border */
@@ -1292,68 +1300,73 @@ html, body {
 /*** copyright end ***/
 /*** wingpoint start ***/
 .wing-points {
-    position: relative;
-    display: flex;
-    align-items: center; /* Align content vertically centered */
+   
     padding: 50px;
-    color: #000000; /* Darker text for better contrast */
-}
-
-.wing-points-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 100%), 
                 url('/src/assets/img/wingpiont.jpg'); /* Add gradient overlay */
     background-size: cover; /* Ensure background image covers the whole area */
     background-position: center; /* Center the background image */
-    z-index: 1; /* Ensure image stays behind the content */
-    transition: transform 0.5s ease; /* Smooth transition for zoom effect */
-}
-
-.wing-points:hover .wing-points-image {
-    transform: scale(1.05); /* Slight zoom on hover */
+    color: #000000; /* Darker text for better contrast */
 }
 
 .wing-points-content {
+
     position: relative;
     z-index: 2; /* Bring content above the image */
    
+
     padding: 20px;
     border-radius: 10px;
-    max-width: 600px; /* Adjust the width to fit within the shaded area */
+    
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
 .wing-points h2 {
     font-size: 2.5rem; /* Larger heading */
-    color: #e6eee8; /* Light color for heading */
+    color: #e6eee8; /* Dark green color for heading */
     margin-bottom: 20px;
 }
 
 .wing-points p {
     font-size: 1.2rem;
-    color:  #e6eee8; /* Light color for paragraph text */
+    color:  #e6eee8; /* Slightly lighter color for paragraph text */
     margin-bottom: 30px;
 }
 
 .join-now-button {
-    background-color: #202722; /* Dark background for button */
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem; /* Larger button text */
-    cursor: pointer;
-    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+    padding: 0.75rem 2rem; /* Adjust padding as needed */
+    font-size: 1rem;
+    border-radius: 8px; /* Less round corners */
+    color: #fff; /* Default text color */
+    background-color: #333; /* Default button background color */
+    border: none; /* Remove border */
+    cursor: pointer; 
 }
 
 .join-now-button:hover {
-    background-color: #131413; /* Darker shade on hover */
+    background-color: #161616; /* Light black shade on hover */
+    color: #f0f0f0;/* Darker shade on hover */
+}
+/*** wingpoint end ***/
+
+/*** Flight Options Start ***/
+.flight-options {
+    padding: 30px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7a8288, #070707); /* Gradient for a modern look */
+    color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-
+.flight-options h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 600;
+}
 
 /*** wingpoint end ***/
 /*** WhyInfinityWings start ***/
@@ -1443,3 +1456,65 @@ html, body {
 
 /*** WhyInfinityWings ends ***/
 
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.option:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container {
+    background-color: #f7f7f7;
+    border-radius: 50%;
+    padding: 15px;
+    margin-right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.icon-container:hover {
+    background-color: var(--bs-primary); /* Primary color */
+}
+
+.icon {
+    font-size: 36px;
+    color: #7a8288;
+}
+.icon:hover {
+    color: #ffffff;
+}
+
+.option-content {
+    flex: 1;
+    transition: color 0.3s ease;
+}
+
+.option-content h3 {
+    font-size: 22px;
+    margin: 0 0 10px;
+    color: #3a3f44;
+    font-weight: 500;
+}
+
+.option-content p {
+    margin: 0;
+    color: #666666;
+}
+
+/*** Flight Options End ***/
