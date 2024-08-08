@@ -1318,11 +1318,9 @@ html, body {
 
     position: relative;
     z-index: 2; /* Bring content above the image */
-   
-
+    text-align: justify;
     padding: 20px;
     border-radius: 10px;
-    
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
@@ -1379,6 +1377,7 @@ html, body {
     padding: 60px 30px;
     text-align: center;
     background-color: #0d0d0d; /* Darker background for a sleek look */
+
 }
 
 .why-infinity-wings-container h2 {
@@ -1400,46 +1399,34 @@ html, body {
     position: relative; /* Make the feature box a relative positioning context */
     width: 30%; /* Slightly smaller width to fit three in a row */
     background-color: transparent; /* No background for overall feature box */
-    padding: 20px;
-    justify-content: center;
-}
-.text {
-    justify-content: center;
-    position: relative; /* Make the feature box a relative positioning context */
-    width: 90%; /* Slightly smaller width to fit three in a row */
-    background-color: white; /* No background for overall feature box */
     padding: 10px;
+    justify-content: center;
+    overflow: hidden; /* Hide overflow to ensure smooth scaling */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
 }
 
 .feature-img-container {
-    background-color: #1c1c1c; /* Dark background for image container */
-    border-radius: 15px; /* More rounded corners for a softer look */
-    box-shadow: 0 6px 12px rgba(65, 62, 62, 0.2); /* More pronounced shadow for depth */
-    overflow: hidden; /* Ensure image and text are clipped within rounded corners */
+    position: relative;
 }
 
-.feature img {
+.feature-img-container img {
     width: 100%; /* Full width image */
     height: auto;
-    border-radius: 15px; /* Match border radius to container */
-    transition: transform 0.4s ease; /* Add a subtle zoom effect on hover */
+    border-radius: 5px; /* Match border radius to container */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
 }
 
 .feature-text-container {
-    position: absolute; /* Absolute positioning for overlap */
-    bottom: -30px; /* Position slightly below the image container */
-    left: 10%; /* Adjust the positioning as needed */
-    width: 80%; /* Make the text container smaller than the image container */
+    background-color: #ffffff; 
     padding: 15px;
-    z-index: 1; /* Ensure text is above the image */
-    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transitions */
-}
-
-.feature-text-box {
-    background-color: #ffffff; /* White background for the text box */
-    padding: 15px;
-    border-radius: 10px; /* Slightly rounded corners */
+    border-radius: 5px; /* Slightly rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: absolute; /* Absolute positioning relative to the parent feature */
+    left: 50%; /* Center horizontally */
+    bottom: -100px; /* Position below the image */
+    transform: translateX(-50%); /* Center the text container horizontally */
+    width: 300px; /* Adjust width as needed */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for zoom effect */
 }
 
 .feature p {
@@ -1453,13 +1440,11 @@ html, body {
 }
 
 .feature:hover .feature-text-container {
-    transform: scale(1.05); /* Slightly enlarge the text container on hover */
+    transform: translateX(-50%) scale(1.05); /* Slightly enlarge the text container on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increase shadow on hover for depth */
 }
 
 
-
-/*** WhyInfinityWings ends ***/
 
 .options-container {
     display: grid;
