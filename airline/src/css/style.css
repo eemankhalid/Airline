@@ -1256,3 +1256,54 @@
     background: var(--bs-dark) !important;
 }
 /*** copyright end ***/
+/*** wingpoint start ***/
+.wing-points {
+   
+    padding: 50px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 100%), 
+                url('/src/assets/img/wingpiont.jpg'); /* Add gradient overlay */
+    background-size: cover; /* Ensure background image covers the whole area */
+    background-position: center; /* Center the background image */
+    color: #000000; /* Darker text for better contrast */
+}
+
+.wing-points-content {
+    display: inline-block;
+    text-align: left;
+    max-width: 600px; /* Adjust the width to fit within the shaded area */
+    padding: 20px;
+    border-radius: 10px;
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.wing-points h2 {
+    font-size: 2.5rem; /* Larger heading */
+    color: #e6eee8; /* Dark green color for heading */
+    margin-bottom: 20px;
+}
+
+.wing-points p {
+    font-size: 1.2rem;
+    color:  #e6eee8; /* Slightly lighter color for paragraph text */
+    margin-bottom: 30px;
+}
+
+.join-now-button {
+    background-color: #202722; /* Dark green background for button */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem; /* Larger button text */
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.join-now-button:hover {
+    background-color: #131413; /* Darker shade on hover */
+}
+
+
+/*** wingpoint end ***/
+
+
