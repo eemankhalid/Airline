@@ -1323,7 +1323,8 @@ html, body {
     justify-content: flex-start; /* Align content to the left */
     position: relative; /* Position relative to contain absolute children */
     min-height: 400px; /* Set a minimum height to ensure content is properly positioned */
-    transition: background-size 1.0s ease-in-out, background-position 1.0s ease-in-out; /* Longer transition for smoother effect */
+    transition: background-size 1.0s ease-in-out, background-position 1.0s ease-in-out;
+    border-radius: 15px; /* Longer transition for smoother effect */
 }
 .wing-points:hover {
     background-size: 100%; /* Slightly zoom in the background image on hover */
@@ -1545,3 +1546,4 @@ html, body {
 }
 
 /*** Flight Options End ***/
+
