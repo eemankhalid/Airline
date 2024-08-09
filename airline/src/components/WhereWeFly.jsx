@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Fade from 'react-reveal/Fade';
 import sharjah from '../assets/img/sharjah.webp';
 import manchestor from '../assets/img/manchestor.jpg';
@@ -8,8 +8,38 @@ import paris from '../assets/img/paris.jpg';
 import amsterdam from '../assets/img/amsterdam.jpg';
 
 const ExploreTour = () => {
+    const [bgColor, setBgColor] = useState('transparent');
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setBgColor('black'); // Change background color when in view
+                } else {
+                    setBgColor('transparent'); // Revert to original color when out of view
+                }
+            },
+            { threshold: 0.5 } // Adjust this value to control when the color changes
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+
     return (
-        <div className="container-fluid ExploreTour py-5">
+        <div
+            className="container-fluid ExploreTour py-5"
+            style={{ backgroundColor: bgColor, transition: 'background-color 0.6s ease' }} // Smooth transition
+            ref={sectionRef}
+        >
             <div className="container py-5">
                 <div className="mx-auto text-center mb-1" style={{ maxWidth: '200px' }}>
                     <h3
@@ -151,8 +181,8 @@ const ExploreTour = () => {
                                             <div className="tour-offer bg-warning">45% Off</div>
                                             <div className="international-info">
                                                 <h5 className="text-white text-uppercase mb-2">Spain</h5>
-                                                <a href="#" className="btn-hover text-white me-4"><i className="fas fa-map-marker-alt me-1"></i> 9 Cities</a>
-                                                <a href="#" className="btn-hover text-white"><i className="fa fa-eye ms-2"></i> <span>133+ Tour Places</span></a>
+                                                <a href="#" className="btn-hover text-white me-4"><i className="fas fa-map-marker-alt me-1"></i> 7 Cities</a>
+                                                <a href="#" className="btn-hover text-white"><i className="fa fa-eye ms-2"></i> <span>54+ Tour Places</span></a>
                                             </div>
                                         </div>
                                         <div className="international-plus-icon">
@@ -162,23 +192,11 @@ const ExploreTour = () => {
                                     <div className="international-item">
                                         <img src="img/explore-tour-4.jpg" className="img-fluid w-100 rounded" alt="Tour" />
                                         <div className="international-content">
+                                            <div className="tour-offer bg-danger">25% Off</div>
                                             <div className="international-info">
-                                                <h5 className="text-white text-uppercase mb-2">Japan</h5>
-                                                <a href="#" className="btn-hover text-white me-4"><i className="fas fa-map-marker-alt me-1"></i> 8 Cities</a>
-                                                <a href="#" className="btn-hover text-white"><i className="fa fa-eye ms-2"></i> <span>137+ Tour Places</span></a>
-                                            </div>
-                                        </div>
-                                        <div className="international-plus-icon">
-                                            <a href="#" className="my-auto"><i className="fas fa-link fa-2x text-white"></i></a>
-                                        </div>
-                                    </div>
-                                    <div className="international-item">
-                                        <img src="img/explore-tour-5.jpg" className="img-fluid w-100 rounded" alt="Tour" />
-                                        <div className="international-content">
-                                            <div className="international-info">
-                                                <h5 className="text-white text-uppercase mb-2">Italy</h5>
+                                                <h5 className="text-white text-uppercase mb-2">China</h5>
                                                 <a href="#" className="btn-hover text-white me-4"><i className="fas fa-map-marker-alt me-1"></i> 10 Cities</a>
-                                                <a href="#" className="btn-hover text-white"><i className="fa fa-eye ms-2"></i> <span>102+ Tour Places</span></a>
+                                                <a href="#" className="btn-hover text-white"><i className="fa fa-eye ms-2"></i> <span>72+ Tour Places</span></a>
                                             </div>
                                         </div>
                                         <div className="international-plus-icon">
