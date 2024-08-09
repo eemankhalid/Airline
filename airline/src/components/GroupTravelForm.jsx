@@ -1,9 +1,9 @@
 import React from 'react'
 
-const GroupTravelBenefits = () => {
+const GroupTravelForm = () => {
   return (
     <div>
-      GroupTravelBenefits
+      GroupTravelForm
     </div>
   )
 }
