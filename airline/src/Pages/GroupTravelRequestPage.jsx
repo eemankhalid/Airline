@@ -1,9 +1,14 @@
 import React from 'react'
+import GroupTravelRequirements from '../components/GroupTravelRequirements'
+import GroupTravelBenefits from '../components/GroupTravelBenefits'
+import GroupTravelForm from '../components/GroupTravelForm'
 
 const GroupTravelRequestPage = () => {
   return (
     <div>
-      GroupTravelRequestPage
+     <GroupTravelRequirements />
+     <GroupTravelBenefits />
+     <GroupTravelForm />
     </div>
   )
 }
