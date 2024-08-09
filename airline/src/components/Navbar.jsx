@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/img/sample.png';  // Import the logo image
-import WOW from 'wowjs';
 import 'animate.css';
 
 const Navbar = () => {
@@ -72,8 +71,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-
-
         </div>
     );
 };
