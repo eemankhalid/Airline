@@ -72,6 +72,8 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
+
+
             <div className="hero-video-container">
     <video className="hero-video" autoPlay loop muted>
         <source src="src/assets/vedio/vd2.mp4" type="video/mp4" />
@@ -91,6 +93,7 @@ const Navbar = () => {
             <div className="d-flex align-items-center justify-content-center wow animate__fadeInUp">
                 <Link className="btn" to="#">Discover More</Link>
             </div>
+
         </div>
     </div>
 </div>
