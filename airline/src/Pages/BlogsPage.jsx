@@ -1,9 +1,10 @@
 import React from 'react'
+import BlogCategories from '../components/BlogCategories'
 
 const BlogsPage = () => {
   return (
     <div>
-      BlogsPage
+      <BlogCategories/>
     </div>
   )
 }
