@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import './css/bootstrap.min.css'; // Importing Bootstrap CSS
 import './css/style.css'; // Importing custom CSS
 import { Helmet } from 'react-helmet';
-import WOW from 'wowjs';
 import 'animate.css';
 
 import MainLayout from './Layouts/MainLayout';
