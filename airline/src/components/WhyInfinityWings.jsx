@@ -4,11 +4,23 @@ import React from 'react';
 const WhyInfinityWings = () => {
     return (
         <div className="why-infinity-wings-container">
-            <h2>Why Infinity Wings?</h2>
+         <h2 
+  className="section-title px-3" 
+  style={{ 
+    fontSize: '32px', 
+    fontFamily: 'Roboto, sans-serif', 
+    fontWeight: 'bold', 
+    color: 'grey', 
+    textAlign: 'center',  /* Ensures the text is centered */
+    whiteSpace: 'nowrap'  /* Keeps the text on a single line */
+  }}
+>
+  Why Infinity Wings?
+</h2>
             <div className="why-infinity-wings">
                 <div className="feature">
                     <div className="feature-img-container">
-                        <img src="/src/assets/img/wimg1.jpeg" alt="Feature 1" />
+                        <img src="/src/assets/img/wimg1.jpg" alt="Feature 1" />
                     </div>
                     <div className="feature-text-container">
                         <h5>Luxurious Lounge</h5>
@@ -18,7 +30,7 @@ const WhyInfinityWings = () => {
                 </div>
                 <div className="feature">
                     <div className="feature-img-container">
-                        <img src="/src/assets/img/wimg1.jpeg" alt="Feature 2" />
+                        <img src="/src/assets/img/wing-2.webp" alt="Feature 2" />
                     </div>
                     <div className="feature-text-container">
                     <h5>Stay Connected in the Sky</h5>
@@ -28,10 +40,10 @@ const WhyInfinityWings = () => {
                 </div>
                 <div className="feature">
                     <div className="feature-img-container">
-                        <img src="/src/assets/img/wimg1.jpeg" alt="Feature 3" />
+                        <img src="/src/assets/img/wing-3.webp" alt="Feature 3" />
                     </div>
                     <div className="feature-text-container">
-                    <h5>Premium Seating Experience</h5>
+                    <h5>Premium Seating </h5>
                         <p><br/>Enjoy spacious seats with ample legroom and lie-flat options for a restful flight with Infinity Wings.<br/><br/></p>
                         <a href='#'>Choose your seats</a>
                     </div>
