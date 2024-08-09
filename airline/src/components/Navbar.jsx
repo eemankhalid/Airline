@@ -71,7 +71,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-
         </div>
     );
 };
