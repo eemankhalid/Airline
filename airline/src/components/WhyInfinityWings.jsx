@@ -7,16 +7,34 @@ const WhyInfinityWings = () => {
             <h2>Why Infinity Wings?</h2>
             <div className="why-infinity-wings">
                 <div className="feature">
-                    <img src="/src/assets/img/wimg1.jpeg" alt="Feature 1" />
-                    <p className='text'>"Infinity Wings prioritizes your comfort with outstanding customer service, ensuring a smooth and pleasant journey from start to finish. Experience unmatched care and attention on every flight."</p>
+                    <div className="feature-img-container">
+                        <img src="/src/assets/img/wimg1.jpeg" alt="Feature 1" />
+                    </div>
+                    <div className="feature-text-container">
+                        <h5>Luxurious Lounge</h5>
+                        <p><br/>Relax in our exclusive lounges and enjoy a luxurious start to your journey with Infinity Wings.<br/><br/></p>
+                        <a href='#'>Explore our lounges</a>
+                    </div>
                 </div>
                 <div className="feature">
-                    <img src="/src/assets/img/wimg2.jpeg" alt="Feature 2" />
-                    <p className='text'>"Fly with Infinity Wings' modern fleet, featuring cutting-edge technology, comfortable seating, and advanced safety features. Enjoy a secure and luxurious travel experience on all our flights."</p>
+                    <div className="feature-img-container">
+                        <img src="/src/assets/img/wimg1.jpeg" alt="Feature 2" />
+                    </div>
+                    <div className="feature-text-container">
+                    <h5>Stay Connected in the Sky</h5>
+                        <p><br/>Enjoy high-speed Wi-Fi at 40,000 feet with Infinity Wings. Stay connected for work or leisure.<br/><br/></p>
+                        <a href='#'>Learn more</a>
+                    </div>
                 </div>
                 <div className="feature">
-                    <img src="/src/assets/img/wimg3.jpeg" alt="Feature 3" />
-                    <p className='text'>"Infinity Wings connects you to the world with a vast network of destinations, offering convenient schedules and seamless travel experiences for both business and leisure travelers."</p>
+                    <div className="feature-img-container">
+                        <img src="/src/assets/img/wimg1.jpeg" alt="Feature 3" />
+                    </div>
+                    <div className="feature-text-container">
+                    <h5>Premium Seating Experience</h5>
+                        <p><br/>Enjoy spacious seats with ample legroom and lie-flat options for a restful flight with Infinity Wings.<br/><br/></p>
+                        <a href='#'>Choose your seats</a>
+                    </div>
                 </div>
             </div>
         </div>

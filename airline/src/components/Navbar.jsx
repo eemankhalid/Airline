@@ -4,9 +4,18 @@ import logo from '../assets/img/sample.png';  // Import the logo image
 
 const Navbar = () => {
     const location = useLocation();
+
+    const getNavLinkClass = (path) => {
+        return location.pathname === path ? 'nav-item nav-link active' : 'nav-item nav-link';
+    };
+
+    const getDropdownLinkClass = (base) => {
+        return location.pathname.startsWith(base) ? 'nav-item dropdown active' : 'nav-item dropdown';
+    };
+
     return (
         <div className="container-fluid position-relative p-0">
-            <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <nav className="navbar navbar-expand-lg navbar-light px-5 px-lg-5 py-3 py-lg-0">
                 <Link to="/" className="navbar-brand p-0">
                     <img src={logo} alt="Travela Logo" style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
                 </Link>
@@ -15,8 +24,8 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0">
-                        <Link to="/" className="nav-item nav-link active">Home</Link>
-                        <div className="nav-item dropdown">
+                        <Link to="/" className={getNavLinkClass('/')}>Home</Link>
+                        <div className={getDropdownLinkClass('/plan')}>
                             <Link to="/plan" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Plan</Link>
                             <div className="dropdown-menu m-0">
                                 <Link to="/book-a-flight" className="dropdown-item">Book a Flight</Link>
@@ -25,8 +34,8 @@ const Navbar = () => {
                                 <Link to="/sky-cafe" className="dropdown-item">Sky Cafe</Link>
                             </div>
                         </div>
-                        <div className="nav-item dropdown">
-                            <Link to="/Manage" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Manage</Link>
+                        <div className={getDropdownLinkClass('/manage')}>
+                            <Link to="/manage" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Manage</Link>
                             <div className="dropdown-menu m-0">
                                 <Link to="/modify-flight" className="dropdown-item">Modify Flight</Link>
                                 <Link to="/cancel-flight" className="dropdown-item">Cancel Flight</Link>
@@ -34,25 +43,25 @@ const Navbar = () => {
                                 <Link to="/check-flight-status" className="dropdown-item">Check Flight Status</Link>
                             </div>
                         </div>
-                        <div className="nav-item dropdown">
-                            <Link to="/Add Extras" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Add Extras</Link>
+                        <div className={getDropdownLinkClass('/add-extras')}>
+                            <Link to="/add-extras" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Add Extras</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/Add Extras#baggage" className="dropdown-item">Add Baggage</Link>
-                                <Link to="/Add Extras#seats" className="dropdown-item">Add Seats</Link>
-                                <Link to="/Add Extras#meals" className="dropdown-item">Add Meals</Link>
+                                <Link to="/add-extras#baggage" className="dropdown-item">Add Baggage</Link>
+                                <Link to="/add-extras#seats" className="dropdown-item">Add Seats</Link>
+                                <Link to="/add-extras#meals" className="dropdown-item">Add Meals</Link>
                             </div>
                         </div>
-                        <Link to="/Check-In" className="nav-item nav-link active">Check-In</Link>
-                        <div className="nav-item dropdown">
-                            <Link to="/Air Rewards" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Wing Points</Link>
+                        <Link to="/check-in" className={getNavLinkClass('/check-in')}>Check-In</Link>
+                        <div className={getDropdownLinkClass('/air-rewards')}>
+                            <Link to="/air-rewards" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Wing Points</Link>
                             <div className="dropdown-menu m-0">
                                 <Link to="/wing-points-login" className="dropdown-item">Login</Link>
                                 <Link to="/join-wing-points" className="dropdown-item">Join WingPoints</Link>
                             </div>
                         </div>
-                        <Link to="/blog" className="nav-item nav-link active">Blogs</Link>
-                        <div className="nav-item dropdown">
-                            <Link to="/Help" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help</Link>
+                        <Link to="/blog" className={getNavLinkClass('/blog')}>Blogs</Link>
+                        <div className={getDropdownLinkClass('/help')}>
+                            <Link to="/help" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Help</Link>
                             <div className="dropdown-menu m-0">
                                 <Link to="/faqs" className="dropdown-item">FAQs</Link>
                                 <Link to="/contact-us" className="dropdown-item">Contact Us</Link>
