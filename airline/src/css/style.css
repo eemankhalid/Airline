@@ -742,6 +742,9 @@
 .ExploreTour #InternationalTab-2 .international-item:hover .international-plus-icon {
     opacity: 1;
 }
+.ExploreTour {
+    transition: background-color 0.6s ease; /* Smooth transition for background color */
+}
 
 /* carousel Start */
 .ExploreTour #InternationalTab-2 .InternationalTour-carousel .international-item {
