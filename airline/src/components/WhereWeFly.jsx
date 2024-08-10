@@ -11,7 +11,7 @@ const ExploreTour = () => {
     return (
         <div className="container-fluid ExploreTour py-5">
             <div className="container py-5">
-                <div className="mx-auto text-center mb-1" style={{ maxWidth: '200px' }}>
+                <div className="mx-auto text-center mb-1" style={{ maxWidth: '100%' }}>
                     <h3
                         className="section-title px-3"
                         style={{

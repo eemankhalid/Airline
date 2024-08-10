@@ -60,6 +60,7 @@ const App = () => {
             { src: "src/lib/lightbox/js/lightbox.min.js", id: "lightbox" },
             { src: "src/js/main.js", id: "main" },
         ];
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         scripts.forEach(script => {
             const scriptElement = document.createElement("script");
             scriptElement.src = script.src;
