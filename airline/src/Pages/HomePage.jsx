@@ -5,10 +5,15 @@ import WingPoints from '../components/WingPoints';
 import FlightOptions from '../components/FlightOptions';
 import WhyInfinityWings from '../components/WhyInfinityWings';
 import Hero from '../components/Hero';
-import BackToTopButton from '../components/BackToTopButton'; // Import the BackToTopButton component
 
 const HomePage = () => {
   const button = <Link className="btn" to="#">Discover More</Link>;
+  const video = (
+    <video className="hero-video" autoPlay loop muted>
+      <source src="src/assets/vedio/vd2.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +32,7 @@ const HomePage = () => {
   return (
     <>
       <Hero 
-        img="src/assets/vedio/vd2.mp4" 
+        img={video}
         h4="Fly Beyond Limits with Infinity Wings"
         h2="Your Journey, Our Passion" 
         p="At Infinity Wings, we prioritize your comfort and convenience. Enjoy top-notch amenities and exceptional service on every flight. Sign up for WingPoints and unlock exclusive benefits. Let's make your travel dreams a reality."
@@ -47,7 +52,6 @@ const HomePage = () => {
           <WhyInfinityWings />
         </div>
       </div>
-      <BackToTopButton /> {/* Include the BackToTopButton component */}
     </>
   );
 }
