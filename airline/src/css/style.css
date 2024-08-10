@@ -1541,43 +1541,4 @@ html, body {
 }
 
 /*** Flight Options End ***/
-/*** BlogCategories start ***/
-.container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: white;
-  }
-  
-  .sidebar {
-    width: 25%;
-    margin-right: 20px;
-  }
-  
-  .sidebar .categories ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar .categories ul li {
-    cursor: pointer;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .sidebar .categories ul li:hover {
-    color: #f2f5f8;
-  }
-  
-  .blog-content {
-    width: 70%;
-  }
-  
-  .blog-post {
-    border-bottom: 1px solid #ddd;
-    padding: 20px 0;
-  }
-  
-  
-/***  BlogCategories End ***/
 
