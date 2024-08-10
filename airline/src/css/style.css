@@ -279,6 +279,18 @@ body {
     padding: 1rem 2.5rem;
     border-radius: 50px;
 }
+.hero-container {
+    position: relative;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-25%);
+    width: 100%;
+    color: white;
+  }
+  
 
 /*** Carousel Hero Header End ***/
 /*** Hero Video Header Start ***/
@@ -1541,4 +1553,72 @@ html, body {
 }
 
 /*** Flight Options End ***/
+
+/***benefits***/
+/***benefits***/
+.benefits-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  .benefits-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .benefits-container p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .benefit-card {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    width: calc(33.333% - 40px); /* Adjust width to ensure three cards per row with gaps */
+    margin-bottom: 20px; /* Space between rows */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth hover effect */
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .benefit-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .benefit-card h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: rgb(39, 37, 37);
+    margin: 10px auto 0;
+  }
+  
+  .benefit-card p {
+    margin-top: 10px;
+  }
+  
+
+
 
