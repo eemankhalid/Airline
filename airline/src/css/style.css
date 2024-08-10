@@ -1554,11 +1554,12 @@ html, body {
 
 /*** Flight Options End ***/
 /***benefits***/
-/***benefits***/
 .benefits-container {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #fff; /* Grey background for the container */
+    color: #fff; /* White text color */
   }
   
   section {
@@ -1584,7 +1585,8 @@ html, body {
   }
   
   .benefit-card {
-    background: #fff;
+    background: #555; /* Darker grey background for each card */
+    color: #fff; /* White text color for each card */
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -1610,11 +1612,71 @@ html, body {
     display: block;
     width: 50px;
     height: 2px;
-    background: rgb(39, 37, 37);
+    background: #fff; /* White underline */
     margin: 10px auto 0;
   }
   
   .benefit-card p {
     margin-top: 10px;
+  }
+  
+  .animate-on-scroll {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially positioned below */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+  }
+  /* styles.css */
+body {
+    background-color: #fff; /* White background for the entire page */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Optional: Apply a generic font family */
+  }
+
+  .group-travel-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #333;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .date-group {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .contact-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #697272;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
   }
   
