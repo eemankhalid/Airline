@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const FlightBooking = () => {
     const [tripType, setTripType] = useState('oneWay');
@@ -7,6 +7,8 @@ const FlightBooking = () => {
     const [selectedToCountry, setSelectedToCountry] = useState('');
     const [fromAirports, setFromAirports] = useState([]);
     const [toAirports, setToAirports] = useState([]);
+
+    const navigate = useNavigate();  // Use useNavigate for navigation
 
     const countryAirports = {
         Armenia: ["Zvartnots International Airport (EVN) - Yerevan"],
@@ -54,6 +56,12 @@ const FlightBooking = () => {
 
     const handleTripTypeChange = (e) => {
         setTripType(e.target.value);
+    };
+
+    const handleBookNowClick = (e) => {
+        e.preventDefault();
+        // Redirect to the SelectFlight page
+        navigate('/select-flight');
     };
 
     return (
@@ -201,7 +209,7 @@ const FlightBooking = () => {
                                         <input type="text" className="form-control border-0" id="promoCode" placeholder="Enter Promo Code" />
                                     </div>
                                     <div className="col-md-12">
-                                        <button className="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                        <button className="btn btn-primary w-100 py-3" type="submit"  onClick={handleBookNowClick}>Book Now</button>
                                     </div>
                                 </div>
                             </form>
