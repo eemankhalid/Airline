@@ -32,7 +32,7 @@ const HomePage = () => {
   return (
     <>
       <Hero 
-        style={{ maxWidth: '900px' ,width: '100%', height: 'auto', objectFit: 'cover' }} 
+        style={{ maxWidth: '900px' ,width: '100%', height: '600px', objectFit: 'cover' ,paddingTop: '120 px'}} 
         img={video}
         h4="Fly Beyond Limits with Infinity Wings"
         h2="Your Journey, Our Passion" 
