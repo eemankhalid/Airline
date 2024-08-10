@@ -1542,3 +1542,66 @@ html, body {
 
 /*** Flight Options End ***/
 
+/*** Blogcategories start ***/
+
+  /* Container for the blog content */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 25%;
+    margin-right: 20px;
+  }
+  
+  /* Categories list in sidebar */
+  .sidebar .categories ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar .categories ul li {
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .sidebar .categories ul li:hover {
+    color: #f2f5f8;
+  }
+  
+  /* Blog content styling */
+  .blog-content {
+    width: 70%;
+  }
+  
+  /* Blog post container styling */
+  .blog-post {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+  }
+  
+  /* Blog post images styling */
+  .blog-post img {
+    width: 50%; /* Makes the image take up the full width of its container */
+    height: auto; /* Maintains the aspect ratio of the image */
+    display: block; /* Ensures that the image is a block-level element */
+    margin-bottom: 1rem; /* Adds some space between the image and the text below */
+    border-radius: 8px; /* Adds rounded corners to the image */
+    object-fit: cover; /* Ensures the image covers the entire area of its container */
+    max-height: 200px; /* Limits the height of the image to ensure uniformity */
+  }
+  
+  /* Blog post text styling */
+  .blog-post p {
+    margin: 0; /* Removes default margin from the paragraph */
+    font-size: 1rem; /* Sets a readable font size for the text */
+    color: #fcf6f6; /* Sets a dark color for the text */
+  }
+  
+    
+/*** BlogCategories end ***/
