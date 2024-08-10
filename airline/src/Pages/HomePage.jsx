@@ -14,7 +14,6 @@ const HomePage = () => {
       Your browser does not support the video tag.
     </video>
   );
-  const style = { maxWidth: '900px' };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +32,7 @@ const HomePage = () => {
   return (
     <>
       <Hero 
-        style={style}
+        style={{ maxWidth: '900px' ,width: '100%', height: 'auto', objectFit: 'cover' }} 
         img={video}
         h4="Fly Beyond Limits with Infinity Wings"
         h2="Your Journey, Our Passion" 
