@@ -88,26 +88,43 @@
     border: 1px solid var(--bs-primary) !important;
 }
 
+/* Navbar Styles */
+.navbar-light {
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5)); /* Initial gradient background */
+    border-bottom: 1px solid #333; /* Subtle bottom border */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+    position: fixed; /* Make the navbar fixed */
+    width: 100%; /* Ensure the navbar spans the full width of the page */
+    top: 0; /* Stick to the top of the page */
+    z-index: 999; /* Ensure it's above other content */
+}
+.navbar-scrolled {
+    background-color: black !important; /* Solid black background */
+    border-color: black !important; /* Solid black border */
+}
 
-/*** Navbar ***/
+/* Ensure content doesn't hide behind the fixed navbar */
+body {
+    padding-top: 70px; /* Adjust this value based on your navbar's height */
+}
+
+/* Navbar Brand Logo */
 .navbar-light .navbar-brand img {
     max-width: 300px;  /* Adjust the maximum width as needed */
-    max-height: 320px; /* Adjust the maximum height as needed */
+    max-height: 50px; /* Adjusted logo size */
     width: auto;
     height: auto;
     object-fit: contain; /* Ensures the logo keeps its aspect ratio */
     transition: max-height 0.5s; /* Smooth logo size transition */
 }
 
-.navbar-light {
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.5)); /* Linear gradient background */
-    border-bottom: 1px solid #333; /* Subtle bottom border */
-    transition: background-color 0.3s ease; /* Smooth background transition */
-    position: sticky; /* Make the navbar stick */
-    top: 0; /* Stick to the top of the page */
-    z-index: 999; /* Ensure it's above other content */
+.navbar-light .navbar-brand h1 {
+    color: #f8f9fa; /* Light color for the brand */
+    font-size: 24px; /* Larger font size for better visibility */
+    font-weight: 700; /* Bolder font for the brand */
 }
 
+/* Navbar Links */
 .navbar-light .navbar-nav .nav-link {
     font-family: 'Roboto', sans-serif;
     position: relative;
@@ -127,17 +144,7 @@
     background-color: rgba(255, 255, 255, 0.1); /* Subtle background change on hover */
 }
 
-.navbar-light .navbar-brand h1 {
-    color: #f8f9fa; /* Light color for the brand */
-    font-size: 24px; /* Larger font size for better visibility */
-    font-weight: 700; /* Bolder font for the brand */
-}
-
-.navbar-light .navbar-brand img {
-    max-height: 50px; /* Adjusted logo size */
-    transition: max-height 0.5s; /* Smooth logo size transition */
-}
-
+/* Dropdown Menu Styles */
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
@@ -175,6 +182,7 @@
     opacity: 1;
 }
 
+/* Responsive Styles for Mobile View */
 @media (max-width: 991.98px) {
     .navbar-light .navbar-brand h1 {
         color: #f8f9fa; /* Light color for the brand on mobile */
@@ -207,40 +215,6 @@
         max-height: 45px; /* Adjusted logo size for mobile */
     }
 }
-
-@media (min-width: 992px) {
-    .navbar-light {
-        border-bottom: 1px solid #333; /* Subtle bottom border */
-    }
-
-    .navbar-light .navbar-nav .nav-link::before {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 0;
-        bottom: -1px;
-        left: 0;
-        background: #111314; /* Dark background for hover effect */
-        transition: .5s;
-        z-index: -1;
-    }
-
-    .navbar-light .navbar-nav .nav-link:hover::before,
-    .navbar-light .navbar-nav .nav-link.active::before {
-        height: calc(100% + 1px);
-        left: 1px;
-    }
-
-    .navbar-light .navbar-nav .nav-link.nav-contact::before {
-        display: none;
-    }
-}
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link.active {
-    color: #e0e0e0 !important; /* Lighter color on hover */
-    background-color: rgba(255, 255, 255, 0.1); /* Subtle background change on hover */
-}
-
 
 /*** Carousel Hero Header Start ***/
 .hero-header {
