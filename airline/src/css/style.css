@@ -1541,4 +1541,99 @@ html, body {
 }
 
 /*** Flight Options End ***/
+/*** Select Flight Start ***/
+.select-flight {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.flight-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flight-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.flight-option.selected {
+    background-color: #f0f0f0;
+    border-color: #636060;
+}
+
+.flight-option:hover {
+    background-color: #636060;
+}
+
+.flight-time {
+    display: flex;
+    flex-direction: column;
+}
+
+.flight-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.flight-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.book-now {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #858282;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.book-now:hover {
+    background-color: #858282;
+}
+
+/*** Select Flight Start ***/
+.date-carousel {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff
+}
+
+.date-item {
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--bs-primary);
+    transition: background-color 0.3s ease;
+}
+
+.date-item.selected {
+    background-color: #858282;
+    color: white;
+}
+
+.date-day, .date-date, .date-price {
+    margin: 5px 0;
+}
 
