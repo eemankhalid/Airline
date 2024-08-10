@@ -64,9 +64,11 @@ const FlightBooking = () => {
         navigate('/select-flight');
     };
 
+    const greyBorderStyle = { borderColor: '#6c757d', borderWidth: '1px', borderStyle: 'solid' };
+
     return (
         <>
-            <div className="container-fluid py-5 ">
+            <div className="container-fluid py-5">
                 <div className="container py-5">
                     <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
                         <h5 className="section-title px-3">Book a Flight</h5>
@@ -78,7 +80,7 @@ const FlightBooking = () => {
                                 <div className="row g-3">
                                     <div className="col-md-6">
                                         <label htmlFor="fromCountry">From Country</label>
-                                        <select className="form-select border-0" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange}>
+                                        <select className="form-select" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange} style={greyBorderStyle}>
                                             <option defaultValue>Select a Country</option>
                                             {Object.keys(countryAirports).map((country) => (
                                                 <option key={country} value={country}>
@@ -90,7 +92,7 @@ const FlightBooking = () => {
                                     {selectedFromCountry && (
                                         <div className="col-md-6">
                                             <label htmlFor="fromAirport">From Airport</label>
-                                            <select className="form-select border-0" id="fromAirport" aria-label="From Airport">
+                                            <select className="form-select" id="fromAirport" aria-label="From Airport" style={greyBorderStyle}>
                                                 <option defaultValue>Select an Airport</option>
                                                 {fromAirports.map((airport, index) => (
                                                     <option key={index} value={airport}>
@@ -102,7 +104,7 @@ const FlightBooking = () => {
                                     )}
                                     <div className="col-md-6">
                                         <label htmlFor="toCountry">To Country</label>
-                                        <select className="form-select border-0" id="toCountry" aria-label="To Country" onChange={handleToCountryChange}>
+                                        <select className="form-select" id="toCountry" aria-label="To Country" onChange={handleToCountryChange} style={greyBorderStyle}>
                                             <option defaultValue>Select a Country</option>
                                             {Object.keys(countryAirports).map((country) => (
                                                 <option key={country} value={country}>
@@ -114,7 +116,7 @@ const FlightBooking = () => {
                                     {selectedToCountry && (
                                         <div className="col-md-6">
                                             <label htmlFor="toAirport">To Airport</label>
-                                            <select className="form-select border-0" id="toAirport" aria-label="To Airport">
+                                            <select className="form-select" id="toAirport" aria-label="To Airport" style={greyBorderStyle}>
                                                 <option defaultValue>Select an Airport</option>
                                                 {toAirports.map((airport, index) => (
                                                     <option key={index} value={airport}>
@@ -126,12 +128,12 @@ const FlightBooking = () => {
                                     )}
                                     <div className="col-md-6">
                                         <label htmlFor="depart">Depart</label>
-                                        <input type="date" className="form-control border-0" id="depart" placeholder="Select Departure Date" />
+                                        <input type="date" className="form-control" id="depart" placeholder="Select Departure Date" style={greyBorderStyle} />
                                     </div>
                                     {tripType === 'returnTrip' && (
                                         <div className="col-md-6">
                                             <label htmlFor="return">Return</label>
-                                            <input type="date" className="form-control border-0" id="return" placeholder="Select Return Date" />
+                                            <input type="date" className="form-control" id="return" placeholder="Select Return Date" style={greyBorderStyle} />
                                         </div>
                                     )}
                                     <div className="col-md-12">
@@ -139,7 +141,7 @@ const FlightBooking = () => {
                                         <div className="row">
                                             <div className="col-md-4">
                                                 <label htmlFor="adults">Adults (1-9)</label>
-                                                <select className="form-select border-0" id="adults" aria-label="Adults">
+                                                <select className="form-select" id="adults" aria-label="Adults" style={greyBorderStyle}>
                                                     <option defaultValue>1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -153,7 +155,7 @@ const FlightBooking = () => {
                                             </div>
                                             <div className="col-md-4">
                                                 <label htmlFor="children">Children (2-12)</label>
-                                                <select className="form-select border-0" id="children" aria-label="Children">
+                                                <select className="form-select" id="children" aria-label="Children" style={greyBorderStyle}>
                                                     <option defaultValue>0</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -163,7 +165,7 @@ const FlightBooking = () => {
                                             </div>
                                             <div className="col-md-4">
                                                 <label htmlFor="infants">Infants (0-1)</label>
-                                                <select className="form-select border-0" id="infants" aria-label="Infants">
+                                                <select className="form-select" id="infants" aria-label="Infants" style={greyBorderStyle}>
                                                     <option defaultValue>0</option>
                                                     <option value="1">1</option>
                                                 </select>
@@ -172,7 +174,7 @@ const FlightBooking = () => {
                                     </div>
                                     <div className="col-md-6">
                                         <label htmlFor="currency">Currency</label>
-                                        <select className="form-select border-0" id="currency" aria-label="Currency">
+                                        <select className="form-select" id="currency" aria-label="Currency" style={greyBorderStyle}>
                                             <option defaultValue>PKR</option>
                                             <option value="USD">USD</option>
                                             <option value="EUR">EUR</option>
@@ -206,10 +208,10 @@ const FlightBooking = () => {
                                     </div>
                                     <div className="col-md-6">
                                         <label htmlFor="promoCode">Promo Code</label>
-                                        <input type="text" className="form-control border-0" id="promoCode" placeholder="Enter Promo Code" />
+                                        <input type="text" className="form-control" id="promoCode" placeholder="Enter Promo Code" style={greyBorderStyle} />
                                     </div>
                                     <div className="col-md-12">
-                                        <button className="btn btn-primary w-100 py-3" type="submit"  onClick={handleBookNowClick}>Book Now</button>
+                                        <button className="btn btn-primary w-100 py-3" type="submit" onClick={handleBookNowClick}>Book Now</button>
                                     </div>
                                 </div>
                             </form>

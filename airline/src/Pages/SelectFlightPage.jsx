@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Hero from "../components/Hero";
 import DateCarousel from "../components/DateCarousel";
+
 
 const flightsData = [
     // Dummy data representing flights
@@ -36,13 +36,95 @@ const flightsData = [
         flightCode: "9P502",
         price: "PKR 128718",
         operatedBy: "Air Arabia",
-    }
+    },
+    {
+        id: 3,
+        departureTime: "21:00",
+        arrivalTime: "13:20 (+2)",
+        duration: "18 hour(s) 20 minute(s)",
+        stops: 1,
+        airline: "Fly Jinnah",
+        flightCode: "9P502",
+        price: "PKR 128718",
+        operatedBy: "Air Arabia",
+    },
+    {
+        id: 3,
+        departureTime: "21:00",
+        arrivalTime: "13:20 (+2)",
+        duration: "18 hour(s) 20 minute(s)",
+        stops: 1,
+        airline: "Fly Jinnah",
+        flightCode: "9P502",
+        price: "PKR 128718",
+        operatedBy: "Air Arabia",
+    },
+    {
+        id: 4,
+        departureTime: "21:00",
+        arrivalTime: "13:20 (+2)",
+        duration: "18 hour(s) 20 minute(s)",
+        stops: 1,
+        airline: "Fly Jinnah",
+        flightCode: "9P502",
+        price: "PKR 128718",
+        operatedBy: "Air Arabia",
+    },
+    {
+        id: 5,
+        departureTime: "21:00",
+        arrivalTime: "13:20 (+2)",
+        duration: "18 hour(s) 20 minute(s)",
+        stops: 1,
+        airline: "Fly Jinnah",
+        flightCode: "9P502",
+        price: "PKR 128718",
+        operatedBy: "Air Arabia",
+    },
+    {
+        id: 6,
+        departureTime: "21:00",
+        arrivalTime: "13:20 (+2)",
+        duration: "18 hour(s) 20 minute(s)",
+        stops: 1,
+        airline: "Fly Jinnah",
+        flightCode: "9P502",
+        price: "PKR 128718",
+        operatedBy: "Air Arabia",
+    },
+    {
+        id: 7,
+        departureTime: "21:00",
+        arrivalTime: "13:20 (+2)",
+        duration: "18 hour(s) 20 minute(s)",
+        stops: 1,
+        airline: "Fly Jinnah",
+        flightCode: "9P502",
+        price: "PKR 128718",
+        operatedBy: "Air Arabia",
+    },
+    {
+        id: 8,
+        departureTime: "21:00",
+        arrivalTime: "13:20 (+2)",
+        duration: "18 hour(s) 20 minute(s)",
+        stops: 1,
+        airline: "Fly Jinnah",
+        flightCode: "9P502",
+        price: "PKR 128718",
+        operatedBy: "Air Arabia",
+    },
 ];
 
 const datesData = [
     { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
     { day: "Tuesday", date: "11 Aug 2024", price: "PKR 130000" },
     { day: "Wednesday", date: "12 Aug 2024", price: "PKR 125000" },
+    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
+    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
+    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
+    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
+    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
     // Add more dates as needed
 ];
 
@@ -59,14 +141,8 @@ const SelectFlightPage = () => {
         setSelectedFlight(flightId);
         // Redirect to booking details page or perform other actions
     };
-    const image = (
-        <img
-            src="src/assets/img/banner-7.png"
-            alt="Group Travel"
-            className="hero-image"
-            style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
-        />
-    );
+    
+    
 
     // Filter flights based on the selected date
     const filteredFlights = flightsData.filter((flight) => {
@@ -75,13 +151,7 @@ const SelectFlightPage = () => {
     });
     return (
         <>
-            <Hero
-                img={image}
-                style={{ maxWidth: '900px', width: '100%', height: 'auto', objectFit: 'cover' }}
-                h4={'Book Your Flight with Ease'}
-                h2={'Effortless Travel Planning'}
-                p={"Booking with Infinity Wings is a breeze. Choose your destination, select your flight, and enjoy a seamless experience tailored to your needs. Ready to fly? Let’s get you on board"}
-            />
+   
 
             {/* Add DateCarousel at the top */}
             <DateCarousel
