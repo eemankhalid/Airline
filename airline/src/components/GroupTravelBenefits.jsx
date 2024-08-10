@@ -4,7 +4,7 @@ const GroupTravelBenefits = () => {
   return (
     <div className="benefits-container">
       <section>
-        <h2>At the airport</h2>
+        <h2 style={{ fontSize: '32px',fontFamily: 'Roboto, sans-serif', textAlign: 'center',whiteSpace: 'nowrap',color:'gray', fontWeight: 'bold',}}>At The Airport</h2>
         <p>Where available, we can take extra care of your group with:</p>
         <div className="benefits-grid">
           <div className="benefit-card">
@@ -26,7 +26,7 @@ const GroupTravelBenefits = () => {
         </div>
       </section>
       <section>
-        <h2>On Board</h2>
+        <h2 style={{ fontSize: '32px',fontFamily: 'Roboto, sans-serif', textAlign: 'center',whiteSpace: 'nowrap',color:'gray', fontWeight: 'bold',}}>On Board</h2>
         <p>During your flight, your group can enjoy benefits such as:</p>
         <div className="benefits-grid">
           <div className="benefit-card">

@@ -18,6 +18,9 @@ const GroupTravelRequirements = () => {
         <li>Personalised menus and headrest covers require at least 15 days’ notice.</li>
         <li>If your group has specific language requirements, let us know 30 days in advance, and we'll arrange the right cabin crew for the flight.</li>
       </ul>
+
+      {/* Add the Book Now button */}
+      <a href="#group-travel-form" style={styles.bookNowButton}>Book Now</a>
     </div>
   );
 };
@@ -27,22 +30,22 @@ const styles = {
     border: '1px solid #e0e0e0',
     padding: '20px',
     borderRadius: '8px',
-    backgroundColor: '#ffffff',
-    maxWidth: '1180px',
+    backgroundColor: '#333', // Grey background
+    maxWidth: '1100px',
     margin: '20px auto',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
   heading: {
     fontSize: '1.5em',
     fontWeight: 'bold',
-    color: '#333',
+    color: '#fff', // White text color
     position: 'relative',
     paddingBottom: '10px',
   },
   headingUnderline: {
     width: '50px',
     height: '3px',
-    backgroundColor: '#333333',
+    backgroundColor: '#fff', // White underline
     position: 'absolute',
     bottom: '0',
     left: '0',
@@ -51,12 +54,23 @@ const styles = {
     marginTop: '20px',
     paddingLeft: '20px',
     lineHeight: '1.6',
-    color: '#555',
+    color: '#ddd', // Light grey text color
   },
   link: {
-    color: 'black',
+    color: '#ffcc00', // Adjust link color for better visibility on dark background
     textDecoration: 'none',
     fontWeight: 'bold',
+  },
+  bookNowButton: {
+    display: 'inline-block',
+    marginTop: '20px',
+    padding: '10px 20px',
+    backgroundColor: '#555', // Gray button color
+    color: '#fff', // White text color
+    textDecoration: 'none',
+    borderRadius: '5px',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 };
 
