@@ -4,8 +4,10 @@ const GroupTravelBenefits = () => {
   return (
     <div className="benefits-container">
       <section>
-        <h2 style={{ fontSize: '32px',fontFamily: 'Roboto, sans-serif', textAlign: 'center',whiteSpace: 'nowrap',color:'gray', fontWeight: 'bold',}}>At The Airport</h2>
-        <p>Where available, we can take extra care of your group with:</p>
+      <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
+                        <h5 className="section-title px-3">At the Airport</h5>
+                   
+                    </div>
         <div className="benefits-grid">
           <div className="benefit-card">
             <h3>Advance Check-In</h3>
@@ -26,8 +28,10 @@ const GroupTravelBenefits = () => {
         </div>
       </section>
       <section>
-        <h2 style={{ fontSize: '32px',fontFamily: 'Roboto, sans-serif', textAlign: 'center',whiteSpace: 'nowrap',color:'gray', fontWeight: 'bold',}}>On Board</h2>
-        <p>During your flight, your group can enjoy benefits such as:</p>
+      <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
+                        <h5 className="section-title px-3">On Board</h5>
+                   
+                    </div>
         <div className="benefits-grid">
           <div className="benefit-card">
             <h3>Group</h3>

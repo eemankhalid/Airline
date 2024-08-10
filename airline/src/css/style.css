@@ -59,11 +59,17 @@
 
 
 /*** Section Title Start ***/
+
 .section-title {
     position: relative;
     display: inline-block;
     text-transform: uppercase;
     color: var(--bs-primary);
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-size: 20px; /* Adjust the font size */
+    font-weight: bold; /* Make it bold */
 }
 
 .section-title::before {
@@ -1728,56 +1734,73 @@ body {
     margin: 0;
     font-family: Arial, sans-serif; /* Optional: Apply a generic font family */
   }
-
   .group-travel-form {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #333;
-    border: 1px solid #ffffff;
+    padding: 30px;
+    background-color: #ffffff;
     border-radius: 5px;
-    margin-bottom: 5px;
-    color: white;
-  }
-  
-  .form-group {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    color: #333333;
+}
+
+.group-travel-form h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #222223;
+}
+
+.form-group {
     margin-bottom: 15px;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
+    font-weight: bold;
     display: block;
     margin-bottom: 5px;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .date-group {
+    color: #555555;
+    font-size: 14px;
+}
+
+.form-row {
     display: flex;
-    gap: 5px;
-  }
-  
-  .contact-group {
-    display: flex;
+    justify-content: space-between;
     gap: 10px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    background-color: #697272;
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f8f9fa;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #242425;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
-  }
-  
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
 
-
-
-
+button:hover {
+    background-color: #1a1b1c;
+}
