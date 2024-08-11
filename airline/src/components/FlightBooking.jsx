@@ -7,8 +7,10 @@ const FlightBooking = () => {
     const [selectedToCountry, setSelectedToCountry] = useState('');
     const [fromAirports, setFromAirports] = useState([]);
     const [toAirports, setToAirports] = useState([]);
+    const [generalMessage, setGeneralMessage] = useState('');
+    const [validationMessages, setValidationMessages] = useState({});
 
-    const navigate = useNavigate();  // Use useNavigate for navigation
+    const navigate = useNavigate(); 
 
     const countryAirports = {
         Armenia: ["Zvartnots International Airport (EVN) - Yerevan"],
@@ -42,6 +44,7 @@ const FlightBooking = () => {
         Uzbekistan: ["Islam Karimov Tashkent International Airport (TAS) - Tashkent"],
     };
 
+
     const handleFromCountryChange = (e) => {
         const country = e.target.value;
         setSelectedFromCountry(country);
@@ -60,7 +63,47 @@ const FlightBooking = () => {
 
     const handleBookNowClick = (e) => {
         e.preventDefault();
-        // Redirect to the SelectFlight page
+
+
+        const messages = {};
+
+        if (!selectedFromCountry) {
+            messages.fromCountry = "Please select a departure country.";
+        }
+
+        if (!selectedToCountry) {
+            messages.toCountry = "Please select a destination country.";
+        }
+
+        const fromAirport = document.getElementById('fromAirport')?.value;
+        const toAirport = document.getElementById('toAirport')?.value;
+        const departDate = document.getElementById('depart')?.value;
+        const returnDate = document.getElementById('return')?.value;
+
+        if (!fromAirport) {
+            messages.fromAirport = "Please select a departure airport.";
+        }
+
+        if (!toAirport) {
+            messages.toAirport = "Please select a destination airport.";
+        }
+
+        if (!departDate) {
+            messages.depart = "Please select a departure date.";
+        }
+
+        if (tripType === 'returnTrip' && !returnDate) {
+            messages.return = "Please select a return date.";
+        }
+
+        if (Object.keys(messages).length > 0) {
+            setValidationMessages(messages);
+            setGeneralMessage("Please fill in all the required fields.");
+            return;
+        }
+
+        setValidationMessages({});
+        setGeneralMessage('');
         navigate('/select-flight');
     };
 
@@ -79,7 +122,8 @@ const FlightBooking = () => {
                             <form>
                                 <div className="row g-3">
                                     <div className="col-md-6">
-                                        <label htmlFor="fromCountry">From Country</label>
+                                        
+                                        <label htmlFor="fromCountry">From Country<span className='req'>*</span></label>
                                         <select className="form-select" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange} style={greyBorderStyle}>
                                             <option defaultValue>Select a Country</option>
                                             {Object.keys(countryAirports).map((country) => (
@@ -88,10 +132,14 @@ const FlightBooking = () => {
                                                 </option>
                                             ))}
                                         </select>
+                                        {validationMessages.fromCountry && (
+                                            <div className="text-danger">{validationMessages.fromCountry}</div>
+                                        )}
                                     </div>
                                     {selectedFromCountry && (
                                         <div className="col-md-6">
-                                            <label htmlFor="fromAirport">From Airport</label>
+                                            
+                                            <label htmlFor="fromAirport">From Airport<span className='req'>*</span></label>
                                             <select className="form-select" id="fromAirport" aria-label="From Airport" style={greyBorderStyle}>
                                                 <option defaultValue>Select an Airport</option>
                                                 {fromAirports.map((airport, index) => (
@@ -100,10 +148,14 @@ const FlightBooking = () => {
                                                     </option>
                                                 ))}
                                             </select>
+                                            {validationMessages.fromAirport && (
+                                                <div className="text-danger">{validationMessages.fromAirport}</div>
+                                            )}
                                         </div>
                                     )}
                                     <div className="col-md-6">
-                                        <label htmlFor="toCountry">To Country</label>
+                               
+                                        <label htmlFor="toCountry">To Country<span className='req'>*</span></label>
                                         <select className="form-select" id="toCountry" aria-label="To Country" onChange={handleToCountryChange} style={greyBorderStyle}>
                                             <option defaultValue>Select a Country</option>
                                             {Object.keys(countryAirports).map((country) => (
@@ -112,10 +164,14 @@ const FlightBooking = () => {
                                                 </option>
                                             ))}
                                         </select>
+                                        {validationMessages.toCountry && (
+                                            <div className="text-danger">{validationMessages.toCountry}</div>
+                                        )}  
                                     </div>
                                     {selectedToCountry && (
                                         <div className="col-md-6">
-                                            <label htmlFor="toAirport">To Airport</label>
+                                            
+                                            <label htmlFor="toAirport">To Airport<span className='req'>*</span></label>
                                             <select className="form-select" id="toAirport" aria-label="To Airport" style={greyBorderStyle}>
                                                 <option defaultValue>Select an Airport</option>
                                                 {toAirports.map((airport, index) => (
@@ -124,16 +180,27 @@ const FlightBooking = () => {
                                                     </option>
                                                 ))}
                                             </select>
+                                            {validationMessages.toAirport && (
+                                                <div className="text-danger">{validationMessages.toAirport}</div>
+                                            )}
                                         </div>
                                     )}
                                     <div className="col-md-6">
-                                        <label htmlFor="depart">Depart</label>
+                                        
+                                        <label htmlFor="depart">Depart<span className='req'>*</span></label>
                                         <input type="date" className="form-control" id="depart" placeholder="Select Departure Date" style={greyBorderStyle} />
+                                        {validationMessages.depart && (
+                                            <div className="text-danger">{validationMessages.depart}</div>
+                                        )}
                                     </div>
                                     {tripType === 'returnTrip' && (
                                         <div className="col-md-6">
                                             <label htmlFor="return">Return</label>
+                                            <label htmlFor="return">Return<span className='req'>*</span></label>
                                             <input type="date" className="form-control" id="return" placeholder="Select Return Date" style={greyBorderStyle} />
+                                            {validationMessages.return && (
+                                                <div className="text-danger">{validationMessages.return}</div>
+                                            )}
                                         </div>
                                     )}
                                     <div className="col-md-12">
@@ -144,23 +211,33 @@ const FlightBooking = () => {
                                                 <select className="form-select" id="adults" aria-label="Adults" style={greyBorderStyle}>
                                                     <option defaultValue>1</option>
                                                     <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
+                                                    <option value="2">3</option>
+                                                    <option value="2">4</option>
+                                                    <option value="2">5</option>
+                                                    <option value="2">6</option>
+                                                    <option value="2">7</option>
+                                                    <option value="2">8</option>
+                                                    <option value="2">9</option>
+                                                   
                                                 </select>
                                             </div>
                                             <div className="col-md-4">
                                                 <label htmlFor="children">Children (2-12)</label>
                                                 <select className="form-select" id="children" aria-label="Children" style={greyBorderStyle}>
-                                                    <option defaultValue>0</option>
+                                                  
+                                                <option defaultValue>0</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="4">4</option>
+                                                    <option value="4">5</option>
+                                                    <option value="4">6</option>
+                                                    <option value="4">7</option>
+                                                    <option value="4">8</option>
+                                                    <option value="4">9</option>
+                                                    <option value="4">10</option>
+                                                    <option value="4">11</option>
+                                                    <option value="4">12</option>
                                                 </select>
                                             </div>
                                             <div className="col-md-4">
@@ -178,6 +255,9 @@ const FlightBooking = () => {
                                             <option defaultValue>PKR</option>
                                             <option value="USD">USD</option>
                                             <option value="EUR">EUR</option>
+                                            <option value="EUR">AED</option>
+                                            <option value="EUR">AMD</option>
+                                            <option value="EUR">INR</option>
                                         </select>
                                     </div>
                                     <div className="col-md-6">
@@ -211,8 +291,22 @@ const FlightBooking = () => {
                                         <input type="text" className="form-control" id="promoCode" placeholder="Enter Promo Code" style={greyBorderStyle} />
                                     </div>
                                     <div className="col-md-12">
-                                        <button className="btn btn-primary w-100 py-3" type="submit" onClick={handleBookNowClick}>Book Now</button>
+                                       
+                                    {generalMessage && (
+                                        <div className="alert alert-danger">
+                                            {generalMessage}
+                                        </div>
+                                    )}
+                                    <div className="col-12">
+                                        <button
+                                            className="btn btn-primary w-100"
+                                            type="submit"
+                                            onClick={handleBookNowClick}
+                                        >
+                                            Book Now
+                                        </button>
                                     </div>
+                                </div>
                                 </div>
                             </form>
                         </div>
