@@ -1806,3 +1806,20 @@ button {
 button:hover {
     background-color: #1a1b1c;
 }
+/*** asterik required***/
+.req{
+    color: red;
+    font-size: 25px;
+    margin-top: 50px;
+}
+.invalid-feedback {
+    display: block;
+    color: red; /* Customize the color as needed */
+    font-size: 0.875rem;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
