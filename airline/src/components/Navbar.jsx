@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/img/sample.png';  // Import the logo image
+import InfinityEatsPDF from '../assets/InfinityEats.pdf';
+
 import 'animate.css';
 
 const Navbar = () => {
@@ -32,7 +34,10 @@ const Navbar = () => {
                                 <Link to="/book-a-flight" className="dropdown-item">Book a Flight</Link>
                                 <Link to="/group-travel-request" className="dropdown-item">Group Travel Requests</Link>
                                 <Link to="/charter-flight-requests" className="dropdown-item">Charter Flight Requests</Link>
-                                <Link to="/sky-cafe" className="dropdown-item">Sky Cafe</Link>
+                                <a href={InfinityEatsPDF} className="dropdown-item" target="_blank" rel="noopener noreferrer">
+  Infinity Eats
+</a>
+
                             </div>
                         </div>
                         <div className={getDropdownLinkClass('/manage')}>
