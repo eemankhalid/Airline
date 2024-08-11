@@ -120,11 +120,11 @@ const datesData = [
     { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
     { day: "Tuesday", date: "11 Aug 2024", price: "PKR 130000" },
     { day: "Wednesday", date: "12 Aug 2024", price: "PKR 125000" },
-    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
-    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
-    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
-    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
-    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
+    { day: "Thursday", date: "13 Aug 2024", price: "PKR 128720" },
+    { day: "Friday", date: "14 Aug 2024", price: "PKR 130718" },
+    { day: "Saturday", date: "15 Aug 2024", price: "PKR 289718" },
+    { day: "Sunday", date: "16 Aug 2024", price: "PKR 128720" },
+    { day: "Monday", date: "17 Aug 2024", price: "PKR 128918" },
     // Add more dates as needed
 ];
 
@@ -141,26 +141,23 @@ const SelectFlightPage = () => {
         setSelectedFlight(flightId);
         // Redirect to booking details page or perform other actions
     };
-    
-    
 
-    // Filter flights based on the selected date
-    const filteredFlights = flightsData.filter((flight) => {
-        // Add logic to filter flights based on the selected date
-        return true; // Placeholder: You need to add date-related filtering logic here
-    });
     return (
         <>
-   
+          
+             
+        
 
-            {/* Add DateCarousel at the top */}
-            <DateCarousel
+            {/* Add DateCarousel below the navbar */}
+           
+
+            <div className="select-flight">
+                <h1 style={{marginTop:'50px'}}>Select your departing flight from Lahore to Istanbul</h1>
+                <DateCarousel
                 dates={datesData}
                 selectedDate={selectedDate}
                 onDateSelect={handleDateSelect}
             />
-            <div className="select-flight">
-                <h1>Select your departing flight from Lahore to Istanbul</h1>
                 <div className="flight-options">
                     {flightsData.map((flight) => (
                         <div
@@ -188,5 +185,4 @@ const SelectFlightPage = () => {
         </>
     );
 };
-
 export default SelectFlightPage;
