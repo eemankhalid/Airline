@@ -1,36 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import GroupTravelRequirements from '../components/GroupTravelRequirements';
 import GroupTravelBenefits from '../components/GroupTravelBenefits';
 import GroupTravelForm from '../components/GroupTravelForm';
-import Hero from '../components/Hero';
+import Hero2 from '../components/Hero2';
+import gtImage from '../assets/gt.jpeg'; // Import the image
+
+const fadeUpVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const GroupTravelRequestPage = () => {
-  const button = <a className="btn btn-primary" href="#group-form">Request a Group Flight</a>;
-  const style = { maxWidth: '500px' };
+  const [isVisible, setIsVisible] = useState({ requirements: false, benefits: false, form: false });
 
-  const image = (
-    <img 
-      src="src/assets/img/gt.jpg" 
-      alt="Group Travel" 
-      className="hero-image" 
-      style={{ width: '100%', height: 'auto', objectFit: 'cover' }} 
-    />
-  );
+  const checkVisibility = () => {
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+
+    // Elements to check visibility
+    const elements = {
+      requirements: document.querySelector('.requirements'),
+      benefits: document.querySelector('.benefits'),
+      form: document.querySelector('.form')
+    };
+
+    // Check visibility for each element
+    for (const key in elements) {
+      const element = elements[key];
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top + scrollY;
+
+      if (scrollY + windowHeight > elementTop + 100 && scrollY < elementTop + rect.height) {
+        setIsVisible(prev => ({ ...prev, [key]: true }));
+      } else {
+        setIsVisible(prev => ({ ...prev, [key]: false }));
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility(); // Initial check
+    return () => window.removeEventListener('scroll', checkVisibility);
+  }, []);
 
   return (
-    <>
-      <Hero 
-        img={image}
-        h2="Group Travel"
-        btn={button}
-        style={style}
+    <div className="page-container">
+      <Hero2 
+        pageName="Group Travel" 
+        image={gtImage} // Use the imported image
       />
-      <div>
+      <div className="requirements">
         <GroupTravelRequirements />
-        <GroupTravelBenefits />
-        <GroupTravelForm />
       </div>
-    </>
+      <motion.div
+        className="animate-on-scroll benefits"
+        initial="hidden"
+        animate={isVisible.benefits ? 'visible' : 'hidden'}
+        variants={fadeUpVariants}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <GroupTravelBenefits />
+      </motion.div>
+      <motion.div
+        className="animate-on-scroll form"
+        initial="hidden"
+        animate={isVisible.form ? 'visible' : 'hidden'}
+        variants={fadeUpVariants}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <GroupTravelForm />
+      </motion.div>
+    </div>
   );
 };
 

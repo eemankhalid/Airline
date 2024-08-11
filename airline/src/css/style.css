@@ -59,11 +59,17 @@
 
 
 /*** Section Title Start ***/
+
 .section-title {
     position: relative;
     display: inline-block;
     text-transform: uppercase;
     color: var(--bs-primary);
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-size: 20px; /* Adjust the font size */
+    font-weight: bold; /* Make it bold */
 }
 
 .section-title::before {
@@ -279,6 +285,18 @@ body {
     padding: 1rem 2.5rem;
     border-radius: 50px;
 }
+.hero-container {
+    position: relative;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-25%);
+    width: 100%;
+    color: white;
+  }
+  
 
 /*** Carousel Hero Header End ***/
 /*** Hero Video Header Start ***/
@@ -1542,6 +1560,7 @@ html, body {
 
 /*** Flight Options End ***/
 
+
 /*** Blogcategories start ***/
 
   /* Container for the blog content */
@@ -1636,3 +1655,269 @@ html, body {
   
     
 /*** BlogCategories end ***/
+
+/*** Select Flight Start ***/
+.select-flight {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.flight-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flight-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #2a2727;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.flight-option.selected {
+    background-color: #f0f0f0;
+    border-color: #636060;
+}
+
+.flight-option:hover {
+    background-color: #636060;
+}
+
+.flight-time {
+    display: flex;
+    flex-direction: column;
+}
+
+.flight-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.flight-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.book-now {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #858282;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.book-now:hover {
+    background-color: #858282;
+}
+
+/*** Select Flight Start ***/
+.date-carousel {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff
+}
+
+.date-item {
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--bs-primary);
+    transition: background-color 0.3s ease;
+}
+
+.date-item.selected {
+    background-color: #858282;
+    color: white;
+}
+
+.date-day, .date-date, .date-price {
+    margin: 5px 0;
+}
+
+/***benefits***/
+.benefits-container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #fff; /* Grey background for the container */
+    color: #fff; /* White text color */
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  .benefits-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .benefits-container p {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .benefit-card {
+    background: #555; /* Darker grey background for each card */
+    color: #fff; /* White text color for each card */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    width: calc(33.333% - 40px); /* Adjust width to ensure three cards per row with gaps */
+    margin-bottom: 20px; /* Space between rows */
+    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth hover effect */
+  }
+  
+  .benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .benefit-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  .benefit-card h3::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #fff; /* White underline */
+    margin: 10px auto 0;
+  }
+  
+  .benefit-card p {
+    margin-top: 10px;
+  }
+  
+
+  .animate-on-scroll {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially positioned below */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+  }
+  /* styles.css */
+body {
+    background-color: #fff; /* White background for the entire page */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Optional: Apply a generic font family */
+  }
+  .group-travel-form {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: #1d2022;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    color: #333333;
+    border: #1d2022;
+}
+
+.group-travel-form h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #222223;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555555;
+    font-size: 14px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #2b2929;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f8f9fa;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #242425;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #1a1b1c;
+}
+/*** asterik required***/
+.req{
+    color: red;
+    font-size: 25px;
+    margin-top: 50px;
+}
+.invalid-feedback {
+    display: block;
+    color: red; /* Customize the color as needed */
+    font-size: 0.875rem;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
