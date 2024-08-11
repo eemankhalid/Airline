@@ -1559,6 +1559,103 @@ html, body {
 }
 
 /*** Flight Options End ***/
+
+
+/*** Blogcategories start ***/
+
+  /* Container for the blog content */
+/* Container for the main content */
+/* Main container styling */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    /* Light background color similar to the screenshot */
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 25%;
+    margin-right: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the sidebar */
+    border-radius: 8px;
+  }
+  
+  .sidebar .search-bar input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .sidebar .categories h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .sidebar .categories ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar .categories ul li {
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    color: #555;
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar .categories ul li:hover {
+    color: #007bff; /* Blue hover effect */
+  }
+  
+  /* Blog content styling */
+  .blog-content {
+    width: 70%;
+  }
+  
+  .blog-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .blog-post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .blog-post img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 200px; /* Ensures all images have the same height */
+  }
+  
+  .blog-post p {
+    margin: 0;
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  
+  
+  
+    
+/*** BlogCategories end ***/
+
 /*** Select Flight Start ***/
 .select-flight {
     padding: 20px;
@@ -1830,6 +1927,7 @@ button:hover {
     background-color: #f8d7da;
     border-color: #f5c6cb;
 }
+
 .error {
     color: red;
     font-size: 0.875em;
@@ -1840,3 +1938,4 @@ button:hover {
     margin-top: 20px; /* Adjust the margin as needed */
   }
   
+
