@@ -1551,7 +1551,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    background-color: #f8f9fa; /* Light background color similar to the screenshot */
+    /* Light background color similar to the screenshot */
   }
   
   /* Sidebar styling */
@@ -1616,7 +1616,7 @@ html, body {
   }
   
   .blog-post img {
-    width: 100%;
+    width: 50%;
     height: auto;
     display: block;
     margin-bottom: 1rem;

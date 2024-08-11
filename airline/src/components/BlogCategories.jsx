@@ -48,7 +48,7 @@ const BlogCategories = () => {
           <section ref={destinationRef}>
             <h2>Destination Blogs</h2>
             <div className="blog-post">
-              <img src="src/assets/img/blog1.jpg" alt="Post 1" />
+              <img src="src/assets/img/istanbul.jpg" alt="Post 1" />
               <p>Excerpt of the first destination blog...</p>
             </div>
             <div className="blog-post">
