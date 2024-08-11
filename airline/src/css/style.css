@@ -1,5 +1,10 @@
+
 /*** Spinner Start ***/
 /*** Spinner ***/
+=======
+/* Spinner Start */
+/* Spinner */
+
 .homepage-container {
     background-color: white !important;
     min-height: 100vh;
@@ -19,7 +24,7 @@
     visibility: visible;
     opacity: 1;
 }
-/*** Spinner End ***/
+/* Spinner End */
 
 .back-to-top {
     position: fixed;
@@ -33,8 +38,8 @@
     transition: 0.5s;
     z-index: 99;
 }
-/*** Button Start ***/
-/*** Button Start ***/
+/* Button Start */
+/* Button Start */
 .btn {
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
@@ -51,13 +56,13 @@
     background-color: #161616; /* Light black shade on hover */
     color: #f0f0f0; /* Light text color for contrast */
 }
-/*** Button End ***/
+/* Button End */
 
 
-/*** Button End ***/
+/* Button End */
 
 
-/*** Section Title Start ***/
+/* Section Title Start */
 
 .section-title {
     position: relative;
@@ -221,7 +226,7 @@ body {
     }
 }
 
-/*** Carousel Hero Header Start ***/
+/* Carousel Hero Header Start */
 .hero-header {
     position: relative;
     height: 100vh;
@@ -297,8 +302,8 @@ body {
   }
   
 
-/*** Carousel Hero Header End ***/
-/*** Hero Video Header Start ***/
+/* Carousel Hero Header End */
+/* Hero Video Header Start */
 .hero-video-container {
     position: relative;
     width: 100%;
@@ -341,9 +346,9 @@ body {
 
    
 }
-/*** Hero Video Header End ***/
+/* Hero Video Header End */
 
-/*** Single Page Hero Header Start ***/
+/* Single Page Hero Header Start */
 .bg-breadcrumb {
     background: linear-gradient(rgba(19, 53, 123, 0.5), rgba(19, 53, 123, 0.5)), url(../img/breadcrumb-bg.jpg);
     background-position: center center;
@@ -356,10 +361,10 @@ body {
 .bg-breadcrumb .breadcrumb-item a {
     color: var(--bs-secondary) !important;
 }
-/*** Single Page Hero Header End ***/
+/* Single Page Hero Header End */
 
 
-/*** About Start ***/
+/* About Start */
 .about .container .section-about-title {
     position: relative;
     display: inline-block;
@@ -377,10 +382,10 @@ body {
     margin-right: -50px;
     border: 1px solid var(--bs-primary) !important;
 }
-/*** About End ***/
+/* About End */
 
 
-/*** Services Start ***/
+/* Services Start */
 .service .service-content-inner {
     transition: 0.5s;
 }
@@ -400,10 +405,10 @@ body {
 .service .service-content-inner:hover .service-icon i {
     color: var(--bs-white) !important;
 }
-/*** Service End ***/
+/* Service End */
 
 
-/*** Destination Start ***/
+/* Destination Start */
 .destination .tab-class .tab-content .tab-pane .destination-img {
     position: relative;
     overflow: hidden;
@@ -471,10 +476,10 @@ body {
     filter: grayscale(50%); /* Added to apply a grey effect */
 }
 
-/*** Destination End ***/
+/* Destination End */
 
 
-/*** Packages Start ***/
+/* Packages Start */
 .packages
 {
     background-color: white;
@@ -594,10 +599,10 @@ body {
 .packages .packages-carousel .owl-nav .owl-next:hover i {
     color: var(--bs-white);
 }
-/*** Packages End ***/
+/* Packages End */
 
 
-/*** Explore Tour Start ***/
+/* Explore Tour Start */
 .ExploreTour .tab-class .nav-item {
     padding: 0 0 20px 0;
 }
@@ -766,10 +771,10 @@ body {
     width: 40px;
     background: var(--bs-primary);
 }
-/*** Explore Tour End ***/
+/* Explore Tour End */
 
 
-/*** Gallery Start ***/
+/* Gallery Start */
 .gallery .gallery-item {
     position: relative;
     overflow: hidden;
@@ -841,9 +846,9 @@ body {
     color: var(--bs-white) !important;
 }
 
-/*** Gallery End ***/
+/* Gallery End */
 
-/*** Tour Booking Start ***/
+/* Tour Booking Start */
 .booking {
     background: linear-gradient(rgba(19, 53, 123, .8), rgba(19, 53, 123, .8)), url(../img/tour-booking-bg.jpg);
     background-position: center center;
@@ -883,9 +888,9 @@ body {
 
 
 
-/*** Tour Booking end ***/
+/* Tour Booking end */
 
-/*** Travel Guide Start ***/
+/* Travel Guide Start */
 .guide .guide-item .guide-img {
     position: relative;
 }
@@ -972,10 +977,10 @@ body {
 .guide .guide-item:hover .guide-title .guide-title-inner h4 {
     color: var(--bs-white);
 }
-/*** Travel Guide End ***/
+/* Travel Guide End */
 
 
-/*** Blog Start ***/
+/* Blog Start */
 .blog .blog-item .blog-img {
     position: relative;
 }
@@ -1040,9 +1045,9 @@ body {
 .blog .blog-item .blog-img:hover .blog-img-inner img {
     transform: scale(1.2);
 }
-/*** Blog End ***/
+/* Blog End */
 
-/*** Testimonial Start ***/
+/* Testimonial Start */
 .testimonial .testimonial-carousel {
     position: relative;
 }
@@ -1130,9 +1135,9 @@ body {
     border-style: dotted;
     transition: 0.5s;
 }
-/*** Testimonial End ***/
+/* Testimonial End */
 
-/*** Contact Start ***/
+/* Contact Start */
 .contact .container form .btn.btn-primary {
     box-shadow: inset 0 0 0 0 var(--bs-primary);
 }
@@ -1141,9 +1146,9 @@ body {
     box-shadow: inset 1000px 0 0 0 var(--bs-light) !important;
     color: var(--bs-primary) !important;
 }
-/*** Contact End ***/
+/* Contact End */
 
-/*** Subscribe Start ***/
+/* Subscribe Start */
 .subscribe {
     background: linear-gradient(rgba(19, 53, 123, .6), rgba(19, 53, 123, .6)), url(../img/subscribe-img.jpg);
     background-attachment: fixed;
@@ -1180,7 +1185,7 @@ body {
     margin-left: -50px;
     border: 1px solid var(--bs-white) !important;
 }
-/*** Subscribe End ***/
+/* Subscribe End */
 
 .footer {
     background-color: #1d2022; /* Dark background color */
@@ -1289,7 +1294,7 @@ body {
 
 
 
-/*** copyright Start ***/
+/* copyright Start */
 .copyright {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     background: var(--bs-dark) !important;
@@ -1298,7 +1303,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-/*** copyright end ***/
+/* copyright end */
 html, body {
     margin: 0;
     padding: 0;
@@ -1309,9 +1314,9 @@ html, body {
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-/*** copyright end ***/
+/* copyright end */
 
-/*** wingpoint start ***/
+/* wingpoint start */
 .wing-points {
     padding: 50px;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 100%), 
@@ -1378,9 +1383,9 @@ html, body {
     color: #f0f0f0; /* Darker shade on hover */
 }
 
-/*** wingpoint end ***/
+/* wingpoint end */
 
-/*** Flight Options Start ***/
+/* Flight Options Start */
 .flight-options {
     padding: 30px;
     border-radius: 12px;
@@ -1397,9 +1402,9 @@ html, body {
     font-weight: 600;
 }
 
-/*** wingpoint end ***/
+/* wingpoint end */
 
-/*** WhyInfinityWings start ***/
+/* WhyInfinityWings start */
 .why-infinity-wings-container {
     padding: 60px 30px;
     text-align: center;
@@ -1495,7 +1500,7 @@ html, body {
 }
 
 
-/** FLight Option Start**/
+/* FLight Option Start*/
 .options-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1557,8 +1562,13 @@ html, body {
     color: #666666;
 }
 
+
 /*** Flight Options End ***/
 /*** Select Flight Start ***/
+
+/* Flight Options End */
+/* Select Flight Start */
+
 .select-flight {
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -1625,7 +1635,7 @@ h1 {
     background-color: #858282;
 }
 
-/*** Select Flight Start ***/
+/* Select Flight Start */
 .date-carousel {
     display: flex;
     overflow-x: auto;
@@ -1653,6 +1663,9 @@ h1 {
 .date-day, .date-date, .date-price {
     margin: 5px 0;
 }
+
+
+/**benefits**/
 
 .benefits-container {
     width: 100%;
@@ -1811,7 +1824,11 @@ button {
 button:hover {
     background-color: #1a1b1c;
 }
+
 /*** asterik required*/
+
+/* asterik required***/
+
 .req{
     color: red;
     font-size: 25px;
@@ -1836,6 +1853,7 @@ button:hover {
   .success-message {
     color: green;
     margin-top: 20px; /* Adjust the margin as needed */
+
   }
   /* Styles for the header */
 .header {
@@ -2058,3 +2076,5 @@ button:hover {
 .book-now:hover {
     background-color: #171819;
 }
+  }
+
