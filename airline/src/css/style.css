@@ -1756,6 +1756,9 @@ body {
 
 .form-group {
     margin-bottom: 15px;
+    flex: 1;
+  min-width: 200px;
+    
 }
 
 .form-group label {
@@ -1764,13 +1767,17 @@ body {
     margin-bottom: 5px;
     color: #555555;
     font-size: 14px;
+
 }
 
 .form-row {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+ 
     margin-bottom: 15px;
+
+  flex-wrap: wrap;
+  gap: 1rem; /* Adjust gap as needed */
 }
 
 .form-group input,
@@ -1823,3 +1830,13 @@ button:hover {
     background-color: #f8d7da;
     border-color: #f5c6cb;
 }
+.error {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+  }
+  .success-message {
+    color: green;
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
