@@ -273,8 +273,8 @@ const SelectFlightPage = () => {
 
     return (
         <>
-            <div className="select-flight">
-                <h1 style={{ marginTop: '50px' }}>Select your departing flight from Lahore to Istanbul</h1>
+            <br/><br/>
+            <div className="select-flight bg-white">
                 <DateCarousel
                     dates={datesData}
                     selectedDate={selectedDate}
