@@ -21,12 +21,7 @@ const DateCarousel = ({ dates, selectedDate, onDateSelect }) => {
 
     return (
         <div className="carousel-container">
-            <div
-                className="carousel-control prev"
-                onClick={() => scroll('prev')}
-            >
-                &lt;
-            </div>
+            
             <div className="date-carousel-wrapper" ref={carouselRef}>
                 <div className="date-carousel">
                     {dates.map((date) => (
@@ -42,12 +37,7 @@ const DateCarousel = ({ dates, selectedDate, onDateSelect }) => {
                     ))}
                 </div>
             </div>
-            <div
-                className="carousel-control next"
-                onClick={() => scroll('next')}
-            >
-                &gt;
-            </div>
+            
         </div>
     );
 };

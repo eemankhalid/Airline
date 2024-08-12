@@ -1,6 +1,4 @@
 
-/*** Spinner Start ***/
-/*** Spinner ***/
 
 /* Spinner Start */
 /* Spinner */
@@ -2282,3 +2280,6 @@ button:hover {
   .faqs-header ul li.active .faq-arrow {
     transform: rotate(180deg); /* Rotate arrow when active */
   }
+
+  
+
