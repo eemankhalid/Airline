@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef  } from "react";
 import DateCarousel from "../components/DateCarousel";
+import FlightHeader from "../components/FlightHeader";
 
 // Dummy data representing flights
 const flightsData = [
@@ -312,14 +313,19 @@ const SelectFlightPage = () => {
     const filteredFlights = flightsData.filter(flight => flight.date === selectedDate);
 
     return (
-        <>
+       
+            <br/><br/>
+            <FlightHeader /> 
+
             <br /><br />
+
             <div className="select-flight bg-white">
                 <DateCarousel
                     dates={datesData}
                     selectedDate={selectedDate}
                     onDateSelect={handleDateSelect}
                 />
+
 
                 <div className="flight-options">
                     {filteredFlights.map((flight) => (
@@ -374,6 +380,7 @@ const SelectFlightPage = () => {
                         <strong>{bookingDetails.total ? formatPrice(bookingDetails.total) : 'N/A'}</strong>
                     </div>
                 </div>
+
             </div>
             {/* Flight Summary Section */}
             {selectedFlight && (
