@@ -280,7 +280,7 @@ const SelectFlightPage = () => {
                     selectedDate={selectedDate}
                     onDateSelect={handleDateSelect}
                 />
-                <div className="flight-options">
+                <div className="flight-options bg-white">
                     {filteredFlights.map((flight) => (
                         <div
                             key={flight.id}
