@@ -288,6 +288,7 @@ const SelectFlightPage = () => {
                     selectedDate={selectedDate}
                     onDateSelect={handleDateSelect}
                 />
+
                 <div className="flight-options">
     {filteredFlights.map((flight) => (
         <div
@@ -322,7 +323,6 @@ const SelectFlightPage = () => {
         </div>
     ))}
 </div>
-
             </div>
         </>
     );
