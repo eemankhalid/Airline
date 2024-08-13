@@ -1,4 +1,6 @@
 
+/*** Spinner Start ***/
+/*** Spinner ***/
 
 /* Spinner Start */
 /* Spinner */
@@ -978,72 +980,7 @@ body {
 /* Travel Guide End */
 
 
-/* Blog Start */
-.blog .blog-item .blog-img {
-    position: relative;
-}
 
-.blog .blog-item .blog-img .blog-info {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    background: rgba(255, 255, 255, .2);
-    color: var(--bs-white);
-}
-
-.blog .blog-item .blog-img .blog-img-inner {
-    position: relative;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
-
-.blog .blog-item .blog-img .blog-img-inner .blog-icon {
-    position: absolute;
-    width: 100%;
-    height: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-}
-
-.blog .blog-item .blog-img .blog-img-inner .blog-icon a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.blog .blog-item .blog-img:hover .blog-img-inner .blog-icon a {
-    opacity: 1;
-}
-
-.blog .blog-item .blog-img:hover .blog-img-inner .blog-icon {
-    height: 100%;
-    background: rgba(19, 53, 123, .6);
-    opacity: 1;
-}
-
-.blog .blog-item .blog-img .blog-img-inner {
-    overflow: hidden;
-}
-
-.blog .blog-item .blog-img .blog-img-inner img {
-    transition: 0.5s;
-}
-
-.blog .blog-item .blog-img:hover .blog-img-inner img {
-    transform: scale(1.2);
-}
-/* Blog End */
 
 /* Testimonial Start */
 .testimonial .testimonial-carousel {
@@ -1615,7 +1552,7 @@ html, body {
 }
 
 
-/**benefits**/
+/*benefits*/
 
 .benefits-container {
     width: 100%;
@@ -1777,7 +1714,7 @@ button:hover {
 
 /*** asterik required*/
 
-/* asterik required***/
+/* asterik required*/
 
 .req{
     color: red;
@@ -1805,7 +1742,55 @@ button:hover {
     margin-top: 20px; /* Adjust the margin as needed */
 
   }
+  /* Styles for the header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E40046; /* A more muted red */
+    padding: 15px 30px;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+.header .logo {
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.header .navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.header .navigation .step {
+    margin: 0 20px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.header .navigation .step::after {
+    content: ">";
+    position: absolute;
+    right: -25px;
+    top: 0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.header .navigation .step:last-child::after {
+    content: "";
+}
+
+.header .modify-search {
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: underline;
+}
 
 .carousel-container {
     display: flex;
@@ -1900,14 +1885,12 @@ button:hover {
     color: #333;
     font-weight: 600;
 }
-.select-flight .flight-optionss {
-    background-color: white !important;
-}
+
 .flight-options {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    
+    background-color: #fff;
 }
 
 .flight-option {
@@ -2184,6 +2167,7 @@ button:hover {
   }
 
 
+
   /* Price Summary Section Styling */
 .price-summary {
     background-color: #f9f9f9;
@@ -2207,35 +2191,34 @@ button:hover {
 }
 
 .price-summary div {
+
+  /* Blog Start */
+.containers {
+
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.price-summary div:last-child {
-    border-bottom: none;
-}
-
-.price-summary span {
-    font-size: 1rem;
-    color: #555;
-}
-
-.price-summary strong {
-    font-size: 1.1rem;
-    color: #000;
-}
-
-.price-summary hr {
-    border: 0;
-    border-top: 1px solid #ddd;
-    margin: 10px 0;
-}
-
-.price-summary .total {
+    gap: 20px;
+    padding: 20px;
+    
+  }
+  
+  .sidebar {
+    flex: 1;
+    width: 25%;
+  }
+  
+  .blog-content {
+    flex: 3;
+    width: 75%;
+  }
+  .categories{
+    color:black;
+  }
+  
+  .blog-row {
     display: flex;
     justify-content: space-between;
+
     font-weight: 700;
     font-size: 1.2rem;
     margin-top: 15px;
@@ -2259,21 +2242,29 @@ button:hover {
     display: flex;
     align-items: center;
     padding: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .card {
+    width: 48%;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.header-item i {
-    margin-right: 8px;
-}
-
-.header-item.selected {
-    background-color: #ff6155;
-}
-
-.header-item:hover {
-    background-color: #ff6155;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-image img {
+    width: 100%;
+    transition: transform 0.3s;
+  }
+  
+  .card-image:hover img {
     transform: scale(1.05);
+
 }
 
 .header-item span {
@@ -2294,3 +2285,33 @@ button:hover {
     background-color: black; /* Prevents background color change on hover */
     transform: none; /* Prevents scaling on hover */
 }
+
+  }
+  
+  .card-content {
+    padding: 15px;
+    color: white;
+  }
+  
+  .card-content p {
+    margin: 0;
+  }
+  h4 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+  
+  .underline {
+    width: 100px;
+    height: 2px;
+    background-color:white;
+    margin: 0 auto 1em auto;
+  }
+  
+  
+  
+  
+  
+/* Blog End */
+
