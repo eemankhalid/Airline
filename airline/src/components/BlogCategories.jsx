@@ -20,7 +20,7 @@ const BlogCategories = () => {
     <>
       <Hero2 pageName="OUR BLOGS" image={img} />
 
-      <div className="container">
+      <div className="containers">
         <aside className="sidebar">
           <div className="search-bar">
             <input type="text" placeholder="Search..." />
@@ -109,7 +109,7 @@ const BlogCategories = () => {
                 <div className="card-content">
                   <h4>Innovative Experiences</h4>
                   <div className="underline"></div>
-                  <p>Unlock new ways to explore the world with groundbreaking travel experiences.Innovation is transforming how we discover and enjoy our planet.</p>
+                  <p>Unlock new ways to explore the world with groundbreaking travel experiences.nnovation is transforming how we discover and enjoy our planet.</p>
                 </div>
               </div>
             </div>
