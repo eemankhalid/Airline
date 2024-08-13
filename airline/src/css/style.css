@@ -2165,8 +2165,36 @@ button:hover {
   .faqs-header ul li.active .faq-arrow {
     transform: rotate(180deg); /* Rotate arrow when active */
   }
+
+
+
+  /* Price Summary Section Styling */
+.price-summary {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    justify-content: flex-end;
+}
+
+.price-summary h4 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+
+.price-summary div {
+
   /* Blog Start */
 .containers {
+
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -2190,6 +2218,30 @@ button:hover {
   .blog-row {
     display: flex;
     justify-content: space-between;
+
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+.flight-header {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding: 10px;
+    color: white;
+    font-size: 1.2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-item {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
     margin-bottom: 30px;
   }
   
@@ -2212,6 +2264,28 @@ button:hover {
   
   .card-image:hover img {
     transform: scale(1.05);
+
+}
+
+.header-item span {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.completed {
+    color: red; /* Change the tick color to red for completed steps */
+}
+.header-item.inactive {
+    pointer-events: none; /* Disables click events */
+    opacity: 0.6; /* Makes the item appear inactive */
+    cursor: default; /* Changes the cursor to the default arrow */
+}
+
+.header-item.inactive:hover {
+    background-color: black; /* Prevents background color change on hover */
+    transform: none; /* Prevents scaling on hover */
+}
+
   }
   
   .card-content {
@@ -2240,3 +2314,4 @@ button:hover {
   
   
 /* Blog End */
+
