@@ -1805,55 +1805,7 @@ button:hover {
     margin-top: 20px; /* Adjust the margin as needed */
 
   }
-  /* Styles for the header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #E40046; /* A more muted red */
-    padding: 15px 30px;
-    color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
-.header .logo {
-    font-size: 26px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.header .navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.header .navigation .step {
-    margin: 0 20px;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.header .navigation .step::after {
-    content: ">";
-    position: absolute;
-    right: -25px;
-    top: 0;
-    color: #fff;
-    font-weight: bold;
-}
-
-.header .navigation .step:last-child::after {
-    content: "";
-}
-
-.header .modify-search {
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: underline;
-}
 
 .carousel-container {
     display: flex;
@@ -1948,12 +1900,14 @@ button:hover {
     color: #333;
     font-weight: 600;
 }
-
+.select-flight .flight-optionss {
+    background-color: white !important;
+}
 .flight-options {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background-color: #fff;
+    
 }
 
 .flight-option {
@@ -2228,6 +2182,47 @@ button:hover {
   .faqs-header ul li.active .faq-arrow {
     transform: rotate(180deg); /* Rotate arrow when active */
   }
+  .flight-header {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding: 10px;
+    color: white;
+    font-size: 1.2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
-  
+.header-item {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+.header-item i {
+    margin-right: 8px;
+}
+
+.header-item.selected {
+    background-color: #ff6155;
+}
+
+.header-item:hover {
+    background-color: #ff6155;
+    transform: scale(1.05);
+}
+
+.header-item span {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.completed {
+    color: red; /* Change the tick color to red for completed steps */
+}
