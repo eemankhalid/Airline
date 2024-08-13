@@ -2182,6 +2182,7 @@ button:hover {
   .faqs-header ul li.active .faq-arrow {
     transform: rotate(180deg); /* Rotate arrow when active */
   }
+
   .flight-header {
     display: flex;
     justify-content: space-around;
@@ -2195,6 +2196,64 @@ button:hover {
     width: 100%;
     z-index: 1000;
 }
+  /* Price Summary Section Styling */
+.price-summary {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    justify-content: flex-end;
+}
+
+.price-summary h4 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+
+.price-summary div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.price-summary div:last-child {
+    border-bottom: none;
+}
+
+.price-summary span {
+    font-size: 1rem;
+    color: #555;
+}
+
+.price-summary strong {
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.price-summary hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.price-summary .total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+
 
 .header-item {
     text-decoration: none;
