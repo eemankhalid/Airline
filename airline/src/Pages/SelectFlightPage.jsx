@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef  } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
-import FlightPackages from "../components/FlightPackages"; // Import the new component
+import FlightPackages from "../components/FlightPackages";
+
 // Dummy data representing flights
 const flightsData = [
     // Flights for 10 Aug 2024
@@ -261,19 +262,18 @@ const datesData = [
     // Add more dates as needed
 ];
 
-
-
 const SelectFlightPage = () => {
     const [selectedDate, setSelectedDate] = useState(datesData[0].date);
     const [selectedFlight, setSelectedFlight] = useState(null);
     const [currency, setCurrency] = useState('PKR');
     const [bookingDetails, setBookingDetails] = useState({});
-    const [selectedPackage, setSelectedPackage] = useState(null); // New state for selected package
+    const [selectedPackage, setSelectedPackage] = useState(null);
+    const [showPackages, setShowPackages] = useState(false);
+    const [resetKey, setResetKey] = useState(0); // New state to force re-render
 
-    
     const flightSummaryRef = useRef(null);
+
     useEffect(() => {
-        // Retrieve the selected currency from sessionStorage
         const storedBookingDetails = sessionStorage.getItem('bookingDetails');
         const storedCurrency = sessionStorage.getItem('selectedCurrency');
         if (storedBookingDetails) {
@@ -283,54 +283,58 @@ const SelectFlightPage = () => {
             setCurrency(storedCurrency);
         }
     }, []);
+
     const formatPrice = (price) => {
-        // Example formatting logic; adjust as needed
         if (currency === 'USD') {
-            // Convert PKR to USD, for example
-            return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`; // Example conversion rate
+            return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`;
         }
         if (currency === 'EUR') {
-            // Convert PKR to EUR, for example
-            return `EUR ${(parseInt(price.replace(/[^\d]/g, '')) / 320).toFixed(2)}`; // Example conversion rate
+            return `EUR ${(parseInt(price.replace(/[^\d]/g, '')) / 320).toFixed(2)}`;
         }
-        return price; // Default to PKR
+        return price;
     };
 
     const handleDateSelect = (date) => {
         setSelectedDate(date);
-        setSelectedFlight(null); // Clear the selected flight when the date changes
+        setSelectedFlight(null);
+        setShowPackages(false);
     };
 
     const handleFlightSelection = (flightId) => {
         setSelectedFlight(flightId);
-        // Redirect to booking details page or perform other actions
+        setSelectedPackage(null);
+        setShowPackages(true);
+        setResetKey(prevKey => prevKey + 1); // Increment key to force re-render
     };
+
     const handleBookNow = () => {
         if (flightSummaryRef.current) {
             flightSummaryRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
 
-    // Filter flights based on the selected date
     const filteredFlights = flightsData.filter(flight => flight.date === selectedDate);
+    const selectedFlightData = filteredFlights.find(flight => flight.id === selectedFlight);
 
     return (
-           <>
-            <br/><br/>
-            <FlightHeader /> 
-
+        <>
             <br /><br />
-
+            <FlightHeader />
+            <br /><br />
             <div className="select-flight bg-white">
                 <DateCarousel
                     dates={datesData}
                     selectedDate={selectedDate}
                     onDateSelect={handleDateSelect}
                 />
-                              <FlightPackages
-                    selectedPackage={selectedPackage}
-                    onSelectPackage={setSelectedPackage}
-                />
+
+                {showPackages && (
+                    <FlightPackages
+                        key={resetKey} // Add key to force re-render
+                        selectedPackage={selectedPackage}
+                        onSelectPackage={setSelectedPackage}
+                    />
+                )}
 
                 <div className="flight-optionss">
                     {filteredFlights.map((flight) => (
@@ -338,20 +342,17 @@ const SelectFlightPage = () => {
                             key={flight.id}
                             className={`flight-option ${selectedFlight === flight.id ? "selected" : ""}`}
                             onClick={() => handleFlightSelection(flight.id)}
-                        > 
+                        >
                             <div className="flight-time">
-                          
                                 <span>{flight.departureTime}</span>
                                 <span>{flight.arrivalTime}</span>
                             </div>
-                            <div className="flight-details" >
+                            <div className="flight-details">
                                 <p>{flight.duration} / {flight.stops} {flight.stops > 1 ? 'stops' : 'stop'}</p>
                                 <p>{flight.airline} - {flight.flightCode}</p>
                                 {flight.operatedBy && <p>Operated by {flight.operatedBy}</p>}
-
-                                {/* Display stop details if there are stops */}
                                 {flight.stops > 0 && (
-                                    <div className="flight-stops" >
+                                    <div className="flight-stops">
                                         {flight.stopLocations && flight.stopDurations && flight.stopLocations.map((location, index) => (
                                             <p key={index}>
                                                 Stop {index + 1}: {location} for {flight.stopDurations[index]}
@@ -367,8 +368,8 @@ const SelectFlightPage = () => {
                         </div>
                     ))}
                 </div>
-                {/* Price Summary Section */}
-                <br/><br/>
+
+                <br /><br />
                 <h1><center>Summary of Your Selection</center></h1>
                 <div className="price-summary">
                     <h4>Price Breakdown for 1 Adult</h4>
@@ -386,22 +387,18 @@ const SelectFlightPage = () => {
                         <strong>{bookingDetails.total ? formatPrice(bookingDetails.total) : 'N/A'}</strong>
                     </div>
                 </div>
-
             </div>
-            {/* Flight Summary Section */}
-            {selectedFlight && (
-                    <div className="flight-summary" ref={flightSummaryRef}>
-                        <div className="flight-summary-details">
-                            <p>{selectedFlight.origin} to {selectedFlight.destination}</p>
-                            <p>Flight Code: {selectedFlight.flightCode}</p>
-                            <p>Departure: {selectedFlight.date} {selectedFlight.departureTime}</p>
-                            <p>Arrival: {selectedFlight.date} {selectedFlight.arrivalTime}</p>
-                        </div>
-                    </div>
-                )}
-         
 
-            
+            {selectedFlightData && (
+                <div className="flight-summary" ref={flightSummaryRef}>
+                    <div className="flight-summary-details">
+                        <p>{selectedFlightData.origin} to {selectedFlightData.destination}</p>
+                        <p>Flight Code: {selectedFlightData.flightCode}</p>
+                        <p>Departure: {selectedFlightData.date} {selectedFlightData.departureTime}</p>
+                        <p>Arrival: {selectedFlightData.date} {selectedFlightData.arrivalTime}</p>
+                    </div>
+                </div>
+            )}
         </>
     );
 };
