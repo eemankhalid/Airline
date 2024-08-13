@@ -32,7 +32,7 @@ const FlightBooking = () => {
         Maldives: ["Velana International Airport (MLE) - Malé"],
         Morocco: ["Mohammed V International Airport (CMN) - Casablanca"],
         Oman: ["Muscat International Airport (MCT) - Muscat"],
-        Pakistan: ["Jinnah International Airport (KHI) - Karachi", "Allama Iqbal International Airport (LHE) - Lahore"],
+        Pakistan: ["Jinnah International Airport (KHI) - Karachi", "Allama Iqbal International Airport (LHE) - Lahore", "Multan International Airport (MUX)", "Bacha Khan International Airport Peshawar (PEW)", "Islamabad International Airport (ISB)"],
         Qatar: ["Hamad International Airport (DOH) - Doha"],
         Russia: ["Sheremetyevo International Airport (SVO) - Moscow"],
         SaudiArabia: ["King Abdulaziz International Airport (JED) - Jeddah", "King Khalid International Airport (RUH) - Riyadh"],
