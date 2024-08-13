@@ -9,6 +9,9 @@ const FlightBooking = () => {
     const [toAirports, setToAirports] = useState([]);
     const [generalMessage, setGeneralMessage] = useState('');
     const [validationMessages, setValidationMessages] = useState({});
+    const [fare, setFare] = useState(15655.00);  // Example value, can be updated dynamically
+    const [tax, setTax] = useState(5992.90);  // Example value, can be updated dynamically
+    const [total, setTotal] = useState(21647.90);
 
     const navigate = useNavigate(); 
 
@@ -103,6 +106,19 @@ const FlightBooking = () => {
         }
         const selectedCurrency = document.getElementById('currency')?.value;
         sessionStorage.setItem('selectedCurrency', selectedCurrency);
+        sessionStorage.setItem('bookingDetails', JSON.stringify({
+            fromCountry: selectedFromCountry,
+            toCountry: selectedToCountry,
+            fromAirport: fromAirport,
+            toAirport: toAirport,
+            departDate: departDate,
+            returnDate: returnDate,
+            tripType: tripType,
+            fare: fare,
+            tax: tax,
+            total: total,
+            currency: selectedCurrency
+        }));
 
 
         setValidationMessages({});
