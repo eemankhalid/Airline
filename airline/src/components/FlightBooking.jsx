@@ -101,6 +101,9 @@ const FlightBooking = () => {
             setGeneralMessage("Please fill in all the required fields.");
             return;
         }
+        const selectedCurrency = document.getElementById('currency')?.value;
+        sessionStorage.setItem('selectedCurrency', selectedCurrency);
+
 
         setValidationMessages({});
         setGeneralMessage('');

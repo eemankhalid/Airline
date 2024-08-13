@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DateCarousel from "../components/DateCarousel";
 
 // Dummy data representing flights
@@ -53,7 +53,7 @@ const flightsData = [
         price: "PKR 134500",
         date: "11 Aug 2024",
     },
-    
+
     // Flights for 12 Aug 2024
     {
         id: 5,
@@ -79,7 +79,7 @@ const flightsData = [
         price: "PKR 128500",
         date: "12 Aug 2024",
     },
-    
+
 
     // Flights for 13 Aug 2024
     {
@@ -106,7 +106,7 @@ const flightsData = [
         price: "PKR 132000",
         date: "13 Aug 2024",
     },
-    
+
 
     // Flights for 14 Aug 2024
     {
@@ -133,7 +133,7 @@ const flightsData = [
         price: "PKR 129500",
         date: "14 Aug 2024",
     },
-    
+
 
     // Flights for 15 Aug 2024
     {
@@ -160,7 +160,7 @@ const flightsData = [
         price: "PKR 131000",
         date: "15 Aug 2024",
     },
-    
+
 
     // Flights for 16 Aug 2024
     {
@@ -188,7 +188,7 @@ const flightsData = [
         operatedBy: "Air Arabia",
         date: "16 Aug 2024",
     },
-    
+
 
     // Flights for 17 Aug 2024
     {
@@ -216,7 +216,7 @@ const flightsData = [
         price: "PKR 132000",
         date: "17 Aug 2024",
     },
-    
+
 
     // Flights for 18 Aug 2024
     {
@@ -243,7 +243,7 @@ const flightsData = [
         price: "PKR 131500",
         date: "18 Aug 2024",
     },
-    
+
 ];
 
 
@@ -265,6 +265,26 @@ const datesData = [
 const SelectFlightPage = () => {
     const [selectedDate, setSelectedDate] = useState(datesData[0].date);
     const [selectedFlight, setSelectedFlight] = useState(null);
+    const [currency, setCurrency] = useState('PKR');
+    useEffect(() => {
+        // Retrieve the selected currency from sessionStorage
+        const storedCurrency = sessionStorage.getItem('selectedCurrency');
+        if (storedCurrency) {
+            setCurrency(storedCurrency);
+        }
+    }, []);
+    const formatPrice = (price) => {
+        // Example formatting logic; adjust as needed
+        if (currency === 'USD') {
+            // Convert PKR to USD, for example
+            return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`; // Example conversion rate
+        }
+        if (currency === 'EUR') {
+            // Convert PKR to EUR, for example
+            return `EUR ${(parseInt(price.replace(/[^\d]/g, '')) / 320).toFixed(2)}`; // Example conversion rate
+        }
+        return price; // Default to PKR
+    };
 
     const handleDateSelect = (date) => {
         setSelectedDate(date);
@@ -281,7 +301,7 @@ const SelectFlightPage = () => {
 
     return (
         <>
-            <br/><br/>
+            <br /><br />
             <div className="select-flight bg-white">
                 <DateCarousel
                     dates={datesData}
@@ -289,39 +309,39 @@ const SelectFlightPage = () => {
                     onDateSelect={handleDateSelect}
                 />
                 <div className="flight-options">
-    {filteredFlights.map((flight) => (
-        <div
-            key={flight.id}
-            className={`flight-option ${selectedFlight === flight.id ? "selected" : ""}`}
-            onClick={() => handleFlightSelection(flight.id)}
-        >
-            <div className="flight-time">
-                <span>{flight.departureTime}</span>
-                <span>{flight.arrivalTime}</span>
-            </div>
-            <div className="flight-details">
-                <p>{flight.duration} / {flight.stops} {flight.stops > 1 ? 'stops' : 'stop'}</p>
-                <p>{flight.airline} - {flight.flightCode}</p>
-                {flight.operatedBy && <p>Operated by {flight.operatedBy}</p>}
-                
-                {/* Display stop details if there are stops */}
-                {flight.stops > 0 && (
-                    <div className="flight-stops">
-                        {flight.stopLocations && flight.stopDurations && flight.stopLocations.map((location, index) => (
-                            <p key={index}>
-                                Stop {index + 1}: {location} for {flight.stopDurations[index]}
-                            </p>
-                        ))}
-                    </div>
-                )}
-            </div>
-            <div className="flight-price">
-                <p>{flight.price}</p>
-                <button className="book-now">Book Now</button>
-            </div>
-        </div>
-    ))}
-</div>
+                    {filteredFlights.map((flight) => (
+                        <div
+                            key={flight.id}
+                            className={`flight-option ${selectedFlight === flight.id ? "selected" : ""}`}
+                            onClick={() => handleFlightSelection(flight.id)}
+                        >
+                            <div className="flight-time">
+                                <span>{flight.departureTime}</span>
+                                <span>{flight.arrivalTime}</span>
+                            </div>
+                            <div className="flight-details">
+                                <p>{flight.duration} / {flight.stops} {flight.stops > 1 ? 'stops' : 'stop'}</p>
+                                <p>{flight.airline} - {flight.flightCode}</p>
+                                {flight.operatedBy && <p>Operated by {flight.operatedBy}</p>}
+
+                                {/* Display stop details if there are stops */}
+                                {flight.stops > 0 && (
+                                    <div className="flight-stops">
+                                        {flight.stopLocations && flight.stopDurations && flight.stopLocations.map((location, index) => (
+                                            <p key={index}>
+                                                Stop {index + 1}: {location} for {flight.stopDurations[index]}
+                                            </p>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="flight-price">
+                                <p>Price: {formatPrice(flight.price)}</p>
+                                <button className="book-now">Book Now</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
             </div>
         </>
