@@ -9,6 +9,9 @@ const FlightBooking = () => {
     const [toAirports, setToAirports] = useState([]);
     const [generalMessage, setGeneralMessage] = useState('');
     const [validationMessages, setValidationMessages] = useState({});
+    const [fare, setFare] = useState(15655.00);  // Example value, can be updated dynamically
+    const [tax, setTax] = useState(5992.90);  // Example value, can be updated dynamically
+    const [total, setTotal] = useState(21647.90);
 
     const navigate = useNavigate(); 
 
@@ -32,7 +35,7 @@ const FlightBooking = () => {
         Maldives: ["Velana International Airport (MLE) - Malé"],
         Morocco: ["Mohammed V International Airport (CMN) - Casablanca"],
         Oman: ["Muscat International Airport (MCT) - Muscat"],
-        Pakistan: ["Jinnah International Airport (KHI) - Karachi", "Allama Iqbal International Airport (LHE) - Lahore"],
+        Pakistan: ["Jinnah International Airport (KHI) - Karachi", "Allama Iqbal International Airport (LHE) - Lahore", "Multan International Airport (MUX)", "Bacha Khan International Airport Peshawar (PEW)", "Islamabad International Airport (ISB)"],
         Qatar: ["Hamad International Airport (DOH) - Doha"],
         Russia: ["Sheremetyevo International Airport (SVO) - Moscow"],
         SaudiArabia: ["King Abdulaziz International Airport (JED) - Jeddah", "King Khalid International Airport (RUH) - Riyadh"],
@@ -61,7 +64,7 @@ const FlightBooking = () => {
         setTripType(e.target.value);
     };
 
-    const handleBookNowClick = (e) => {
+    const handleSearchFlightClick = (e) => {
         e.preventDefault();
 
 
@@ -101,6 +104,22 @@ const FlightBooking = () => {
             setGeneralMessage("Please fill in all the required fields.");
             return;
         }
+        const selectedCurrency = document.getElementById('currency')?.value;
+        sessionStorage.setItem('selectedCurrency', selectedCurrency);
+        sessionStorage.setItem('bookingDetails', JSON.stringify({
+            fromCountry: selectedFromCountry,
+            toCountry: selectedToCountry,
+            fromAirport: fromAirport,
+            toAirport: toAirport,
+            departDate: departDate,
+            returnDate: returnDate,
+            tripType: tripType,
+            fare: fare,
+            tax: tax,
+            total: total,
+            currency: selectedCurrency
+        }));
+
 
         setValidationMessages({});
         setGeneralMessage('');
@@ -301,9 +320,9 @@ const FlightBooking = () => {
                                         <button
                                             className="btn btn-primary w-100"
                                             type="submit"
-                                            onClick={handleBookNowClick}
+                                            onClick={handleSearchFlightClick}
                                         >
-                                            Book Now
+                                            Search Flight
                                         </button>
                                     </div>
                                 </div>
