@@ -16,6 +16,8 @@ const flightsData = [
         flightCode: "9P500",
         price: "PKR 128718",
         date: "10 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "UnitedArabEmirates",
     },
     {
         id: 2,
@@ -29,6 +31,8 @@ const flightsData = [
         flightCode: "FJ300",
         price: "PKR 132000",
         date: "10 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "Turkey",
     },
     // Flights for 11 Aug 2024
     {
@@ -41,6 +45,8 @@ const flightsData = [
         flightCode: "9P501",
         price: "PKR 128718",
         date: "11 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "Australia",
     },
     {
         id: 4,
@@ -54,6 +60,8 @@ const flightsData = [
         flightCode: "FJ301",
         price: "PKR 134500",
         date: "11 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "Netherlands",
     },
 
     // Flights for 12 Aug 2024
@@ -67,6 +75,8 @@ const flightsData = [
         flightCode: "9P502",
         price: "PKR 128718",
         date: "12 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "United States",
     },
     {
         id: 6,
@@ -80,8 +90,9 @@ const flightsData = [
         flightCode: "FJ302",
         price: "PKR 128500",
         date: "12 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "France",
     },
-
 
     // Flights for 13 Aug 2024
     {
@@ -94,6 +105,8 @@ const flightsData = [
         flightCode: "9P503",
         price: "PKR 128718",
         date: "13 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "United States",
     },
     {
         id: 8,
@@ -107,8 +120,9 @@ const flightsData = [
         flightCode: "FJ303",
         price: "PKR 132000",
         date: "13 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "Switzerland",
     },
-
 
     // Flights for 14 Aug 2024
     {
@@ -121,6 +135,8 @@ const flightsData = [
         flightCode: "9P504",
         price: "PKR 128718",
         date: "14 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "United States",
     },
     {
         id: 10,
@@ -134,8 +150,9 @@ const flightsData = [
         flightCode: "FJ304",
         price: "PKR 129500",
         date: "14 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "Austria",
     },
-
 
     // Flights for 15 Aug 2024
     {
@@ -148,6 +165,8 @@ const flightsData = [
         flightCode: "9P505",
         price: "PKR 128718",
         date: "15 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "United States",
     },
     {
         id: 12,
@@ -161,8 +180,9 @@ const flightsData = [
         flightCode: "FJ305",
         price: "PKR 131000",
         date: "15 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "France",
     },
-
 
     // Flights for 16 Aug 2024
     {
@@ -175,6 +195,8 @@ const flightsData = [
         flightCode: "9P506",
         price: "PKR 128718",
         date: "16 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "United States",
     },
     {
         id: 14,
@@ -189,8 +211,9 @@ const flightsData = [
         price: "PKR 128000",
         operatedBy: "Air Arabia",
         date: "16 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "Turkey",
     },
-
 
     // Flights for 17 Aug 2024
     {
@@ -204,6 +227,8 @@ const flightsData = [
         price: "PKR 128718",
         operatedBy: "Air Arabia",
         date: "17 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "United States",
     },
     {
         id: 16,
@@ -212,40 +237,15 @@ const flightsData = [
         duration: "11 hour(s) 30 minute(s)",
         stops: 2,
         stopLocations: ["Dubai (DXB)", "Kuwait City (KWI)"],
-        stopDurations: ["2 hour(s) 00 minute(s)", "1 hour(s) 30 minute(s)"],
-        airline: "Infinity Wings",
-        flightCode: "FJ307",
-        price: "PKR 132000",
-        date: "17 Aug 2024",
-    },
-
-
-    // Flights for 18 Aug 2024
-    {
-        id: 17,
-        departureTime: "21:00",
-        arrivalTime: "13:20 (+2)",
-        duration: "40 hour(s) 20 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P508",
-        price: "PKR 128718",
-        date: "18 Aug 2024",
-    },
-    {
-        id: 18,
-        departureTime: "11:00",
-        arrivalTime: "23:15",
-        duration: "12 hour(s) 15 minute(s)",
-        stops: 2,
-        stopLocations: ["Doha (DOH)", "Muscat (MCT)"],
-        stopDurations: ["1 hour(s) 45 minute(s)", "1 hour(s) 30 minute(s)"],
+        stopDurations: ["2 hour(s) 0 minute(s)", "1 hour(s) 10 minute(s)"],
         airline: "Infinity Wings",
         flightCode: "FJ308",
-        price: "PKR 131500",
-        date: "18 Aug 2024",
+        price: "PKR 128000",
+        operatedBy: "Flynas",
+        date: "17 Aug 2024",
+        departureCountry: "Pakistan",
+        arrivalCountry: "Saudi Arabia",
     },
-
 ];
 
 
@@ -262,145 +262,184 @@ const datesData = [
     // Add more dates as needed
 ];
 
-const SelectFlightPage = () => {
-    const [selectedDate, setSelectedDate] = useState(datesData[0].date);
-    const [selectedFlight, setSelectedFlight] = useState(null);
-    const [currency, setCurrency] = useState('PKR');
-    const [bookingDetails, setBookingDetails] = useState({});
-    const [selectedPackage, setSelectedPackage] = useState(null);
-    const [showPackages, setShowPackages] = useState(false);
-    const [resetKey, setResetKey] = useState(0); // New state to force re-render
 
-    const flightSummaryRef = useRef(null);
+    const adultFare = 15655.00;
+    const childFare = 15655.00;
+    const infantFare = 1565.50;
 
-    useEffect(() => {
-        const storedBookingDetails = sessionStorage.getItem('bookingDetails');
-        const storedCurrency = sessionStorage.getItem('selectedCurrency');
-        if (storedBookingDetails) {
-            setBookingDetails(JSON.parse(storedBookingDetails));
-        }
-        if (storedCurrency) {
-            setCurrency(storedCurrency);
-        }
-    }, []);
-
-    const formatPrice = (price) => {
-        if (currency === 'USD') {
-            return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`;
-        }
-        if (currency === 'EUR') {
-            return `EUR ${(parseInt(price.replace(/[^\d]/g, '')) / 320).toFixed(2)}`;
-        }
-        return price;
-    };
-
-    const handleDateSelect = (date) => {
-        setSelectedDate(date);
-        setSelectedFlight(null);
-        setShowPackages(false);
-    };
-
-    const handleFlightSelection = (flightId) => {
-        setSelectedFlight(flightId);
-        setSelectedPackage(null);
-        setShowPackages(true);
-        setResetKey(prevKey => prevKey + 1); // Increment key to force re-render
-    };
-
-    const handleBookNow = () => {
-        if (flightSummaryRef.current) {
-            flightSummaryRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-    const filteredFlights = flightsData.filter(flight => flight.date === selectedDate);
-    const selectedFlightData = filteredFlights.find(flight => flight.id === selectedFlight);
-
-    return (
-        <>
-            <br /><br />
-            <FlightHeader />
-            <br /><br />
-            <div className="select-flight bg-white">
-                <DateCarousel
-                    dates={datesData}
-                    selectedDate={selectedDate}
-                    onDateSelect={handleDateSelect}
-                />
-
-                {showPackages && (
-                    <FlightPackages
-                        key={resetKey} // Add key to force re-render
-                        selectedPackage={selectedPackage}
-                        onSelectPackage={setSelectedPackage}
+    const SelectFlightPage = () => {
+        const [selectedDate, setSelectedDate] = useState(datesData[0].date);
+        const [selectedFlight, setSelectedFlight] = useState(null);
+        const [currency, setCurrency] = useState('PKR');
+        const [bookingDetails, setBookingDetails] = useState({});
+        const flightSummaryRef = useRef(null);
+    
+        useEffect(() => {
+            const storedBookingDetails = sessionStorage.getItem('bookingDetails');
+            const storedCurrency = sessionStorage.getItem('selectedCurrency');
+            if (storedBookingDetails) {
+                setBookingDetails(JSON.parse(storedBookingDetails));
+            }
+            if (storedCurrency) {
+                setCurrency(storedCurrency);
+            }
+        }, []);
+    
+        const formatPrice = (price) => {
+            if (currency === 'USD') {
+                return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`;
+            }
+            if (currency === 'EUR') {
+                return `EUR ${(parseInt(price.replace(/[^\d]/g, '')) / 320).toFixed(2)}`;
+            }
+            return price;
+        };
+    
+        const handleDateSelect = (date) => {
+            setSelectedDate(date);
+            setSelectedFlight(null);
+        };
+    
+        const handleFlightSelection = (flightId) => {
+            const flight = flightsData.find(flight => flight.id === flightId);
+            setSelectedFlight(flight);
+        };
+    
+        const handleBookNow = () => {
+            if (flightSummaryRef.current) {
+                flightSummaryRef.current.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+    
+        const filteredFlights = flightsData.filter(flight =>
+            flight.date === selectedDate &&
+            flight.departureCountry === bookingDetails.fromCountry &&
+            flight.arrivalCountry === bookingDetails.toCountry
+        );
+    
+        const calculateFare = (passengerType, count) => {
+            if (passengerType === 'adult') {
+                return adultFare * count;
+            } else if (passengerType === 'child') {
+                return childFare * count;
+            } else if (passengerType === 'infant') {
+                return infantFare * count;
+            }
+            return 0;
+        };
+    
+        return (
+            <>
+                <br /><br />
+                <FlightHeader />
+    
+                <br /><br />
+    
+                <div className="select-flight bg-white">
+                    <DateCarousel
+                        dates={datesData}
+                        selectedDate={selectedDate}
+                        onDateSelect={handleDateSelect}
                     />
-                )}
+                    <h1><center>Select Flight From {bookingDetails.fromCountry} to {bookingDetails.toCountry}</center></h1>
+    
+                    <div className="flight-optionss">
+                        {filteredFlights.length === 0 ? (
+                            <div className="no-flights-message">
+                                <p>No flights available for the selected route and date.</p>
+                            </div>
+                        ) : (
+                            filteredFlights.map((flight) => (
+                                <div
+                                    key={flight.id}
+                                    className={`flight-option ${selectedFlight?.id === flight.id ? "selected" : ""}`}
+                                    onClick={() => handleFlightSelection(flight.id)}
+                                >
+                                    <div className="flight-time">
+                                        <span>{flight.departureTime}</span>
+                                        <span>{flight.arrivalTime}</span>
 
-                <div className="flight-optionss">
-                    {filteredFlights.map((flight) => (
-                        <div
-                            key={flight.id}
-                            className={`flight-option ${selectedFlight === flight.id ? "selected" : ""}`}
-                            onClick={() => handleFlightSelection(flight.id)}
-                        >
-                            <div className="flight-time">
-                                <span>{flight.departureTime}</span>
-                                <span>{flight.arrivalTime}</span>
-                            </div>
-                            <div className="flight-details">
-                                <p>{flight.duration} / {flight.stops} {flight.stops > 1 ? 'stops' : 'stop'}</p>
-                                <p>{flight.airline} - {flight.flightCode}</p>
-                                {flight.operatedBy && <p>Operated by {flight.operatedBy}</p>}
-                                {flight.stops > 0 && (
-                                    <div className="flight-stops">
-                                        {flight.stopLocations && flight.stopDurations && flight.stopLocations.map((location, index) => (
-                                            <p key={index}>
-                                                Stop {index + 1}: {location} for {flight.stopDurations[index]}
-                                            </p>
-                                        ))}
                                     </div>
-                                )}
+                                    <div className="flight-details">
+                                        <p>{flight.duration} / {flight.stops} {flight.stops > 1 ? 'stops' : 'stop'}</p>
+                                        <p>{flight.airline} - {flight.flightCode}</p>
+                                        {flight.operatedBy && <p>Operated by {flight.operatedBy}</p>}
+    
+                                        {flight.stops > 0 && (
+                                            <div className="flight-stops">
+                                                {flight.stopLocations && flight.stopDurations && flight.stopLocations.map((location, index) => (
+                                                    <p key={index}>
+                                                        Stop {index + 1}: {location} for {flight.stopDurations[index]}
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="flight-price">
+                                        <p>Price: {formatPrice(flight.price)}</p>
+                                        <button className="book-now" onClick={handleBookNow}>Book Now</button>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+    
+                    <br /><br />
+    
+                    <h1><center>Summary of Your Selection</center></h1>
+                    <div className="summary-container">
+                        <div className="price-summary">
+                            <h4>
+                                Price Breakdown for
+                                {bookingDetails.passengers?.adults > 0 ? ` ${bookingDetails.passengers.adults} Adult${bookingDetails.passengers.adults > 1 ? 's' : ''}` : ''}
+                                {bookingDetails.passengers?.children > 0 ? `, ${bookingDetails.passengers.children} Child${bookingDetails.passengers.children > 1 ? 'ren' : ''}` : ''}
+                                {bookingDetails.passengers?.infants > 0 ? `, ${bookingDetails.passengers.infants} Infant${bookingDetails.passengers.infants > 1 ? 's' : ''}` : ''}
+                            </h4>
+    
+                            {bookingDetails.passengers?.adults > 0 && (
+                                <div>
+                                    <span>{bookingDetails.passengers.adults > 0 ? ` ${bookingDetails.passengers.adults} x Adult${bookingDetails.passengers.adults > 1 ? 's' : ''}` : ''}: </span>
+                                    <span>{formatPrice(calculateFare('adult', bookingDetails.passengers.adults))}</span>
+                                </div>
+                            )}
+                            {bookingDetails.passengers?.children > 0 && (
+                                <div>
+                                    <span>{bookingDetails.passengers.children > 0 ? ` ${bookingDetails.passengers.children} x Child${bookingDetails.passengers.children > 1 ? 'ren' : ''}` : ''}: </span>
+                                    <span>{formatPrice(calculateFare('child', bookingDetails.passengers.children))}</span>
+                                </div>
+                            )}
+                            {bookingDetails.passengers?.infants > 0 && (
+                                <div>
+                                    <span>{bookingDetails.passengers.infants > 0 ? ` ${bookingDetails.passengers.infants} x Infant${bookingDetails.passengers.infants > 1 ? 's' : ''}` : ''}: </span>
+                                    <span>{formatPrice(calculateFare('infant', bookingDetails.passengers.infants))}</span>
+                                </div>
+                            )}
+    
+                            <div>
+                                <span>Airport Tax & Surcharge:</span>
+                                <span>{bookingDetails.tax ? formatPrice(bookingDetails.tax) : 'N/A'}</span>
                             </div>
-                            <div className="flight-price">
-                                <p>Price: {formatPrice(flight.price)}</p>
-                                <button className="book-now" onClick={handleBookNow}>Book Now</button>
+                            <hr />
+                            <div>
+                                <strong>Total all inclusive:</strong>
+                                <strong>{formatPrice(bookingDetails.total)}</strong>
                             </div>
                         </div>
-                    ))}
-                </div>
 
-                <br /><br />
-                <h1><center>Summary of Your Selection</center></h1>
-                <div className="price-summary">
-                    <h4>Price Breakdown for 1 Adult</h4>
-                    <div>
-                        <span>1 x Adult:</span>
-                        <span>{bookingDetails.fare ? formatPrice(bookingDetails.fare) : 'N/A'}</span>
-                    </div>
-                    <div>
-                        <span>Airport Tax & Surcharge:</span>
-                        <span>{bookingDetails.tax ? formatPrice(bookingDetails.tax) : 'N/A'}</span>
-                    </div>
-                    <hr />
-                    <div>
-                        <strong>Total all inclusive:</strong>
-                        <strong>{bookingDetails.total ? formatPrice(bookingDetails.total) : 'N/A'}</strong>
+    
+                        <div className="flight-summary" ref={flightSummaryRef}>
+                            <div className="flight-summary-details">
+                                <h4> {bookingDetails.fromCountry} to {bookingDetails.toCountry}</h4>
+                                <p>Flight Code: {selectedFlight?.flightCode}</p>
+                                <p>Departure: {selectedFlight?.date} {selectedFlight?.departureTime}</p>
+                                <p>Arrival: {selectedFlight?.date} {selectedFlight?.arrivalTime}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </>
+        );
+    };
+    
+    export default SelectFlightPage;
 
-            {selectedFlightData && (
-                <div className="flight-summary" ref={flightSummaryRef}>
-                    <div className="flight-summary-details">
-                        <p>{selectedFlightData.origin} to {selectedFlightData.destination}</p>
-                        <p>Flight Code: {selectedFlightData.flightCode}</p>
-                        <p>Departure: {selectedFlightData.date} {selectedFlightData.departureTime}</p>
-                        <p>Arrival: {selectedFlightData.date} {selectedFlightData.arrivalTime}</p>
-                    </div>
-                </div>
-            )}
-        </>
-    );
-};
-
-export default SelectFlightPage;
