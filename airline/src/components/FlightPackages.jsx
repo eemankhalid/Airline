@@ -1,6 +1,6 @@
-import React from "react";
+import react from "react";
 
-const FlightPackages = ({ selectedPackage, onSelectPackage }) => {
+const FlightPackages = ({ selectedPackage, onSelectPackage, ref }) => {
     const packages = [
         {
             id: 1,
@@ -55,7 +55,7 @@ const FlightPackages = ({ selectedPackage, onSelectPackage }) => {
     ];
 
     return (
-        <div className="flight-packages">
+        <div className="flight-packages" ref={ref}>
             {packages.map(pkg => (
                 <div
                     key={pkg.id}

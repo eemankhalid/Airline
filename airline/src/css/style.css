@@ -1939,9 +1939,7 @@ button:hover {
 
 .flight-details {
     margin-top: 10px;
-
-    padding-right: 18px; /* Decreased space between time and details */
-
+    padding-right: 40px; /* Decreased space between time and details */
 }
 
 .flight-time span {
@@ -1984,7 +1982,7 @@ button:hover {
     margin: 2px; /* Remove margin if any */
     align-items: flex-start; 
     /* Align items at the top to avoid any spacing issues */
-
+}
 
 
 
