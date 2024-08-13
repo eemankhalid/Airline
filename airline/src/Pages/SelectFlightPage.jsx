@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
-import FlightPackages from "../components/FlightPackages";
+import FlightPackages from "../components/FlightPackages"
 
 // Dummy data representing flights
 const flightsData = [
@@ -262,16 +262,18 @@ const datesData = [
     // Add more dates as needed
 ];
 
-
-    const adultFare = 15655.00;
-    const childFare = 15655.00;
-    const infantFare = 1565.50;
+    const adultFare = selectedFlight.price;
+    const childFare = adultFare * 0.5;
+    const infantFare = adultFare * 0.1;
 
     const SelectFlightPage = () => {
         const [selectedDate, setSelectedDate] = useState(datesData[0].date);
         const [selectedFlight, setSelectedFlight] = useState(null);
         const [currency, setCurrency] = useState('PKR');
         const [bookingDetails, setBookingDetails] = useState({});
+        const [selectedPackage, setSelectedPackage] = useState(null);
+        const [showPackages, setShowPackages] = useState(false);
+        const [resetKey, setResetKey] = useState(0);
         const flightSummaryRef = useRef(null);
     
         useEffect(() => {
@@ -298,17 +300,22 @@ const datesData = [
         const handleDateSelect = (date) => {
             setSelectedDate(date);
             setSelectedFlight(null);
+            setShowPackages(false);
         };
     
         const handleFlightSelection = (flightId) => {
             const flight = flightsData.find(flight => flight.id === flightId);
             setSelectedFlight(flight);
+            setSelectedPackage(null);
+        setShowPackages(true);
+        setResetKey(prevKey => prevKey + 1); 
         };
     
         const handleBookNow = () => {
             if (flightSummaryRef.current) {
                 flightSummaryRef.current.scrollIntoView({ behavior: 'smooth' });
             }
+    
         };
     
         const filteredFlights = flightsData.filter(flight =>
@@ -341,8 +348,17 @@ const datesData = [
                         selectedDate={selectedDate}
                         onDateSelect={handleDateSelect}
                     />
+
                     <h1><center>Select Flight From {bookingDetails.fromCountry} to {bookingDetails.toCountry}</center></h1>
-    
+                    {showPackages && (
+                    <FlightPackages
+                    ref={flightSummaryRef}
+                        key={resetKey} // Add key to force re-render
+                        selectedPackage={selectedPackage}
+                        onSelectPackage={setSelectedPackage}
+                    />
+                )}
+
                     <div className="flight-optionss">
                         {filteredFlights.length === 0 ? (
                             <div className="no-flights-message">
@@ -358,7 +374,6 @@ const datesData = [
                                     <div className="flight-time">
                                         <span>{flight.departureTime}</span>
                                         <span>{flight.arrivalTime}</span>
-
                                     </div>
                                     <div className="flight-details">
                                         <p>{flight.duration} / {flight.stops} {flight.stops > 1 ? 'stops' : 'stop'}</p>
@@ -425,9 +440,8 @@ const datesData = [
                                 <strong>{formatPrice(bookingDetails.total)}</strong>
                             </div>
                         </div>
-
     
-                        <div className="flight-summary" ref={flightSummaryRef}>
+                        <div className="flight-summary">
                             <div className="flight-summary-details">
                                 <h4> {bookingDetails.fromCountry} to {bookingDetails.toCountry}</h4>
                                 <p>Flight Code: {selectedFlight?.flightCode}</p>
@@ -442,4 +456,3 @@ const datesData = [
     };
     
     export default SelectFlightPage;
-
