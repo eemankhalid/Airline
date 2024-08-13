@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef  } from "react";
 import DateCarousel from "../components/DateCarousel";
 
 // Dummy data representing flights
@@ -266,6 +266,7 @@ const SelectFlightPage = () => {
     const [selectedDate, setSelectedDate] = useState(datesData[0].date);
     const [selectedFlight, setSelectedFlight] = useState(null);
     const [currency, setCurrency] = useState('PKR');
+    const flightSummaryRef = useRef(null);
     useEffect(() => {
         // Retrieve the selected currency from sessionStorage
         const storedCurrency = sessionStorage.getItem('selectedCurrency');
@@ -294,6 +295,11 @@ const SelectFlightPage = () => {
     const handleFlightSelection = (flightId) => {
         setSelectedFlight(flightId);
         // Redirect to booking details page or perform other actions
+    };
+    const handleBookNow = () => {
+        if (flightSummaryRef.current) {
+            flightSummaryRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     // Filter flights based on the selected date
@@ -337,11 +343,22 @@ const SelectFlightPage = () => {
                             </div>
                             <div className="flight-price">
                                 <p>Price: {formatPrice(flight.price)}</p>
-                                <button className="book-now">Book Now</button>
+                                <button className="book-now" onClick={handleBookNow}>Book Now</button>
                             </div>
                         </div>
                     ))}
                 </div>
+                {/* Flight summary section */}
+                <div ref={flightSummaryRef} className="flight-summary">
+                    {selectedFlight && (
+                        <div className="summary-details">
+                            {/* Display the selected flight's summary details here */}
+                            <h2>Flight Summary</h2>
+                            {/* Render summary details */}
+                        </div>
+                    )}
+                </div>
+
 
             </div>
         </>

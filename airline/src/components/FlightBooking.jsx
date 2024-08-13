@@ -61,7 +61,7 @@ const FlightBooking = () => {
         setTripType(e.target.value);
     };
 
-    const handleBookNowClick = (e) => {
+    const handleSearchFlightClick = (e) => {
         e.preventDefault();
 
 
@@ -304,9 +304,9 @@ const FlightBooking = () => {
                                         <button
                                             className="btn btn-primary w-100"
                                             type="submit"
-                                            onClick={handleBookNowClick}
+                                            onClick={handleSearchFlightClick}
                                         >
-                                            Book Now
+                                            Search Flight
                                         </button>
                                     </div>
                                 </div>
