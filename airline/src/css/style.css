@@ -477,128 +477,6 @@ body {
 /* Destination End */
 
 
-/* Packages Start */
-.packages
-{
-    background-color: white;
-}
-.packages .packages-item .packages-img {
-    position: relative;
-    overflow: hidden;
-    transition: 0.5s;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    z-index: 1;
-}
-
-.packages .packages-item .packages-img .packages-info {
-    background: rgba(0, 0, 0, .3);
-}
-
-.packages .packages-item .packages-img .packages-info small,
-.packages .packages-item .packages-img .packages-info small i {
-    color: var(--bs-white);
-    transition: 0.5s;
-}
-
-.packages .packages-item .packages-img::after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 0px solid;
-    border-radius: 10px !important;
-    visibility: hidden;
-    transition: 0.7s;
-    z-index: 3;
-}
-
-.packages .packages-item .packages-img:hover.packages-img::after {
-    width: 100%;
-    height: 100%;
-    border: 300px solid;
-    border-color: rgba(19, 53, 123, 0.6) rgba(19, 53, 123, 0.6) rgba(19, 53, 123, 0.6) rgba(19, 53, 123, 0.6);
-    visibility: visible;
-}
-
-.packages .packages-item .packages-img small,
-.packages .packages-item .packages-img small i {
-    transition: 0.5s;
-}
-
-.packages .packages-item .packages-img:hover small,
-.packages .packages-item .packages-img:hover small i {
-    color: var(--bs-white) !important;
-
-}
-
-.packages .packages-item .packages-img img {
-    transition: 0.5s;
-}
-
-.packages .packages-item .packages-img:hover img {
-    transform: scale(1.3);
-}
-
-.packages .packages-item .packages-img .packages-price {
-    position: absolute;
-    width: 100px; 
-    top: 0; 
-    left: 50%; 
-    transform: translateX(-50%);
-    display: inline-block;
-    background: var(--bs-primary);
-    color: var(--bs-white);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px; 
-    z-index: 5;
-}
-
-.packages .packages-carousel {
-    position: relative;
-}
-
-.packages .packages-carousel .owl-nav .owl-prev {
-    position: absolute;
-    top: -50px;
-    left: 0;
-    padding: 5px 30px;
-    border: 1px solid var(--bs-primary);
-    border-radius: 30px;
-    transition: 0.5s;
-}
-
-.packages .packages-carousel .owl-nav .owl-next {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    padding: 5px 30px;
-    border: 1px solid var(--bs-primary);
-    border-radius: 30px;
-    transition: 0.5s;
-}
-
-.packages .packages-carousel .owl-nav .owl-prev i,
-.packages .packages-carousel .owl-nav .owl-next i {
-    color: var(--bs-primary);
-    font-size: 17px;
-    transition: 0.5s;
-}
-
-.packages .packages-carousel .owl-nav .owl-prev:hover,
-.packages .packages-carousel .owl-nav .owl-next:hover {
-    background: var(--bs-primary);
-}
-
-.packages .packages-carousel .owl-nav .owl-prev:hover i,
-.packages .packages-carousel .owl-nav .owl-next:hover i {
-    color: var(--bs-white);
-}
-/* Packages End */
-
 
 /* Explore Tour Start */
 .ExploreTour .tab-class .nav-item {
@@ -1887,7 +1765,7 @@ button:hover {
     margin: 5px 0;
     font-size: 14px;
 }
-
+/* Styles for the flight options */
 /* Styles for the flight options */
 .select-flight {
     padding: 30px;
@@ -1900,14 +1778,16 @@ button:hover {
     color: #333;
     font-weight: 600;
 }
+
 .select-flight .flight-optionss {
     background-color: white !important;
 }
-.flight-options {
+
+.flight-optionss {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    
+    background-color: white !important;
 }
 
 .flight-option {
@@ -1942,14 +1822,25 @@ button:hover {
     align-items: flex-start;
 }
 
+.flight-time {
+    margin-bottom: 10px; /* Decreased space between time and details */
+}
+
+.flight-details {
+    margin-top: 10px;
+    padding-right: 18px; /* Decreased space between time and details */
+}
+
 .flight-time span {
     font-size: 20px;
     font-weight: bold;
     color: #171819;
 }
 
+
+
 .flight-details p {
-    margin: 5px 0;
+    margin: 1px 0 !important; /* Decreased margin between paragraphs */
     font-size: 14px;
     color: #555;
 }
@@ -1975,8 +1866,130 @@ button:hover {
 .book-now:hover {
     background-color: #1c1c1c; /* Slightly lighter shade for hover effect */
 }
+.flight-packages {
+    display: flex;
+    justify-content: center;
+    gap: 0; /* Ensure no gap between the cards */
+    padding: 0; /* Remove padding if any */
+    margin: 2px; /* Remove margin if any */
+    align-items: flex-start; 
+    /* Align items at the top to avoid any spacing issues */
 
-  
+}
+
+
+.package-option {
+    width: 25%; /* Maintain the reduced width for smaller cards */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 6px; /* Further reduced padding */
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    height: 370px; /* Slightly increased maximum height */
+    margin: 5px; /* Remove margin to reduce space between cards */
+}
+
+.package-option.selected {
+    border: 2px solid #d43f00;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.package-header {
+    background-color: #f5f5f5; /* Light gray background */
+    padding: 6px; /* Further reduced padding */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    font-weight: bold;
+}
+
+.package-header h3 {
+    margin: 0;
+    font-size: 1.1rem; /* Further reduced font size */
+    color: #d43f00; /* Red color for the title */
+    text-align: center;
+}
+
+.package-header p {
+    margin: 0;
+    color: #999; /* Gray color for the subtitle */
+    text-align: center;
+    font-size: 0.75rem; /* Further reduced subtitle font size */
+}
+
+.package-details {
+    padding: 6px; /* Further reduced padding */
+    flex-grow: 1;
+    font-size: 0.8rem; /* Slightly smaller font size */
+}
+
+.package-details h4 {
+    margin: 4px 0; /* Further reduced margins */
+    color: #444;
+    font-size: 0.9rem; /* Further reduced font size */
+}
+
+.package-details ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.package-details ul li {
+    margin-bottom: 4px; /* Keep the reduced spacing between list items */
+    font-size: 0.75rem; /* Further reduced font size */
+}
+
+.package-details ul li::before {
+    content: '✔️';
+    margin-right: 4px; /* Reduced margin between icon and text */
+    color: green;
+}
+
+.package-details ul.chargeable li {
+    color: #d43f00;
+    font-weight: bold;
+}
+
+.package-details ul.chargeable li::before {
+    content: '💲'; /* Dollar symbol in front of chargeable items */
+    color: #d43f00;
+}
+.package-price {
+    text-align: center;
+    margin-top: 8px;
+    padding: 4px;
+    border-top: 1px solid #eee;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.package-price input[type="radio"] {
+    margin-left: 3px; /* Remove space between radio button and label */
+}
+
+.package-price p {
+    font-size: 1.4rem;
+    color: #333;
+    margin: 0;
+}
+
+.package-price label {
+    font-size: 0.9rem;
+    color: #d43f00;
+    cursor: pointer;
+    margin-right: 65px; /* Ensure no additional space on the left */
+    display: flex;
+     /* Align the label with the radio button */
+}
 
 /* General Page Styles */
 .faqs-page {
