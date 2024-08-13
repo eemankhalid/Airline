@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef  } from "react";
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
-
+import FlightPackages from "../components/FlightPackages"; // Import the new component
 // Dummy data representing flights
 const flightsData = [
     // Flights for 10 Aug 2024
@@ -268,6 +268,8 @@ const SelectFlightPage = () => {
     const [selectedFlight, setSelectedFlight] = useState(null);
     const [currency, setCurrency] = useState('PKR');
     const [bookingDetails, setBookingDetails] = useState({});
+    const [selectedPackage, setSelectedPackage] = useState(null); // New state for selected package
+
     
     const flightSummaryRef = useRef(null);
     useEffect(() => {
@@ -325,27 +327,31 @@ const SelectFlightPage = () => {
                     selectedDate={selectedDate}
                     onDateSelect={handleDateSelect}
                 />
+                              <FlightPackages
+                    selectedPackage={selectedPackage}
+                    onSelectPackage={setSelectedPackage}
+                />
 
-
-                <div className="flight-options">
+                <div className="flight-optionss">
                     {filteredFlights.map((flight) => (
                         <div
                             key={flight.id}
                             className={`flight-option ${selectedFlight === flight.id ? "selected" : ""}`}
                             onClick={() => handleFlightSelection(flight.id)}
-                        >
+                        > 
                             <div className="flight-time">
+                          
                                 <span>{flight.departureTime}</span>
                                 <span>{flight.arrivalTime}</span>
                             </div>
-                            <div className="flight-details">
+                            <div className="flight-details" >
                                 <p>{flight.duration} / {flight.stops} {flight.stops > 1 ? 'stops' : 'stop'}</p>
                                 <p>{flight.airline} - {flight.flightCode}</p>
                                 {flight.operatedBy && <p>Operated by {flight.operatedBy}</p>}
 
                                 {/* Display stop details if there are stops */}
                                 {flight.stops > 0 && (
-                                    <div className="flight-stops">
+                                    <div className="flight-stops" >
                                         {flight.stopLocations && flight.stopDurations && flight.stopLocations.map((location, index) => (
                                             <p key={index}>
                                                 Stop {index + 1}: {location} for {flight.stopDurations[index]}
