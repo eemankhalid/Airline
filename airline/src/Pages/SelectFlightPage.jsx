@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
+import FlightPackages from "../components/FlightPackages";
 
 // Dummy data representing flights
 const flightsData = [
@@ -261,6 +262,7 @@ const datesData = [
     // Add more dates as needed
 ];
 
+
     const adultFare = 15655.00;
     const childFare = 15655.00;
     const infantFare = 1565.50;
@@ -356,6 +358,7 @@ const datesData = [
                                     <div className="flight-time">
                                         <span>{flight.departureTime}</span>
                                         <span>{flight.arrivalTime}</span>
+
                                     </div>
                                     <div className="flight-details">
                                         <p>{flight.duration} / {flight.stops} {flight.stops > 1 ? 'stops' : 'stop'}</p>
@@ -422,6 +425,7 @@ const datesData = [
                                 <strong>{formatPrice(bookingDetails.total)}</strong>
                             </div>
                         </div>
+
     
                         <div className="flight-summary" ref={flightSummaryRef}>
                             <div className="flight-summary-details">
@@ -438,3 +442,4 @@ const datesData = [
     };
     
     export default SelectFlightPage;
+
