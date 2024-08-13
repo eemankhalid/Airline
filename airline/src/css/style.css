@@ -2183,19 +2183,7 @@ button:hover {
     transform: rotate(180deg); /* Rotate arrow when active */
   }
 
-  .flight-header {
-    display: flex;
-    justify-content: space-around;
-    background-color: black;
-    padding: 10px;
-    color: white;
-    font-size: 1.2em;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
+
   /* Price Summary Section Styling */
 .price-summary {
     background-color: #f9f9f9;
@@ -2252,8 +2240,19 @@ button:hover {
     font-size: 1.2rem;
     margin-top: 15px;
 }
-
-
+.flight-header {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding: 10px;
+    color: white;
+    font-size: 1.2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
 .header-item {
     text-decoration: none;
@@ -2284,4 +2283,14 @@ button:hover {
 
 .completed {
     color: red; /* Change the tick color to red for completed steps */
+}
+.header-item.inactive {
+    pointer-events: none; /* Disables click events */
+    opacity: 0.6; /* Makes the item appear inactive */
+    cursor: default; /* Changes the cursor to the default arrow */
+}
+
+.header-item.inactive:hover {
+    background-color: black; /* Prevents background color change on hover */
+    transform: none; /* Prevents scaling on hover */
 }

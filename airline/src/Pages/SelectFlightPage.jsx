@@ -313,7 +313,7 @@ const SelectFlightPage = () => {
     const filteredFlights = flightsData.filter(flight => flight.date === selectedDate);
 
     return (
-       
+           <>
             <br/><br/>
             <FlightHeader /> 
 
