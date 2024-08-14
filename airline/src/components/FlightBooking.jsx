@@ -145,7 +145,13 @@ const FlightBooking = () => {
 
         setValidationMessages({});
         setGeneralMessage('');
-        navigate('/select-flight');
+        navigate('/select-flight', {
+            state: {
+                adults: parseInt(document.getElementById('adults')?.value || 1),
+                children: parseInt(document.getElementById('children')?.value || 0),
+                infants: parseInt(document.getElementById('infants')?.value || 0),
+            }
+        });
     };
 
     const greyBorderStyle = { borderColor: '#6c757d', borderWidth: '1px', borderStyle: 'solid' };
