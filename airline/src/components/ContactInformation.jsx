@@ -1,7 +1,11 @@
 import React from 'react';
-
+import { useLocation, useNavigate } from 'react-router-dom'; // Add useNavigate here
 
 const ContactInformation = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+  const handleAddExtras = () => {
+    navigate('/add-extras'); // Navigate to AddExtras page with state
+  };
   return (
     <div className="contact-info">
       <br></br>
@@ -50,7 +54,7 @@ const ContactInformation = () => {
           I would like to join <span className="rewards-highlight">WingPoints</span>, Infinity Wing's loyalty program.
         </label>
       </div>
-      <button className="continue-btn">Continue to Extras</button>
+      <button className="continue-btn"  onClick={handleAddExtras}>Continue to Extras</button>
     </div>
   );
 }

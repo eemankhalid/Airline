@@ -2684,4 +2684,242 @@ button:hover {
     margin-right: auto;
     margin-bottom: 5px;
   }
+  .extras-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7; /* Light gray background */
+  }
+  
+  .extras-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .extras-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .extras-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+  
+  .extras-section:last-child {
+    border-bottom: none;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  .section .icon {
+    margin-right: 20px; /* Space between the icon and text */
+    color: #444547; /* Optional: set color of the icon */
+  }
+  .section-description {
+    color: #666;
+  }
+  
+  .edit-selection-button {
+    background-color: #5e6164; /* Button background color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .edit-selection-button .icon {
+    margin-right: 5px;
+  }
+  
+  .paybtn {
+    background-color: #ff004f; /* Pinkish color for the button */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    margin-top: 20px;
+  
+    width: 300px;
+ height: 60px;
+
+  }
+  
+  .extras-price {
+    font-weight: bold;
+    color: #333;
+  }
+  .add-seats-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .seats-selection-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .select-seats-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .flight-route {
+    font-size: 18px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .flight-number {
+    font-size: 16px;
+    color: #555;
+    margin-top: 2px;
+  }
+  
+  .remove-selection {
+    font-size: 14px;
+    color: red;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .seats-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .passenger-list {
+    width: 30%;
+  }
+  
+  .passenger-list h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .passenger-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .passenger {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .passenger.active {
+    background-color: #E40046;
+    color: white;
+  }
+  
+  .seatmap-container {
+    width: 40%;
+  }
+  
+  .legend {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .legend-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+  }
+  
+  .legend-color.available {
+    background-color: #ccc;
+  }
+  
+  .legend-color.occupied {
+    background-color: #999;
+  }
+  
+  .legend-color.selected {
+    background-color: #E40046;
+  }
+  
+  .seatmap {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .seatmap img {
+    width: 100%;
+  }
+  
+  .seats-summary {
+    width: 25%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .seats-summary h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .selected-seats {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .selected-seats li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .confirm-selection {
+    background-color: #E40046;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+  }
   
