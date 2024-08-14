@@ -356,11 +356,19 @@ const SelectFlightPage = () => {
         }
         return 0;
     };
-    const navigate = useNavigate();  // Initialize useNavigate
+    const navigate = useNavigate();
 
-    const handleContinue = () => {
-        navigate('/enter-details');  // Navigate to EnterDetailsPage.jsx
-    };
+const handleContinue = () => {
+  navigate('/passenger-information', {
+        state: {
+        passengers: {
+        adults: bookingDetails.passengers.adults,
+        children: bookingDetails.passengers.children,
+        infants: bookingDetails.passengers.infants,
+      },
+    },
+  });
+};
     useEffect(() => {
         const total =
             calculateFare('adult', bookingDetails.passengers?.adults || 0) +
