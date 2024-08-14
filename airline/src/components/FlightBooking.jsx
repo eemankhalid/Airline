@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const FlightBooking = () => {
@@ -7,6 +7,9 @@ const FlightBooking = () => {
     const [selectedToCountry, setSelectedToCountry] = useState('');
     const [fromAirports, setFromAirports] = useState([]);
     const [toAirports, setToAirports] = useState([]);
+    const [adults, setAdults] = useState(1);
+    const [children, setChildren] = useState(0);
+    const [infants, setInfants] = useState(0);
     const [generalMessage, setGeneralMessage] = useState('');
     const [validationMessages, setValidationMessages] = useState({});
     const [fare, setFare] = useState(15655.00);  // Example value, can be updated dynamically
@@ -14,6 +17,10 @@ const FlightBooking = () => {
     const [total, setTotal] = useState(21647.90);
 
     const navigate = useNavigate(); 
+
+    const adultFare = 15655.00;
+    const childFare = 15655.00;
+    const infantFare = 1565.50;
 
     const countryAirports = {
         Armenia: ["Zvartnots International Airport (EVN) - Yerevan"],
@@ -64,6 +71,16 @@ const FlightBooking = () => {
         setTripType(e.target.value);
     };
 
+
+
+    const calculateFare = () => {
+        const totalFare = (adults * adultFare) + (children * childFare) + (infants * infantFare);
+        setFare(totalFare);
+        setTotal(totalFare + tax); // Assuming tax is constant; adjust if tax is dynamic
+    };
+    useEffect(() => {
+        calculateFare();
+    }, [adults, children, infants]);
     const handleSearchFlightClick = (e) => {
         e.preventDefault();
 
@@ -117,7 +134,12 @@ const FlightBooking = () => {
             fare: fare,
             tax: tax,
             total: total,
-            currency: selectedCurrency
+            currency: selectedCurrency,
+            passengers: {
+                adults: document.getElementById('adults')?.value,
+                children:document.getElementById('children')?.value,
+                infants: document.getElementById('infants')?.value,
+            }
         }));
 
 
