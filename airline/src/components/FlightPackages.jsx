@@ -1,11 +1,15 @@
-import react from "react";
+import React, { useEffect } from "react";
 
-const FlightPackages = ({ selectedPackage, onSelectPackage, ref }) => {
+const FlightPackages = ({ selectedPackage, onSelectPackage, ref, price }) => {
+    const basicPrice = Math.round(price);
+    const valuePrice = Math.round(price + (price * 0.30));
+    const ultimatePrice = Math.round(price + (price * 0.50));
+
     const packages = [
         {
             id: 1,
             name: "Basic",
-            price: "PKR 18947",
+            price: basicPrice,
             included: [
                 "10 Kg Carry-on Baggage"
             ],
@@ -20,7 +24,7 @@ const FlightPackages = ({ selectedPackage, onSelectPackage, ref }) => {
         {
             id: 2,
             name: "Value",
-            price: "PKR 20597",
+            price: valuePrice,
             included: [
                 "10 Kg Carry-on Baggage",
                 "23 Kg Checked Baggage",
@@ -37,7 +41,7 @@ const FlightPackages = ({ selectedPackage, onSelectPackage, ref }) => {
         {
             id: 3,
             name: "Ultimate",
-            price: "PKR 21647",
+            price: ultimatePrice,
             included: [
                 "46 Kg Checked Baggage",
                 "Premium Meal",
@@ -58,10 +62,11 @@ const FlightPackages = ({ selectedPackage, onSelectPackage, ref }) => {
         <div className="flight-packages" ref={ref}>
             {packages.map(pkg => (
                 <div
-                    key={pkg.id}
-                    className={`package-option ${selectedPackage === pkg.id ? "selected" : ""}`}
-                    onClick={() => onSelectPackage(pkg.id)}
-                >
+    key={pkg.id}
+    className={`package-option ${selectedPackage === pkg.id ? "selected" : ""}`}
+    onClick={() => onSelectPackage(pkg)} // Pass the entire package object
+>
+
                     <div className="package-header">
                         <h3>{pkg.name}</h3>
                         <p>{pkg.bestFor}</p>
@@ -88,20 +93,12 @@ const FlightPackages = ({ selectedPackage, onSelectPackage, ref }) => {
                             checked={selectedPackage === pkg.id}
                             onChange={() => onSelectPackage(pkg.id)}
                         />
-                      
                         <label>
-                            <input
-                                type="radio"
-                                name="package"
-                                value={pkg.id}
-                                checked={selectedPackage === pkg.id}
-                                onChange={() => onSelectPackage(pkg.id)}
-                                style={{ display: 'none' }}
-                            />
                             Select
                         </label>
                         <p>{pkg.price}</p>
                     </div>
+
                 </div>
             ))}
         </div>
