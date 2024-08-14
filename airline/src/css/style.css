@@ -2565,8 +2565,8 @@ button:hover {
     font-size: 20px; /* Slightly smaller for subsections */
   }
   
-  /* Tabs Styling */
-  .passenger-tabs {
+/* Tabs Styling */
+.passenger-tabs {
     display: flex;
     margin-bottom: 20px;
   }
@@ -2599,6 +2599,7 @@ button:hover {
     border-top: 30px solid transparent;
     border-bottom: 30px solid transparent;
   }
+  
   
   /* Form Section and Group Styling */
   .form-section {
