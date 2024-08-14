@@ -2169,7 +2169,7 @@ button:hover {
 .containers {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 5px;
     padding: 20px;
     
   }
@@ -2194,9 +2194,9 @@ button:hover {
   }
   
   .card {
-    width: 48%;
+    width: 47%;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     overflow: hidden;
     transition: box-shadow 0.3s;
   }
