@@ -18,6 +18,14 @@ const styles = {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
+  videoBackground: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+  },
   overlay: {
     position: 'absolute',
     top: 0,
@@ -40,16 +48,23 @@ const styles = {
   heroSubText: {
     color: 'white',
     fontSize: '1.5rem',
-    marginTop: '5rem', // Increase marginTop to add more space between h1 and h3
+    marginTop: '5rem',
     fontWeight: 'normal',
     textAlign: 'center',
   },
 };
 
-const Hero2 = ({ pageName, image, subText }) => {
+const Hero2 = ({ pageName, image, video, subText }) => {
   return (
     <div style={styles.heroContainer}>
-      <div style={{ ...styles.backgroundImage, backgroundImage: `url(${image})` }}></div>
+      {video ? (
+        <video autoPlay loop muted style={styles.videoBackground}>
+          <source src={video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <div style={{ ...styles.backgroundImage, backgroundImage: `url(${image})` }}></div>
+      )}
       <div style={styles.overlay}>
         <h1 style={styles.heroText}>{pageName}</h1>
         {subText && <h3 style={styles.heroSubText}>{subText}</h3>}

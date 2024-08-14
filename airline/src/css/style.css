@@ -1981,6 +1981,7 @@ button:hover {
     padding: 0; /* Remove padding if any */
     margin: 2px; /* Remove margin if any */
     align-items: flex-start; 
+    flex-wrap: wrap; /* Allow the cards to wrap on smaller screens */
     /* Align items at the top to avoid any spacing issues */
 }
 
@@ -2098,7 +2099,30 @@ button:hover {
     display: flex;
      /* Align the label with the radio button */
 }
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .package-option {
+        width: 30%;
+    }
+}
 
+@media (max-width: 992px) {
+    .package-option {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .package-option {
+        width: 60%;
+    }
+}
+
+@media (max-width: 576px) {
+    .package-option {
+        width: 100%;
+    }
+}
 
 /* General Page Styles */
 .faqs-page {
@@ -2475,5 +2499,188 @@ button:hover {
 .no-flights-message p {
     margin: 0; /* Remove default margin */
 }
+.continue-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
 
+.continue-button {
+    background-color: #878b8e;
+    
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.continue-button::after {
+    content: '→'; /* Adds the arrow */
+    margin-left: 10px; /* Adds space between text and arrow */
+    font-size: 20px;
+}
+.continue-button:hover {
+    background-color: #2f3031;
+}
 
+.back-button {
+    position: static;
+   margin-top: 0%; /* Distance from the bottom of the page */
+   margin-left: 50%; /* Center the button horizontally */
+   transform: translateX(-50%); /* Adjust the button's position to account for its own width */
+    background-color: #d43f00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+    width:min-content /* Ensure it's on top of other elements */
+  }
+  
+  .back-button:hover {
+    background-color: #a63900;
+  }
+  
+  .passenger-info, .contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Headings Styling */
+  h2, h3 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333; /* A darker color for better readability */
+    margin-bottom: 15px; /* Adds space below the headings */
+  }
+  
+  /* Specific Heading Sizes */
+  h2 {
+    font-size: 24px; /* Slightly larger for main sections */
+  }
+  
+  h3 {
+    font-size: 20px; /* Slightly smaller for subsections */
+  }
+  
+  /* Tabs Styling */
+  .passenger-tabs {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-right: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .tab:last-child {
+    border-right: 1px solid #ccc;
+  }
+  
+  .tab.active {
+    background-color: #ff5c5c;
+    color: #fff;
+    position: relative;
+  }
+  
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    border-left: 10px solid #ff5c5c;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+  }
+  
+  /* Form Section and Group Styling */
+  .form-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+  }
+  
+  .form-group .required {
+    color: red;
+  }
+  
+  input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Radio Group */
+  .radio-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .next-passenger {
+    background-color: #ff5c5c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  /* Contact Information Section */
+  .checkbox-group {
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-group label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Mobile Group */
+  .mobile-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Checkbox Styling */
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  /* Rewards Highlight */
+  .rewards-highlight {
+    color: #ff5c5c;
+    font-weight: bold;
+  }
+  
+  /* Continue Button Styling */
+  .continue-btn {
+    background-color: #ff5c5c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+  }
+  

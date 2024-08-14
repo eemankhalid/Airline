@@ -1,22 +1,33 @@
-import React from 'react'
-import Hero2 from '../components/Hero2'
-import FlightBooking from '../components/FlightBooking'
-import img1 from '../assets/img/banner-7.png';
+import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import Hero2 from '../components/Hero2';
+import FlightBooking from '../components/FlightBooking';
+import FlightHeader from "../components/FlightHeader";
+import img1 from '../assets/vedio/vdd.mp4';
+
 const BookFlightPage = () => {
- 
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate('/'); // Navigate to the home page
+  };
 
   return (
     <div>
-       <Hero2 
-        pageName="Book Your Flight with Ease" 
-        subText="Booking with Infinity Wings is a breeze. Choose your destination, select your flight, and enjoy a seamless experience tailored to your needs. Ready to fly? Let’s get you on board."
-        image={img1} // Use the imported image
+      <br /><br />
+      <FlightHeader />
+      <Hero2 
+        pageName="Book Your Flight with Ease" 
+        video={img1} // Use the imported video
       />
       <div style={{ margin: '0 auto', width: '98%' }}>
-          <FlightBooking />
-        </div>
+        <FlightBooking />
+      </div>
+      <button className="back-button" onClick={handleBack}>
+        Back
+      </button>
     </div>
-  )
+  );
 }
 
-export default BookFlightPage
+export default BookFlightPage;

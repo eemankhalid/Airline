@@ -24,6 +24,7 @@ import FAQsPage from './Pages/FAQsPage';
 import ContactUsPage from './Pages/ContactUsPage';
 import SelectFlightPage from './Pages/SelectFlightPage';
 import EnterDetailsPage from './Pages/EnterDetailsPage';
+import PassengerInformation from './components/PessengerInformation';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -45,7 +46,7 @@ const router = createBrowserRouter(
             <Route path='/contact-us' element={<ContactUsPage />} />
             <Route path="/select-flight" element={<SelectFlightPage />} />
             <Route path="/enter-details" element={<EnterDetailsPage />} />
-            
+            <Route path="/passenger-information" element={<EnterDetailsPage />} />
             
         </Route>
 
