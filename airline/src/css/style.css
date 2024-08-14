@@ -2565,32 +2565,33 @@ button:hover {
     font-size: 20px; /* Slightly smaller for subsections */
   }
   
-/* Tabs Styling */
+
+  /* Tabs Styling */
 .passenger-tabs {
     display: flex;
     margin-bottom: 20px;
-  }
-  
-  .tab {
+}
+
+.ptab {
     padding: 10px 15px;
     border: 1px solid #ccc;
     border-right: none;
     cursor: pointer;
     text-align: center;
     font-family: 'Arial', sans-serif;
-  }
-  
-  .tab:last-child {
+}
+
+.ptab:last-child {
     border-right: 1px solid #ccc;
-  }
-  
-  .tab.active {
+}
+
+.ptab.active {
     background-color: #ff5c5c;
     color: #fff;
     position: relative;
-  }
-  
-  .tab.active::after {
+}
+
+.ptab.active::after {
     content: '';
     position: absolute;
     top: 0;
@@ -2598,9 +2599,8 @@ button:hover {
     border-left: 10px solid #ff5c5c;
     border-top: 30px solid transparent;
     border-bottom: 30px solid transparent;
-  }
-  
-  
+}
+
   /* Form Section and Group Styling */
   .form-section {
     display: grid;
@@ -2634,7 +2634,7 @@ button:hover {
   }
   
   .next-passenger {
-    background-color: #ff5c5c;
+    background-color: #3d3b3b;
     color: #fff;
     border: none;
     padding: 10px 20px;
