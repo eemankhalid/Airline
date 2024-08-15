@@ -173,7 +173,7 @@ const AddMeals = () => {
                 </ul>
                 {/* Display the total bill */}
                 <div className="total-bill">
-                  <strong>Total Bill: </strong> {totalBill} Rs
+                  <h3>Total Bill: </h3> {totalBill} Rs
                 </div>
               </div>
             )}
