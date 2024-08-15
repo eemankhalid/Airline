@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
 import FlightPackages from "../components/FlightPackages"
+import '../css/SelectFlight.css'
 
 // Dummy data representing flights
 const flightsData = [
