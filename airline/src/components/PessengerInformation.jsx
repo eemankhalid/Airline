@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const PassengerInformation = () => {
@@ -7,16 +7,25 @@ const PassengerInformation = () => {
 
   const passengers = state?.passengers || {};
   const adults = passengers.adults || 1;
-  const childs = passengers.childs || 0;
+  const children = passengers.children || 0;
   const infants = passengers.infants || 0;
 
   const [activeTab, setActiveTab] = useState(1);
   const [adultForms, setAdultForms] = useState(Array(adults).fill({}));
-  const [childForms, setChildForms] = useState(Array(childs).fill({}));
+  const [childForms, setChildForms] = useState(Array(children).fill({}));
   const [infantForms, setInfantForms] = useState(Array(infants).fill({}));
   const [isFormComplete, setIsFormComplete] = useState(false);
   const [isAllPassengersAdded, setIsAllPassengersAdded] = useState(false);
   const [currentSection, setCurrentSection] = useState('adults'); // Track current section (adults, children, or infants)
+
+  useEffect(() => {
+    console.log('adults:', adults, 'children:', children, 'infants:', infants);
+    setAdultForms(Array(adults).fill({}));
+    setChildForms(Array(children).fill({}));
+    setInfantForms(Array(infants).fill({}));
+    setActiveTab(1);
+    setCurrentSection('adults');
+  }, [adults, children, infants]);
 
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +45,6 @@ const PassengerInformation = () => {
       setInfantForms(updatedForms);
     }
 
-    // Check if the form is complete
     const currentForm = currentSection === 'adults'
       ? updatedForms[activeTab - 1]
       : currentSection === 'children'
@@ -52,16 +60,14 @@ const PassengerInformation = () => {
         setActiveTab((prevTab) => prevTab + 1);
         setIsFormComplete(false); // Reset form completion for the next passenger
       } else {
-        // Switch to children section
         setCurrentSection('children');
         setActiveTab(1);
       }
     } else if (currentSection === 'children') {
-      if (activeTab < childs) {
+      if (activeTab < children) {
         setActiveTab((prevTab) => prevTab + 1);
         setIsFormComplete(false); // Reset form completion for the next passenger
       } else {
-        // Switch to infants section
         setCurrentSection('infants');
         setActiveTab(1);
       }
@@ -70,10 +76,8 @@ const PassengerInformation = () => {
         setActiveTab((prevTab) => prevTab + 1);
         setIsFormComplete(false); // Reset form completion for the next passenger
       } else {
-        // All passengers have been added. Handle submission or next step here.
-        console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
         setIsAllPassengersAdded(true);
-        // You can perform actions like submitting the form data to the server here.
+        console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
       }
     }
   };
@@ -133,7 +137,6 @@ const PassengerInformation = () => {
             <option value="United States">United States</option>
             <option value="United Kingdom">United Kingdom</option>
             <option value="Canada">Canada</option>
-            {/* Add more options as needed */}
           </select>
         </div>
         <div className="form-group">
@@ -187,7 +190,7 @@ const PassengerInformation = () => {
         );
       }
     } else if (currentSection === 'children') {
-      for (let i = 1; i <= childs; i++) {
+      for (let i = 1; i <= children; i++) {
         tabs.push(
           <div
             key={`child-${i}`}
@@ -211,7 +214,6 @@ const PassengerInformation = () => {
         );
       }
     }
-    console.log('Tabs:', tabs); // Debugging line to check tabs being generated
     return tabs;
   };
 
