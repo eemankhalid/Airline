@@ -6,6 +6,8 @@ const AddMeals = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Meals');
   const [activeComponent, setActiveComponent] = useState('meals');
   const [sortOption, setSortOption] = useState('price'); // default sorting by price
+  const [selectedMeals, setSelectedMeals] = useState([]); // state to store selected meals
+  const [quantitySelector, setQuantitySelector] = useState(null); // state to manage the inline quantity selector
 
   // Meal data
   const meals = [
@@ -87,6 +89,8 @@ const AddMeals = () => {
       category: 'Hot Meals',
       price: '630 Rs',
     },
+
+
   ];
 
   // Filter meals based on selected category
@@ -95,7 +99,7 @@ const AddMeals = () => {
       ? meals
       : meals.filter((meal) => meal.category === selectedCategory);
 
-  // Function to convert price to number for sorting
+  // Function to convert price to number for sorting and calculating total
   const parsePrice = (price) => {
     if (price === 'Free') return 0;
     return parseInt(price.replace(' Rs', '').replace(/,/g, '')) || 0;
@@ -110,6 +114,32 @@ const AddMeals = () => {
     }
     return 0;
   });
+
+  // Function to handle adding a meal to the selected meals list
+  const handleAddMeal = (meal, quantity = 1) => {
+    if (meal.price === 'Free') {
+      // Check if the free meal is already in the selectedMeals list
+      const isMealAlreadySelected = selectedMeals.some(
+        (selectedMeal) => selectedMeal.id === meal.id
+      );
+      if (isMealAlreadySelected) {
+        alert("This free meal has already been added.");
+        return;
+      }
+    }
+
+    // Add meal with specified quantity
+    setSelectedMeals((prevSelectedMeals) => [
+      ...prevSelectedMeals,
+      { ...meal, quantity },
+    ]);
+  };
+
+  // Calculate the total bill for selected meals
+  const totalBill = selectedMeals.reduce(
+    (total, meal) => total + parsePrice(meal.price) * meal.quantity,
+    0
+  );
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -128,6 +158,24 @@ const AddMeals = () => {
                 Skip Meal Selection
               </a>
             </div>
+
+            {/* Display selected meals */}
+            {selectedMeals.length > 0 && (
+              <div className="selected-meals">
+                <h3>Selected Meals:</h3>
+                <ul>
+                  {selectedMeals.map((meal, index) => (
+                    <li key={index}>
+                      {meal.name} - {meal.price} x {meal.quantity}
+                    </li>
+                  ))}
+                </ul>
+                {/* Display the total bill */}
+                <div className="total-bill">
+                  <strong>Total Bill: </strong> {totalBill} Rs
+                </div>
+              </div>
+            )}
 
             <div className="search-sort">
               <select
@@ -189,7 +237,53 @@ const AddMeals = () => {
                     <p>{meal.description}</p>
                   </div>
                   <div className="meal-price">{meal.price}</div>
-                  <button className="add-meal-button">+ Add This Meal</button>
+                  {quantitySelector?.id === meal.id ? (
+                    <div className="quantity-selector">
+                      <button
+                        onClick={() =>
+                          setQuantitySelector((prev) => ({
+                            ...prev,
+                            quantity: Math.max(1, prev.quantity - 1),
+                          }))
+                        }
+                      >
+                        -
+                      </button>
+                      <span>{quantitySelector.quantity}</span>
+                      <button
+                        onClick={() =>
+                          setQuantitySelector((prev) => ({
+                            ...prev,
+                            quantity: prev.quantity + 1,
+                          }))
+                        }
+                      >
+                        +
+                      </button>
+                      <button
+                        className="done-button"
+                        onClick={() => {
+                          handleAddMeal(quantitySelector, quantitySelector.quantity);
+                          setQuantitySelector(null);
+                        }}
+                      >
+                        Done
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      className="add-meal-button"
+                      onClick={() => {
+                        if (meal.price !== 'Free') {
+                          setQuantitySelector({ ...meal, quantity: 1 });
+                        } else {
+                          handleAddMeal(meal);
+                        }
+                      }}
+                    >
+                      {meal.price !== 'Free' && '+ '}Add This Meal
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
