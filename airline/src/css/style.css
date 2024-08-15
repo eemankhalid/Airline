@@ -2729,7 +2729,7 @@ button:hover {
     color: #666;
   }
   
-  .edit-selection-button {
+  .edit-selection-button1 {
     background-color: #5e6164; /* Button background color */
     color: #fff;
     border: none;
@@ -2741,6 +2741,28 @@ button:hover {
     font-size: 14px;
   }
   
+  .edit-selection-button2 {
+    background-color: #5e6164; /* Button background color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  .edit-selection-button3 {
+    background-color: #5e6164; /* Button background color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
   .edit-selection-button .icon {
     margin-right: 5px;
   }
@@ -2870,56 +2892,115 @@ button:hover {
   .legend-color.selected {
     background-color: #E40046;
   }
-  
-  .seatmap {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .seatmap img {
-    width: 100%;
-  }
-  
-  .seats-summary {
-    width: 25%;
-    background-color: #333;
-    color: white;
+  .seat-selection-container {
+    display: flex;
     padding: 20px;
+  }
+  
+  .seat-selection-left {
+    width: 50%;
+    padding-right: 20px;
+  }
+  
+  .passenger-list {
+    margin-bottom: 20px;
+  }
+  
+  .passenger-item {
+    display: flex;
+    justify-content: space-between;
+    background: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 5px;
     border-radius: 5px;
   }
   
-  .seats-summary h3 {
-    font-size: 18px;
-    margin-bottom: 20px;
+  .seat-map-legend {
+    margin-top: 20px;
   }
   
-  .summary-item {
+  .legend-item {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .selected-seats {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .selected-seats li {
-    display: flex;
-    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
   }
   
-  .confirm-selection {
-    background-color: #E40046;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+  .legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
     border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    text-align: center;
   }
   
+  .available {
+    background: #dcdcdc;
+  }
+  
+  .occupied {
+    background: #888888;
+  }
+  
+  .selected {
+    background: #ff0000;
+  }
+  
+  .seat-selection-right {
+    width: 50%;
+    text-align: right;
+  }
+  
+  .seat-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .seat-row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    text-align: center;
+    line-height: 40px;
+    background: #dcdcdc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .seat.selected {
+    background: #ff0000;
+  }
+  
+  .seat-summary {
+    margin-top: 20px;
+  }
+  
+  .total-price {
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .confirm-selection-btn {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .back-button{
+    margin-top: 5px;
+    margin-right: 5px;
+    width: fit-content;
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
