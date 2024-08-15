@@ -1,0 +1,10 @@
+/* Contact Start */
+.contact .container form .btn.btn-primary {
+    box-shadow: inset 0 0 0 0 var(--bs-primary);
+}
+
+.contact .container form .btn.btn-primary:hover {
+    box-shadow: inset 1000px 0 0 0 var(--bs-light) !important;
+    color: var(--bs-primary) !important;
+}
+/* Contact End */

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
 import FlightPackages from "../components/FlightPackages"
+import '../css/SelectFlight.css'
 
 // Dummy data representing flights
 const flightsData = [
@@ -374,7 +375,7 @@ const handleContinue = () => {
             calculateFare('adult', bookingDetails.passengers?.adults || 0) +
             calculateFare('child', bookingDetails.passengers?.children || 0) +
             calculateFare('infant', bookingDetails.passengers?.infants || 0);
-
+        
         setTotalFare(total);
         setTax(extraPrice - total);
     }, [adultFare, childFare, infantFare, extraPrice, bookingDetails]);
@@ -467,13 +468,13 @@ const handleContinue = () => {
                         {bookingDetails.passengers?.children > 0 && (
                             <div>
                                 <span>{bookingDetails.passengers.children > 0 ? ` ${bookingDetails.passengers.children} x Child${bookingDetails.passengers.children > 1 ? 'ren' : ''}` : ''}: </span>
-                                <span>{formatPrice(childFare.toString())}</span>
+                                <span>{Math.round(formatPrice(childFare.toString()))}</span>
                             </div>
                         )}
                         {bookingDetails.passengers?.infants > 0 && (
                             <div>
                                 <span>{bookingDetails.passengers.infants > 0 ? ` ${bookingDetails.passengers.infants} x Infant${bookingDetails.passengers.infants > 1 ? 's' : ''}` : ''}: </span>
-                                <span>Infant Fare: {formatPrice(infantFare.toString())}</span>
+                                <span>{Math.round(formatPrice(infantFare.toString()))}</span>
                             </div>
                         )}
                         {selectedPackage && (
@@ -506,7 +507,7 @@ const handleContinue = () => {
                 <button className="continue-button" onClick={handleContinue}>
                     Continue to Passenger Details 
                 </button>
-            </div>
+            </div>  
             </div>
         </>
     );

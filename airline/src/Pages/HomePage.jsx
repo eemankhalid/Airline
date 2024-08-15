@@ -5,6 +5,7 @@ import WingPoints from '../components/WingPoints';
 import FlightOptions from '../components/FlightOptions';
 import WhyInfinityWings from '../components/WhyInfinityWings';
 import Hero from '../components/Hero';
+import '../css/HomePage.css'
 
 const HomePage = () => {
   const button = <Link className="btn" to="#">Discover More</Link>;
