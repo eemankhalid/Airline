@@ -5,6 +5,7 @@ import AddBaggage from './AddBaggage';
 const AddMeals = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Meals');
   const [activeComponent, setActiveComponent] = useState('meals');
+  const [sortOption, setSortOption] = useState('price'); // default sorting by price
 
   // Meal data
   const meals = [
@@ -93,103 +94,124 @@ const AddMeals = () => {
     selectedCategory === 'All Meals'
       ? meals
       : meals.filter((meal) => meal.category === selectedCategory);
-      const renderComponent = () => {
-        switch (activeComponent) {
-          case 'add-baggage':
-            return <AddBaggage />;
-          default:
+
+  // Function to convert price to number for sorting
+  const parsePrice = (price) => {
+    if (price === 'Free') return 0;
+    return parseInt(price.replace(' Rs', '').replace(/,/g, '')) || 0;
+  };
+
+  // Sort meals based on the selected sort option
+  const sortedMeals = [...filteredMeals].sort((a, b) => {
+    if (sortOption === 'price') {
+      return parsePrice(a.price) - parsePrice(b.price);
+    } else if (sortOption === 'name') {
+      return a.name.localeCompare(b.name);
+    }
+    return 0;
+  });
+
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case 'add-baggage':
+        return <AddBaggage />;
+      default:
+        return (
+          <div className="meals-container">
+            <div className="meal-header">
+              <h2>Select meals for your trip</h2>
+              <a
+                href="#"
+                className="skip-selection"
+                onClick={() => setActiveComponent('add-baggage')}
+              >
+                Skip Meal Selection
+              </a>
+            </div>
+
+            <div className="search-sort">
+              <select
+                className="sort-select"
+                value={sortOption}
+                onChange={(e) => setSortOption(e.target.value)}
+              >
+                <option value="price">Sort By Price</option>
+                <option value="name">Sort By Name</option>
+              </select>
+            </div>
+            <div className="meal-categories">
+              <button
+                className={`category ${
+                  selectedCategory === 'All Meals' ? 'active' : ''
+                }`}
+                onClick={() => setSelectedCategory('All Meals')}
+              >
+                All Meals
+              </button>
+              <button
+                className={`category ${
+                  selectedCategory === 'Hot Breakfast' ? 'active' : ''
+                }`}
+                onClick={() => setSelectedCategory('Hot Breakfast')}
+              >
+                Hot Breakfast
+              </button>
+              <button
+                className={`category ${
+                  selectedCategory === 'Hot Meals' ? 'active' : ''
+                }`}
+                onClick={() => setSelectedCategory('Hot Meals')}
+              >
+                Hot Meals
+              </button>
+              <button
+                className={`category ${
+                  selectedCategory === 'Sandwiches' ? 'active' : ''
+                }`}
+                onClick={() => setSelectedCategory('Sandwiches')}
+              >
+                Sandwiches
+              </button>
+              <button
+                className={`category ${
+                  selectedCategory === 'Salad' ? 'active' : ''
+                }`}
+                onClick={() => setSelectedCategory('Salad')}
+              >
+                Salad
+              </button>
+            </div>
+            <div className="meal-items">
+              {sortedMeals.map((meal) => (
+                <div className="meal-item" key={meal.id}>
+                  <div className="meal-description">
+                    <h3>{meal.name}</h3>
+                    <p>{meal.description}</p>
+                  </div>
+                  <div className="meal-price">{meal.price}</div>
+                  <button className="add-meal-button">+ Add This Meal</button>
+                </div>
+              ))}
+            </div>
+
+            <div className="confirm-section">
+              <button
+                className="confirm-button"
+                onClick={() => setActiveComponent('add-baggage')}
+              >
+                Confirm selection
+              </button>
+            </div>
+          </div>
+        );
+    }
+  };
 
   return (
-    <div className="meals-container">
-        <div className="meal-header">
-          <h2>Select meals for your trip</h2>
-      
-          <a href="#" className="skip-selection" onClick={() => setActiveComponent('add-baggage')} >
-            Skip Meal Selection
-          </a>
-        </div>
-     
-
-        <div className="search-sort">
-          <input
-            type="text"
-            placeholder="Search for meals"
-            className="search-input"
-          />
-          <select className="sort-select">
-            <option value="price">Sort By Price</option>
-            <option value="name">Sort By Name</option>
-          </select>
-        </div>
-        <div className="meal-categories">
-          <button
-            className={`category ${
-              selectedCategory === 'All Meals' ? 'active' : ''
-            }`}
-            onClick={() => setSelectedCategory('All Meals')}
-          >
-            All Meals
-          </button>
-          <button
-            className={`category ${
-              selectedCategory === 'Hot Breakfast' ? 'active' : ''
-            }`}
-            onClick={() => setSelectedCategory('Hot Breakfast')}
-          >
-            Hot Breakfast
-          </button>
-          <button
-            className={`category ${
-              selectedCategory === 'Hot Meals' ? 'active' : ''
-            }`}
-            onClick={() => setSelectedCategory('Hot Meals')}
-          >
-            Hot Meals
-          </button>
-          <button
-            className={`category ${
-              selectedCategory === 'Sandwiches' ? 'active' : ''
-            }`}
-            onClick={() => setSelectedCategory('Sandwiches')}
-          >
-            Sandwiches
-          </button>
-          <button
-            className={`category ${
-              selectedCategory === 'Salad' ? 'active' : ''
-            }`}
-            onClick={() => setSelectedCategory('Salad')}
-          >
-            Salad
-          </button>
-        </div>
-        <div className="meal-items">
-          {filteredMeals.map((meal) => (
-            <div className="meal-item" key={meal.id}>
-              <div className="meal-description">
-                <h3>{meal.name}</h3>
-                <p>{meal.description}</p>
-              </div>
-              <div className="meal-price">{meal.price}</div>
-              <button className="add-meal-button">+ Add This Meal</button>
-            </div>
-          ))}
-        </div>
-
-        <div className="confirm-section">
-          <button className="confirm-button" onClick={() => setActiveComponent('add-baggage')} >Confirm selection</button>
-        </div>
-      </div>
-         );
-        }
-      };
-  return(
     <>
-      
       <FlightHeader />
       <br />
       {renderComponent()} {/* Render the active component */}
-      
     </>
   );
 };
