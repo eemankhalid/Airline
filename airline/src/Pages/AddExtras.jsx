@@ -106,7 +106,7 @@ const AddExtrasPages = () => {
       <br />
       <FlightHeader />
       <br />
-      {activeComponent !== 'addSeats' && (
+      {activeComponent !== 'addSeats' && activeComponent !== 'addMeals' && activeComponent !== 'addBaggage' && (
         <button className="paybtn">Continue to Payment</button>
       )}
       {renderComponent()}
