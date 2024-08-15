@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FlightHeader from '../components/FlightHeader';
 import AddMeals from './AddMeals'; // Import AddMeals component
 
 const AddSeats = () => {
+  const [bookingDetails, setBookingDetails] = useState({});
   const [selectedSeats, setSelectedSeats] = useState({
     "Mrs. Anna Ahad": "4C",
     "Ms. Anna Ahad": "5D",
     "Mrs. Anna Ahad (2)": "2E",
   });
   const [activeComponent, setActiveComponent] = useState('seats');
+  const [currentPassenger, setCurrentPassenger] = useState(null); // Track the selected passenger
+
+  useEffect(() => {
+    const storedBookingDetails = sessionStorage.getItem('bookingDetails');
+    if (storedBookingDetails) {
+      setBookingDetails(JSON.parse(storedBookingDetails));
+    }
+  }, []);
 
   const seatMap = [
     ["A", "B", "C", "D", "E", "F"],
@@ -18,10 +27,14 @@ const AddSeats = () => {
   ];
 
   const handleSeatClick = (rowIndex, seatIndex) => {
+    if (!currentPassenger) {
+      alert("Please select a passenger first.");
+      return;
+    }
+
     const selectedSeat = `${rowIndex + 1}${seatMap[rowIndex][seatIndex]}`;
     console.log("Seat clicked:", selectedSeat);
 
-    const currentPassenger = "Mrs. Anna Ahad";
     setSelectedSeats((prevSeats) => ({
       ...prevSeats,
       [currentPassenger]: selectedSeat,
@@ -37,18 +50,18 @@ const AddSeats = () => {
           <div className="seat-selection-container">
             <div className="seat-selection-left">
               <h2>Select seats for your trip</h2>
-              <p>Karachi to Peshawar</p>
-              <p>Flight 9P865</p>
-
+              <p>{bookingDetails.fromCountry} to {bookingDetails.toCountry}</p>
               <div className="passenger-list">
                 <h3>Select passenger from the list below</h3>
                 <ul>
                   {Object.entries(selectedSeats).map(([name, seat]) => (
-                    <li key={name}>
-                      <div className="passenger-item">
-                        <span>{name}</span>
-                        <span className="seat-number">{seat}</span>
-                      </div>
+                    <li 
+                      key={name} 
+                      className={`passenger-item ${currentPassenger === name ? 'active' : ''}`}
+                      onClick={() => setCurrentPassenger(name)} // Set the current passenger when clicked
+                    >
+                      <span>{name}</span>
+                      <span className="seat-number">{seat}</span>
                     </li>
                   ))}
                 </ul>
