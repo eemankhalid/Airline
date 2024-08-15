@@ -1041,7 +1041,6 @@ body {
     background-color:white;
     margin: 0 auto 1em auto;
   }
- 
   
   
   
@@ -1989,6 +1988,7 @@ button:hover {
     padding: 0; /* Remove padding if any */
     margin: 2px; /* Remove margin if any */
     align-items: flex-start; 
+    flex-wrap: wrap; /* Allow the cards to wrap on smaller screens */
     /* Align items at the top to avoid any spacing issues */
 }
 
@@ -2106,7 +2106,29 @@ button:hover {
     display: flex;
      /* Align the label with the radio button */
 }
+/* Responsive adjustments */
+    .package-option {
+        width: 30%;
+    }
+}
 
+@media (max-width: 992px) {
+    .package-option {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .package-option {
+        width: 60%;
+    }
+}
+
+@media (max-width: 576px) {
+    .package-option {
+        width: 100%;
+    }
+}
 
 /* General Page Styles */
 .faqs-page {
@@ -2512,179 +2534,492 @@ button:hover {
 .no-flights-message p {
     margin: 0; /* Remove default margin */
 }
-/* join page start */
-/* Styling the JoinPage component */
-.join-page {
+.continue-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.continue-button {
+    background-color: #878b8e;
+    
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.continue-button::after {
+    content: '→'; /* Adds the arrow */
+    margin-left: 10px; /* Adds space between text and arrow */
+    font-size: 20px;
+}
+.continue-button:hover {
+    background-color: #2f3031;
+}
+
+.back-button {
+    position: static;
+   margin-top: 0%; /* Distance from the bottom of the page */
+   margin-left: 50%; /* Center the button horizontally */
+   transform: translateX(-50%); /* Adjust the button's position to account for its own width */
+    background-color: #d43f00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000;
+    width:min-content /* Ensure it's on top of other elements */
+  }
+  
+  .back-button:hover {
+    background-color: #a63900;
+  }
+  
+  .passenger-info, .contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Headings Styling */
+  h2, h3 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #333; /* A darker color for better readability */
+    margin-bottom: 15px; /* Adds space below the headings */
+  }
+  
+  /* Specific Heading Sizes */
+  h2 {
+    font-size: 24px; /* Slightly larger for main sections */
+  }
+  
+  h3 {
+    font-size: 20px; /* Slightly smaller for subsections */
+  }
+  
+
+  /* Tabs Styling */
+.passenger-tabs {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.ptab {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-right: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.ptab:last-child {
+    border-right: 1px solid #ccc;
+}
+
+.ptab.active {
+    background-color: #ff5c5c;
+    color: #fff;
+    position: relative;
+}
+
+.ptab.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    border-left: 10px solid #ff5c5c;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+}
+
+  /* Form Section and Group Styling */
+  .form-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+  }
+  
+  .form-group .required {
+    color: red;
+  }
+  
+  input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Radio Group */
+  .radio-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .next-passenger {
+    background-color: #3d3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  /* Contact Information Section */
+  .checkbox-group {
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-group label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  /* Mobile Group */
+  .mobile-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Checkbox Styling */
+  input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  /* Rewards Highlight */
+  .rewards-highlight {
+    color: #ff5c5c;
+    font-weight: bold;
+  }
+  
+  /* Continue Button Styling */
+  .continue-btn {
+    background-color: #ff5c5c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+  }
+  .extras-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7; /* Light gray background */
+  }
+  
+  .extras-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .extras-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .extras-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+  
+  .extras-section:last-child {
+    border-bottom: none;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  .section .icon {
+    margin-right: 20px; /* Space between the icon and text */
+    color: #444547; /* Optional: set color of the icon */
+  }
+  .section-description {
+    color: #666;
+  }
+  
+  .edit-selection-button1 {
+    background-color: #5e6164; /* Button background color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .edit-selection-button2 {
+    background-color: #5e6164; /* Button background color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  .edit-selection-button3 {
+    background-color: #5e6164; /* Button background color */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  .edit-selection-button .icon {
+    margin-right: 5px;
+  }
+  
+  .paybtn {
+    background-color: #ff004f; /* Pinkish color for the button */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    margin-top: 20px;
+  
+    width: 300px;
+ height: 60px;
+
+  }
+  
+  .extras-price {
+    font-weight: bold;
+    color: #333;
+  }
+  .add-seats-container {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     font-family: Arial, sans-serif;
   }
   
-  form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    
-    width: 600px;
-    margin-right: 20px;
+  .seats-selection-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
-  .section {
+  .select-seats-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .flight-route {
+    font-size: 18px;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  .flight-number {
+    font-size: 16px;
+    color: #555;
+    margin-top: 2px;
+  }
+  
+  .remove-selection {
+    font-size: 14px;
+    color: red;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .seats-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .passenger-list {
+    width: 30%;
+  }
+  
+  .passenger-list h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .passenger-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .passenger {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .passenger.active {
+    background-color: #E40046;
+    color: white;
+  }
+  
+  .seatmap-container {
+    width: 40%;
+  }
+  
+  .legend {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
   }
   
-  .section h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
+  .legend-item {
+    display: flex;
+    align-items: center;
   }
   
-  label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 14px;
+  .legend-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
   }
   
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+  .legend-color.available {
+    background-color: #ccc;
   }
   
-  button[type="submit"] {
-    background-color: #ec1c24;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
+  .legend-color.occupied {
+    background-color: #999;
   }
   
-  button[type="submit"]:hover {
-    background-color: #c51a1c;
+  .legend-color.selected {
+    background-color: #E40046;
   }
-  
-  .error {
-    color: red;
-    font-size: 12px;
-  }
-  
-  .required {
-    color: red;
-  }
-  
-  /* AirRewards Section */
-  .air-rewards {
-    background-color: #f9f9f9;
+  .seat-selection-container {
+    display: flex;
     padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .air-rewards h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #ec1c24;
+  .seat-selection-left {
+    width: 50%;
+    padding-right: 20px;
   }
   
-  .air-rewards p {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 10px;
+  .passenger-list {
+    margin-bottom: 20px;
   }
   
-  .air-rewards ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .air-rewards ul li {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-  }
-  
-  .air-rewards ul li:before {
-    content: '>';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #ec1c24;
-  }
-  .double-field {
+  .passenger-item {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+    background: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
   }
   
-  .double-field label {
-    flex: 1;
+  .seat-map-legend {
+    margin-top: 20px;
   }
-  /*join page start*/
-  .joinwp-page {
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+  
+  .available {
+    background: #dcdcdc;
+  }
+  
+  .occupied {
+    background: #888888;
+  }
+  
+  .selected {
+    background: #ff0000;
+  }
+  
+  .seat-selection-right {
+    width: 50%;
+    text-align: right;
+  }
+  
+  .seat-map {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .seat-row {
+    display: flex;
     justify-content: center;
-    min-height: 100vh;
-    background-color: #e0e0e0; /* Lighter background for a softer look */
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
     text-align: center;
-    padding: 20px; /* Added padding for spacing */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    line-height: 40px;
+    background: #dcdcdc;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
-  .joinwp-page h1 {
-    font-size: 2.8rem; /* Slightly larger font size for prominence */
-    color: #222; /* Darker color for better contrast */
-    margin-bottom: 24px;
-    letter-spacing: 1.2px; /* Added letter spacing for a modern look */
+  .seat.selected {
+    background: #ff0000;
   }
   
-  .joinwp-page p {
-    font-size: 1.3rem; /* Slightly larger font for readability */
-    color: #3c3b3b; /* Softer color tone */
-    max-width: 600px; /* Limit width for better text alignment */
-    line-height: 1.6; /* Increased line height for better readability */
+  .seat-summary {
+    margin-top: 20px;
   }
   
-  .black-box {
-    background-color: #333; /* Darker background for contrast */
-    color: #fff; /* White text for better readability on dark background */
-    padding: 25px; /* Increased padding for a more substantial look */
-    border-radius: 12px; /* Larger border-radius for smoother edges */
-    margin-top: 24px;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow for depth */
-    max-width: 500px; /* Constrain width for better structure */
-  }
-  
-  .black-box p {
-    font-size: 1.3rem; /* Slightly larger font for consistency */
-    margin: 12px 0;
-  }
-  
-  .black-box strong {
+  .total-price {
     font-weight: bold;
-    color: #ffd700; /* Gold color for emphasis */
+    margin: 10px 0;
   }
   
-  
-  
-/* join page end */
-
-
   .confirm-selection-btn {
     background-color: #ff0000;
     color: white;
@@ -2898,5 +3233,4 @@ button:hover {
   .confirm-button:hover {
     background: #e84545;
   }
-  
-
+   
