@@ -1,11 +1,30 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // Add useNavigate here
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ContactInformation = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+
+  const [country, setCountry] = useState('');
+  const [email, setEmail] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [mobileDuringTravel, setMobileDuringTravel] = useState('');
+  const [isFormComplete, setIsFormComplete] = useState(false);
+
+  useEffect(() => {
+    // Check if all required fields are filled
+    if (country && email && mobile && mobileDuringTravel) {
+      setIsFormComplete(true);
+    } else {
+      setIsFormComplete(false);
+    }
+  }, [country, email, mobile, mobileDuringTravel]);
+
   const handleAddExtras = () => {
-    navigate('/add-extras'); // Navigate to AddExtras page with state
+    if (isFormComplete) {
+      navigate('/add-extras');
+    }
   };
+
   return (
     <div className="contact-info">
       <br></br>
@@ -19,24 +38,54 @@ const ContactInformation = () => {
       <div className="form-section">
         <div className="form-group">
           <label>Country of Residence <span className="required">*</span></label>
-          <input type="text" placeholder="Please Enter Country" />
+          <input
+            type="text"
+            placeholder="Please Enter Country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="Enter Email Address" />
+          <input
+            type="email"
+            placeholder="Enter Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label>Mobile</label>
           <div className="mobile-group">
-            <input type="text" placeholder="Country Code" />
-            <input type="text" placeholder="Phone" />
+            <input
+              type="text"
+              placeholder="Country Code"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Phone"
+              value={mobileDuringTravel}
+              onChange={(e) => setMobileDuringTravel(e.target.value)}
+            />
           </div>
         </div>
         <div className="form-group">
           <label>Mobile During Travel</label>
           <div className="mobile-group">
-            <input type="text" placeholder="Country Code" />
-            <input type="text" placeholder="Phone" />
+            <input
+              type="text"
+              placeholder="Country Code"
+              value={mobile}
+              onChange={(e) => setMobileDuringTravel(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Phone"
+              value={mobileDuringTravel}
+              onChange={(e) => setMobileDuringTravel(e.target.value)}
+            />
           </div>
         </div>
       </div>
@@ -46,17 +95,23 @@ const ContactInformation = () => {
           I will keep the same mobile number during travel.
         </label>
         <label>
-          <input type="checkbox"  />
-          As a Infinity Wing passenger, we'll send you updates about our special offers, holidays, and inspiring news on flights and travel products. You may uncheck here if you choose not to receive these exciting updates.
+          <input type="checkbox" />
+          As an Infinity Wing passenger, we'll send you updates about our special offers, holidays, and inspiring news on flights and travel products. You may uncheck here if you choose not to receive these exciting updates.
         </label>
         <label>
           <input type="checkbox" />
           I would like to join <span className="rewards-highlight">WingPoints</span>, Infinity Wing's loyalty program.
         </label>
       </div>
-      <button className="continue-btn"  onClick={handleAddExtras}>Continue to Extras</button>
+      <button
+        className="continue-btn"
+        onClick={handleAddExtras}
+        disabled={!isFormComplete} // Disable button if form is incomplete
+      >
+        Continue to Extras
+      </button>
     </div>
   );
-}
+};
 
 export default ContactInformation;

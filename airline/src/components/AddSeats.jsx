@@ -140,3 +140,5 @@ const AddSeats = () => {
 };
 
 export default AddSeats;
+
+
