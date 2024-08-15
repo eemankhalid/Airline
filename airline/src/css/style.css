@@ -1989,7 +1989,6 @@ button:hover {
     padding: 0; /* Remove padding if any */
     margin: 2px; /* Remove margin if any */
     align-items: flex-start; 
-    flex-wrap: wrap; /* Allow the cards to wrap on smaller screens */
     /* Align items at the top to avoid any spacing issues */
 }
 
@@ -2107,30 +2106,7 @@ button:hover {
     display: flex;
      /* Align the label with the radio button */
 }
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .package-option {
-        width: 30%;
-    }
-}
 
-@media (max-width: 992px) {
-    .package-option {
-        width: 45%;
-    }
-}
-
-@media (max-width: 768px) {
-    .package-option {
-        width: 60%;
-    }
-}
-
-@media (max-width: 576px) {
-    .package-option {
-        width: 100%;
-    }
-}
 
 /* General Page Styles */
 .faqs-page {
@@ -2536,5 +2512,175 @@ button:hover {
 .no-flights-message p {
     margin: 0; /* Remove default margin */
 }
-
+/* join page start */
+/* Styling the JoinPage component */
+.join-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    
+    width: 600px;
+    margin-right: 20px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .section h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  button[type="submit"] {
+    background-color: #ec1c24;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #c51a1c;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .required {
+    color: red;
+  }
+  
+  /* AirRewards Section */
+  .air-rewards {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .air-rewards h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ec1c24;
+  }
+  
+  .air-rewards p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .air-rewards ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .air-rewards ul li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .air-rewards ul li:before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ec1c24;
+  }
+  .double-field {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .double-field label {
+    flex: 1;
+  }
+  /*join page start*/
+  .joinwp-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #e0e0e0; /* Lighter background for a softer look */
+    text-align: center;
+    padding: 20px; /* Added padding for spacing */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  }
+  
+  .joinwp-page h1 {
+    font-size: 2.8rem; /* Slightly larger font size for prominence */
+    color: #222; /* Darker color for better contrast */
+    margin-bottom: 24px;
+    letter-spacing: 1.2px; /* Added letter spacing for a modern look */
+  }
+  
+  .joinwp-page p {
+    font-size: 1.3rem; /* Slightly larger font for readability */
+    color: #3c3b3b; /* Softer color tone */
+    max-width: 600px; /* Limit width for better text alignment */
+    line-height: 1.6; /* Increased line height for better readability */
+  }
+  
+  .black-box {
+    background-color: #333; /* Darker background for contrast */
+    color: #fff; /* White text for better readability on dark background */
+    padding: 25px; /* Increased padding for a more substantial look */
+    border-radius: 12px; /* Larger border-radius for smoother edges */
+    margin-top: 24px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow for depth */
+    max-width: 500px; /* Constrain width for better structure */
+  }
+  
+  .black-box p {
+    font-size: 1.3rem; /* Slightly larger font for consistency */
+    margin: 12px 0;
+  }
+  
+  .black-box strong {
+    font-weight: bold;
+    color: #ffd700; /* Gold color for emphasis */
+  }
+  
+  
+  
+/* join page end */
 

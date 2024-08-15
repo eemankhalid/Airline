@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Hero2 from '../components/Hero2';
 import img2 from '../assets/img/jwp.jpeg';
 
@@ -19,8 +20,15 @@ const JoinPage = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [userId, setUserId] = useState('');
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setIsFormValid(validate());
+  }, [formData]);
 
   const handleChange = (e) => {
     setFormData({
@@ -79,11 +87,11 @@ const JoinPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      // Simulate generating a user ID
       const generatedUserId = `WING-${Math.floor(Math.random() * 1000000)}`;
       setUserId(generatedUserId);
       setSubmitted(true);
-      console.log('Form data is valid. Submitting:', formData);
+
+      navigate('/join-wp', { state: { userId: generatedUserId } });
     } else {
       console.log('Form data is invalid.');
     }
@@ -96,10 +104,12 @@ const JoinPage = () => {
       <div className="join-page">
         {submitted ? (
           <div className="congratulations-message">
-            <h1>Congratulations!</h1>
-            <p>You are now a part of our WingPoints program.</p>
-            <p>Your user ID is: <strong>{userId}</strong></p>
-            <p>Use this ID to log in to our website and enjoy exclusive benefits!</p>
+            <div className="black-box">
+              <h1>Congratulations!</h1>
+              <p>You are now a part of our WingPoints program.</p>
+              <p>Your user ID is: <strong>{userId}</strong></p>
+              <p>Use this ID to log in to our website and enjoy exclusive benefits!</p>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
@@ -126,9 +136,7 @@ const JoinPage = () => {
                   value={formData.password}
                   onChange={handleChange}
                 />
-                {errors.password && (
-                  <span className="error">{errors.password}</span>
-                )}
+                {errors.password && <span className="error">{errors.password}</span>}
               </label>
               <label>
                 Confirm Password <span className="required">*</span>
@@ -138,9 +146,7 @@ const JoinPage = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                 />
-                {errors.confirmPassword && (
-                  <span className="error">{errors.confirmPassword}</span>
-                )}
+                {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
               </label>
             </div>
 
@@ -154,9 +160,7 @@ const JoinPage = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                 />
-                {errors.firstName && (
-                  <span className="error">{errors.firstName}</span>
-                )}
+                {errors.firstName && <span className="error">{errors.firstName}</span>}
               </label>
               <label>
                 Last Name <span className="required">*</span>
@@ -166,9 +170,7 @@ const JoinPage = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                 />
-                {errors.lastName && (
-                  <span className="error">{errors.lastName}</span>
-                )}
+                {errors.lastName && <span className="error">{errors.lastName}</span>}
               </label>
               <label>
                 Nationality <span className="required">*</span>
@@ -178,9 +180,7 @@ const JoinPage = () => {
                   value={formData.nationality}
                   onChange={handleChange}
                 />
-                {errors.nationality && (
-                  <span className="error">{errors.nationality}</span>
-                )}
+                {errors.nationality && <span className="error">{errors.nationality}</span>}
               </label>
               <label>
                 Country of Residence <span className="required">*</span>
@@ -189,14 +189,12 @@ const JoinPage = () => {
                   value={formData.country}
                   onChange={handleChange}
                 >
-                  <option value="">Select Title</option>
-            <option value="Mr">Mr.</option>
-            <option value="Miss">Miss</option>
-
+                  <option value="">Select Country</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  {/* Add more options here */}
                 </select>
-                {errors.country && (
-                  <span className="error">{errors.country}</span>
-                )}
+                {errors.country && <span className="error">{errors.country}</span>}
               </label>
               <label>
                 Mobile <span className="required">*</span>
@@ -206,9 +204,7 @@ const JoinPage = () => {
                   value={formData.mobile}
                   onChange={handleChange}
                 />
-                {errors.mobile && (
-                  <span className="error">{errors.mobile}</span>
-                )}
+                {errors.mobile && <span className="error">{errors.mobile}</span>}
               </label>
               <label>
                 Date of Birth <span className="required">*</span>
@@ -225,7 +221,7 @@ const JoinPage = () => {
             <div className="section">
               <h2>Additional Information</h2>
               <label>
-                Passport 
+                Passport
                 <input
                   type="text"
                   name="passport"
@@ -234,7 +230,7 @@ const JoinPage = () => {
                 />
               </label>
               <label>
-                Preferred Language 
+                Preferred Language
                 <input
                   type="text"
                   name="preferredLanguage"
@@ -253,7 +249,7 @@ const JoinPage = () => {
               </label>
             </div>
 
-            <button type="submit">Join Now</button>
+            <button type="submit" disabled={!isFormValid}>Join Now</button>
           </form>
         )}
 
