@@ -15,7 +15,7 @@ import ModifyFlightPage from './Pages/ModifyFlightPage';
 import CancelFlightPage from './Pages/CancelFlightPage';
 import AddWingPointsPage from './Pages/AddWingPointsPage';
 import FlightStatusPage from './components/FlightStatusPage';
-import AddExtrasPages from './Pages/AddExtrasPages';
+import AddExtras from './Pages/AddExtras';
 import CheckInPage from './Pages/CheckInPage';
 import LoginPage from './Pages/LoginPage';
 import JoinPage from './Pages/JoinPage';
@@ -25,6 +25,8 @@ import ContactUsPage from './Pages/ContactUsPage';
 import SelectFlightPage from './Pages/SelectFlightPage';
 import EnterDetailsPage from './Pages/EnterDetailsPage';
 import PassengerInformation from './components/PessengerInformation';
+import JoinwpPage from './Pages/JoinwpPage';
+ 
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -37,7 +39,7 @@ const router = createBrowserRouter(
             <Route path='/cancel-flight' element={<CancelFlightPage />} />
             <Route path='/add-wing-points-id' element={<AddWingPointsPage />} />
             <Route path='/check-flight-status' element={<FlightStatusPage />} />
-            <Route path='/Add Extras' element={<AddExtrasPages />} />
+            <Route path='/add-extras' element={<AddExtras />} />
             <Route path='/Check-In' element={<CheckInPage />} />
             <Route path='/wing-points-login' element={<LoginPage />} />
             <Route path='/join-wing-points' element={<JoinPage />} />
@@ -46,6 +48,7 @@ const router = createBrowserRouter(
             <Route path='/contact-us' element={<ContactUsPage />} />
             <Route path="/select-flight" element={<SelectFlightPage />} />
             <Route path="/enter-details" element={<EnterDetailsPage />} />
+            <Route path="/join-wp" element={<JoinwpPage />} />
             
             
         </Route>
