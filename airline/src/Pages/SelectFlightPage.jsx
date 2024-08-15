@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom"; 
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
 import FlightPackages from "../components/FlightPackages"
@@ -355,6 +356,19 @@ const SelectFlightPage = () => {
         }
         return 0;
     };
+    const navigate = useNavigate();
+
+const handleContinue = () => {
+  navigate('/enter-details', {
+        state: {
+        passengers: {
+        adults: bookingDetails.passengers.adults,
+        children: bookingDetails.passengers.children,
+        infants: bookingDetails.passengers.infants,
+      },
+    },
+  });
+};
     useEffect(() => {
         const total =
             calculateFare('adult', bookingDetails.passengers?.adults || 0) +
@@ -371,7 +385,7 @@ const SelectFlightPage = () => {
             <br /><br />
             <FlightHeader />
 
-            <br /><br />
+            
 
             <div className="select-flight bg-white">
                 <DateCarousel
@@ -487,6 +501,12 @@ const SelectFlightPage = () => {
                         </div>
                     </div>
                 </div>
+                 {/* Add the "Continue to Passenger Details" button */}
+            <div className="continue-button-container">
+                <button className="continue-button" onClick={handleContinue}>
+                    Continue to Passenger Details 
+                </button>
+            </div>
             </div>
         </>
     );
