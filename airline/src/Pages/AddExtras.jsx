@@ -3,6 +3,9 @@ import FlightHeader from '../components/FlightHeader';
 import AddSeats from '../components/AddSeats';
 import AddMeals from '../components/AddMeals';
 import AddBaggage from '../components/AddBaggage';
+import '../css/AddMeals.css';
+import '../css/AddSeats.css';
+import '../css/AddExtras.css'
 
 const AddExtrasPages = () => {
   const [activeComponent, setActiveComponent] = useState('extras');

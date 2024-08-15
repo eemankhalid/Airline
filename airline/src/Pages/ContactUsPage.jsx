@@ -1,6 +1,7 @@
 import React from 'react'
 import ContactUsForm from '../components/ContactUsForm'
 import Hero2 from '../components/Hero2'
+import '../css/ContactForm.css'
 
 const ContactUsPage = () => {
   return (

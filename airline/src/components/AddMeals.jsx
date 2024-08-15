@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FlightHeader from '../components/FlightHeader';
 import AddBaggage from './AddBaggage';
 
+
 const AddMeals = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Meals');
   const [activeComponent, setActiveComponent] = useState('meals');

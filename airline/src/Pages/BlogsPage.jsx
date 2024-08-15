@@ -1,5 +1,6 @@
 import React from 'react'
 import BlogCategories from '../components/BlogCategories'
+import '../css/Blog.css'
 
 const BlogsPage = () => {
   return (

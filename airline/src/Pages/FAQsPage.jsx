@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import Hero2 from '../components/Hero2'
 import img1 from '../assets/img/faq.jpg';// Import Font Awesome CSS
+import '../css/FAQs.css'
 
 const FAQsPage = () => {
   const [activeTab, setActiveTab] = useState('Booking');
