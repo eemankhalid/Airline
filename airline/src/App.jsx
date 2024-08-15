@@ -50,6 +50,7 @@ const router = createBrowserRouter(
             <Route path="/enter-details" element={<EnterDetailsPage />} />
             <Route path="/join-wp" element={<JoinwpPage />} />
             
+            
         </Route>
 
     )
