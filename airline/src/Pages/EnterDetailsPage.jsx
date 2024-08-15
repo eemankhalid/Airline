@@ -11,6 +11,7 @@ const EnterDetailsPage = () => {
         <br /><br />
       <PessengerInformation />
       <ContactInformation />
+
     </div>
   )
 }

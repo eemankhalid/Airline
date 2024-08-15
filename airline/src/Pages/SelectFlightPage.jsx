@@ -359,7 +359,7 @@ const SelectFlightPage = () => {
     const navigate = useNavigate();
 
 const handleContinue = () => {
-  navigate('/passenger-information', {
+  navigate('/enter-details', {
         state: {
         passengers: {
         adults: bookingDetails.passengers.adults,
