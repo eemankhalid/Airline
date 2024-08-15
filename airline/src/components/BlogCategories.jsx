@@ -3,12 +3,10 @@ import Hero2 from '../components/Hero2';
 import img from '../assets/img/blog1.jpg';
 
 const BlogCategories = () => {
-  // Create refs for each section
   const destinationRef = useRef(null);
   const generalRef = useRef(null);
   const infinityRef = useRef(null);
 
-  // Scroll to the specific section when a category is clicked
   const scrollToSection = (ref) => {
     window.scrollTo({
       top: ref.current.offsetTop,
@@ -33,13 +31,14 @@ const BlogCategories = () => {
               <li onClick={() => scrollToSection(infinityRef)}>Infinity Wings Blogs</li>
             </ul>
           </div>
-        </aside>
+          </aside>
 
         <div className="blog-content">
+          {/* Destination Blogs Section */}
           <section ref={destinationRef}>
             <h2 style={{ color: 'black' }}>Destination Blogs</h2>
-
             <div className="blog-row">
+              {/* Blog Posts */}
               <div className="blog-post card">
                 <div className="card-image">
                   <img src="src/assets/img/blog2.jpeg" alt="Destination Post 1" />
@@ -63,6 +62,7 @@ const BlogCategories = () => {
             </div>
           </section>
 
+          {/* General Blogs Section */}
           <section ref={generalRef}>
             <h2 style={{ color: 'black' }}>General Blogs</h2>
             <div className="blog-row">
@@ -89,6 +89,7 @@ const BlogCategories = () => {
             </div>
           </section>
 
+          {/* Infinity Wings Blogs Section */}
           <section ref={infinityRef}>
             <h2 style={{ color: 'black' }}>Infinity Wings Blogs</h2>
             <div className="blog-row">
@@ -99,7 +100,7 @@ const BlogCategories = () => {
                 <div className="card-content">
                   <h4>The Future of Travel</h4>
                   <div className="underline"></div>
-                  <p>Explore the innovations shaping tomorrow's journeys. From cutting-edge , discover how travel is evolving to create a more connected and eco-friendly world.</p>
+                  <p>Explore the innovations shaping tomorrow's journeys. From cutting-edge technology to sustainable practices, discover how travel is evolving to create a more connected and eco-friendly and comfortable flight.</p>
                 </div>
               </div>
               <div className="blog-post card">
@@ -109,7 +110,7 @@ const BlogCategories = () => {
                 <div className="card-content">
                   <h4>Innovative Experiences</h4>
                   <div className="underline"></div>
-                  <p>Unlock new ways to explore the world with groundbreaking travel experiences.nnovation is transforming how we discover and enjoy our planet.</p>
+                  <p>Unlock new ways to explore the world with groundbreaking travel experiences. Innovation is transforming how we discover and enjoy our planet  discover how travel is evolving to create a more connected flight.</p>
                 </div>
               </div>
             </div>
