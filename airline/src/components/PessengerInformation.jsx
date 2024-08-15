@@ -7,56 +7,67 @@ const PassengerInformation = () => {
 
   const passengers = state?.passengers || {};
   const adults = passengers.adults || 1;
-  const children = passengers.children || 0;
-  const infants = passengers.infants || 0;
+  const childs = passengers.childs || 0;
 
-  const totalPassengers = adults + children + infants;
   const [activeTab, setActiveTab] = useState(1);
-  const [passengerForms, setPassengerForms] = useState(Array(totalPassengers).fill({}));
+  const [adultForms, setAdultForms] = useState(Array(adults).fill({}));
+  const [childForms, setChildForms] = useState(Array(childs).fill({}));
   const [isFormComplete, setIsFormComplete] = useState(false);
   const [isAllPassengersAdded, setIsAllPassengersAdded] = useState(false);
+  const [currentSection, setCurrentSection] = useState('adults'); // Track current section (adults or children)
 
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
-    const updatedForms = [...passengerForms];
-    updatedForms[activeTab - 1] = { ...updatedForms[activeTab - 1], [name]: value };
-    setPassengerForms(updatedForms);
+    let updatedForms;
 
-    // Check if the form is complete
-    const currentForm = updatedForms[activeTab - 1];
-    const isComplete = currentForm.title && currentForm.firstName && currentForm.lastName && currentForm.nationality;
+    if (currentSection === 'adults') {
+      updatedForms = [...adultForms];
+      updatedForms[activeTab - 1] = { ...updatedForms[activeTab - 1], [name]: value };
+      setAdultForms(updatedForms);
 
-    setIsFormComplete(isComplete);
+      // Check if the form is complete
+      const currentForm = updatedForms[activeTab - 1];
+      const isComplete = currentForm.title && currentForm.firstName && currentForm.lastName && currentForm.nationality;
+      setIsFormComplete(isComplete);
+    } else if (currentSection === 'children') {
+      updatedForms = [...childForms];
+      updatedForms[activeTab - 1] = { ...updatedForms[activeTab - 1], [name]: value };
+      setChildForms(updatedForms);
+
+      // Check if the form is complete
+      const currentForm = updatedForms[activeTab - 1];
+      const isComplete = currentForm.title && currentForm.firstName && currentForm.lastName && currentForm.nationality;
+      setIsFormComplete(isComplete);
+    }
   };
 
   const handleNextPassenger = () => {
-    if (activeTab < totalPassengers) {
-      setActiveTab((prevTab) => prevTab + 1);
-      setIsFormComplete(false); // Reset form completion for the next passenger
-    } else {
-      // All passengers have been added. Handle submission or next step here.
-      console.log('All passengers added:', passengerForms);
-      setIsAllPassengersAdded(true);
-      // You can perform actions like submitting the form data to the server here.
+    if (currentSection === 'adults') {
+      if (activeTab < adults) {
+        setActiveTab((prevTab) => prevTab + 1);
+        setIsFormComplete(false); // Reset form completion for the next passenger
+      } else {
+        // Switch to children section
+        setCurrentSection('children');
+        setActiveTab(1);
+      }
+    } else if (currentSection === 'children') {
+      if (activeTab < childs) {
+        setActiveTab((prevTab) => prevTab + 1);
+        setIsFormComplete(false); // Reset form completion for the next passenger
+      } else {
+        // All passengers have been added. Handle submission or next step here.
+        console.log('All passengers added:', { adults: adultForms, children: childForms });
+        setIsAllPassengersAdded(true);
+        // You can perform actions like submitting the form data to the server here.
+      }
     }
   };
 
   const renderFormFields = () => {
-    let type = '';
-    let count = 0;
-
-    if (activeTab <= adults) {
-      type = 'Adult';
-      count = activeTab;
-    } else if (activeTab <= adults + children) {
-      type = 'Child';
-      count = activeTab - adults;
-    } else {
-      type = 'Infant';
-      count = activeTab - adults - children;
-    }
-
-    const currentFormData = passengerForms[activeTab - 1] || {};
+    const currentFormData = currentSection === 'adults'
+      ? adultForms[activeTab - 1] || {}
+      : childForms[activeTab - 1] || {};
 
     return (
       <div className="form-section">
@@ -79,7 +90,7 @@ const PassengerInformation = () => {
           <input
             type="text"
             name="firstName"
-            placeholder={`Enter First Name for ${type} ${count}`}
+            placeholder={`Enter First Name for ${currentSection === 'adults' ? `Adult ${activeTab}` : `Child ${activeTab}`}`}
             onChange={handleFieldChange}
             value={currentFormData.firstName || ''}
           />
@@ -89,7 +100,7 @@ const PassengerInformation = () => {
           <input
             type="text"
             name="lastName"
-            placeholder={`Enter Last Name for ${type} ${count}`}
+            placeholder={`Enter Last Name for ${currentSection === 'adults' ? `Adult ${activeTab}` : `Child ${activeTab}`}`}
             onChange={handleFieldChange}
             value={currentFormData.lastName || ''}
           />
@@ -147,47 +158,32 @@ const PassengerInformation = () => {
 
   const generateTabs = () => {
     const tabs = [];
-    let tabIndex = 1;
-
-    for (let i = 1; i <= adults; i++) {
-      tabs.push(
-        <div
-          key={`adult-${i}`}
-          className={`ptab ${activeTab === tabIndex ? 'active' : ''}`}
-          onClick={() => setActiveTab(tabIndex)}
-        >
-          Adult {i}
-        </div>
-      );
-      tabIndex++;
+    if (currentSection === 'adults') {
+      for (let i = 1; i <= adults; i++) {
+        tabs.push(
+          <div
+            key={`adult-${i}`}
+            className={`ptab ${activeTab === i ? 'active' : ''}`}
+            onClick={() => setActiveTab(i)}
+          >
+            Adult {i}
+          </div>
+        );
+      }
+    } else if (currentSection === 'children') {
+      for (let i = 1; i <= childs; i++) {
+        tabs.push(
+          <div
+            key={`child-${i}`}
+            className={`ptab ${activeTab === i ? 'active' : ''}`}
+            onClick={() => setActiveTab(i)}
+          >
+            Child {i}
+          </div>
+        );
+      }
     }
-
-    for (let i = 1; i <= children; i++) {
-      tabs.push(
-        <div
-          key={`child-${i}`}
-          className={`ptab ${activeTab === tabIndex ? 'active' : ''}`}
-          onClick={() => setActiveTab(tabIndex)}
-        >
-          Child {i}
-        </div>
-      );
-      tabIndex++;
-    }
-
-    for (let i = 1; i <= infants; i++) {
-      tabs.push(
-        <div
-          key={`infant-${i}`}
-          className={`ptab ${activeTab === tabIndex ? 'active' : ''}`}
-          onClick={() => setActiveTab(tabIndex)}
-        >
-          Infant {i}
-        </div>
-      );
-      tabIndex++;
-    }
-
+    console.log('Tabs:', tabs); // Debugging line to check tabs being generated
     return tabs;
   };
 
