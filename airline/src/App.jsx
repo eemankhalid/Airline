@@ -48,6 +48,7 @@ const router = createBrowserRouter(
             <Route path="/enter-details" element={<EnterDetailsPage />} />
             
             
+            
         </Route>
 
     )
