@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import Hero2 from '../components/Hero2';
 import img from '../assets/img/blog1.jpg';
+import '../css/Blog.css';
 
 const BlogCategories = () => {
   const destinationRef = useRef(null);
