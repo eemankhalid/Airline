@@ -2107,6 +2107,9 @@ button:hover {
      /* Align the label with the radio button */
 }
 /* Responsive adjustments */
+
+@media (max-width: 1200px) {
+
     .package-option {
         width: 30%;
     }
