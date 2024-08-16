@@ -27,12 +27,12 @@ const PassengerInformation = () => {
     setActiveTab(1);
     setCurrentSection('adults');
   }, [adults, children, infants]);
-
   const saveToSessionStorage = () => {
     sessionStorage.setItem('adultForms', JSON.stringify(adultForms));
     sessionStorage.setItem('childForms', JSON.stringify(childForms));
     sessionStorage.setItem('infantForms', JSON.stringify(infantForms));
   };
+
 
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
@@ -59,8 +59,7 @@ const PassengerInformation = () => {
         : updatedForms[activeTab - 1];
     const isComplete = currentForm.title && currentForm.firstName && currentForm.lastName && currentForm.nationality;
     setIsFormComplete(isComplete);
-
-    saveToSessionStorage(); // Save data to sessionStorage whenever form changes
+    saveToSessionStorage(); 
   };
 
   const handleNextPassenger = () => {
@@ -87,7 +86,7 @@ const PassengerInformation = () => {
       } else {
         setIsAllPassengersAdded(true);
         console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
-        saveToSessionStorage(); // Save final data to sessionStorage
+        saveToSessionStorage(); 
       }
     }
   };
@@ -258,3 +257,4 @@ const PassengerInformation = () => {
 };
 
 export default PassengerInformation;
+
