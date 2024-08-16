@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import FlightHeader from '../components/FlightHeader';
 import AddSeats from '../components/AddSeats';
 import AddMeals from '../components/AddMeals';
 import AddBaggage from '../components/AddBaggage';
 import '../css/AddMeals.css';
 import '../css/AddSeats.css';
-import '../css/AddExtras.css'
+import '../css/AddExtras.css';
 
 const AddExtrasPages = () => {
   const [activeComponent, setActiveComponent] = useState('extras');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -34,15 +36,11 @@ const AddExtrasPages = () => {
             Seats
           </h3>
           <div className="section-description">
-            You have successfully added seats for your trip. Below is a summary of your selection:
+            Please select your preferred seat from the available options to enhance your comfort during the flight.
           </div>
-          <div className="section-details">
-            KHI to PEW <br />
-            4C, 5D, 2E
-          </div>
+          <div className="section-details"></div>
         </div>
         <div className="section-right">
-          <div className="extras-price">PKR 2100</div>
           <button
             className="edit-selection-button1"
             onClick={() => setActiveComponent('addSeats')}
@@ -61,13 +59,9 @@ const AddExtrasPages = () => {
           <div className="section-description">
             You have successfully added meals for your trip. Below is a summary of your selection:
           </div>
-          <div className="section-details">
-            KHI to PEW <br />
-            3 X Chicken Pepperoni Sandwich with water
-          </div>
+          <div className="section-details"></div>
         </div>
         <div className="section-right">
-          <div className="extras-price">PKR 0</div>
           <button
             className="edit-selection-button2"
             onClick={() => setActiveComponent('addMeals')}
@@ -86,13 +80,9 @@ const AddExtrasPages = () => {
           <div className="section-description">
             We’ve saved you time and selected a baggage allowance for you. You can edit the selection if you wish.
           </div>
-          <div className="section-details">
-            KHI to PEW <br />
-            3 X Hand baggage, 3 X 23 Kg 1 Piece Free
-          </div>
+          <div className="section-details"></div>
         </div>
         <div className="section-right">
-          <div className="extras-price">PKR 0</div>
           <button
             className="edit-selection-button3"
             onClick={() => setActiveComponent('addBaggage')}
@@ -109,8 +99,13 @@ const AddExtrasPages = () => {
       <br />
       <FlightHeader />
       <br />
-      {activeComponent !== 'addSeats' && activeComponent !== 'addMeals' && activeComponent !== 'addBaggage' && (
-        <button className="paybtn">Continue to Payment</button>
+      {activeComponent !== 'addSeats' && activeComponent !== 'addMeals' && (
+        <button
+          className="paybtn"
+          onClick={() => navigate('/pay-confirm')} // Navigate to PayConfirm on click
+        >
+          Continue to Payment
+        </button>
       )}
       {renderComponent()}
     </div>

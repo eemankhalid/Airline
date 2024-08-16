@@ -24,8 +24,9 @@ import FAQsPage from './Pages/FAQsPage';
 import ContactUsPage from './Pages/ContactUsPage';
 import SelectFlightPage from './Pages/SelectFlightPage';
 import EnterDetailsPage from './Pages/EnterDetailsPage';
-import PassengerInformation from './components/PessengerInformation';
+
 import JoinwpPage from './Pages/JoinwpPage';
+import PayConfirm from './Pages/PayConfirm';
  
 
 const router = createBrowserRouter(
@@ -49,7 +50,7 @@ const router = createBrowserRouter(
             <Route path="/select-flight" element={<SelectFlightPage />} />
             <Route path="/enter-details" element={<EnterDetailsPage />} />
             <Route path="/join-wp" element={<JoinwpPage />} />
-            
+            <Route path="/pay-confirm" element={<PayConfirm />} />
             
         </Route>
 

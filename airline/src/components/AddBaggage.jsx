@@ -106,18 +106,11 @@ const AddBaggage = () => {
       fontWeight: '600',
       marginBottom: '20px',
     },
-    summaryItem: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginBottom: '15px',
-      fontSize: '1rem',
-      color: '#555',
-    },
+   
     confirmButton: {
       width: '100%',
       padding: '12px',
-      backgroundColor: '#6c757d', // Changed to grey
+      backgroundColor: '#ff4d4f', // Changed to grey
       color: 'white',
       borderRadius: '6px',
       border: 'none',
@@ -135,11 +128,12 @@ const AddBaggage = () => {
     <>
       <FlightHeader />
       <div style={styles.container}>
+        <br></br>
         <div style={styles.headerContainer}>
           <div>
             <div style={styles.headerTitle}>Select baggage for your trip</div>
           </div>
-          <a href="#" style={styles.skipLink}>Skip Baggage Selection</a>
+         
         </div>
 
         <div style={styles.contentContainer}>
@@ -166,24 +160,7 @@ const AddBaggage = () => {
             </div>
           </div>
 
-          <div style={styles.baggageSummary}>
-            <h4 style={styles.summaryTitle}>Baggages</h4>
-            <div style={styles.summaryItem}>
-              <span>KHI to DOH</span>
-              <span>PKR 0</span>
-            </div>
-            <div style={styles.summaryItem}>
-              <span>Ms. amna ahad</span>
-              <span>30 Kg</span>
-            </div>
-            <button
-              style={styles.confirmButton}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = styles.confirmButtonHover.backgroundColor}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = styles.confirmButton.backgroundColor}
-            >
-              Confirm selection
-            </button>
-          </div>
+       
         </div>
       </div>
     </>
