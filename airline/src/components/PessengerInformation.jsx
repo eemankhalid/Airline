@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import ContactInformation from './ContactInformation';
 
 const PassengerInformation = () => {
   const location = useLocation();
@@ -27,6 +28,12 @@ const PassengerInformation = () => {
     setCurrentSection('adults');
   }, [adults, children, infants]);
 
+  const saveToSessionStorage = () => {
+    sessionStorage.setItem('adultForms', JSON.stringify(adultForms));
+    sessionStorage.setItem('childForms', JSON.stringify(childForms));
+    sessionStorage.setItem('infantForms', JSON.stringify(infantForms));
+  };
+
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
     let updatedForms;
@@ -52,6 +59,8 @@ const PassengerInformation = () => {
         : updatedForms[activeTab - 1];
     const isComplete = currentForm.title && currentForm.firstName && currentForm.lastName && currentForm.nationality;
     setIsFormComplete(isComplete);
+
+    saveToSessionStorage(); // Save data to sessionStorage whenever form changes
   };
 
   const handleNextPassenger = () => {
@@ -78,6 +87,7 @@ const PassengerInformation = () => {
       } else {
         setIsAllPassengersAdded(true);
         console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
+        saveToSessionStorage(); // Save final data to sessionStorage
       }
     }
   };
@@ -221,17 +231,28 @@ const PassengerInformation = () => {
     <div className="passenger-info">
       <h2>Enter Passenger Details</h2>
       <h3>Passenger Information</h3>
-      <div className="passenger-tabs">
-        {generateTabs()}
-      </div>
-      {renderFormFields()}
-      <button
-        className="next-passenger"
-        onClick={handleNextPassenger}
-        disabled={isAllPassengersAdded || !isFormComplete}
-      >
-        {isAllPassengersAdded ? 'All Passengers Added' : 'Next Passenger'}
-      </button>
+      {isAllPassengersAdded ? (
+        <>
+          <p>All passengers have been added successfully.</p>
+          <ContactInformation />
+          <br/><br/>
+        </>
+      ) : (
+        <>
+          <div className="passenger-tabs">
+            {generateTabs()}
+          </div>
+          {renderFormFields()}
+          <button
+            className="next-passenger"
+            onClick={handleNextPassenger}
+            disabled={!isFormComplete}
+          >
+            {currentSection === 'infants' && activeTab === infants ? 'Finish' : 'Next Passenger'}
+          </button>
+          <br/><br/><br/>
+        </>
+      )}
     </div>
   );
 };
