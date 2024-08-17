@@ -382,15 +382,35 @@ const handleContinue = () => {
         
         setTotalFare(total);
         setTax(extraPrice - total);
+        // Store the price summary in sessionStorage
+        sessionStorage.setItem('priceSummary', JSON.stringify({
+            totalFare: totalFare,
+            tax: tax,
+            extraPrice: extraPrice,
+            currency: currency,
+        }));
+     
+       
     }, [adultFare, childFare, infantFare, extraPrice, bookingDetails]);
+
+    useEffect(() => {
+        if (selectedFlight) {
+            sessionStorage.setItem('flightSummary', JSON.stringify({
+                flightCode: selectedFlight.flightCode,
+                departureTime: selectedFlight.departureTime,
+                arrivalTime: selectedFlight.arrivalTime,
+                date: selectedFlight.date,
+                fromCountry: bookingDetails.fromCountry,
+                toCountry: bookingDetails.toCountry,
+            }));
+        }
+    }, [selectedFlight]);
 
 
     return (
         <>
             <br /><br />
             <FlightHeader />
-
-            
 
             <div className="select-flight bg-white">
                 <DateCarousel
