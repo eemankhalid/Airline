@@ -43,9 +43,9 @@ const FlightPackages = ({ selectedPackage, onSelectPackage, ref, price }) => {
             name: "Ultimate",
             price: ultimatePrice,
             included: [
+                "15 Kg Carry-on Baggage",
                 "46 Kg Checked Baggage",
                 "Premium Meal",
-                "Any Seat - Including Front Row",
                 "2 Free Modification (Up to 6h)",
                 "Free Cancellation (Up to 6h)",
                 "50% Cash Refund (Up to 24h)",
