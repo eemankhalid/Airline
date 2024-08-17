@@ -1,7 +1,7 @@
 import React from 'react'
 import FlightHeader from "../components/FlightHeader";
 import PessengerInformation from '../components/PessengerInformation'
-import ContactInformation from '../components/ContactInformation'
+
 import '../css/EnterDetails.css'
 
 const EnterDetailsPage = () => {
@@ -11,8 +11,6 @@ const EnterDetailsPage = () => {
         <FlightHeader />
         <br /><br />
       <PessengerInformation />
-      <ContactInformation />
-
     </div>
   )
 }

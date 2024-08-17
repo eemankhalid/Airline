@@ -31,7 +31,7 @@
   
   .remove-selection {
     font-size: 14px;
-    color: red;
+    color: #e84545;
     text-decoration: none;
     margin-top: 10px;
   }
@@ -66,7 +66,7 @@
   }
   
   .passenger.active {
-    background-color: #E40046;
+    background-color: #e84545;
     color: white;
   }
   
@@ -100,7 +100,7 @@
   }
   
   .legend-color.selected {
-    background-color: #E40046;
+    background-color: #e84545;
   }
   .seat-selection-container {
     display: flex;
@@ -114,7 +114,12 @@
   
   .passenger-list {
     margin-bottom: 20px;
+    cursor: pointer;
   }
+  .passenger-item.active {
+    color: #e84545;
+  }
+  
   
   .passenger-item {
     display: flex;
@@ -151,7 +156,7 @@
   }
   
   .selected {
-    background: #ff0000;
+    background: #e84545;
   }
   
   .seat-selection-right {
@@ -183,7 +188,7 @@
   }
   
   .seat.selected {
-    background: #ff0000;
+    background: #e84545;
   }
   
   .seat-summary {
@@ -196,7 +201,7 @@
   }
   
   .confirm-selection-btn {
-    background-color: #ff0000;
+    background-color:#e84545;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -207,7 +212,7 @@
     margin-top: 5px;
     margin-right: 5px;
     width: fit-content;
-    background-color: #ff0000;
+    background-color: #e84545;
     color: white;
     padding: 10px 20px;
     border: none;

@@ -4,19 +4,35 @@ import AddMeals from './AddMeals'; // Import AddMeals component
 
 const AddSeats = () => {
   const [bookingDetails, setBookingDetails] = useState({});
-  const [selectedSeats, setSelectedSeats] = useState({
-    "Mrs. Anna Ahad": "4C",
-    "Ms. Anna Ahad": "5D",
-    "Mrs. Anna Ahad (2)": "2E",
-  });
+  const [selectedSeats, setSelectedSeats] = useState({});
   const [activeComponent, setActiveComponent] = useState('seats');
   const [currentPassenger, setCurrentPassenger] = useState(null); // Track the selected passenger
 
   useEffect(() => {
+    // Fetch booking details from sessionStorage
     const storedBookingDetails = sessionStorage.getItem('bookingDetails');
     if (storedBookingDetails) {
       setBookingDetails(JSON.parse(storedBookingDetails));
     }
+
+    // Fetch passenger names from sessionStorage
+    const storedAdultForms = JSON.parse(sessionStorage.getItem('adultForms')) || [];
+    const storedChildForms = JSON.parse(sessionStorage.getItem('childForms')) || [];
+    const storedInfantForms = JSON.parse(sessionStorage.getItem('infantForms')) || [];
+
+    const allPassengers = [
+      ...storedAdultForms.map(form => `${form.title} ${form.firstName} ${form.lastName}`),
+      ...storedChildForms.map(form => `${form.title} ${form.firstName} ${form.lastName}`),
+      ...storedInfantForms.map(form => `${form.title} ${form.firstName} ${form.lastName}`),
+    ];
+
+    // Initialize selectedSeats with the passenger names
+    const initialSeats = allPassengers.reduce((acc, passenger) => {
+      acc[passenger] = ''; // Empty seat initially
+      return acc;
+    }, {});
+
+    setSelectedSeats(initialSeats);
   }, []);
 
   const seatMap = [
@@ -115,7 +131,6 @@ const AddSeats = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="total-price">PKR 2100</div>
                 <button 
                   className="confirm-selection-btn"
                   onClick={() => setActiveComponent('add-meals')} // Set activeComponent to 'add-meals'

@@ -1083,7 +1083,7 @@ button:hover {
 
 
 
-/* asterik required***/
+/* asterik required*/
 
 .req{
     color: red;
@@ -1237,18 +1237,17 @@ button:hover {
   }
   
   button[type="submit"] {
-    background-color: #3a2d2e;
+    background-color: #ec1c24;
     color: #fff;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    max-width: 150px;
   }
   
   button[type="submit"]:hover {
-    background-color: #0e0d0d;
+    background-color: #c51a1c;
   }
   
   .error {
@@ -1572,55 +1571,6 @@ button:hover {
   .confirm-button:hover {
     background: #e84545;
   }
-  /*loginpage start*/
-  .login-page-container {
-    display: flex;
-    justify-content: space-between; /* Space between the two sections */
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px; /* Space between the form and the rewards section */
-}
-
-.login-form-container,
-.rewards-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 45%; /* Adjusts width to fit within the container */
-}
-
-.rewards-section {
-    background-color: #4d4949; /* Optional: Different background for Air Rewards */
-}
-
-.error-message {
-    color: red;
-    margin-bottom: 10px;
-}
-
-.input-group {
-    margin-bottom: 15px;
-}
-
-.login-button {
-    width: 90%;
-    padding: 10px;
-    background-color: #333;
-    color: red;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.forgot-password {
-    margin-top: 10px;
-    text-align: center;
-    color: #eb0f0f;
-    cursor: pointer;
-}
-
-
-/*loginpage end*/
+  
 
  

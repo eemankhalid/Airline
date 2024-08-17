@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import ContactInformation from './ContactInformation';
 
 const PassengerInformation = () => {
   const location = useLocation();
@@ -7,16 +8,31 @@ const PassengerInformation = () => {
 
   const passengers = state?.passengers || {};
   const adults = passengers.adults || 1;
-  const childs = passengers.childs || 0;
+  const children = passengers.children || 0;
   const infants = passengers.infants || 0;
 
   const [activeTab, setActiveTab] = useState(1);
   const [adultForms, setAdultForms] = useState(Array(adults).fill({}));
-  const [childForms, setChildForms] = useState(Array(childs).fill({}));
+  const [childForms, setChildForms] = useState(Array(children).fill({}));
   const [infantForms, setInfantForms] = useState(Array(infants).fill({}));
   const [isFormComplete, setIsFormComplete] = useState(false);
   const [isAllPassengersAdded, setIsAllPassengersAdded] = useState(false);
   const [currentSection, setCurrentSection] = useState('adults'); // Track current section (adults, children, or infants)
+
+  useEffect(() => {
+    console.log('adults:', adults, 'children:', children, 'infants:', infants);
+    setAdultForms(Array(adults).fill({}));
+    setChildForms(Array(children).fill({}));
+    setInfantForms(Array(infants).fill({}));
+    setActiveTab(1);
+    setCurrentSection('adults');
+  }, [adults, children, infants]);
+  const saveToSessionStorage = () => {
+    sessionStorage.setItem('adultForms', JSON.stringify(adultForms));
+    sessionStorage.setItem('childForms', JSON.stringify(childForms));
+    sessionStorage.setItem('infantForms', JSON.stringify(infantForms));
+  };
+
 
   const handleFieldChange = (e) => {
     const { name, value } = e.target;
@@ -36,7 +52,6 @@ const PassengerInformation = () => {
       setInfantForms(updatedForms);
     }
 
-    // Check if the form is complete
     const currentForm = currentSection === 'adults'
       ? updatedForms[activeTab - 1]
       : currentSection === 'children'
@@ -44,6 +59,7 @@ const PassengerInformation = () => {
         : updatedForms[activeTab - 1];
     const isComplete = currentForm.title && currentForm.firstName && currentForm.lastName && currentForm.nationality;
     setIsFormComplete(isComplete);
+    saveToSessionStorage(); 
   };
 
   const handleNextPassenger = () => {
@@ -51,32 +67,41 @@ const PassengerInformation = () => {
       if (activeTab < adults) {
         setActiveTab((prevTab) => prevTab + 1);
         setIsFormComplete(false); // Reset form completion for the next passenger
-      } else {
-        // Switch to children section
+      } else if (children > 0) { // Only move to children section if children > 0
         setCurrentSection('children');
         setActiveTab(1);
-      }
-    } else if (currentSection === 'children') {
-      if (activeTab < childs) {
-        setActiveTab((prevTab) => prevTab + 1);
-        setIsFormComplete(false); // Reset form completion for the next passenger
-      } else {
-        // Switch to infants section
+      } else if (infants > 0) { // Skip to infants if no children but infants exist
         setCurrentSection('infants');
         setActiveTab(1);
+      } else {
+        setIsAllPassengersAdded(true); // No children or infants, so all passengers are added
+        console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
+        saveToSessionStorage(); 
+      }
+    } else if (currentSection === 'children') {
+      if (activeTab < children) {
+        setActiveTab((prevTab) => prevTab + 1);
+        setIsFormComplete(false); // Reset form completion for the next passenger
+      } else if (infants > 0) { // Only move to infants section if infants > 0
+        setCurrentSection('infants');
+        setActiveTab(1);
+      } else {
+        setIsAllPassengersAdded(true); // No more sections, all passengers are added
+        console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
+        saveToSessionStorage(); 
       }
     } else if (currentSection === 'infants') {
       if (activeTab < infants) {
         setActiveTab((prevTab) => prevTab + 1);
         setIsFormComplete(false); // Reset form completion for the next passenger
       } else {
-        // All passengers have been added. Handle submission or next step here.
-        console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
         setIsAllPassengersAdded(true);
-        // You can perform actions like submitting the form data to the server here.
+        console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
+        saveToSessionStorage(); 
       }
     }
   };
+  
 
   const renderFormFields = () => {
     const currentFormData = currentSection === 'adults'
@@ -133,7 +158,6 @@ const PassengerInformation = () => {
             <option value="United States">United States</option>
             <option value="United Kingdom">United Kingdom</option>
             <option value="Canada">Canada</option>
-            {/* Add more options as needed */}
           </select>
         </div>
         <div className="form-group">
@@ -187,7 +211,7 @@ const PassengerInformation = () => {
         );
       }
     } else if (currentSection === 'children') {
-      for (let i = 1; i <= childs; i++) {
+      for (let i = 1; i <= children; i++) {
         tabs.push(
           <div
             key={`child-${i}`}
@@ -211,7 +235,6 @@ const PassengerInformation = () => {
         );
       }
     }
-    console.log('Tabs:', tabs); // Debugging line to check tabs being generated
     return tabs;
   };
 
@@ -219,19 +242,31 @@ const PassengerInformation = () => {
     <div className="passenger-info">
       <h2>Enter Passenger Details</h2>
       <h3>Passenger Information</h3>
-      <div className="passenger-tabs">
-        {generateTabs()}
-      </div>
-      {renderFormFields()}
-      <button
-        className="next-passenger"
-        onClick={handleNextPassenger}
-        disabled={isAllPassengersAdded || !isFormComplete}
-      >
-        {isAllPassengersAdded ? 'All Passengers Added' : 'Next Passenger'}
-      </button>
+      {isAllPassengersAdded ? (
+        <>
+          <p>All passengers have been added successfully.</p>
+          <ContactInformation />
+          <br/><br/>
+        </>
+      ) : (
+        <>
+          <div className="passenger-tabs">
+            {generateTabs()}
+          </div>
+          {renderFormFields()}
+          <button
+            className="next-passenger"
+            onClick={handleNextPassenger}
+            disabled={!isFormComplete}
+          >
+            {currentSection === 'infants' && activeTab === infants ? 'Finish' : 'Next Passenger'}
+          </button>
+          <br/><br/><br/>
+        </>
+      )}
     </div>
   );
 };
 
 export default PassengerInformation;
+

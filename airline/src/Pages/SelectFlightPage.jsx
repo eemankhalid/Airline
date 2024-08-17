@@ -272,6 +272,7 @@ const SelectFlightPage = () => {
     const [bookingDetails, setBookingDetails] = useState({});
     const [selectedPackage, setSelectedPackage] = useState(null);
     const [showPackages, setShowPackages] = useState(false);
+    const [showSummary, setShowSummary] = useState(false); 
     const [resetKey, setResetKey] = useState(0);
     const [adultFare, setAdultFare] = useState(0);
     const [childFare, setChildFare] = useState(0);
@@ -310,6 +311,7 @@ const SelectFlightPage = () => {
         setSelectedDate(date);
         setSelectedFlight(null);
         setShowPackages(false);
+        setShowSummary(false); // Hide summary when date changes
     };
 
     const handleFlightSelection = (flightId) => {
@@ -329,6 +331,7 @@ const SelectFlightPage = () => {
 
     const handleBookNow = () => {
         setShowPackages(true);
+        setShowPackages(true);
         if (flightSummaryRef.current) {
             flightSummaryRef.current.scrollIntoView({ behavior: 'smooth' });
         }
@@ -336,6 +339,7 @@ const SelectFlightPage = () => {
     };
 
     const handleSelectPackage = (pkg) => {
+        setShowSummary(true);
         setSelectedPackage(pkg.id);
         setExtraPrice(pkg.price || 0); // Save the package price as the extraPrice
         console.log({ extraPrice })
@@ -448,8 +452,10 @@ const handleContinue = () => {
                 </div>
 
                 <br /><br />
-
-                <h1><center>Summary of Your Selection</center></h1>
+                
+                {showSummary &&(
+                    <>
+                    <h1><center>Summary of Your Selection</center></h1>
                 <div className="summary-container">
                     <div className="price-summary">
                         <h4>
@@ -508,6 +514,8 @@ const handleContinue = () => {
                     Continue to Passenger Details 
                 </button>
             </div>  
+                    </>
+                )}
             </div>
         </>
     );
