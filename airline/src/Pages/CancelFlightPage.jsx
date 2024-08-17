@@ -1,9 +1,10 @@
 import React from 'react'
+import CancelFlight from '../components/CancelFlight'
 
 const CancelFlightPage = () => {
   return (
     <div>
-      CancelFlightPage
+      <CancelFlight/>
     </div>
   )
 }

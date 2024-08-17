@@ -5,14 +5,9 @@ const ModifyFlight = () => {
     const [reservationNumber, setReservationNumber] = useState('');
     const [lastName, setLastName] = useState('');
     const [departureDate, setDepartureDate] = useState('');
-    const [captchaChecked, setCaptchaChecked] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!captchaChecked) {
-            alert('Please verify you are not a robot.');
-            return;
-        }
 
         // Handle form submission
         console.log({
@@ -25,7 +20,6 @@ const ModifyFlight = () => {
         setReservationNumber('');
         setLastName('');
         setDepartureDate('');
-        setCaptchaChecked(false);
     };
 
     return (
@@ -33,17 +27,13 @@ const ModifyFlight = () => {
             <br /><br /><br />
             <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
                 <h5 className="section-title px-3">Manage Booking</h5>
-                <h1 className="mb-0">Modify flight</h1>
+                <h1 className="mb-0">Cancel a Flight</h1>
             </div>
-
             <p>
-                Have your travel plans changed? Do you want to modify the day of travel or even the destination of your trip? You may do so easily and online as long as you make the changes 24 hours prior to your flight.
+            If you wish to cancel your flight, the balance will be credited back to you towards a future use and within a year of your original booking. The cancellation will be subject to a cancellation fee.
             </p>
             <p>
-                Alterations are subject to <a href="#">modification charges</a> and airfare difference.
-            </p>
-            <p>
-                You can modify instantly online through the below form or by contacting our <a href="#">call center</a>, visiting our <a href="#">sales offices</a> or travel partners.
+            You can cancel online through below form or by contacting our <a href="#">call center</a>, visiting our <a href="#">sales offices</a> or travel partners.
             </p>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>
@@ -79,17 +69,6 @@ const ModifyFlight = () => {
 
                     <button type="submit">Continue</button>
                 </form>
-            </div>
-            <div className="captcha-container">
-                <div className="captcha-box">
-                    <input
-                        type="checkbox"
-                        id="not-robot"
-                        checked={captchaChecked}
-                        onChange={(e) => setCaptchaChecked(e.target.checked)}
-                    />
-                    <label htmlFor="not-robot">I'm not a robot</label>
-                </div>
             </div>
         </div>
     );
