@@ -162,7 +162,7 @@ const FlightBooking = () => {
     <div className="row g-5 align-items-center">
         <div className="col-lg-12">
             <form>
-                <div className="row g-3">
+                <div className="row g-3" style={{width:'1200px', paddingRight:'560px'}}>
                     <div className="col-md-6">
                         <label htmlFor="fromCountry">From Country<span className='req'>*</span></label>
                         <select className="form-select" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange} style={greyBorderStyle}>
