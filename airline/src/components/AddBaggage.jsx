@@ -128,6 +128,7 @@ const AddBaggage = () => {
     <>
       <FlightHeader />
       <div style={styles.container}>
+        
         <br></br>
         <div style={styles.headerContainer}>
           <div>
@@ -137,6 +138,7 @@ const AddBaggage = () => {
         </div>
 
         <div style={styles.contentContainer}>
+          
           <div style={styles.baggageSection}>
             <div style={styles.baggageCard}>
               <div style={styles.cardHeader}></div>

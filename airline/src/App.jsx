@@ -27,6 +27,7 @@ import EnterDetailsPage from './Pages/EnterDetailsPage';
 
 import JoinwpPage from './Pages/JoinwpPage';
 import PayConfirm from './Pages/PayConfirm';
+import Booked from './Pages/Booked';
  
 
 const router = createBrowserRouter(
@@ -51,7 +52,7 @@ const router = createBrowserRouter(
             <Route path="/enter-details" element={<EnterDetailsPage />} />
             <Route path="/join-wp" element={<JoinwpPage />} />
             <Route path="/pay-confirm" element={<PayConfirm />} />
-            
+            <Route path="/booked" element={<Booked />} />
         </Route>
 
     )
