@@ -45,7 +45,7 @@ const AddExtrasPages = () => {
             className="edit-selection-button1"
             onClick={() => setActiveComponent('addSeats')}
           >
-            <span className="icon">✏️</span>Edit Selection
+            <span className="icon">✏️</span>Select
           </button>
         </div>
       </div>
@@ -66,7 +66,7 @@ const AddExtrasPages = () => {
             className="edit-selection-button2"
             onClick={() => setActiveComponent('addMeals')}
           >
-            <span className="icon">✏️</span>Edit Selection
+            <span className="icon">✏️</span>Select
           </button>
         </div>
       </div>
@@ -87,7 +87,7 @@ const AddExtrasPages = () => {
             className="edit-selection-button3"
             onClick={() => setActiveComponent('addBaggage')}
           >
-            <span className="icon">✏️</span>Edit Selection
+            <span className="icon">✏️</span>Select
           </button>
         </div>
       </div>
@@ -99,14 +99,6 @@ const AddExtrasPages = () => {
       <br />
       <FlightHeader />
       <br />
-      {activeComponent !== 'addSeats' && activeComponent !== 'addMeals' && (
-        <button
-          className="paybtn"
-          onClick={() => navigate('/pay-confirm')} // Navigate to PayConfirm on click
-        >
-          Continue to Payment
-        </button>
-      )}
       {renderComponent()}
     </div>
   );

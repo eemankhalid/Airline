@@ -32,7 +32,7 @@ const ContactInformation = () => {
       <div className="checkbox-group">
         <label>
           <input type="checkbox" checked readOnly />
-          Adult 1 will be the contact person for this journey. The entered last name will be necessary for cancellation and modification.
+          Adult 1 will be the contact person. The entered last name will be necessary for cancellation and modification.
         </label>
       </div>
       <div className="form-section">
@@ -66,7 +66,7 @@ const ContactInformation = () => {
             <input
               type="text"
               placeholder="Phone"
-              value={mobileDuringTravel}
+       
               onChange={(e) => setMobileDuringTravel(e.target.value)}
             />
           </div>
@@ -83,7 +83,7 @@ const ContactInformation = () => {
             <input
               type="text"
               placeholder="Phone"
-              value={mobileDuringTravel}
+         
               onChange={(e) => setMobileDuringTravel(e.target.value)}
             />
           </div>
@@ -96,7 +96,7 @@ const ContactInformation = () => {
         </label>
         <label>
           <input type="checkbox" />
-          As an Infinity Wing passenger, we'll send you updates about our special offers, holidays, and inspiring news on flights and travel products. You may uncheck here if you choose not to receive these exciting updates.
+    We'll send you updates about our special offers, holidays, and inspiring news on flights and travel products.
         </label>
         <label>
           <input type="checkbox" />

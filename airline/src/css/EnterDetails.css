@@ -38,6 +38,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0.2, 0.3); /* Subtle shadow for form section */
+  padding: 20px; /* Padding inside the form section */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background for the form */
+
   }
   
   .form-group {
@@ -120,4 +125,21 @@
     max-width: 800px;
     margin: 0 auto;
   }
+  .success-message-container {
+    background-color: #eaf7ea; /* Light green background for success */
+    border: 1px solid #c0e4c0; /* Light green border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding around the content */
+    margin: 16px 0; /* Vertical margin */
+    text-align: center; /* Center align the text */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .success-message-text {
+    color: #2f8d2f; /* Darker green text for readability */
+    font-size: 18px; /* Slightly larger text */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 16px; /* Margin below the text */
+  }
+  
   
