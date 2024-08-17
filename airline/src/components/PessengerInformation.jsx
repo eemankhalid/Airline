@@ -67,17 +67,28 @@ const PassengerInformation = () => {
       if (activeTab < adults) {
         setActiveTab((prevTab) => prevTab + 1);
         setIsFormComplete(false); // Reset form completion for the next passenger
-      } else {
+      } else if (children > 0) { // Only move to children section if children > 0
         setCurrentSection('children');
         setActiveTab(1);
+      } else if (infants > 0) { // Skip to infants if no children but infants exist
+        setCurrentSection('infants');
+        setActiveTab(1);
+      } else {
+        setIsAllPassengersAdded(true); // No children or infants, so all passengers are added
+        console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
+        saveToSessionStorage(); 
       }
     } else if (currentSection === 'children') {
       if (activeTab < children) {
         setActiveTab((prevTab) => prevTab + 1);
         setIsFormComplete(false); // Reset form completion for the next passenger
-      } else {
+      } else if (infants > 0) { // Only move to infants section if infants > 0
         setCurrentSection('infants');
         setActiveTab(1);
+      } else {
+        setIsAllPassengersAdded(true); // No more sections, all passengers are added
+        console.log('All passengers added:', { adults: adultForms, children: childForms, infants: infantForms });
+        saveToSessionStorage(); 
       }
     } else if (currentSection === 'infants') {
       if (activeTab < infants) {
@@ -90,6 +101,7 @@ const PassengerInformation = () => {
       }
     }
   };
+  
 
   const renderFormFields = () => {
     const currentFormData = currentSection === 'adults'
