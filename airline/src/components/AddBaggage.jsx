@@ -1,8 +1,11 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import FlightHeader from '../components/FlightHeader';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 
 const AddBaggage = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+  const [isHovered, setIsHovered] = useState(false); // Hover state
+
   const styles = {
     container: {
       padding: '20px',
@@ -106,11 +109,10 @@ const AddBaggage = () => {
       fontWeight: '600',
       marginBottom: '20px',
     },
-   
     confirmButton: {
-      width: '100%',
+      width: '30%',
       padding: '12px',
-      backgroundColor: '#ff4d4f', // Changed to grey
+      backgroundColor: isHovered ? '#5a6268' : '#ff4d4f', // Change color on hover
       color: 'white',
       borderRadius: '6px',
       border: 'none',
@@ -118,27 +120,31 @@ const AddBaggage = () => {
       fontSize: '1rem',
       fontWeight: '500',
       textAlign: 'center',
-    },
-    confirmButtonHover: {
-      backgroundColor: '#5a6268',  // Darker grey for hover
+      transition: 'background-color 0.3s ease', // Smooth transition
     },
   };
 
   return (
     <>
       <FlightHeader />
+      
       <div style={styles.container}>
-        
-        <br></br>
+        <br />
         <div style={styles.headerContainer}>
           <div>
             <div style={styles.headerTitle}>Select baggage for your trip</div>
           </div>
-         
+          <button
+            style={styles.confirmButton}
+            onClick={() => navigate('/pay-confirm')} // Navigate to PayConfirm on click
+            onMouseEnter={() => setIsHovered(true)} // Set hover state to true
+            onMouseLeave={() => setIsHovered(false)} // Set hover state to false
+          >
+            Continue to Payment
+          </button>
         </div>
 
         <div style={styles.contentContainer}>
-          
           <div style={styles.baggageSection}>
             <div style={styles.baggageCard}>
               <div style={styles.cardHeader}></div>
@@ -155,14 +161,12 @@ const AddBaggage = () => {
                 <div style={styles.baggageDetails}>
                   <strong>Checked baggage</strong>
                   <span style={styles.included}>Free</span>
-                  <p style={styles.note}>It may be <strong>10 times cheaper</strong> to book sufficient baggage allowance now than paying excess fees at the airport.</p>
+                  <p >It may be <strong>10 times cheaper</strong> to book sufficient baggage allowance now than paying excess fees at the airport.</p>
                   <p><strong>30 Kg Total in 2 Pieces</strong></p>
                 </div>
               </div>
             </div>
           </div>
-
-       
         </div>
       </div>
     </>

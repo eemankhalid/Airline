@@ -9,7 +9,7 @@
   }
   
   .boarding-pass-header {
-    background-color: #FFB400;
+    background-color:#ff4d4f;
     padding: 10px;
     text-align: center;
     border-radius: 8px 8px 0 0;
@@ -45,7 +45,7 @@
   }
   
   .home-button:hover {
-    background-color: goldenrod;
+    background-color: grey;
   }
   
   
