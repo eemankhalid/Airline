@@ -154,206 +154,201 @@ const FlightBooking = () => {
         <>
             <div className="container-fluid py-5">
                 <div className="container py-5">
-                    <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
+                    <div className="mx-auto text-center mb-5" >
                         <h5 className="section-title px-3">Book a Flight</h5>
                         <h1 className="mb-0">Plan Your Journey</h1>
                     </div>
-                    <div className="row g-5 align-items-center">
-                        <div className="col-lg-12">
-                            <form>
-                                <div className="row g-3">
-                                    <div className="col-md-6">
-                                        
-                                        <label htmlFor="fromCountry">From Country<span className='req'>*</span></label>
-                                        <select className="form-select" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange} style={greyBorderStyle}>
-                                            <option defaultValue>Select a Country</option>
-                                            {Object.keys(countryAirports).map((country) => (
-                                                <option key={country} value={country}>
-                                                    {country}
-                                                </option>
-                                            ))}
-                                        </select>
-                                        {validationMessages.fromCountry && (
-                                            <div className="text-danger">{validationMessages.fromCountry}</div>
-                                        )}
-                                    </div>
-                                    {selectedFromCountry && (
-                                        <div className="col-md-6">
-                                            
-                                            <label htmlFor="fromAirport">From Airport<span className='req'>*</span></label>
-                                            <select className="form-select" id="fromAirport" aria-label="From Airport" style={greyBorderStyle}>
-                                                <option defaultValue>Select an Airport</option>
-                                                {fromAirports.map((airport, index) => (
-                                                    <option key={index} value={airport}>
-                                                        {airport}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            {validationMessages.fromAirport && (
-                                                <div className="text-danger">{validationMessages.fromAirport}</div>
-                                            )}
-                                        </div>
-                                    )}
-                                    <div className="col-md-6">
-                               
-                                        <label htmlFor="toCountry">To Country<span className='req'>*</span></label>
-                                        <select className="form-select" id="toCountry" aria-label="To Country" onChange={handleToCountryChange} style={greyBorderStyle}>
-                                            <option defaultValue>Select a Country</option>
-                                            {Object.keys(countryAirports).map((country) => (
-                                                <option key={country} value={country}>
-                                                    {country}
-                                                </option>
-                                            ))}
-                                        </select>
-                                        {validationMessages.toCountry && (
-                                            <div className="text-danger">{validationMessages.toCountry}</div>
-                                        )}  
-                                    </div>
-                                    {selectedToCountry && (
-                                        <div className="col-md-6">
-                                            
-                                            <label htmlFor="toAirport">To Airport<span className='req'>*</span></label>
-                                            <select className="form-select" id="toAirport" aria-label="To Airport" style={greyBorderStyle}>
-                                                <option defaultValue>Select an Airport</option>
-                                                {toAirports.map((airport, index) => (
-                                                    <option key={index} value={airport}>
-                                                        {airport}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            {validationMessages.toAirport && (
-                                                <div className="text-danger">{validationMessages.toAirport}</div>
-                                            )}
-                                        </div>
-                                    )}
-                                    <div className="col-md-6">
-                                        
-                                        <label htmlFor="depart">Depart<span className='req'>*</span></label>
-                                        <input type="date" className="form-control" id="depart" placeholder="Select Departure Date" style={greyBorderStyle} />
-                                        {validationMessages.depart && (
-                                            <div className="text-danger">{validationMessages.depart}</div>
-                                        )}
-                                    </div>
-                                    {tripType === 'returnTrip' && (
-                                        <div className="col-md-6">
-                                            <label htmlFor="return">Return</label>
-                                            <label htmlFor="return">Return<span className='req'>*</span></label>
-                                            <input type="date" className="form-control" id="return" placeholder="Select Return Date" style={greyBorderStyle} />
-                                            {validationMessages.return && (
-                                                <div className="text-danger">{validationMessages.return}</div>
-                                            )}
-                                        </div>
-                                    )}
-                                    <div className="col-md-12">
-                                        <label>Passengers</label>
-                                        <div className="row">
-                                            <div className="col-md-4">
-                                                <label htmlFor="adults">Adults (1-9)</label>
-                                                <select className="form-select" id="adults" aria-label="Adults" style={greyBorderStyle}>
-                                                    <option defaultValue>1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="2">3</option>
-                                                    <option value="2">4</option>
-                                                    <option value="2">5</option>
-                                                    <option value="2">6</option>
-                                                    <option value="2">7</option>
-                                                    <option value="2">8</option>
-                                                    <option value="2">9</option>
-                                                   
-                                                </select>
-                                            </div>
-                                            <div className="col-md-4">
-                                                <label htmlFor="children">Children (2-12)</label>
-                                                <select className="form-select" id="children" aria-label="Children" style={greyBorderStyle}>
-                                                  
-                                                <option defaultValue>0</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="4">5</option>
-                                                    <option value="4">6</option>
-                                                    <option value="4">7</option>
-                                                    <option value="4">8</option>
-                                                    <option value="4">9</option>
-                                                    <option value="4">10</option>
-                                                    <option value="4">11</option>
-                                                    <option value="4">12</option>
-                                                </select>
-                                            </div>
-                                            <div className="col-md-4">
-                                                <label htmlFor="infants">Infants (0-1)</label>
-                                                <select className="form-select" id="infants" aria-label="Infants" style={greyBorderStyle}>
-                                                    <option defaultValue>0</option>
-                                                    <option value="1">1</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <label htmlFor="currency">Currency</label>
-                                        <select className="form-select" id="currency" aria-label="Currency" style={greyBorderStyle}>
-                                            <option defaultValue>PKR</option>
-                                            <option value="USD">USD</option>
-                                            <option value="EUR">EUR</option>
-                                            <option value="EUR">AED</option>
-                                            <option value="EUR">AMD</option>
-                                            <option value="EUR">INR</option>
-                                        </select>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="tripType"
-                                                id="oneWay"
-                                                value="oneWay"
-                                                checked={tripType === 'oneWay'}
-                                                onChange={handleTripTypeChange}
-                                            />
-                                            <label className="form-check-label" htmlFor="oneWay">One Way</label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="tripType"
-                                                id="returnTrip"
-                                                value="returnTrip"
-                                                checked={tripType === 'returnTrip'}
-                                                onChange={handleTripTypeChange}
-                                            />
-                                            <label className="form-check-label" htmlFor="returnTrip">Return</label>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <label htmlFor="promoCode">Promo Code</label>
-                                        <input type="text" className="form-control" id="promoCode" placeholder="Enter Promo Code" style={greyBorderStyle} />
-                                    </div>
-                                    <div className="col-md-12">
-                                       
-                                    {generalMessage && (
-                                        <div className="alert alert-danger">
-                                            {generalMessage}
-                                        </div>
-                                    )}
-                                    <div className="col-12">
-                                        <button
-                                            className="btn btn-primary w-100"
-                                            type="submit"
-                                            onClick={handleSearchFlightClick}
-                                        >
-                                            Search Flight
-                                        </button>
-                                    </div>
-                                </div>
-                                </div>
-                            </form>
+                    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+    <div className="row g-5 align-items-center">
+        <div className="col-lg-12">
+            <form>
+                <div className="row g-3">
+                    <div className="col-md-6">
+                        <label htmlFor="fromCountry">From Country<span className='req'>*</span></label>
+                        <select className="form-select" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange} style={greyBorderStyle}>
+                            <option defaultValue>Select a Country</option>
+                            {Object.keys(countryAirports).map((country) => (
+                                <option key={country} value={country}>
+                                    {country}
+                                </option>
+                            ))}
+                        </select>
+                        {validationMessages.fromCountry && (
+                            <div className="text-danger">{validationMessages.fromCountry}</div>
+                        )}
+                    </div>
+                    {selectedFromCountry && (
+                        <div className="col-md-6">
+                            <label htmlFor="fromAirport">From Airport<span className='req'>*</span></label>
+                            <select className="form-select" id="fromAirport" aria-label="From Airport" style={greyBorderStyle}>
+                                <option defaultValue>Select an Airport</option>
+                                {fromAirports.map((airport, index) => (
+                                    <option key={index} value={airport}>
+                                        {airport}
+                                    </option>
+                                ))}
+                            </select>
+                            {validationMessages.fromAirport && (
+                                <div className="text-danger">{validationMessages.fromAirport}</div>
+                            )}
+                        </div>
+                    )}
+                    <div className="col-md-6">
+                        <label htmlFor="toCountry">To Country<span className='req'>*</span></label>
+                        <select className="form-select" id="toCountry" aria-label="To Country" onChange={handleToCountryChange} style={greyBorderStyle}>
+                            <option defaultValue>Select a Country</option>
+                            {Object.keys(countryAirports).map((country) => (
+                                <option key={country} value={country}>
+                                    {country}
+                                </option>
+                            ))}
+                        </select>
+                        {validationMessages.toCountry && (
+                            <div className="text-danger">{validationMessages.toCountry}</div>
+                        )}
+                    </div>
+                    {selectedToCountry && (
+                        <div className="col-md-6">
+                            <label htmlFor="toAirport">To Airport<span className='req'>*</span></label>
+                            <select className="form-select" id="toAirport" aria-label="To Airport" style={greyBorderStyle}>
+                                <option defaultValue>Select an Airport</option>
+                                {toAirports.map((airport, index) => (
+                                    <option key={index} value={airport}>
+                                        {airport}
+                                    </option>
+                                ))}
+                            </select>
+                            {validationMessages.toAirport && (
+                                <div className="text-danger">{validationMessages.toAirport}</div>
+                            )}
+                        </div>
+                    )}
+                    <div className="col-md-6">
+                        <label htmlFor="depart">Depart<span className='req'>*</span></label>
+                        <input type="date" className="form-control" id="depart" placeholder="Select Departure Date" style={greyBorderStyle} />
+                        {validationMessages.depart && (
+                            <div className="text-danger">{validationMessages.depart}</div>
+                        )}
+                    </div>
+                    {tripType === 'returnTrip' && (
+                        <div className="col-md-6">
+                            <label htmlFor="return">Return</label>
+                            <input type="date" className="form-control" id="return" placeholder="Select Return Date" style={greyBorderStyle} />
+                            {validationMessages.return && (
+                                <div className="text-danger">{validationMessages.return}</div>
+                            )}
+                        </div>
+                    )}
+                    <div className="col-md-12">
+                        <label>Passengers</label>
+                        <div className="row">
+                            <div className="col-md-4">
+                                <label htmlFor="adults">Adults (1-9)</label>
+                                <select className="form-select" id="adults" aria-label="Adults" style={greyBorderStyle}>
+                                    <option defaultValue>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                </select>
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="children">Children (2-12)</label>
+                                <select className="form-select" id="children" aria-label="Children" style={greyBorderStyle}>
+                                    <option defaultValue>0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div className="col-md-4">
+                                <label htmlFor="infants">Infants (0-1)</label>
+                                <select className="form-select" id="infants" aria-label="Infants" style={greyBorderStyle}>
+                                    <option defaultValue>0</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    <div className="col-md-6">
+                        <label htmlFor="currency">Currency</label>
+                        <select className="form-select" id="currency" aria-label="Currency" style={greyBorderStyle}>
+                            <option defaultValue>PKR</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="AED">AED</option>
+                            <option value="AMD">AMD</option>
+                            <option value="INR">INR</option>
+                        </select>
+                    </div>
+                    <div className="col-md-6">
+                        <div className="form-check">
+                            <input
+                                className="form-check-input"
+                                type="radio"
+                                name="tripType"
+                                id="oneWay"
+                                value="oneWay"
+                                checked={tripType === 'oneWay'}
+                                onChange={handleTripTypeChange}
+                            />
+                            <label className="form-check-label" htmlFor="oneWay">One Way</label>
+                        </div>
+                        <div className="form-check">
+                            <input
+                                className="form-check-input"
+                                type="radio"
+                                name="tripType"
+                                id="returnTrip"
+                                value="returnTrip"
+                                checked={tripType === 'returnTrip'}
+                                onChange={handleTripTypeChange}
+                            />
+                            <label className="form-check-label" htmlFor="returnTrip">Return</label>
+                        </div>
+                    </div>
+                    <div className="col-md-6">
+                        <label htmlFor="promoCode">Promo Code</label>
+                        <input type="text" className="form-control" id="promoCode" placeholder="Enter Promo Code" style={greyBorderStyle} />
+                    </div>
+                    <div className="col-md-12">
+                        {generalMessage && (
+                            <div className="alert alert-danger">
+                                {generalMessage}
+                            </div>
+                        )}
+                   <div className="col-12 d-flex justify-content-center align-items-center">
+    <button
+        className="btn btn-primary"
+        type="submit"
+        onClick={handleSearchFlightClick}
+    >
+        Search Flight
+    </button>
+</div>
+
+                    </div>
                 </div>
-            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
         </>
     );
 };

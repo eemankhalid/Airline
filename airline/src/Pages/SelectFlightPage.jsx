@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
 import FlightPackages from "../components/FlightPackages"
+
 import '../css/SelectFlight.css'
 
 // Dummy data representing flights
@@ -272,6 +273,7 @@ const SelectFlightPage = () => {
     const [bookingDetails, setBookingDetails] = useState({});
     const [selectedPackage, setSelectedPackage] = useState(null);
     const [showPackages, setShowPackages] = useState(false);
+    const [baggageInfo, setBaggageInfo] = useState(null);
     const [showSummary, setShowSummary] = useState(false); 
     const [resetKey, setResetKey] = useState(0);
     const [adultFare, setAdultFare] = useState(0);
@@ -297,6 +299,7 @@ const SelectFlightPage = () => {
 
     }, []);
 
+
     const formatPrice = (price) => {
         if (currency === 'USD') {
             return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`;
@@ -306,7 +309,7 @@ const SelectFlightPage = () => {
         }
         return price;
     };
-
+    
     const handleDateSelect = (date) => {
         setSelectedDate(date);
         setSelectedFlight(null);
@@ -341,10 +344,20 @@ const SelectFlightPage = () => {
     const handleSelectPackage = (pkg) => {
         setShowSummary(true);
         setSelectedPackage(pkg.id);
-        setExtraPrice(pkg.price || 0); // Save the package price as the extraPrice
-        console.log({ extraPrice })
+        setExtraPrice(pkg.price || 0);
+    
+        // Extract both Checked Baggage and Carry-on Baggage
+        const checkedBaggage = pkg.included.find(item => item.includes('Checked Baggage'));
+        const carryOnBaggage = pkg.included.find(item => item.includes('Carry-on Baggage'));
+    
+        // Store both in sessionStorage
+        const baggageInfo = {
+            checked: checkedBaggage || 'None',
+            carryOn: carryOnBaggage || 'None'
+        };
+        sessionStorage.setItem('baggageInfo', JSON.stringify(baggageInfo));
     };
-
+    
     const filteredFlights = flightsData.filter(flight =>
         flight.date === selectedDate &&
         flight.departureCountry === bookingDetails.fromCountry &&
@@ -422,11 +435,11 @@ const handleContinue = () => {
                 <h1><center>Select Flight From {bookingDetails.fromCountry} to {bookingDetails.toCountry}</center></h1>
                 {showPackages && (
                     <FlightPackages
-                        price={totalFare}
-                        ref={flightSummaryRef}
-                        key={resetKey} // Add key to force re-render
-                        selectedPackage={selectedPackage}
-                        onSelectPackage={handleSelectPackage} // Pass the function correctly
+                    price={totalFare}
+                    ref={flightSummaryRef}
+                    key={resetKey} // Add key to force re-render
+                    selectedPackage={selectedPackage}
+                    onSelectPackage={handleSelectPackage}
                     />
 
                 )}
@@ -536,6 +549,7 @@ const handleContinue = () => {
             </div>  
                     </>
                 )}
+                    
             </div>
         </>
     );
