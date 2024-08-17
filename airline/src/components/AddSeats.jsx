@@ -21,10 +21,11 @@ const AddSeats = () => {
     const storedInfantForms = JSON.parse(sessionStorage.getItem('infantForms')) || [];
 
     const allPassengers = [
-      ...storedAdultForms.map(form => `${form.title} ${form.firstName} ${form.lastName}`),
-      ...storedChildForms.map(form => `${form.title} ${form.firstName} ${form.lastName}`),
-      ...storedInfantForms.map(form => `${form.title} ${form.firstName} ${form.lastName}`),
-    ];
+      ...storedAdultForms.map(form => form.title && form.firstName && form.lastName ? `${form.title} ${form.firstName} ${form.lastName}` : null),
+      ...storedChildForms.map(form => form.title && form.firstName && form.lastName ? `${form.title} ${form.firstName} ${form.lastName}` : null),
+      ...storedInfantForms.map(form => form.title && form.firstName && form.lastName ? `${form.title} ${form.firstName} ${form.lastName}` : null),
+    ].filter(Boolean); // Remove any null values
+    
 
     // Initialize selectedSeats with the passenger names
     const initialSeats = allPassengers.reduce((acc, passenger) => {
