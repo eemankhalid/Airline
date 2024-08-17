@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-
+import '../css/joinwp.css';
 const JoinwpPage = () => {
   const location = useLocation();
   const userId = location.state?.userId;

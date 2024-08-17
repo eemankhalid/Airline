@@ -1171,9 +1171,127 @@ button:hover {
 
 
   
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    
+    width: 600px;
+    margin-right: 20px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .section h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  button[type="submit"] {
+    background-color: #3a2d2e;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    max-width: 150px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0e0d0d;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .required {
+    color: red;
+  }
+  
+  /* AirRewards Section */
+  .air-rewards {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .air-rewards h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ec1c24;
+  }
+  
+  .air-rewards p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .air-rewards ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .air-rewards ul li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .air-rewards ul li:before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ec1c24;
+  }
+  .double-field {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .double-field label {
+    flex: 1;
+  }
+ 
+  
+    
+  
+
   /* Headings Styling */
   h2, h3 {
     font-family: 'Arial', sans-serif;
+
     font-weight: bold;
     color: #333; /* A darker color for better readability */
     margin-bottom: 15px; /* Adds space below the headings */
@@ -1184,6 +1302,189 @@ button:hover {
     font-size: 24px; /* Slightly larger for main sections */
   }
   
-  h3 {
-    font-size: 20px; /* Slightly smaller for subsections */
+  .meal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
   }
+  
+  .meal-header h2 {
+    font-size: 26px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .skip-selection {
+    color: #ff4d4f;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .flight-info {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #555;
+  }
+  
+  .flight-icon {
+    margin-left: 8px;
+  }
+  
+  
+  .search-sort {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .sort-select {
+    width: 180px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .meal-categories {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .category {
+    padding: 10px 20px;
+    background: #ddd;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .category.active, .category:hover {
+    background-color: #ff4d4f;
+    color: white;
+  }
+  
+  .meal-items {
+    margin-bottom: 20px;
+  }
+  
+  .meal-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .meal-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .meal-image {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .meal-description h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .meal-description p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+  }
+  
+  .meal-price {
+    margin-left: auto;
+    font-size: 18px;
+ margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+
+  } 
+  .add-meal-button {
+    background: #ff4d4f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: background-color 0.3s;
+    width: fit-content;
+  }
+  
+  .add-meal-button:hover {
+    background: #e84545;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .page-number {
+    padding: 10px 15px;
+    background: #ddd;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .page-number.active, .page-number:hover {
+    background: #ff4d4f;
+    color: white;
+  }
+  
+  .confirm-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .confirm-button {
+    background: #ff4d4f;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .confirm-button:hover {
+    background: #e84545;
+  }
+ 
+

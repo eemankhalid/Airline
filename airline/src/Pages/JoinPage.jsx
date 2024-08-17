@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Hero2 from '../components/Hero2';
 import img2 from '../assets/img/jwp.jpeg';
-
+import '../css/join.css';
 const JoinPage = () => {
   const [formData, setFormData] = useState({
     email: '',
