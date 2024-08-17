@@ -1169,34 +1169,7 @@ button:hover {
 }
 
 
-.no-flights-message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px; /* Adjust as needed */
-    background-color: #f8d7da; /* Light red background for visibility */
-    color: #721c24; /* Dark red text color */
-    border: 1px solid #f5c6cb; /* Light red border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Padding inside the message box */
-    text-align: center; /* Center text alignment */
-    font-size: 1.2em; /* Slightly larger font size */
-    font-weight: bold; /* Bold text */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
 
-.no-flights-message p {
-    margin: 0; /* Remove default margin */
-}
-/* join page start */
-/* Styling the JoinPage component */
-.join-page {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
   
   form {
     background-color: #fff;
@@ -1237,17 +1210,18 @@ button:hover {
   }
   
   button[type="submit"] {
-    background-color: #ec1c24;
+    background-color: #3a2d2e;
     color: #fff;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+    max-width: 150px;
   }
   
   button[type="submit"]:hover {
-    background-color: #c51a1c;
+    background-color: #0e0d0d;
   }
   
   .error {
@@ -1309,82 +1283,23 @@ button:hover {
   .double-field label {
     flex: 1;
   }
-  /*joinwppage start*/
-  .joinwp-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f5f5f5;
-  }
+ 
   
-  .joinwp-page .card {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    text-align: center;
-  }
+    
   
-  .joinwp-page h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333333;
-  }
-  
-  .joinwp-page p {
-    font-size: 16px;
-    color: #666666;
-  }
-  
-  .joinwp-page .black-box {
-    background-color: #000000;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-    color: #ffffff;
-  }
-  
-  .joinwp-page .black-box p {
-    margin: 10px 0;
-    font-size: 18px;
-  }
-  
-  .joinwp-page .black-box strong {
+
+  /* Headings Styling */
+  h2, h3 {
+    font-family: 'Arial', sans-serif;
+
     font-weight: bold;
+    color: #333; /* A darker color for better readability */
+    margin-bottom: 15px; /* Adds space below the headings */
   }
   
-/* joinwppage end */
-
-
-  .confirm-selection-btn {
-    background-color: #ff0000;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  .back-button{
-    margin-top: 5px;
-    margin-right: 5px;
-    width: fit-content;
-    background-color: #ff0000;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  .meals-container {
-    padding: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-    margin: 20px auto;
+  /* Specific Heading Sizes */
+  h2 {
+    font-size: 24px; /* Slightly larger for main sections */
   }
   
   .meal-header {
@@ -1571,6 +1486,5 @@ button:hover {
   .confirm-button:hover {
     background: #e84545;
   }
-  
-
  
+

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hero2 from '../components/Hero2';
 import img2 from '../assets/img/li.jpeg';
+import '../css/login.css';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');

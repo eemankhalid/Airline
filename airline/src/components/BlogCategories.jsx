@@ -101,7 +101,7 @@ const BlogCategories = () => {
                 <div className="card-content">
                   <h4>The Future of Travel</h4>
                   <div className="underline"></div>
-                  <p>Explore the innovations shaping tomorrow's journeys. From cutting-edge technology to sustainable practices, discover how travel is evolving to create a more connected and eco-friendly and comfortable flight.</p>
+                  <p>Explore the innovations shaping tomorrow's journeys. From cutting-edge technology to sustainable practices, discover how travel is evolving to create a more connected and eco-friendly and comfortable flightInnovation is transforming how we discover and enjoy our planet.</p>
                 </div>
               </div>
               <div className="blog-post card">
