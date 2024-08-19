@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FlightHeader from '../components/FlightHeader';
 import AddBaggage from './AddBaggage';
 
@@ -93,6 +93,15 @@ const AddMeals = () => {
 
 
   ];
+  const formatPrice = (price) => {
+    if (currency === 'USD') {
+        return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`;
+    }
+    if (currency === 'EUR') {
+        return `EUR ${(parseInt(price.replace(/[^\d]/g, '')) / 320).toFixed(2)}`;
+    }
+    return price;
+};
 
   // Filter meals based on selected category
   const filteredMeals =
@@ -142,6 +151,11 @@ const AddMeals = () => {
     0
   );
 
+  // Store the total bill in sessionStorage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem('totalBill', totalBill);
+  }, [totalBill]);
+
   const renderComponent = () => {
     switch (activeComponent) {
       case 'add-baggage':
@@ -173,7 +187,7 @@ const AddMeals = () => {
                 </ul>
                 {/* Display the total bill */}
                 <div className="total-bill">
-                  <h3>Total Bill: </h3> {totalBill} Rs
+                  <span className="bill-label">Total Bill:</span> {totalBill} Rs
                 </div>
               </div>
             )}
