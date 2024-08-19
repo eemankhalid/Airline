@@ -17,6 +17,7 @@ const PayConfirm = () => {
   const [flightSummary, setFlightSummary] = useState({});
   const [priceSummary, setPriceSummary] = useState({});
   const [bookingDetails, setBookingDetails] = useState({});
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const paymentMethods = [
     { name: 'mastercard', icon: 'https://cdn-icons-png.flaticon.com/512/733/733250.png' },
@@ -29,12 +30,17 @@ const PayConfirm = () => {
     const storedFlightSummary = sessionStorage.getItem('flightSummary');
     const storedPriceSummary = sessionStorage.getItem('priceSummary');
     const storedBookingDetails = sessionStorage.getItem('bookingDetails');
+    const storedTotalBill = sessionStorage.getItem('totalBill');
 
     if (storedFlightSummary) {
       setFlightSummary(JSON.parse(storedFlightSummary));
     }
     if (storedPriceSummary) {
-      setPriceSummary(JSON.parse(storedPriceSummary));
+      const parsedPriceSummary = JSON.parse(storedPriceSummary);
+      setPriceSummary(parsedPriceSummary);
+      const extraPrice = parseInt(parsedPriceSummary.extraPrice) || 0;
+      const totalBill = parseInt(storedTotalBill) || 0;
+      setTotalPrice(extraPrice + totalBill); // Calculate the total price
     }
     if (storedBookingDetails) {
       setBookingDetails(JSON.parse(storedBookingDetails));
@@ -99,7 +105,7 @@ const PayConfirm = () => {
                 {bookingDetails.passengers?.infants > 0 ? `, ${bookingDetails.passengers.infants} Infant${bookingDetails.passengers.infants > 1 ? 's' : ''}` : ''}
                 <p className="text">Total Fare : {priceSummary.currency}{priceSummary.totalFare || 'totalFare'}</p>
                 <p className="text">Airport Tax & Surcharge : {priceSummary.currency}{priceSummary.tax || 'Tax & Surcharge'}</p>
-                <h3 className="totalPrice">Total All Inclusive: <br /> {priceSummary.currency} {priceSummary.extraPrice || 'Total Price'}</h3>
+                <h3 className="totalPrice">Total All Inclusive: <br />  {priceSummary.currency} {totalPrice || 'Total Price'}</h3>
               </div>
             </div>
           </div>
@@ -230,8 +236,7 @@ const PayConfirm = () => {
           </div>
 
           <div className="totalAmount">
-            <h3 className="totalAmountText">Total Amount Due</h3>
-            <p className="totalAmountValue">PKR {priceSummary.total || 'Total Price'}</p>
+            <p className="totalAmountValue">{priceSummary.currency} {totalPrice || 'Total Price'}</p>
           </div>
 
           <button

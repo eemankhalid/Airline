@@ -89,6 +89,7 @@ const ContactInformation = () => {
           </div>
         </div>
       </div>
+      <br/>
       <div className="checkbox-group">
         <label>
           <input type="checkbox" />
