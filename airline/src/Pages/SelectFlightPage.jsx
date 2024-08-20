@@ -7,250 +7,6 @@ import FlightPackages from "../components/FlightPackages"
 import '../css/SelectFlight.css'
 
 // Dummy data representing flights
-const flightsData = [
-    // Flights for 10 Aug 2024
-    {
-        id: 1,
-        departureTime: "13:05",
-        arrivalTime: "00:20 (+1)",
-        duration: "11 hour(s) 15 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P500",
-        price: "PKR 128718",
-        date: "10 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "UnitedArabEmirates",
-    },
-    {
-        id: 2,
-        departureTime: "18:30",
-        arrivalTime: "07:00 (+1)",
-        duration: "12 hour(s) 30 minute(s)",
-        stops: 2,
-        stopLocations: ["Dubai (DXB)", "Istanbul (IST)"],
-        stopDurations: ["2 hour(s) 10 minute(s)", "1 hour(s) 45 minute(s)"],
-        airline: "Infinity Wings",
-        flightCode: "FJ300",
-        price: "PKR 132000",
-        date: "10 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "Turkey",
-    },
-    // Flights for 11 Aug 2024
-    {
-        id: 3,
-        departureTime: "13:05",
-        arrivalTime: "13:20 (+2)",
-        duration: "48 hour(s) 15 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P501",
-        price: "PKR 128718",
-        date: "11 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "Australia",
-    },
-    {
-        id: 4,
-        departureTime: "16:45",
-        arrivalTime: "09:00 (+1)",
-        duration: "16 hour(s) 15 minute(s)",
-        stops: 2,
-        stopLocations: ["Doha (DOH)", "Amsterdam (AMS)"],
-        stopDurations: ["2 hour(s) 20 minute(s)", "1 hour(s) 50 minute(s)"],
-        airline: "Infinity Wings",
-        flightCode: "FJ301",
-        price: "PKR 134500",
-        date: "11 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "Netherlands",
-    },
-
-    // Flights for 12 Aug 2024
-    {
-        id: 5,
-        departureTime: "21:00",
-        arrivalTime: "13:20 (+2)",
-        duration: "40 hour(s) 20 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P502",
-        price: "PKR 128718",
-        date: "12 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "United States",
-    },
-    {
-        id: 6,
-        departureTime: "09:00",
-        arrivalTime: "23:30",
-        duration: "14 hour(s) 30 minute(s)",
-        stops: 2,
-        stopLocations: ["Abu Dhabi (AUH)", "Paris (CDG)"],
-        stopDurations: ["1 hour(s) 45 minute(s)", "2 hour(s) 10 minute(s)"],
-        airline: "Infinity Wings",
-        flightCode: "FJ302",
-        price: "PKR 128500",
-        date: "12 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "France",
-    },
-
-    // Flights for 13 Aug 2024
-    {
-        id: 7,
-        departureTime: "21:00",
-        arrivalTime: "13:20 (+2)",
-        duration: "40 hour(s) 20 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P503",
-        price: "PKR 128718",
-        date: "13 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "United States",
-    },
-    {
-        id: 8,
-        departureTime: "15:00",
-        arrivalTime: "06:30 (+1)",
-        duration: "15 hour(s) 30 minute(s)",
-        stops: 2,
-        stopLocations: ["Frankfurt (FRA)", "Zurich (ZRH)"],
-        stopDurations: ["1 hour(s) 55 minute(s)", "2 hour(s) 5 minute(s)"],
-        airline: "Infinity Wings",
-        flightCode: "FJ303",
-        price: "PKR 132000",
-        date: "13 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "Switzerland",
-    },
-
-    // Flights for 14 Aug 2024
-    {
-        id: 9,
-        departureTime: "21:00",
-        arrivalTime: "13:20 (+2)",
-        duration: "40 hour(s) 20 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P504",
-        price: "PKR 128718",
-        date: "14 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "United States",
-    },
-    {
-        id: 10,
-        departureTime: "12:30",
-        arrivalTime: "01:45 (+1)",
-        duration: "13 hour(s) 15 minute(s)",
-        stops: 2,
-        stopLocations: ["Istanbul (IST)", "Vienna (VIE)"],
-        stopDurations: ["2 hour(s) 30 minute(s)", "1 hour(s) 45 minute(s)"],
-        airline: "Infinity Wings",
-        flightCode: "FJ304",
-        price: "PKR 129500",
-        date: "14 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "Austria",
-    },
-
-    // Flights for 15 Aug 2024
-    {
-        id: 11,
-        departureTime: "21:00",
-        arrivalTime: "13:20 (+2)",
-        duration: "40 hour(s) 20 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P505",
-        price: "PKR 128718",
-        date: "15 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "United States",
-    },
-    {
-        id: 12,
-        departureTime: "10:45",
-        arrivalTime: "22:00",
-        duration: "11 hour(s) 15 minute(s)",
-        stops: 2,
-        stopLocations: ["Dubai (DXB)", "Paris (CDG)"],
-        stopDurations: ["1 hour(s) 45 minute(s)", "2 hour(s) 15 minute(s)"],
-        airline: "Infinity Wings",
-        flightCode: "FJ305",
-        price: "PKR 131000",
-        date: "15 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "France",
-    },
-
-    // Flights for 16 Aug 2024
-    {
-        id: 13,
-        departureTime: "21:00",
-        arrivalTime: "13:20 (+2)",
-        duration: "40 hour(s) 20 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P506",
-        price: "PKR 128718",
-        date: "16 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "United States",
-    },
-    {
-        id: 14,
-        departureTime: "08:30",
-        arrivalTime: "20:45",
-        duration: "12 hour(s) 15 minute(s)",
-        stops: 2,
-        stopLocations: ["Doha (DOH)", "Istanbul (IST)"],
-        stopDurations: ["2 hour(s) 10 minute(s)", "1 hour(s) 35 minute(s)"],
-        airline: "Fly Jinnah",
-        flightCode: "FJ306",
-        price: "PKR 128000",
-        operatedBy: "Air Arabia",
-        date: "16 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "Turkey",
-    },
-
-    // Flights for 17 Aug 2024
-    {
-        id: 15,
-        departureTime: "21:00",
-        arrivalTime: "13:20 (+2)",
-        duration: "40 hour(s) 20 minute(s)",
-        stops: 1,
-        airline: "Infinity Wings",
-        flightCode: "9P507",
-        price: "PKR 128718",
-        operatedBy: "Air Arabia",
-        date: "17 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "United States",
-    },
-    {
-        id: 16,
-        departureTime: "14:00",
-        arrivalTime: "01:30 (+1)",
-        duration: "11 hour(s) 30 minute(s)",
-        stops: 2,
-        stopLocations: ["Dubai (DXB)", "Kuwait City (KWI)"],
-        stopDurations: ["2 hour(s) 0 minute(s)", "1 hour(s) 10 minute(s)"],
-        airline: "Infinity Wings",
-        flightCode: "FJ308",
-        price: "PKR 128000",
-        operatedBy: "Flynas",
-        date: "17 Aug 2024",
-        departureCountry: "Pakistan",
-        arrivalCountry: "Saudi Arabia",
-    },
-];
-
 
 const datesData = [
     { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
@@ -284,8 +40,21 @@ const SelectFlightPage = () => {
     const [tax, setTax] = useState(0);
     const flightSummaryRef = useRef(null);
 
+    const [flightsData, setFlightsData] = useState([]);
 
     useEffect(() => {
+        const fetchFlightsData = async () => {
+            try {
+                const res = await fetch('http://localhost:8000/flightsData');
+                const data = await res.json();
+                setFlightsData(data);
+            } catch (error) {
+                console.log('Error fetching data');
+            }
+        };
+
+        fetchFlightsData();
+
         const storedBookingDetails = sessionStorage.getItem('bookingDetails');
         const storedCurrency = sessionStorage.getItem('selectedCurrency');
 
@@ -295,10 +64,7 @@ const SelectFlightPage = () => {
         if (storedCurrency) {
             setCurrency(storedCurrency);
         }
-
-
     }, []);
-
 
     const formatPrice = (price) => {
         if (currency === 'USD') {
@@ -334,11 +100,9 @@ const SelectFlightPage = () => {
 
     const handleBookNow = () => {
         setShowPackages(true);
-        setShowPackages(true);
         if (flightSummaryRef.current) {
             flightSummaryRef.current.scrollIntoView({ behavior: 'smooth' });
         }
-
     };
 
     const handleSelectPackage = (pkg) => {
