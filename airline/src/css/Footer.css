@@ -43,7 +43,6 @@
     color: #fff; /* White text color on hover */
 }
 
-
 .footer .subscribe-form {
     display: flex;
     margin-top: 20px;
@@ -52,18 +51,15 @@
 
 .footer .subscribe-form input[type="email"] {
     flex: 1;
-    padding: 10px;
+    padding: 8px; /* Decreased padding for a smaller height */
     border: none;
     outline: none;
     border-radius: 4px 0 0 4px;
-}
-.subscribe-form input[type="email"] {
-   height: 50px;
-   margin-top: 20px;
+    height: 35px; /* Decreased height */
 }
 
 .footer .subscribe-form button {
-    padding: 10px;
+    padding: 8px; /* Match padding to input */
     background-color: transparent; /* Transparent button background */
     color: #fff; /* White text color */
     border: 1px solid #fff; /* White border */
@@ -72,6 +68,7 @@
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     margin-left: -5px; /* Move button to the left */
+    height: 35px; /* Match height to input */
 }
 
 .footer .subscribe-form button:hover {

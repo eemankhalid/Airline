@@ -52,9 +52,9 @@ const Navbar = () => {
                         <div className={getDropdownLinkClass('/add-extras')}>
                             <Link to="/add-extras" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Add Extras</Link>
                             <div className="dropdown-menu m-0">
-                                <Link to="/add-extras#baggage" className="dropdown-item">Add Baggage</Link>
-                                <Link to="/add-extras#seats" className="dropdown-item">Add Seats</Link>
-                                <Link to="/add-extras#meals" className="dropdown-item">Add Meals</Link>
+                                <Link to="/extras-baggage" className="dropdown-item">Add Baggage</Link>
+                                <Link to="/extras-seat" className="dropdown-item">Add Seats</Link>
+                                <Link to="/extras-baggage" className="dropdown-item">Add Meals</Link>
                             </div>
                         </div>
                         <Link to="/check-in" className={getNavLinkClass('/check-in')}>Check-In</Link>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/ModifyFlight.css'
+import logo from '../assets/img/sample1.png';  // Import the logo image
 
 const ModifyFlight = () => {
     const [reservationNumber, setReservationNumber] = useState('');
@@ -26,8 +27,10 @@ const ModifyFlight = () => {
         <div className="container">
             <br /><br /><br />
             <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
-                <h5 className="section-title px-3">Manage Booking</h5>
-                <h1 className="mb-0">Cancel a Flight</h1>
+            <img src={logo} alt="Travela Logo"
+        width="150"
+      />
+              <h1 className="heading">Cancel Flight</h1> 
             </div>
             <p>
             If you wish to cancel your flight, the balance will be credited back to you towards a future use and within a year of your original booking. The cancellation will be subject to a cancellation fee.
