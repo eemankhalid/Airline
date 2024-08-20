@@ -24,6 +24,9 @@ import FAQsPage from './Pages/FAQsPage';
 import ContactUsPage from './Pages/ContactUsPage';
 import SelectFlightPage from './Pages/SelectFlightPage';
 import EnterDetailsPage from './Pages/EnterDetailsPage';
+import ExtrasMeal from './Pages/ExtrasMeal';
+import ExtrasSeats from './Pages/ExtrasSeats';
+import ExtrasBaggage from './Pages/ExtrasBaggage';
 
 import JoinwpPage from './Pages/JoinwpPage';
 import PayConfirm from './Pages/PayConfirm';
@@ -53,6 +56,9 @@ const router = createBrowserRouter(
             <Route path="/join-wp" element={<JoinwpPage />} />
             <Route path="/pay-confirm" element={<PayConfirm />} />
             <Route path="/booked" element={<Booked />} />
+            <Route path="/extras-meal" element={<ExtrasMeal/>} />
+            <Route path="/extras-seat" element={<ExtrasSeats />} />
+            <Route path="/extras-baggage" element={<ExtrasBaggage/>} />
         </Route>
 
     )

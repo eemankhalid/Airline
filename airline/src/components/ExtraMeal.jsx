@@ -36,17 +36,15 @@ const ModifyFlight = () => {
             <img src={logo} alt="Travela Logo"
         width="150"
       />
-           <h1 className="heading">Modify Flight</h1> 
+              <h1 className="heading">Add Meals</h1> 
             </div>
 
+          
             <p>
-                Have your travel plans changed? Do you want to modify the day of travel or even the destination of your trip? You may do so easily and online as long as you make the changes 24 hours prior to your flight.
+            Enjoy a more personalized journey with Fly Jinnah. <a href="#">Select the meal</a> of your choice offered by our Sky Café menu prior to your flight. While booking online, you can choose from a wide selection of sumptuous onboard food and beverages at extremely affordable prices.
             </p>
             <p>
-                Alterations are subject to <a href="#">modification charges</a> and airfare difference.
-            </p>
-            <p>
-                You can modify instantly online through the below form or by contacting our <a href="#">call center</a>, visiting our <a href="#">sales offices</a> or travel partners.
+            You can pre-select your meals instantly online through below form or by contacting our <a href="#">call center</a>, visiting our <a href="#">sales offices</a> or travel partners.
             </p>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>

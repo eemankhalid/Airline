@@ -36,17 +36,14 @@ const ModifyFlight = () => {
             <img src={logo} alt="Travela Logo"
         width="150"
       />
-           <h1 className="heading">Modify Flight</h1> 
+              <h1 className="heading">Add Baggage</h1> 
             </div>
 
             <p>
-                Have your travel plans changed? Do you want to modify the day of travel or even the destination of your trip? You may do so easily and online as long as you make the changes 24 hours prior to your flight.
+            Fly Jinnah offers you the opportunity to only pay for the baggage you need. You can select checked baggage weight while booking or modifying your flight (23 Kg, 30 Kg or 46 Kg). Pre-book your baggage allowance now and save up to 90% of baggage charges paid at the airport.
             </p>
             <p>
-                Alterations are subject to <a href="#">modification charges</a> and airfare difference.
-            </p>
-            <p>
-                You can modify instantly online through the below form or by contacting our <a href="#">call center</a>, visiting our <a href="#">sales offices</a> or travel partners.
+            You can pre-book checked baggage allowance instantly online through below form or by contacting our <a href="#" >call center</a> , visiting our  <a href="#" >sales offices</a> or travel partners.
             </p>
             <div className="form-container">
                 <form onSubmit={handleSubmit}>

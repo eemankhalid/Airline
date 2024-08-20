@@ -166,7 +166,7 @@ const GroupTravelForm = () => {
         <div className="container py-5">
           <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
             <h5 className="section-title px-3">Charter Booking Request</h5>
-            <h1 className="mb-0">Are you are looking for customized air travel experience and unique on board service? Infintiy wings charter offers you convenient and exciting choices.</h1>
+            <h5 className="mb-0">Are you are looking for customized air travel experience and unique on board service? Infintiy wings charter offers you convenient and exciting choices.</h5>
           </div>
           <form className="group-travel-form" onSubmit={handleSubmit}>
      
