@@ -10,7 +10,7 @@ const BlogCategories = () => {
 
   const scrollToSection = (ref) => {
     window.scrollTo({
-      top: ref.current.offsetTop,
+      top: ref.current.offsetTop - 100, // Adjusting scroll to account for header
       behavior: 'smooth',
     });
   };
@@ -29,15 +29,15 @@ const BlogCategories = () => {
             <ul>
               <li onClick={() => scrollToSection(destinationRef)}>Destination Blogs</li>
               <li onClick={() => scrollToSection(generalRef)}>General Blogs</li>
-              <li onClick={() => scrollToSection(infinityRef)}>Infinity Wings Blogs</li>
+              <li onClick={() => scrollToSection(infinityRef)}>WingPoints Blogs</li>
             </ul>
           </div>
-          </aside>
+        </aside>
 
         <div className="blog-content">
           {/* Destination Blogs Section */}
           <section ref={destinationRef}>
-            <h2 style={{ color: 'black' }}>Destination Blogs</h2>
+            <h2>Destination Blogs</h2>
             <div className="blog-row">
               {/* Blog Posts */}
               <div className="blog-post card">
@@ -51,13 +51,13 @@ const BlogCategories = () => {
                 </div>
               </div>
               <div className="blog-post card">
-                <div className="card-image" >
+                <div className="card-image">
                   <img src="src/assets/img/blog3.jpeg" alt="Destination Post 2" />
                 </div>
                 <div className="card-content">
                   <h4>Unveil Hidden Gems</h4>
                   <div className="underline"></div>
-                  <p>Discover lesser-known travel destinations that offer unique experiences and breathtaking beauty. From secluded beaches to charming mountain and villages. </p>
+                  <p>Discover lesser-known travel destinations that offer unique experiences and breathtaking beauty. From secluded beaches to charming mountain and villages.</p>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ const BlogCategories = () => {
 
           {/* General Blogs Section */}
           <section ref={generalRef}>
-            <h2 style={{ color: 'black' }}>General Blogs</h2>
+            <h2>General Blogs</h2>
             <div className="blog-row">
               <div className="blog-post card">
                 <div className="card-image">
@@ -92,26 +92,26 @@ const BlogCategories = () => {
 
           {/* Infinity Wings Blogs Section */}
           <section ref={infinityRef}>
-            <h2 style={{ color: 'black' }}>Infinity Wings Blogs</h2>
+            <h2>WingsPoints Blogs</h2>
             <div className="blog-row">
               <div className="blog-post card">
                 <div className="card-image">
                   <img src="src/assets/img/blog6.png" alt="Infinity Wings Post 1" />
                 </div>
                 <div className="card-content">
-                  <h4>The Future of Travel</h4>
+                  <h4>Earn points</h4>
                   <div className="underline"></div>
-                  <p>Explore the innovations shaping tomorrow's journeys. From cutting-edge technology to sustainable practices, discover how travel is evolving to create a more connected and eco-friendly and comfortable flightInnovation is transforming how we discover and enjoy our planet.</p>
+                  <p>Every Flight gets you up to 10% Cashback as AirRewards points.</p>
                 </div>
               </div>
               <div className="blog-post card">
-                <div className="card-image" >
+                <div className="card-image">
                   <img src="src/assets/img/blog8.jpg" alt="Infinity Wings Post 2" />
                 </div>
                 <div className="card-content">
-                  <h4>Innovative Experiences</h4>
+                  <h4>Spend points</h4>
                   <div className="underline"></div>
-                  <p>Unlock new ways to explore the world with groundbreaking travel experiences. Innovation is transforming how we discover and enjoy our planet  discover how travel is evolving to create a more connected flight.</p>
+                  <p>Use your points online easily for flights, meals and baggage.</p>
                 </div>
               </div>
             </div>
