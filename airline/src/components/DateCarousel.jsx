@@ -17,6 +17,7 @@ const DateCarousel = ({ dates, selectedDate, onDateSelect }) => {
             });
         }
     };
+    
 
     return (
         <div className="carousel-container">

@@ -9,15 +9,15 @@ import '../css/SelectFlight.css'
 // Dummy data representing flights
 
 const datesData = [
-    { day: "Monday", date: "10 Aug 2024", price: "PKR 128718" },
-    { day: "Tuesday", date: "11 Aug 2024", price: "PKR 130000" },
-    { day: "Wednesday", date: "12 Aug 2024", price: "PKR 125000" },
-    { day: "Thursday", date: "13 Aug 2024", price: "PKR 128720" },
-    { day: "Friday", date: "14 Aug 2024", price: "PKR 130718" },
-    { day: "Saturday", date: "15 Aug 2024", price: "PKR 289718" },
-    { day: "Sunday", date: "16 Aug 2024", price: "PKR 128720" },
-    { day: "Monday", date: "17 Aug 2024", price: "PKR 128918" },
-    { day: "Tuesday", date: "18 Aug 2024", price: "PKR 138918" },
+    { day: "Monday", date: "10 Sep 2024", price: "PKR 128718" },
+    { day: "Tuesday", date: "11 Sep 2024", price: "PKR 130000" },
+    { day: "Wednesday", date: "12 Sep 2024", price: "PKR 125000" },
+    { day: "Thursday", date: "13 Sep 2024", price: "PKR 128720" },
+    { day: "Friday", date: "14 Sep 2024", price: "PKR 130718" },
+    { day: "Saturday", date: "15 Sep 2024", price: "PKR 289718" },
+    { day: "Sunday", date: "16 Sep 2024", price: "PKR 128720" },
+    { day: "Monday", date: "17 Sep 2024", price: "PKR 128918" },
+    { day: "Tuesday", date: "18 Sep 2024", price: "PKR 138918" },
     // Add more dates as needed
 ];
 
