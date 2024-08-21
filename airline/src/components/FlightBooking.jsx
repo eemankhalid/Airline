@@ -67,7 +67,7 @@ const FlightBooking = () => {
         setTotal(totalFare + tax);
     };
 
-    const handleSearchFlightClick = (e) => {
+    const handleSearchFlightClick = async (e) => {
         e.preventDefault();
 
         const messages = {};
@@ -121,10 +121,47 @@ const FlightBooking = () => {
                 infants: infants,
             }
         }));
+        const bookingDetails = {
+            fromCountry: selectedFromCountry,
+            toCountry: selectedToCountry,
+            fromAirport: fromAirport,
+            toAirport: toAirport,
+            departDate: departDate,
+            returnDate: returnDate,
+            tripType: tripType,
+            fare: fare,
+            tax: tax,
+            total: total,
+            currency: currency,
+            passengers: {
+                adults: adults,
+                children: children,
+                infants: infants,
+            }
+        };
+    
+        try {
+            const response = await fetch('http://localhost:8002/api/bookings', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(bookingDetails),
+            });
+    
+            if (response.ok) {
+                console.log('Booking saved successfully');
+                setValidationMessages({});
+                setGeneralMessage('');
+                navigate('/select-flight');
+            } else {
+                console.log('Error saving booking');
+            }
+        } catch (error) {
+            console.error('Error connecting to server:', error);
+        }
 
-        setValidationMessages({});
-        setGeneralMessage('');
-        navigate('/select-flight');
+       
     };
 
     // Get today's date in 'YYYY-MM-DD' format
