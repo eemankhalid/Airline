@@ -66,6 +66,9 @@ const router = createBrowserRouter(
 
 
 
+
+
+
 const App = () => {
     useEffect(() => {
         const scripts = [
