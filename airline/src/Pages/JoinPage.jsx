@@ -192,6 +192,22 @@ const JoinPage = () => {
                   <option value="">Select Country</option>
                   <option value="US">United States</option>
                   <option value="CA">Canada</option>
+                  <option value="GB">United Kingdom</option>
+<option value="AU">Australia</option>
+<option value="IN">India</option>
+<option value="DE">Germany</option>
+<option value="FR">France</option>
+<option value="JP">Japan</option>
+<option value="CN">China</option>
+<option value="BR">Brazil</option>
+<option value="ZA">South Africa</option>
+<option value="RU">Russia</option>
+<option value="IT">Italy</option>
+<option value="MX">Mexico</option>
+<option value="ES">Spain</option>
+<option value="NL">Netherlands</option>
+<option value="SE">Sweden</option>
+
                   {/* Add more options here */}
                 </select>
                 {errors.country && <span className="error">{errors.country}</span>}
