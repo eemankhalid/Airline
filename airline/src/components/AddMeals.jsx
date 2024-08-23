@@ -2,106 +2,32 @@ import React, { useState, useEffect } from 'react';
 import FlightHeader from '../components/FlightHeader';
 import AddBaggage from './AddBaggage';
 
-
 const AddMeals = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Meals');
   const [activeComponent, setActiveComponent] = useState('meals');
   const [sortOption, setSortOption] = useState('price'); // default sorting by price
   const [selectedMeals, setSelectedMeals] = useState([]); // state to store selected meals
   const [quantitySelector, setQuantitySelector] = useState(null); // state to manage the inline quantity selector
+  const [meals, setMeals] = useState([]); // state to store meal data
 
-  // Meal data
-  const meals = [
-    {
-      id: 1,
-      name: 'Pakistani Combo with Water',
-      description: 'Pakistani Combo with Water',
-      category: 'Hot Meals',
-      price: 'Free',
-    },
-    {
-      id: 2,
-      name: 'Regional Breakfast with Water',
-      description: 'Regional Breakfast with Water',
-      category: 'Hot Breakfast',
-      price: 'Free',
-    },
-    {
-      id: 3,
-      name: 'Chicken Biryani with Potato Cutlet and water',
-      description: 'Chicken Biryani with Potato Cutlet and water',
-      category: 'Hot Meals',
-      price: '250 Rs',
-    },
-    {
-      id: 4,
-      name: 'Veg Biryani with potato cutlet and water',
-      description: 'Veg Biryani with potato cutlet and water',
-      category: 'Hot Meals',
-      price: 'Free',
-    },
-    {
-      id: 5,
-      name: 'Mix BBQ Platter with water',
-      description: 'Mix BBQ Platter with water',
-      category: 'Hot Meals',
-      price: 'Free',
-    },
-    {
-      id: 6,
-      name: 'Chicken Pepporoni Sandwich with water',
-      description: 'Chicken Pepporoni Sandwich with water',
-      category: 'Sandwiches',
-      price: '300 Rs',
-    },
-    {
-      id: 7,
-      name: 'Tandoori Chicken Sandwich in Focaccia Baguette with Water',
-      description:
-        'Layers of grilled chicken marinated in tandoori spices, topped with onions and spiced mayonnaise housed in a baguette and water.',
-      category: 'Sandwiches',
-      price: '550 Rs',
-    },
-    {
-      id: 8,
-      name: 'Veg and Cheese Sandwich with water',
-      description: 'Veg and Cheese Sandwich with water',
-      category: 'Sandwiches',
-      price: '350 Rs',
-    },
-    {
-      id: 9,
-      name: 'Fresh Seasonal Fruit Salad with water',
-      description: 'Fresh Seasonal Fruit Salad with water',
-      category: 'Salad',
-      price: 'Free',
-    },
-    {
-      id: 10,
-      name: 'Mediterranean Pasta Salad with water',
-      description: 'Mediterranean Pasta Salad with water',
-      category: 'Salad',
-      price: '440 Rs',
-    },
-    {
-      id: 11,
-      name: 'Roast Chicken with chili with water',
-      description: 'Roast Chicken with chili with water',
-      category: 'Hot Meals',
-      price: '630 Rs',
-    },
+  useEffect(() => {
+    // Fetch meal data from JSON Server
+    fetch('http://localhost:8000/MealsData')
+      .then((response) => response.json())
+      .then((data) => setMeals(data))
+      .catch((error) => console.error('Error fetching meals:', error));
+  }, []);
 
-
-  ];
   const formatPrice = (price) => {
+    // Assuming currency is a variable you have set elsewhere in your app
     if (currency === 'USD') {
-        return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`;
+      return `USD ${(parseInt(price.replace(/[^\d]/g, '')) / 280).toFixed(2)}`;
     }
     if (currency === 'EUR') {
-        return `EUR ${(parseInt(price.replace(/[^\d]/g, '')) / 320).toFixed(2)}`;
+      return `EUR ${(parseInt(price.replace(/[^\d]/g, '')) / 320).toFixed(2)}`;
     }
     return price;
-};
+  };
 
   // Filter meals based on selected category
   const filteredMeals =

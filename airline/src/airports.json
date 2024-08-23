@@ -239,5 +239,85 @@
       "departureCountry": "UnitedArabEmirates",
       "arrivalCountry": "Armenia"
     }
+  ],
+  "MealsData":[
+    {
+      "id": 1,
+      "name": "Pakistani Combo with Water",
+      "description": "Pakistani Combo with Water",
+      "category": "Hot Meals",
+      "price": "Free"
+    },
+    {
+      "id": 2,
+      "name": "Regional Breakfast with Water",
+      "description": "Regional Breakfast with Water",
+      "category": "Hot Breakfast",
+      "price": "Free"
+    },
+    {
+      "id": 3,
+      "name": "Chicken Biryani with Potato Cutlet and water",
+      "description": "Chicken Biryani with Potato Cutlet and water",
+      "category": "Hot Meals",
+      "price": "250 Rs"
+    },
+    {
+      "id": 4,
+      "name": "Veg Biryani with potato cutlet and water",
+      "description": "Veg Biryani with potato cutlet and water",
+      "category": "Hot Meals",
+      "price": "Free"
+    },
+    {
+      "id": 5,
+      "name": "Mix BBQ Platter with water",
+      "description": "Mix BBQ Platter with water",
+      "category": "Hot Meals",
+      "price": "Free"
+    },
+    {
+      "id": 6,
+      "name": "Chicken Pepporoni Sandwich with water",
+      "description": "Chicken Pepporoni Sandwich with water",
+      "category": "Sandwiches",
+      "price": "300 Rs"
+    },
+    {
+      "id": 7,
+      "name": "Tandoori Chicken Sandwich in Focaccia Baguette with Water",
+      "description": "Layers of grilled chicken marinated in tandoori spices, topped with onions and spiced mayonnaise housed in a baguette and water.",
+      "category": "Sandwiches",
+      "price": "550 Rs"
+    },
+    {
+      "id": 8,
+      "name": "Veg and Cheese Sandwich with water",
+      "description": "Veg and Cheese Sandwich with water",
+      "category": "Sandwiches",
+      "price": "350 Rs"
+    },
+    {
+      "id": 9,
+      "name": "Fresh Seasonal Fruit Salad with water",
+      "description": "Fresh Seasonal Fruit Salad with water",
+      "category": "Salad",
+      "price": "Free"
+    },
+    {
+      "id": 10,
+      "name": "Mediterranean Pasta Salad with water",
+      "description": "Mediterranean Pasta Salad with water",
+      "category": "Salad",
+      "price": "440 Rs"
+    },
+    {
+      "id": 11,
+      "name": "Roast Chicken with chili with water",
+      "description": "Roast Chicken with chili with water",
+      "category": "Hot Meals",
+      "price": "630 Rs"
+    }
   ]
+  
 }
