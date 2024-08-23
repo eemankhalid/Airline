@@ -119,57 +119,46 @@ const GroupTravelForm = () => {
       [name]: value,
     });
   };
-  const handleSubmit = async (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-  
     if (validate()) {
-      try {
-        const response = await fetch('http://localhost:8002/api/groupTravel', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-  
-        if (response.ok) {
-          const responseData = await response.json(); // Parse the response JSON
-          setSuccessMessage('Your request has been sent successfully!');
-          setErrorMessage('');
-          setFormData({
-            fromCountry: '',
-            toCountry: '',
-            departureDate: '',
-            adults: '',
-            children: '',
-            infants: '',
-            groupName: '',
-            groupType: '',
-            passengers: '',
-            flyingFrom: '',
-            to: '',
-            journeyType: '',
-            departureTime: '',
-            returnTime: '',
-            cateringRequest: '',
-            message: '',
-            title: '',
-            yourName: '',
-            email: '',
-            countryCode: '',
-            phoneNumber: '',
-          });
-          console.log('Saved data:', responseData); // Optional: log the saved data
-        } 
-          else {
-            console.error('Failed to save data');
-        
-      } }catch (error) {
-        console.error('Error:', error);
-      }
-      }
+      // Handle form submission
+      console.log('Form submitted successfully!', formData);
+      setSuccessMessage('Your request has been sent successfully!');
+      // Clear form after submission
+      setFormData({
+        fromCountry: '',
+        toCountry: '',
+        departureDate: '',
+        adults: '',
+        children: '',
+        infants: '',
+        groupName: '',
+        groupType: '',
+        passengers: '',
+        flyingFrom: '',
+        to: '',
+        journeyType: '',
+        departureMonth: '',
+        departureDay: '',
+        departureYear: '',
+        departureTime: '',
+        returnMonth: '',
+        returnDay: '',
+        returnYear: '',
+        returnTime: '',
+        cateringRequest: '',
+        message: '',
+        title: '',
+        yourName: '',
+        reservationNumber: '',
+        email: '',
+        countryCode: '',
+        phoneNumber: '',
+      });
+    }
   };
-  
 
   return (
     <div id="group-travel-form">
