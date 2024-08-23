@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
+import GroupTravel from './Models/groupTravelModel.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -53,6 +54,17 @@ app.post('/api/selected-meals', async (req, res) => {
         res.status(201).json(savedMeals);
     } catch (error) {
         res.status(400).json({ message: 'Error saving selected meals', error });
+    }
+});
+
+
+  app.post('/api/groupTravel', async (req, res) => {
+    try {
+        const groupTravel = req.body; // Array of meals
+        const groupTraveldata = await GroupTravel.save(groupTravel);
+        res.status(201).json(groupTraveldata);
+    } catch (error) {
+        res.status(400).json({ message: 'Error saving data', error });
     }
 });
 
