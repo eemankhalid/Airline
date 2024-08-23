@@ -2,12 +2,11 @@ import React from 'react';
 
 const GroupTravelBenefits = () => {
   return (
-    <div className="benefits-container">
+    <div className="benefits-container"  style={{ color: 'white' }}>
       <section>
-      <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
-                        <h5 className="section-title px-3">At the Airport</h5>
-                   
-                    </div>
+        <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
+          <h5 className="section-title px-3">At the Airport</h5>
+        </div>
         <div className="benefits-grid">
           <div className="benefit-card">
             <h3>Advance Check-In</h3>
@@ -28,13 +27,12 @@ const GroupTravelBenefits = () => {
         </div>
       </section>
       <section>
-      <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
-                        <h5 className="section-title px-3">On Board</h5>
-                   
-                    </div>
+        <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
+          <h5 className="section-title px-3">On Board</h5>
+        </div>
         <div className="benefits-grid">
           <div className="benefit-card">
-            <h3>Group</h3>
+            <h3>Sitting Together As A Group</h3>
             <p>Sitting Together As A Group</p>
           </div>
           <div className="benefit-card">
