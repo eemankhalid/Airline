@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
+import User from './Models/User.js';// Import the User model
 
 // Load environment variables from .env file
 dotenv.config();
@@ -21,42 +22,48 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 // Root route
 app.get('/', (req, res) => {
-    res.send('Flight Booking API');
+  res.send('Flight Booking API');
 });
 
 // Route to handle booking creation
 app.post('/api/bookings', async (req, res) => {
-    try {
-        const newBooking = new Booking(req.body);
-        const savedBooking = await newBooking.save();
-        res.status(201).json(savedBooking);
-    } catch (error) {
-        res.status(400).json({ message: 'Error creating booking', error });
-    }
+  try {
+    const newBooking = new Booking(req.body);
+    const savedBooking = await newBooking.save();
+    res.status(201).json(savedBooking);
+  } catch (error) {
+    res.status(400).json({ message: 'Error creating booking', error });
+  }
 });
 
 // Route to fetch all bookings
 app.get('/api/bookings', async (req, res) => {
-    try {
-        const bookings = await Booking.find();
-        res.status(200).json(bookings);
-    } catch (error) {
-        res.status(400).json({ message: 'Error fetching bookings', error });
-    }
+  try {
+    const bookings = await Booking.find();
+    res.status(200).json(bookings);
+  } catch (error) {
+    res.status(400).json({ message: 'Error fetching bookings', error });
+  }
 });
 
 // Route to handle selected meals
 app.post('/api/selected-meals', async (req, res) => {
-    try {
-        const selectedMeals = req.body; // Array of meals
-        const savedMeals = await SelectedMeal.insertMany(selectedMeals);
-        res.status(201).json(savedMeals);
-    } catch (error) {
-        res.status(400).json({ message: 'Error saving selected meals', error });
-    }
+  try {
+    const selectedMeals = req.body; // Array of meals
+    const savedMeals = await SelectedMeal.insertMany(selectedMeals);
+    res.status(201).json(savedMeals);
+  } catch (error) {
+    res.status(400).json({ message: 'Error saving selected meals', error });
+  }
 });
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+app.post('/api/join', (req, res) => {
+    const userData = req.body;
+    const newUser = new User(userData);
+  
+    newUser.save()
+      .then(user => res.status(201).json(user))
+      .catch(err => res.status(400).json({ error: err.message }));
+  });
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });  
