@@ -74,6 +74,15 @@ app.post('/api/groupTravel', async (req, res) => {
         res.status(400).json({ message: 'Error saving group travel data', error });
     }
 });
+// POST endpoint to save user data
+app.post('/api/join', (req, res) => {
+  const userData = req.body;
+  const newUser = new User(userData);
+
+  newUser.save()
+    .then(user => res.status(201).json(user))
+    .catch(err => res.status(400).json({ error: err.message }));
+});
 
 // Start the server
 app.listen(PORT, () => {
