@@ -4,7 +4,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
-import GroupTravel from './Models/groupTravelModel.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -22,32 +21,39 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 // Root route
 app.get('/', (req, res) => {
-    res.send('Flight Booking API');
+  res.send('Flight Booking API');
 });
 
 // Route to handle booking creation
 app.post('/api/bookings', async (req, res) => {
-    try {
-        const newBooking = new Booking(req.body);
-        const savedBooking = await newBooking.save();
-        res.status(201).json(savedBooking);
-    } catch (error) {
-        res.status(400).json({ message: 'Error creating booking', error });
-    }
+  try {
+    const newBooking = new Booking(req.body);
+    const savedBooking = await newBooking.save();
+    res.status(201).json(savedBooking);
+  } catch (error) {
+    res.status(400).json({ message: 'Error creating booking', error });
+  }
 });
 
 // Route to fetch all bookings
 app.get('/api/bookings', async (req, res) => {
-    try {
-        const bookings = await Booking.find();
-        res.status(200).json(bookings);
-    } catch (error) {
-        res.status(400).json({ message: 'Error fetching bookings', error });
-    }
+  try {
+    const bookings = await Booking.find();
+    res.status(200).json(bookings);
+  } catch (error) {
+    res.status(400).json({ message: 'Error fetching bookings', error });
+  }
 });
 
 // Route to handle selected meals
 app.post('/api/selected-meals', async (req, res) => {
+  try {
+    const selectedMeals = req.body; // Array of meals
+    const savedMeals = await SelectedMeal.insertMany(selectedMeals);
+    res.status(201).json(savedMeals);
+  } catch (error) {
+    res.status(400).json({ message: 'Error saving selected meals', error });
+  }
     try {
         const selectedMeals = req.body; // Array of meals
         const savedMeals = await SelectedMeal.insertMany(selectedMeals);
