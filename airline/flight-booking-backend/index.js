@@ -4,6 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
+import User from './Models/User.js';  // Import the User model
 
 // Load environment variables from .env file
 dotenv.config();
@@ -74,16 +75,17 @@ app.post('/api/groupTravel', async (req, res) => {
         res.status(400).json({ message: 'Error saving group travel data', error });
     }
 });
-// POST endpoint to save user data
-app.post('/api/join', (req, res) => {
-  const userData = req.body;
-  const newUser = new User(userData);
 
-  newUser.save()
-    .then(user => res.status(201).json(user))
-    .catch(err => res.status(400).json({ error: err.message }));
+// Route to handle user registration
+app.post('/api/register', async (req, res) => {
+  try {
+    const newUser = new User(req.body);
+    const savedUser = await newUser.save();
+    res.status(201).json(savedUser);
+  } catch (error) {
+    res.status(400).json({ message: 'Error registering user', error });
+  }
 });
-
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

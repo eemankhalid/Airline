@@ -92,19 +92,36 @@ const JoinPage = () => {
     return Object.keys(newErrors).length === 0 && Object.values(formData).every(field => field.trim() !== '');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setTouched({}); // Reset touched fields on submit
+  
     if (validate()) {
-      const generatedUserId = `WING-${Math.floor(Math.random() * 1000000)}`;
-      setUserId(generatedUserId);
-      setSubmitted(true);
-
-      navigate('/join-wp', { state: { userId: generatedUserId } });
+      try {
+        const response = await fetch('http://localhost:8002/api/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.ok) {
+          const result = await response.json();
+          setUserId(result._id);  // Assuming `_id` is returned from MongoDB
+          setSubmitted(true);
+          navigate('/join-wp', { state: { userId: result._id } });
+        } else {
+          console.error('Error:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
     } else {
       console.log('Form data is invalid.');
     }
   };
+  
 
   return (
     <>
