@@ -168,7 +168,6 @@ const GroupTravelForm = () => {
   };
 
 
-
   return (
     <div id="group-travel-form">
       <div className="container-fluid py-5">
@@ -248,7 +247,6 @@ const GroupTravelForm = () => {
     {errors.returnDate && <div className="error">{errors.returnDate}</div>}
   </div>
 </div>
-
 
             <div className="form-row">
            

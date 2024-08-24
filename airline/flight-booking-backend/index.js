@@ -4,7 +4,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
-
+import GroupTravel from './Models/groupTravelModel.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -57,8 +57,6 @@ app.post('/api/selected-meals', async (req, res) => {
     }
 });
 
-
-
 // Route to handle group travel form data
 app.post('/api/groupTravel', async (req, res) => {
     try {
@@ -71,9 +69,8 @@ app.post('/api/groupTravel', async (req, res) => {
     }
 });
 
-
-
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
