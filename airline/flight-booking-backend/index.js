@@ -4,7 +4,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
-import User from './Models/User.js';// Import the User model
 
 // Load environment variables from .env file
 dotenv.config();
@@ -56,14 +55,8 @@ app.post('/api/selected-meals', async (req, res) => {
     res.status(400).json({ message: 'Error saving selected meals', error });
   }
 });
-app.post('/api/join', (req, res) => {
-    const userData = req.body;
-    const newUser = new User(userData);
-  
-    newUser.save()
-      .then(user => res.status(201).json(user))
-      .catch(err => res.status(400).json({ error: err.message }));
-  });
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });  
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
