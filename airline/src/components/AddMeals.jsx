@@ -81,6 +81,35 @@ const AddMeals = () => {
   useEffect(() => {
     sessionStorage.setItem('totalBill', totalBill);
   }, [totalBill]);
+  const handleConfirmSelection = async () => {
+    try {
+      // Prepare meals data with numerical price
+      const mealsToSave = selectedMeals.map(meal => ({
+        name: meal.name,
+        price: parsePrice(meal.price),
+        quantity: meal.quantity
+      }));
+  
+      const response = await fetch('http://localhost:8002/api/selected-meals', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(mealsToSave),
+      });
+  
+      if (response.ok) {
+        console.log('Meals saved successfully');
+      } else {
+        console.error('Failed to save meals');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  
+    setActiveComponent('add-baggage');
+  };
+  
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -232,7 +261,7 @@ const AddMeals = () => {
             <div className="confirm-section">
               <button
                 className="confirm-button"
-                onClick={() => setActiveComponent('add-baggage')}
+                onClick={handleConfirmSelection}
               >
                 Confirm selection
               </button>
