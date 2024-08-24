@@ -86,16 +86,6 @@ app.post('/api/charterTravel', async (req, res) => {
   }
 });
 
-// POST endpoint to save user data
-app.post('/api/join', (req, res) => {
-  const userData = req.body;
-  const newUser = new User(userData);
-
-  newUser.save()
-    .then(user => res.status(201).json(user))
-    .catch(err => res.status(400).json({ error: err.message }));
-});
-
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
