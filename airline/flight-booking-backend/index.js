@@ -54,9 +54,29 @@ app.post('/api/selected-meals', async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: 'Error saving selected meals', error });
   }
+    try {
+        const selectedMeals = req.body; // Array of meals
+        const savedMeals = await SelectedMeal.insertMany(selectedMeals);
+        res.status(201).json(savedMeals);
+    } catch (error) {
+        res.status(400).json({ message: 'Error saving selected meals', error });
+    }
+});
+
+// Route to handle group travel form data
+app.post('/api/groupTravel', async (req, res) => {
+    try {
+        const groupTravelData = req.body; // Object representing group travel data
+        const newGroupTravel = new GroupTravel(groupTravelData);
+        const savedGroupTravel = await newGroupTravel.save();
+        res.status(201).json(savedGroupTravel);
+    } catch (error) {
+        res.status(400).json({ message: 'Error saving group travel data', error });
+    }
 });
 
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+

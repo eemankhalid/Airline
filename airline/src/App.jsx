@@ -79,6 +79,8 @@ const App = () => {
             { src: "src/lib/owlcarousel/owl.carousel.min.js", id: "owlcarousel" },
             { src: "src/lib/lightbox/js/lightbox.min.js", id: "lightbox" },
             { src: "src/js/main.js", id: "main" },
+    
+
         ];
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         scripts.forEach(script => {
