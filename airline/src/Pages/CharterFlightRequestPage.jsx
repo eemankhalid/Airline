@@ -120,45 +120,60 @@ const GroupTravelForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      // Handle form submission
-      console.log('Form submitted successfully!', formData);
-      setSuccessMessage('Your request has been sent successfully!');
-      // Clear form after submission
-      setFormData({
-        fromCountry: '',
-        toCountry: '',
-        departureDate: '',
-        adults: '',
-        children: '',
-        infants: '',
-        groupName: '',
-        groupType: '',
-        passengers: '',
-        flyingFrom: '',
-        to: '',
-        journeyType: '',
-        departureMonth: '',
-        departureDay: '',
-        departureYear: '',
-        departureTime: '',
-        returnMonth: '',
-        returnDay: '',
-        returnYear: '',
-        returnTime: '',
-        cateringRequest: '',
-        message: '',
-        title: '',
-        yourName: '',
-        reservationNumber: '',
-        email: '',
-        countryCode: '',
-        phoneNumber: '',
-      });
+      try {
+        // Send form data to the server
+        const response = await fetch('http://localhost:8002/api/charterTravel', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+        
+        if (response.ok) {
+          setSuccessMessage('Your request has been sent successfully!');
+          console.log('Form submitted successfully!', result);
+
+          // Clear form after submission
+          setFormData({
+            fromCountry: '',
+            toCountry: '',
+            departureDate: '',
+            adults: '',
+            children: '',
+            infants: '',
+            groupName: '',
+            groupType: '',
+            passengers: '',
+            flyingFrom: '',
+            to: '',
+            journeyType: '',
+            departureTime: '',
+            returnTime: '',
+            cateringRequest: '',
+            message: '',
+            title: '',
+            yourName: '',
+            email: '',
+            countryCode: '',
+            phoneNumber: '',
+          });
+        } else {
+          console.error('Error submitting form:', result.message);
+          setErrors({ submit: result.message });
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        setErrors({ submit: 'Error submitting form' });
+      }
     }
   };
+
 
   return (
     <div id="group-travel-form">

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const GroupTravelSchema = new mongoose.Schema({
+const CharterTravelSchema = new mongoose.Schema({
   fromCountry: String,
   toCountry: String,
   departureDate: String,
@@ -24,6 +24,6 @@ const GroupTravelSchema = new mongoose.Schema({
   phoneNumber: String,
 });
 
-const GroupTravel = mongoose.model('GroupTravel', GroupTravelSchema);
+const CharterTravel = mongoose.model('CharterTravel', CharterTravelSchema);
 
-export default GroupTravel;
+export default CharterTravel;

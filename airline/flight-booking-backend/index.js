@@ -4,7 +4,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
+
 import User from './Models/User.js';  // Import the User model
+
 
 // Load environment variables from .env file
 dotenv.config();
@@ -76,6 +78,7 @@ app.post('/api/groupTravel', async (req, res) => {
     }
 });
 
+
 // Route to handle user registration
 app.post('/api/register', async (req, res) => {
   try {
@@ -84,6 +87,7 @@ app.post('/api/register', async (req, res) => {
     res.status(201).json(savedUser);
   } catch (error) {
     res.status(400).json({ message: 'Error registering user', error });
+
   }
 });
 // Start the server
