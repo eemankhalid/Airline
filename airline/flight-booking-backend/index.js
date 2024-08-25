@@ -4,8 +4,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
-
 import User from './Models/User.js';  // Import the User model
+import Reservation from './Models/Resevation.js'; // Import the Reservation model
 
 
 // Load environment variables from .env file
@@ -83,6 +83,18 @@ app.post('/api/register', async (req, res) => {
   } catch (error) {
     res.status(400).json({ message: 'Error registering user', error });
 
+  }
+});
+
+// New route to store only the reservation ID
+app.post('/api/reservations', async (req, res) => {
+  try {
+    const { reservationId } = req.body;
+    const newReservation = new Reservation({ reservationId });
+    const savedReservation = await newReservation.save();
+    res.status(201).json(savedReservation);
+  } catch (error) {
+    res.status(400).json({ message: 'Error saving reservation ID', error });
   }
 });
 // Start the server

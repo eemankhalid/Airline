@@ -1,7 +1,7 @@
 /* styles.css */
 
 .pageContainer {
-    font-family: 'Helvetica, Arial, sans-serif';
+
     padding: 40px;
     max-width: 1000px;
     margin: 0 auto;
@@ -15,15 +15,17 @@
   }
   
   .sidebar {
-    flex: 1;
+    flex: 2;
   }
   
   .mainContent {
+    margin-left: 20px;
     flex: 2;
   }
   
   .reservationSummary {
     background-color: #fff;
+    width: max-content;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -206,4 +208,29 @@
   .errorText {
     color: red;
   }
+  .reservationIdContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .reservationIdLabel {
+    padding-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+    color: #333;
+  }
+  
+  .reservationIdValue {
+  
+    font-size: 16px;
+    color: #e84545; /* Highlight the Reservation ID with the accent color */
+  }
+  
   
