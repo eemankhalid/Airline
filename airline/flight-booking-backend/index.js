@@ -89,14 +89,17 @@ app.post('/api/register', async (req, res) => {
 // New route to store only the reservation ID
 app.post('/api/reservations', async (req, res) => {
   try {
-    const { reservationId } = req.body;
-    const newReservation = new Reservation({ reservationId });
+    const { reservationId, bookingId } = req.body;
+    console.log('Received bookingId:', bookingId);
+    const newReservation = new Reservation({ reservationId, bookingId });
     const savedReservation = await newReservation.save();
     res.status(201).json(savedReservation);
   } catch (error) {
+    console.error('Error saving reservation:', error);
     res.status(400).json({ message: 'Error saving reservation ID', error });
   }
 });
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
