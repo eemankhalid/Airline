@@ -82,12 +82,14 @@ const PayConfirm = () => {
   const handleConfirmPayment = async () => {
     if (validateForm()) {
       try {
+        const bookingId = sessionStorage.getItem('bookingId');
         const response = await fetch('http://localhost:8002/api/reservations', {
           method: 'POST',
+          
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ reservationId }),
+          body: JSON.stringify({ reservationId, bookingId }),
         });
         
         if (!response.ok) {

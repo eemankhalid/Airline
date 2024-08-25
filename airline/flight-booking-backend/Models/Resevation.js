@@ -7,6 +7,9 @@ const reservationSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  bookingId: { type: mongoose.Schema.Types.ObjectId, 
+    ref: 'Booking', 
+    required: true }, 
 });
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
