@@ -4,8 +4,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
-import CharterTravel from './Models/charterTravelModel.js';
-import User from './Models/User.js';
+
+import User from './Models/User.js';  // Import the User model
+
 
 // Load environment variables from .env file
 dotenv.config();
@@ -31,11 +32,12 @@ app.post('/api/bookings', async (req, res) => {
   try {
     const newBooking = new Booking(req.body);
     const savedBooking = await newBooking.save();
-    res.status(201).json(savedBooking);
+    res.status(201).json({ bookingId: savedBooking._id, ...savedBooking._doc }); // Send booking ID back to client
   } catch (error) {
     res.status(400).json({ message: 'Error creating booking', error });
   }
 });
+
 
 // Route to fetch all bookings
 app.get('/api/bookings', async (req, res) => {
@@ -50,20 +52,14 @@ app.get('/api/bookings', async (req, res) => {
 // Route to handle selected meals
 app.post('/api/selected-meals', async (req, res) => {
   try {
-    const selectedMeals = req.body; // Array of meals
+    const selectedMeals = req.body; // Array of meals, each with bookingId
     const savedMeals = await SelectedMeal.insertMany(selectedMeals);
     res.status(201).json(savedMeals);
   } catch (error) {
     res.status(400).json({ message: 'Error saving selected meals', error });
   }
-    try {
-        const selectedMeals = req.body; // Array of meals
-        const savedMeals = await SelectedMeal.insertMany(selectedMeals);
-        res.status(201).json(savedMeals);
-    } catch (error) {
-        res.status(400).json({ message: 'Error saving selected meals', error });
-    }
 });
+
 
 // Route to handle group travel form data
 app.post('/api/groupTravel', async (req, res) => {
@@ -96,9 +92,6 @@ app.post('/api/register', async (req, res) => {
     res.status(400).json({ message: 'Error registering user', error });
   }
 });
-
-
-
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

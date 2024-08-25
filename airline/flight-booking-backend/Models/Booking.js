@@ -17,7 +17,7 @@ const bookingSchema = new mongoose.Schema({
         children: Number,
         infants: Number,
     }
-});
+}, { timestamps: true }); // This will add createdAt and updatedAt fields automatically
 
 const Booking = mongoose.model('Booking', bookingSchema);
 

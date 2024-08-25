@@ -10,6 +10,10 @@ const AddMeals = () => {
   const [quantitySelector, setQuantitySelector] = useState(null); // state to manage the inline quantity selector
   const [meals, setMeals] = useState([]); // state to store meal data
 
+  const bookingId = sessionStorage.getItem('bookingId');
+console.log('Booking ID:', bookingId);
+
+
   useEffect(() => {
     // Fetch meal data from JSON Server
     fetch('http://localhost:8000/MealsData')
@@ -83,11 +87,18 @@ const AddMeals = () => {
   }, [totalBill]);
   const handleConfirmSelection = async () => {
     try {
-      // Prepare meals data with numerical price
+      const bookingId = sessionStorage.getItem('bookingId');
+      if (!bookingId) {
+        console.error('Booking ID not found in sessionStorage');
+        return;
+      }
+  
+      // Prepare meals data with bookingId and numerical price
       const mealsToSave = selectedMeals.map(meal => ({
         name: meal.name,
         price: parsePrice(meal.price),
-        quantity: meal.quantity
+        quantity: meal.quantity,
+        bookingId: bookingId,  // Include bookingId with each meal
       }));
   
       const response = await fetch('http://localhost:8002/api/selected-meals', {

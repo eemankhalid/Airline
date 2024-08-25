@@ -18,6 +18,7 @@ const PayConfirm = () => {
   const [priceSummary, setPriceSummary] = useState({});
   const [bookingDetails, setBookingDetails] = useState({});
   const [totalPrice, setTotalPrice] = useState(0);
+  const [reservationId, setReservationId] = useState('');
 
   const paymentMethods = [
     { name: 'mastercard', icon: 'https://cdn-icons-png.flaticon.com/512/733/733250.png' },
@@ -25,13 +26,16 @@ const PayConfirm = () => {
     { name: 'link', icon: 'https://cdn-icons-png.flaticon.com/512/733/733275.png' },
     { name: 'nayapay', icon: 'https://cdn-icons-png.flaticon.com/512/733/733591.png' },
   ];
+  const bookingId = sessionStorage.getItem('bookingId');
+  console.log('Booking ID:', bookingId);
+  
 
   useEffect(() => {
     const storedFlightSummary = sessionStorage.getItem('flightSummary');
     const storedPriceSummary = sessionStorage.getItem('priceSummary');
     const storedBookingDetails = sessionStorage.getItem('bookingDetails');
     const storedTotalBill = sessionStorage.getItem('totalBill');
-
+    
     if (storedFlightSummary) {
       setFlightSummary(JSON.parse(storedFlightSummary));
     }
@@ -45,6 +49,14 @@ const PayConfirm = () => {
     if (storedBookingDetails) {
       setBookingDetails(JSON.parse(storedBookingDetails));
     }
+
+    // Generate and set a unique reservation ID
+    const generateReservationId = () => {
+      const id = 'RES' + Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+      setReservationId(id);
+    };
+
+    generateReservationId();
   }, []);
 
   const validateForm = () => {
@@ -67,13 +79,30 @@ const PayConfirm = () => {
     const year = 2024 + i;
     years.push(year.toString());
   }
-
-  const handleConfirmPayment = () => {
+  const handleConfirmPayment = async () => {
     if (validateForm()) {
-      // Proceed with payment processing
-      navigate('/booked'); // Redirect to Booked page
+      try {
+        const response = await fetch('http://localhost:8002/api/reservations', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ reservationId }),
+        });
+        
+        if (!response.ok) {
+          throw new Error('Error saving reservation ID');
+        }
+
+        // Proceed with payment processing
+        navigate('/booked'); // Redirect to Booked page
+      } catch (error) {
+        console.error('Error:', error);
+        // Optionally handle the error
+      }
     }
   };
+
 
   return (
     <div className="pageContainer">
@@ -81,7 +110,7 @@ const PayConfirm = () => {
       <br />
       <br />
       <div className="contentContainer">
-        <div className="sidebar">
+      
           <br />
           <div className="reservationSummary">
             <br />
@@ -108,8 +137,12 @@ const PayConfirm = () => {
                 <h3 className="totalPrice">Total All Inclusive: <br />  {priceSummary.currency} {totalPrice || 'Total Price'}</h3>
               </div>
             </div>
+            <div className="reservationIdContainer">
+              <h4 className="reservationIdLabel">Reservation ID:</h4>
+              <p className="reservationIdValue">{reservationId}</p>
+            </div>
           </div>
-        </div>
+   
 
         <div className="mainContent">
           <div className="paymentOptions">
@@ -171,62 +204,70 @@ const PayConfirm = () => {
               Card Number
               <input
                 type="text"
-                placeholder="The 16 digits on front of your card"
-                className="input"
+                className="inputField"
+                placeholder="Enter your card number"
                 value={cardNumber}
                 onChange={(e) => setCardNumber(e.target.value)}
                 required
               />
               {errors.cardNumber && <p className="errorText">{errors.cardNumber}</p>}
             </label>
-            <div className="expirationDate">
-              <select
-                className="select"
-                value={expirationMonth}
-                onChange={(e) => setExpirationMonth(e.target.value)}
-                required
-              >
-                <option value="">MM</option>
-                {months.map((month) => (
-                  <option key={month} value={month}>
-                    {month}
-                  </option>
-                ))}
-              </select>
-              <select
-                className="select"
-                value={expirationYear}
-                onChange={(e) => setExpirationYear(e.target.value)}
-                required
-              >
-                <option value="">YYYY</option>
-                {years.map((year) => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                ))}
-              </select>
-              {errors.expirationMonth && <p className="errorText">{errors.expirationMonth}</p>}
-              {errors.expirationYear && <p className="errorText">{errors.expirationYear}</p>}
+            <div className="expirationSecurity">
+              <label className="inputLabel">
+                Expiration Month
+                <select
+                  className="inputField"
+                  value={expirationMonth}
+                  onChange={(e) => setExpirationMonth(e.target.value)}
+                  required
+                >
+                  <option value="">Month</option>
+                  {months.map((month) => (
+                    <option key={month} value={month}>
+                      {month}
+                    </option>
+                  ))}
+                </select>
+                {errors.expirationMonth && <p className="errorText">{errors.expirationMonth}</p>}
+              </label>
+
+              <label className="inputLabel">
+                Expiration Year
+                <select
+                  className="inputField"
+                  value={expirationYear}
+                  onChange={(e) => setExpirationYear(e.target.value)}
+                  required
+                >
+                  <option value="">Year</option>
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+                {errors.expirationYear && <p className="errorText">{errors.expirationYear}</p>}
+              </label>
+
+              <label className="inputLabel">
+                Security Code
+                <input
+                  type="password"
+                  className="inputField"
+                  placeholder="Enter the security code"
+                  value={securityCode}
+                  onChange={(e) => setSecurityCode(e.target.value)}
+                  required
+                />
+                {errors.securityCode && <p className="errorText">{errors.securityCode}</p>}
+              </label>
             </div>
-            <label className="inputLabel">
-              Security Code
-              <input
-                type="text"
-                placeholder="CVV2"
-                className="input"
-                value={securityCode}
-                onChange={(e) => setSecurityCode(e.target.value)}
-                required
-              />
-              {errors.securityCode && <p className="errorText">{errors.securityCode}</p>}
-            </label>
             <label className="inputLabel">
               Name on Card
               <input
                 type="text"
-                placeholder="Full name as on the card"
-                className="input"
+                className="inputField"
+                placeholder="Enter the name on card"
                 value={nameOnCard}
                 onChange={(e) => setNameOnCard(e.target.value)}
                 required
@@ -235,15 +276,10 @@ const PayConfirm = () => {
             </label>
           </div>
 
-          <div className="totalAmount">
-            <p className="totalAmountValue">{priceSummary.currency} {totalPrice || 'Total Price'}</p>
-          </div>
-
           <button
+            type="button"
+            className="confirmButton"
             onClick={handleConfirmPayment}
-            className={`confirmButton ${hovered ? 'confirmButtonHover' : ''}`}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
           >
             Confirm Payment
           </button>
