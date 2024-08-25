@@ -150,9 +150,9 @@ const FlightBooking = () => {
             });
     
             if (response.ok) {
-                console.log('Booking saved successfully');
-                setValidationMessages({});
-                setGeneralMessage('');
+                const result = await response.json();
+                console.log('Booking saved successfully with ID:', result.bookingId);
+                sessionStorage.setItem('bookingId', result.bookingId); // Store booking ID in session storage
                 navigate('/select-flight');
             } else {
                 console.log('Error saving booking');
@@ -160,8 +160,6 @@ const FlightBooking = () => {
         } catch (error) {
             console.error('Error connecting to server:', error);
         }
-
-       
     };
 
     // Get today's date in 'YYYY-MM-DD' format
