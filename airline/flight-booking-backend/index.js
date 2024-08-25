@@ -76,6 +76,7 @@ app.post('/api/groupTravel', async (req, res) => {
 
 // Route to handle user registration
 app.post('/api/register', async (req, res) => {
+  
   try {
     const newUser = new User(req.body);
     const savedUser = await newUser.save();
