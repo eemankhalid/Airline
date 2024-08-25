@@ -115,9 +115,15 @@ const JoinPage = () => {
   
         if (response.ok) {
           const result = await response.json();
+
+  
+          setUserId(result._id);  // Set the user ID from MongoDB
+          setSubmitted(true);
+
           
           setUserId(generatedUserId);
           navigate('/join-wp', { state: { userId: generatedUserId } });
+
         } else {
           console.error('Error:', response.statusText);
         }

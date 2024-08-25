@@ -4,8 +4,10 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
+
 import User from './Models/User.js';  // Import the User model
 import Reservation from './Models/Resevation.js'; // Import the Reservation model
+import SelectedSeat from './Models/SelectedSeat.js';
 
 
 // Load environment variables from .env file
@@ -72,9 +74,17 @@ app.post('/api/groupTravel', async (req, res) => {
         res.status(400).json({ message: 'Error saving group travel data', error });
     }
 });
-
-
-// Route to handle user registration
+app.post('/api/charterTravel', async (req, res) => {
+  try {
+    const charterTravelData = req.body;
+    const newCharterTravel = new CharterTravel(charterTravelData);
+    const savedCharterTravel = await newCharterTravel.save();
+    res.status(201).json(savedCharterTravel);
+  } catch (error) {
+    res.status(400).json({ message: 'Error saving charter travel data', error });
+  }
+});
+//Route to handle user registration
 app.post('/api/register', async (req, res) => {
   
   try {
@@ -83,11 +93,9 @@ app.post('/api/register', async (req, res) => {
     res.status(201).json(savedUser);
   } catch (error) {
     res.status(400).json({ message: 'Error registering user', error });
-
   }
 });
 
-// New route to store only the reservation ID
 app.post('/api/reservations', async (req, res) => {
   try {
     const { reservationId, bookingId } = req.body;
@@ -100,6 +108,20 @@ app.post('/api/reservations', async (req, res) => {
     res.status(400).json({ message: 'Error saving reservation ID', error });
   }
 });
+
+// Route to handle selected seats
+app.post('/api/selected-seats', async (req, res) => {
+  try {
+    const selectedSeats = req.body;
+    const savedSeats = await SelectedSeat.insertMany(selectedSeats);
+    res.status(201).json(savedSeats);
+  } catch (error) {
+    res.status(400).json({ message: 'Error saving selected seats', error });
+  }
+});
+
+
+
 
 // Start the server
 app.listen(PORT, () => {
