@@ -86,6 +86,7 @@ app.post('/api/charterTravel', async (req, res) => {
 });
 //Route to handle user registration
 app.post('/api/register', async (req, res) => {
+  
   try {
     const newUser = new User(req.body);
     const savedUser = await newUser.save();
@@ -97,14 +98,17 @@ app.post('/api/register', async (req, res) => {
 
 app.post('/api/reservations', async (req, res) => {
   try {
-    const { reservationId } = req.body;
-    const newReservation = new Reservation({ reservationId });
+    const { reservationId, bookingId } = req.body;
+    console.log('Received bookingId:', bookingId);
+    const newReservation = new Reservation({ reservationId, bookingId });
     const savedReservation = await newReservation.save();
     res.status(201).json(savedReservation);
   } catch (error) {
+    console.error('Error saving reservation:', error);
     res.status(400).json({ message: 'Error saving reservation ID', error });
   }
 });
+
 // Route to handle selected seats
 app.post('/api/selected-seats', async (req, res) => {
   try {
@@ -115,6 +119,8 @@ app.post('/api/selected-seats', async (req, res) => {
     res.status(400).json({ message: 'Error saving selected seats', error });
   }
 });
+
+
 
 
 // Start the server

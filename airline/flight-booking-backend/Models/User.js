@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
   passport: { type: String },
   preferredLanguage: { type: String, default: 'English' },
   referringMemberEmail: { type: String },
+  userId: { type: String, required: true, unique: true }
 }, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);

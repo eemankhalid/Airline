@@ -1083,7 +1083,138 @@ button:hover {
 }
 
 
+/* GroupTravelForm.css */
 
+/* Container Styling */
+#group-travel-form .container-fluid {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+  }
+  
+  #group-travel-form .container {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Styling */
+  #group-travel-form h4 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  #group-travel-form h5.section-title {
+    color: #ff6f61;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  /* Form Styling */
+  .group-travel-form {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .group-travel-form .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .group-travel-form .form-group {
+    flex: 1;
+    padding: 0 15px;
+    margin-bottom: 15px;
+  }
+  
+  .group-travel-form label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+  
+  .group-travel-form input,
+  .group-travel-form select,
+  .group-travel-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .group-travel-form input:focus,
+  .group-travel-form select:focus,
+  .group-travel-form textarea:focus {
+    border-color: #ff6f61;
+    background-color: #fff;
+    outline: none;
+  }
+  
+  .group-travel-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"%3E%3Cpath fill="%23aaa" d="M2 0L0 2h4zm0 5L0 3h4z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+  }
+  
+  .group-travel-form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .group-travel-form .error {
+    color: #ff6f61;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  .group-travel-form .success-message {
+    color: #28a745;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
+  /* Button Styling */
+  .group-travel-form button[type="submit"] {
+    background-color: #ff6f61;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .group-travel-form button[type="submit"]:hover {
+    background-color: #e65d55;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .group-travel-form .form-row {
+      flex-direction: column;
+    }
+  }
+  .custom-radio .form-check-input {
+    border: none;
+    box-shadow: none;
+}
+
+  
 /* asterik required*/
 
 .req{
