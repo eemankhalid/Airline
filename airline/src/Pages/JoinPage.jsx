@@ -108,9 +108,10 @@ const JoinPage = () => {
   
         if (response.ok) {
           const result = await response.json();
-          setUserId(result._id);  // Assuming `_id` is returned from MongoDB
+  
+          setUserId(result._id);  // Set the user ID from MongoDB
           setSubmitted(true);
-          navigate('/join-wp', { state: { userId: result._id } });
+          navigate('/join-wp', { state: { userId: result._id } });  // Navigate with user ID
         } else {
           console.error('Error:', response.statusText);
         }
@@ -121,6 +122,7 @@ const JoinPage = () => {
       console.log('Form data is invalid.');
     }
   };
+  
   
 
   return (
