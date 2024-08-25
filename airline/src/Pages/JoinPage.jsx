@@ -140,7 +140,7 @@ const JoinPage = () => {
         ) : (
           <>
             <form onSubmit={handleSubmit}>
-              <h1>Join Now</h1>
+              <h1 style={{color:'black'}}>Join Now</h1>
               <p>Please fill in the details below to complete your registration</p>
 
               <div className="section">

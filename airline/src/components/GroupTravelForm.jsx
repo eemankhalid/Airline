@@ -174,7 +174,7 @@ const GroupTravelForm = () => {
         <div className="container py-5">
           <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
             <h5 className="section-title px-3">Book a Flight</h5>
-            <h4 className="mb-0">Plan Your Journey</h4>
+            <h4 className="mb-0">Group Flights, Premium Experience</h4>
           </div>
           <form className="group-travel-form" onSubmit={handleSubmit}>
      
