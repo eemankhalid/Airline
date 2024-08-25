@@ -121,6 +121,7 @@ const FlightBooking = () => {
                 infants: infants,
             }
         }));
+
         const bookingDetails = {
             fromCountry: selectedFromCountry,
             toCountry: selectedToCountry,
@@ -139,7 +140,7 @@ const FlightBooking = () => {
                 infants: infants,
             }
         };
-    
+
         try {
             const response = await fetch('http://localhost:8002/api/bookings', {
                 method: 'POST',
@@ -148,7 +149,7 @@ const FlightBooking = () => {
                 },
                 body: JSON.stringify(bookingDetails),
             });
-    
+
             if (response.ok) {
                 const result = await response.json();
                 console.log('Booking saved successfully with ID:', result.bookingId);
@@ -167,151 +168,134 @@ const FlightBooking = () => {
     const greyBorderStyle = { borderColor: '#6c757d', borderWidth: '1px', borderStyle: 'solid' };
 
     return (
-        <div className="container-fluid py-5">
-            <div className="container py-5">
-                <div className="mx-auto text-center mb-5">
-                    <h5 className="section-title px-3">Book a Flight</h5>
-                    <h1 className="mb-0">Plan Your Journey</h1>
-                </div>
-                <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-                    <div className="row g-5 align-items-center">
-                        <div className="col-lg-12">
-                            <form style={{ width: '1150px' }}>
-                                <div className="row g-3" style={{ width: '100%' }}>
-                                <div className="col-md-6">
-                                        <label htmlFor="fromCountry">From Country<span className='req'>*</span></label>
-                                        <select className="form-select" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange} style={greyBorderStyle} value={selectedFromCountry}>
-                                            <option value="">Select a Country</option>
-                                            {Object.keys(countryAirports).map((country) => (
-                                                <option key={country} value={country}>
-                                                    {country}
-                                                </option>
-                                            ))}
-                                        </select>
-                                        {validationMessages.fromCountry && (
-                                            <div className="text-danger">{validationMessages.fromCountry}</div>
-                                        )}
-                                    </div>
-                                    {selectedFromCountry && (
-                                        <div className="col-md-6">
-                                            <label htmlFor="fromAirport">From Airport<span className='req'>*</span></label>
-                                            <select className="form-select" id="fromAirport" aria-label="From Airport" style={greyBorderStyle} value={fromAirport} onChange={(e) => setFromAirport(e.target.value)}>
-                                                <option value="">Select an Airport</option>
-                                                {fromAirports.map((airport, index) => (
-                                                    <option key={index} value={airport}>
-                                                        {airport}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            {validationMessages.fromAirport && (
-                                                <div className="text-danger">{validationMessages.fromAirport}</div>
-                                            )}
-                                        </div>
-                                    )}
-                                    <div className="col-md-6">
-                                        <label htmlFor="toCountry">To Country<span className='req'>*</span></label>
-                                        <select className="form-select" id="toCountry" aria-label="To Country" onChange={handleToCountryChange} style={greyBorderStyle} value={selectedToCountry}>
-                                            <option value="">Select a Country</option>
-                                            {Object.keys(countryAirports).map((country) => (
-                                                <option key={country} value={country}>
-                                                    {country}
-                                                </option>
-                                            ))}
-                                        </select>
-                                        {validationMessages.toCountry && (
-                                            <div className="text-danger">{validationMessages.toCountry}</div>
-                                        )}
-                                    </div>
-                                    {selectedToCountry && (
-                                        <div className="col-md-6">
-                                            <label htmlFor="toAirport">To Airport<span className='req'>*</span></label>
-                                            <select className="form-select" id="toAirport" aria-label="To Airport" style={greyBorderStyle} value={toAirport} onChange={(e) => setToAirport(e.target.value)}>
-                                                <option value="">Select an Airport</option>
-                                                {toAirports.map((airport, index) => (
-                                                    <option key={index} value={airport}>
-                                                        {airport}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            {validationMessages.toAirport && (
-                                                <div className="text-danger">{validationMessages.toAirport}</div>
-                                            )}
-                                        </div>
-                                    )}
+        <div id="group-travel-form">
+            <div className="container-fluid py-5">
+                <div className="container py-5">
+                    <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
+                        <h5 className="section-title px-3">Book a Flight</h5>
+                        <h4 className="mb-0">Plan Your Journey</h4>
+                    </div>
 
-                                    <div className="col-md-6">
-                                        <label htmlFor="depart">Depart<span className='req'>*</span></label>
-                                        <input
-                                            type="date"
-                                            className="form-control"
-                                            id="depart"
-                                            placeholder="Select Departure Date"
-                                            style={greyBorderStyle}
-                                            value={departDate}
-                                            min={today}
-                                            onChange={(e) => setDepartDate(e.target.value)}
-                                        />
-                                        {validationMessages.depart && (
-                                            <div className="text-danger">{validationMessages.depart}</div>
-                                        )}
-                                    </div>
+                    <form className="group-travel-form" onSubmit={handleSearchFlightClick}>
+                        <div className="form-row">
+                        <div className="form-group col-md-3">
+                                <label htmlFor="fromCountry">From Country<span className='req'>*</span></label>
+                                <select className="form-select" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange} style={greyBorderStyle} value={selectedFromCountry}>
+                                    <option value="">Select a Country</option>
+                                    {Object.keys(countryAirports).map((country) => (
+                                        <option key={country} value={country}>
+                                            {country}
+                                        </option>
+                                    ))}
+                                </select>
+                                {validationMessages.fromCountry && (
+                                    <div className="text-danger">{validationMessages.fromCountry}</div>
+                                )}
+                            </div>
 
-                                    {tripType === 'returnTrip' && (
-                                        <div className="col-md-6">
-                                            <label htmlFor="return">Return<span className='req'>*</span></label>
-                                            <input
-                                                type="date"
-                                                className="form-control"
-                                                id="return"
-                                                placeholder="Select Return Date"
-                                                style={greyBorderStyle}
-                                                value={returnDate}
-                                                min={departDate || today}
-                                                onChange={(e) => setReturnDate(e.target.value)}
-                                                required={tripType === 'returnTrip'}
-                                            />
-                                            {validationMessages.return && (
-                                                <div className="text-danger">{validationMessages.return}</div>
-                                            )}
-                                        </div>
+                            {selectedFromCountry && (
+                             <div className="form-group col-md-3">
+                                    <label htmlFor="fromAirport">From Airport<span className='req'>*</span></label>
+                                    <select className="form-select" id="fromAirport" aria-label="From Airport" style={greyBorderStyle} value={fromAirport} onChange={(e) => setFromAirport(e.target.value)}>
+                                        <option value="">Select an Airport</option>
+                                        {fromAirports.map((airport, index) => (
+                                            <option key={index} value={airport}>
+                                                {airport}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    {validationMessages.fromAirport && (
+                                        <div className="text-danger">{validationMessages.fromAirport}</div>
                                     )}
+                                </div>
+                            )}
 
-<div className="col-md-12">
-                                        <label>Passengers</label>
-                                        <div className="row">
-                                            <div className="col-md-4">
-                                                <label htmlFor="adults">Adults (1-9)</label>
-                                                <select className="form-select" id="adults" aria-label="Adults" style={greyBorderStyle} value={adults} onChange={(e) => setAdults(Number(e.target.value))}>
-                                                    {[...Array(9).keys()].map(num => (
-                                                        <option key={num + 1} value={num + 1}>
-                                                            {num + 1}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                            <div className="col-md-4">
-                                                <label htmlFor="children">Children (2-12)</label>
-                                                <select className="form-select" id="children" aria-label="Children" style={greyBorderStyle} value={children} onChange={(e) => setChildren(Number(e.target.value))}>
-                                                    {[...Array(13).keys()].map(num => (
-                                                        <option key={num} value={num}>
-                                                            {num}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                            <div className="col-md-4">
-                                                <label htmlFor="infants">Infants (0-1)</label>
-                                                <select className="form-select" id="infants" aria-label="Infants" style={greyBorderStyle} value={infants} onChange={(e) => setInfants(Number(e.target.value))}>
-                                                    {[0, 1].map(num => (
-                                                        <option key={num} value={num}>
-                                                            {num}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
+<div className="form-group col-md-3">
+                                <label htmlFor="toCountry">To Country<span className='req'>*</span></label>
+                                <select className="form-select" id="toCountry" aria-label="To Country" onChange={handleToCountryChange} style={greyBorderStyle} value={selectedToCountry}>
+                                    <option value="">Select a Country</option>
+                                    {Object.keys(countryAirports).map((country) => (
+                                        <option key={country} value={country}>
+                                            {country}
+                                        </option>
+                                    ))}
+                                </select>
+                                {validationMessages.toCountry && (
+                                    <div className="text-danger">{validationMessages.toCountry}</div>
+                                )}
+                            </div>
+
+                            {selectedToCountry && (
+                                <div className="form-group col-md-3">
+                                    <label htmlFor="toAirport">To Airport<span className='req'>*</span></label>
+                                    <select className="form-select" id="toAirport" aria-label="To Airport" style={greyBorderStyle} value={toAirport} onChange={(e) => setToAirport(e.target.value)}>
+                                        <option value="">Select an Airport</option>
+                                        {toAirports.map((airport, index) => (
+                                            <option key={index} value={airport}>
+                                                {airport}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    {validationMessages.toAirport && (
+                                        <div className="text-danger">{validationMessages.toAirport}</div>
+                                    )}
+                                </div>
+                            )}
+
+                            
+<div className="form-group col-md-3">
+                                <label htmlFor="departDate">Departure Date<span className='req'>*</span></label>
+                                <input
+                                    type="date"
+                                    className="form-control"
+                                    id="departDate"
+                                    value={departDate}
+                                    onChange={(e) => setDepartDate(e.target.value)}
+                                    min={today}
+                                    style={greyBorderStyle}
+                                />
+                                {validationMessages.depart && (
+                                    <div className="text-danger">{validationMessages.depart}</div>
+                                )}
+                            
+
+                            {tripType === 'returnTrip' && (
+                              <div>
+                                    <label htmlFor="returnDate">Return Date<span className='req'>*</span></label>
+                                    <input
+                                        type="date"
+                                        className="form-control"
+                                        id="returnDate"
+                                        value={returnDate}
+                                        onChange={(e) => setReturnDate(e.target.value)}
+                                        min={departDate || today}
+                                        style={greyBorderStyle}
+                                    />
+                                    {validationMessages.return && (
+                                        <div className="text-danger">{validationMessages.return}</div>
+                                    )}
+                                </div>
+
+                            )}
+</div>
+                               
+
+<div className="form-group col-md-3">
+                                <label htmlFor="adults">Adults<span className='req'>*</span></label>
+                                <input type="number" className="form-control" id="adults" value={adults} onChange={(e) => setAdults(Number(e.target.value))} min="1" style={greyBorderStyle} />
+                            </div>
+
+                            <div className="form-group col-md-3">
+                                <label htmlFor="children">Children</label>
+                                <input type="number" className="form-control" id="children" value={children} onChange={(e) => setChildren(Number(e.target.value))} min="0" style={greyBorderStyle} />
+                            </div>
+
+                            <div className="form-group col-md-3">
+                                <label htmlFor="infants">Infants</label>
+                                <input type="number" className="form-control" id="infants" value={infants} onChange={(e) => setInfants(Number(e.target.value))} min="0" style={greyBorderStyle} />
+                            </div>
+                        </div>
+                        <div className="form-group col-md-3">
                                         <label htmlFor="currency">Currency</label>
                                         <select className="form-select" id="currency" aria-label="Currency" style={greyBorderStyle} value={currency} onChange={(e) => setCurrency(e.target.value)}>
                                             <option value="PKR">PKR</option>
@@ -321,34 +305,20 @@ const FlightBooking = () => {
                                             <option value="AMD">AMD</option>
                                             <option value="INR">INR</option>
                                         </select>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="tripType"
-                                                id="oneWay"
-                                                value="oneWay"
-                                                checked={tripType === 'oneWay'}
-                                                onChange={handleTripTypeChange}
-                                            />
-                                            <label className="form-check-label" htmlFor="oneWay">One Way</label>
-                                        </div>
-                                        <div className="form-check">
-                                            <input
-                                                className="form-check-input"
-                                                type="radio"
-                                                name="tripType"
-                                                id="returnTrip"
-                                                value="returnTrip"
-                                                checked={tripType === 'returnTrip'}
-                                                onChange={handleTripTypeChange}
-                                            />
-                                            <label className="form-check-label" htmlFor="returnTrip">Return</label>
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
+                                    </div>  
+                                    
+                                    <div className="form-group col-md-3">
+                <label>Journey Type</label>
+                <select name="tripType" onChange={handleTripTypeChange}>
+                  <option value="">Select Type</option>
+                  <option value="oneWay">One Way</option>
+                  <option value="returnTrip">Return Trip</option>
+                </select>
+                
+              
+        </div>
+
+                                    <div className="form-group col-md-3">
                                         <label htmlFor="promoCode">Promo Code</label>
                                         <input type="text" className="form-control" id="promoCode" placeholder="Enter Promo Code" style={greyBorderStyle} />
                                     </div>
@@ -358,21 +328,14 @@ const FlightBooking = () => {
                                                 {generalMessage}
                                             </div>
                                         )}
-                                        <div className="col-12 d-flex justify-content-center align-items-center">
-                                            <button
-                                                
-                                                className="btn btn-primary"
-                                                type="submit"
-                                                onClick={handleSearchFlightClick}
-                                            >
-                                                Search Flight
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
-                    </div>
+                            <button type="submit" >Search</button>
+                        
+
+                        {generalMessage && (
+                            <div className="text-danger text-center mt-3">{generalMessage}</div>
+                        )}
+                    </form>
                 </div>
             </div>
         </div>
