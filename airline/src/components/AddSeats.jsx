@@ -26,7 +26,6 @@ const AddSeats = () => {
       ...storedInfantForms.map(form => form.title && form.firstName && form.lastName ? `${form.title} ${form.firstName} ${form.lastName}` : null),
     ].filter(Boolean); // Remove any null values
     
-
     // Initialize selectedSeats with the passenger names
     const initialSeats = allPassengers.reduce((acc, passenger) => {
       acc[passenger] = ''; // Empty seat initially
@@ -57,6 +56,40 @@ const AddSeats = () => {
       [currentPassenger]: selectedSeat,
     }));
   };
+
+  const handleSubmitSeats = async () => {
+    try {
+      // Create an array of seat selection data
+      const seatsData = Object.entries(selectedSeats)
+        .filter(([_, seatNumber]) => seatNumber) // Filter out unselected seats
+        .map(([passengerName, seatNumber]) => ({
+          passengerName,
+          seatNumber,
+        }));
+  
+      console.log('Seats data to submit:', seatsData);
+  
+      const response = await fetch('http://localhost:8002/api/selected-seats', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(seatsData),
+      });
+  
+      const responseText = await response.text(); // Capture the response text
+  
+      if (response.ok) {
+        console.log('Seats saved successfully');
+        setActiveComponent('add-meals');
+      } else {
+        console.error('Error saving seats', responseText); // Log the full response text
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -134,7 +167,7 @@ const AddSeats = () => {
                 </ul>
                 <button 
                   className="confirm-selection-btn"
-                  onClick={() => setActiveComponent('add-meals')} // Set activeComponent to 'add-meals'
+                  onClick={handleSubmitSeats} // Save seats and move to the next component
                 >
                   Confirm selection
                 </button>

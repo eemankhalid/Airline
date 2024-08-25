@@ -6,6 +6,8 @@ import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
 
 import User from './Models/User.js';  // Import the User model
+import Reservation from './Models/Resevation.js'; // Import the Reservation model
+import SelectedSeat from './Models/SelectedSeat.js';
 
 
 // Load environment variables from .env file
@@ -92,6 +94,29 @@ app.post('/api/register', async (req, res) => {
     res.status(400).json({ message: 'Error registering user', error });
   }
 });
+
+app.post('/api/reservations', async (req, res) => {
+  try {
+    const { reservationId } = req.body;
+    const newReservation = new Reservation({ reservationId });
+    const savedReservation = await newReservation.save();
+    res.status(201).json(savedReservation);
+  } catch (error) {
+    res.status(400).json({ message: 'Error saving reservation ID', error });
+  }
+});
+// Route to handle selected seats
+app.post('/api/selected-seats', async (req, res) => {
+  try {
+    const selectedSeats = req.body;
+    const savedSeats = await SelectedSeat.insertMany(selectedSeats);
+    res.status(201).json(savedSeats);
+  } catch (error) {
+    res.status(400).json({ message: 'Error saving selected seats', error });
+  }
+});
+
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
