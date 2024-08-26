@@ -8,7 +8,7 @@ import Hero from '../components/Hero';
 import '../css/HomePage.css'
 
 const HomePage = () => {
-  const button = <Link className="btn" to="#">Discover More</Link>;
+  const button = <Link className="btn" to="/blog">Discover More</Link>;
   const video = (
     <video className="hero-video" autoPlay loop muted>
       <source src="src/assets/vedio/vd2.mp4" type="video/mp4" />
