@@ -8,23 +8,64 @@ const BoardingPass = () => {
   return (
     <>
     <br/><br/><br/>
-    <div className="boarding-pass">
-      <div className="boarding-pass-info">
-        <p><strong>NAME OF PASSENGER:</strong> [Passenger Name]</p>
-        <p><strong>ORIGIN:</strong> [City] <span className="destination"> <strong>DESTINATION:</strong> [City]</span></p>
-        <p><strong>DATE:</strong> [XX/XX/XXXX] <span className="time"><strong>TIME:</strong> [# AM/PM]</span></p>
-        <p><strong>FLIGHT:</strong> [XX1234]<span className="time"><strong>Reservation Id:</strong> {reservationId}</span></p>
-        <p className="seat-number"><strong>SEAT:</strong> [17B]</p>
+    <div class="boarding-pass">
+   
+  <div class="boarding-pass-left">
+  <div className="barcode barcode-left"></div>
+  <div className="economy-class"><strong>ULTIMATE PACKAGE</strong></div>
+  <div className="boarding-pass-header">
+            <i className="material-icons">airplane_ticket</i> BOARDING PASS
+          </div>
+    <div class="boarding-pass-info">
+      <div className="flex">
+      <div>
+      <p>PASSENGER: <strong>JOHN SMITH</strong></p>
+      <p>FROM: <strong>NYC</strong></p>
+      <p>TO: <strong>LA</strong></p>
+      <p>FLIGHT: <strong>BA11122</strong></p>
+      <p>DEPARTURE DATE: <strong>25 MAY</strong></p>
+      <p>DEPARTURE TIME: <strong>20:10</strong></p>
       </div>
-      <div className="boarding-pass-side-info">
-        <div className="flight-code">ABC - ABC</div>
-        <p><strong>TO:</strong> [Name]</p>
-        <p><strong>FROM:</strong> [Name]</p>
+
+      <div class="seat-box">
+        <p>SEAT</p>
+        <p><strong>18C</strong></p>
+        <p>ZONE 3</p>
+        
       </div>
-      {/* <div className="barcode">
-      </div> */}
-      <br/><br/><br/>
+      </div>
+      
+      <div class="gate-info">
+        <p>GATE CLOSES 15 MINUTES BEFORE DEPARTURE</p>
+      </div>
     </div>
+
+  </div>
+
+
+  <div class="boarding-pass-right">
+  <div className="barcode barcode-right"></div>
+
+  <div className="boarding-pass-header">
+            <i className="material-icons">airplane_ticket</i> BOARDING PASS
+          </div>
+    <div class="boarding-pass-info">
+      <div>
+      <div className="margin">
+      <p>PASSENGER: <strong>JOHN SMITH</strong></p>
+      <p>FROM: <strong>NYC</strong></p>
+      <p>TO: <strong>LA</strong></p>
+      <p>FLIGHT: <strong>BA11122</strong></p>
+      <p>SEAT: <strong> 18C</strong></p>
+      <p>GATE: <strong>B27</strong></p>
+      <p>DEPARTURE DATE: <strong>25 MAY</strong></p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/><br/><br/>
     </>
   );
 };

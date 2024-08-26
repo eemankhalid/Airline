@@ -107,7 +107,8 @@ const CheckInPage = () => {
         }
 
         .button:hover {
-          background-color: #cc0044;
+          background-color: grey
+          ;
         }
       `}</style>
 
@@ -124,26 +125,7 @@ const CheckInPage = () => {
             onChange={(e) => setReservationId(e.target.value)}
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="airport">Departure airport</label>
-          <p>Example: Karachi</p>
-          <input
-            type="text"
-            id="airport"
-            value={airport}
-            onChange={(e) => setAirport(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="date">Date of travel</label>
-          <p>Example: 20 Aug 2024</p>
-          <input
-            type="date"
-            id="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
+       
         <button className="button" onClick={handleSubmit}>Find booking</button>
       </div>
     </div>
