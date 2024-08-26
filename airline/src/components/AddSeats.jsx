@@ -8,6 +8,9 @@ const AddSeats = () => {
   const [activeComponent, setActiveComponent] = useState('seats');
   const [currentPassenger, setCurrentPassenger] = useState(null); // Track the selected passenger
 
+  const bookingId = sessionStorage.getItem('bookingId');
+  console.log('Booking ID:', bookingId);
+
   useEffect(() => {
     // Fetch booking details from sessionStorage
     const storedBookingDetails = sessionStorage.getItem('bookingDetails');
@@ -63,18 +66,34 @@ const AddSeats = () => {
       const seatsData = Object.entries(selectedSeats)
         .filter(([_, seatNumber]) => seatNumber) // Filter out unselected seats
         .map(([passengerName, seatNumber]) => ({
-          passengerName,
-          seatNumber,
+          passengerName: String(passengerName),
+          seatNumber: String(seatNumber),
         }));
   
-      console.log('Seats data to submit:', seatsData);
+      console.log('Seats data array:', seatsData);
   
+      if (seatsData.length === 0) {
+        console.error('No seats selected.');
+        alert('Please select seats before submitting.');
+        return;
+      }
+  
+      // Create the seatstobesaved object with bookingId and seatsData
+      const seatstobesaved = {
+        bookingId: String(bookingId),
+        seats: seatsData, // Add seatsData as a property
+      };
+      
+  
+      console.log('Request body:', JSON.stringify(seatstobesaved));
+  
+      // Send the data to the server
       const response = await fetch('http://localhost:8002/api/selected-seats', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(seatsData),
+        body: JSON.stringify(seatstobesaved),
       });
   
       const responseText = await response.text(); // Capture the response text
@@ -83,12 +102,13 @@ const AddSeats = () => {
         console.log('Seats saved successfully');
         setActiveComponent('add-meals');
       } else {
-        console.error('Error saving seats', responseText); // Log the full response text
+        console.error('Error saving seats:', responseText); // Log the full response text
       }
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  
   
 
   const renderComponent = () => {

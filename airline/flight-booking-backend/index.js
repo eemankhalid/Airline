@@ -112,13 +112,28 @@ app.post('/api/reservations', async (req, res) => {
 // Route to handle selected seats
 app.post('/api/selected-seats', async (req, res) => {
   try {
-    const selectedSeats = req.body;
-    const savedSeats = await SelectedSeat.insertMany(selectedSeats);
+    const { bookingId, seats } = req.body;
+
+    if (!bookingId || !Array.isArray(seats)) {
+      return res.status(400).json({ message: 'Invalid data format' });
+    }
+
+    // Map over the seats array to include the bookingId in each seat object
+    const seatsWithBookingId = seats.map(seat => ({
+      ...seat,
+      bookingId,
+    }));
+
+    // Insert the seats with bookingId into the database
+    const savedSeats = await SelectedSeat.insertMany(seatsWithBookingId);
+
     res.status(201).json(savedSeats);
   } catch (error) {
+    console.error('Error saving selected seats:', error);
     res.status(400).json({ message: 'Error saving selected seats', error });
   }
 });
+
 
 
 
