@@ -31,10 +31,10 @@ const AddExtrasPages = () => {
       <br />
       <div className="extras-section">
         <div className="section-left">
-          <h3 className="section">
+          <h4  style={{color:'black'}}>
             {/* Seats SVG Icon */}
             Seats
-          </h3>
+          </h4>
           <div className="section-description">
             Please select your preferred seat from the available options to enhance your comfort during the flight.
           </div>
@@ -52,12 +52,12 @@ const AddExtrasPages = () => {
 
       <div className="extras-section">
         <div className="section-left">
-          <h3 className="section">
+          <h4  style={{color:'black'}}>
             {/* Meals SVG Icon */}
             Meals
-          </h3>
+          </h4>
           <div className="section-description">
-            You have successfully added meals for your trip. Below is a summary of your selection:
+          Indulge in a delicious meal by selecting your preferred option from our in-flight menu, tailored to satisfy your taste.
           </div>
           <div className="section-details"></div>
         </div>
@@ -73,12 +73,12 @@ const AddExtrasPages = () => {
 
       <div className="extras-section">
         <div className="section-left">
-          <h3 className="section">
+          <h4 style={{color:'black'}}>
             {/* Baggage SVG Icon */}
             Baggage
-          </h3>
+          </h4>
           <div className="section-description">
-            We’ve saved you time and selected a baggage allowance for you. You can edit the selection if you wish.
+            We’ve saved you time and selected a baggage allowance for you. 
           </div>
           <div className="section-details"></div>
         </div>
