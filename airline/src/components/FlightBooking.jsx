@@ -171,12 +171,12 @@ const FlightBooking = () => {
         <div id="group-travel-form">
             <div className="container-fluid py-5">
                 <div className="container py-5">
-                    <div className="mx-auto text-center mb-5" style={{ maxWidth: '900px' }}>
+                    <div className="mx-auto text-center mb-5" style={{ width: '900px' }}>
                         <h5 className="section-title px-3">Book a Flight</h5>
                         <h4 className="mb-0">Plan Your Journey</h4>
                     </div>
 
-                    <form className="group-travel-form" onSubmit={handleSearchFlightClick}>
+                    <form className="group-travel-form" onSubmit={handleSearchFlightClick} style={{ maxWidth: '1000px' }}>
                         <div className="form-row">
                         <div className="form-group col-md-3">
                                 <label htmlFor="fromCountry">From Country<span className='req'>*</span></label>
@@ -281,20 +281,20 @@ const FlightBooking = () => {
                                
 
 <div className="form-group col-md-3">
-                                <label htmlFor="adults">Adults<span className='req'>*</span></label>
-                                <input type="number" className="form-control" id="adults" value={adults} onChange={(e) => setAdults(Number(e.target.value))} min="1" style={greyBorderStyle} />
-                            </div>
+    <label htmlFor="adults">Adults<span className='req'>*</span></label>
+    <input type="number" className="form-control" id="adults" value={adults} onChange={(e) => setAdults(Number(e.target.value))} min="1" max="9" style={greyBorderStyle} />
+</div>
 
-                            <div className="form-group col-md-3">
-                                <label htmlFor="children">Children</label>
-                                <input type="number" className="form-control" id="children" value={children} onChange={(e) => setChildren(Number(e.target.value))} min="0" style={greyBorderStyle} />
-                            </div>
+<div className="form-group col-md-3">
+    <label htmlFor="children">Children</label>
+    <input type="number" className="form-control" id="children" value={children} onChange={(e) => setChildren(Number(e.target.value))} min="0" max="7" style={greyBorderStyle} />
+</div>
 
-                            <div className="form-group col-md-3">
-                                <label htmlFor="infants">Infants</label>
-                                <input type="number" className="form-control" id="infants" value={infants} onChange={(e) => setInfants(Number(e.target.value))} min="0" style={greyBorderStyle} />
-                            </div>
-                        </div>
+<div className="form-group col-md-3">
+    <label htmlFor="infants">Infants</label>
+    <input type="number" className="form-control" id="infants" value={infants} onChange={(e) => setInfants(Number(e.target.value))} min="0" max="1" style={greyBorderStyle} />
+</div>
+</div>
                         <div className="form-group col-md-3">
                                         <label htmlFor="currency">Currency</label>
                                         <select className="form-select" id="currency" aria-label="Currency" style={greyBorderStyle} value={currency} onChange={(e) => setCurrency(e.target.value)}>
