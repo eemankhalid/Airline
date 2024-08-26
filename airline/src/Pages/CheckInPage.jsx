@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/img/sample1.png';  // Import the logo image
 
 const CheckInPage = () => {
+  const [reservationId, setReservationId] = useState('');
+  const [airport, setAirport] = useState('');
+  const [date, setDate] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:8002/api/checkReservation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ reservationId }),
+      });
+
+      const data = await response.json();
+
+      if (data.exists) {
+        // Redirect to BoardingPass component if reservation exists
+        window.location.href = `/boardingpass/${reservationId}`;
+      } else {
+        alert('Reservation not found. Please check your details and try again.');
+      }
+    } catch (error) {
+      console.error('Error checking reservation ID:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
   return (
     <div className="container">
       <style jsx>{`
@@ -82,27 +111,40 @@ const CheckInPage = () => {
         }
       `}</style>
 
-      <img src={logo} alt="Travela Logo"
-        width="150"
-      />
+      <img src={logo} alt="Travela Logo" width="150" />
       <h1 className="heading">ONLINE CHECK-IN</h1>
       <div className="form">
         <div className="form-group">
           <label htmlFor="pnr">Reservation Number (PNR)</label>
           <p>Example: 41222222</p>
-          <input type="text" id="pnr" />
+          <input
+            type="text"
+            id="pnr"
+            value={reservationId}
+            onChange={(e) => setReservationId(e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="airport">Departure airport</label>
           <p>Example: Karachi</p>
-          <input type="text" id="airport" />
+          <input
+            type="text"
+            id="airport"
+            value={airport}
+            onChange={(e) => setAirport(e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="date">Date of travel</label>
           <p>Example: 20 Aug 2024</p>
-          <input type="date" id="date" />
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
         </div>
-        <button className="button">Find booking</button>
+        <button className="button" onClick={handleSubmit}>Find booking</button>
       </div>
     </div>
   );

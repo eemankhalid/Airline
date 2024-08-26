@@ -31,7 +31,7 @@ import ExtrasBaggage from './Pages/ExtrasBaggage';
 import JoinwpPage from './Pages/JoinwpPage';
 import PayConfirm from './Pages/PayConfirm';
 import Booked from './Pages/Booked';
- 
+import BoardingPass from './Pages/BoardingPass';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -59,6 +59,7 @@ const router = createBrowserRouter(
             <Route path="/extras-meal" element={<ExtrasMeal/>} />
             <Route path="/extras-seat" element={<ExtrasSeats />} />
             <Route path="/extras-baggage" element={<ExtrasBaggage/>} />
+            <Route path="/boardingpass/:reservationId" element={<BoardingPass/>} />
         </Route>
 
     )

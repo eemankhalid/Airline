@@ -109,6 +109,24 @@ app.post('/api/reservations', async (req, res) => {
   }
 });
 
+// Check if reservation exists
+app.post('/api/checkReservation', async (req, res) => {
+  try {
+    const { reservationId } = req.body;
+    const reservation = await Reservation.findOne({ reservationId });
+
+    if (reservation) {
+      res.status(200).json({ exists: true, reservation });
+    } else {
+      res.status(404).json({ exists: false });
+    }
+  } catch (error) {
+    console.error('Error checking reservation ID:', error);
+    res.status(500).json({ message: 'Server error', error });
+  }
+});
+
+
 // Route to handle selected seats
 app.post('/api/selected-seats', async (req, res) => {
   try {
