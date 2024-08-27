@@ -63,13 +63,7 @@ const Footer = () => {
                                 <a href="#"><i className="fab fa-cc-discover fa-2x"></i></a>
                             </div>
                         </div>
-                        <div className="footer-item mt-3">
-                            <h4>Subscribe</h4>
-                            <form className="subscribe-form">
-                                <input type="email" placeholder="Email address" />
-                                <button type="submit">Subscribe</button>
-                            </form>
-                        </div>
+                     
                     </div>
                 </div>
             </div>

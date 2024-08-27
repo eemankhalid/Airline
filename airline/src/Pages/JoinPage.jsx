@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Hero2 from '../components/Hero2';
-import img2 from '../assets/img/jwp.jpeg';
+import img2 from '../assets/img/img2.jpg';
 import '../css/join.css';
 
 const JoinPage = () => {

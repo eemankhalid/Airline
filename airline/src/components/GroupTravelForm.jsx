@@ -166,7 +166,7 @@ const GroupTravelForm = () => {
       }
     }
   };
-
+  const today = new Date().toISOString().split('T')[0];
 
   return (
     <div id="group-travel-form">
@@ -235,17 +235,17 @@ const GroupTravelForm = () => {
             </div>
 
             <div className="form-row">
-  <div className="form-group col-md-6">
-    <label>Departure Date</label>
-    <input type="date" name="departureDate" value={formData.departureDate} onChange={handleChange} />
-    {errors.departureDate && <div className="error">{errors.departureDate}</div>}
-  </div>
+   <div className="form-group col-md-6">
+                <label>Departure Date</label>
+                <input type="date" name="departureDate" value={formData.departureDate} onChange={handleChange} min={today} />
+                {errors.departureDate && <div className="error">{errors.departureDate}</div>}
+              </div>
 
-  <div className="form-group col-md-6">
-    <label>Return Date</label>
-    <input type="date" name="returnDate" value={formData.returnDate} onChange={handleChange} />
-    {errors.returnDate && <div className="error">{errors.returnDate}</div>}
-  </div>
+              <div className="form-group col-md-6">
+                <label>Return Date</label>
+                <input type="date" name="returnDate" value={formData.returnDate} onChange={handleChange} min={formData.departureDate || today} />
+                {errors.returnDate && <div className="error">{errors.returnDate}</div>}
+              </div>
 </div>
 
             <div className="form-row">

@@ -3,8 +3,6 @@ import logo from '../assets/img/sample1.png';  // Import the logo image
 
 const CheckInPage = () => {
   const [reservationId, setReservationId] = useState('');
-  const [airport, setAirport] = useState('');
-  const [date, setDate] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,11 +29,28 @@ const CheckInPage = () => {
       alert('An error occurred. Please try again later.');
     }
   };
-  return (
 
-    <div className="container">
+  return (
+    <div className="check-in-container">
+ 
+ <img src={logo} alt="Travela Logo" width="150" />
+      <h1 className="heading">ONLINE CHECK-IN</h1>
+      <div className="form-container">
+        <div className="form-group">
+          <label htmlFor="pnr">Reservation Number (PNR)</label>
+          <p>Example: 41222222</p>
+          <input
+            type="text"
+            id="pnr"
+            value={reservationId}
+            onChange={(e) => setReservationId(e.target.value)}
+          />
+        </div>
+        <button className="button" onClick={handleSubmit}>Find Booking</button>
+      </div>
+
       <style jsx>{`
-        .container {
+        .check-in-container {
           max-width: 700px;
           margin: 0 auto;
           padding: 40px 20px;
@@ -45,6 +60,7 @@ const CheckInPage = () => {
 
         .logo {
           margin-bottom: 20px;
+        
         }
 
         .heading {
@@ -54,13 +70,13 @@ const CheckInPage = () => {
           margin-bottom: 30px;
         }
 
-        .form {
+        .form-container {
           background-color: #fff;
           padding: 30px;
           border-radius: 8px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           text-align: left;
-          margin-bottom:20px;
+          margin-bottom: 20px;
         }
 
         .form-group {
@@ -103,15 +119,13 @@ const CheckInPage = () => {
           border-radius: 4px;
           cursor: pointer;
           margin-top: 20px;
-          float: right;
-        
         }
 
         .button:hover {
-          background-color: grey
-          ;
+          background-color: grey;
         }
       `}</style>
+
             <br/><br/><br/>
       <img src={logo} alt="Travela Logo" width="150" />
       <h1 className="heading">ONLINE CHECK-IN</h1>
