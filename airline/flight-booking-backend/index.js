@@ -9,7 +9,6 @@ import User from './Models/User.js';  // Import the User model
 import Reservation from './Models/Resevation.js'; // Import the Reservation model
 import SelectedSeat from './Models/SelectedSeat.js';
 
-
 // Load environment variables from .env file
 dotenv.config();
 
@@ -40,7 +39,6 @@ app.post('/api/bookings', async (req, res) => {
   }
 });
 
-
 // Route to fetch all bookings
 app.get('/api/bookings', async (req, res) => {
   try {
@@ -61,7 +59,6 @@ app.post('/api/selected-meals', async (req, res) => {
     res.status(400).json({ message: 'Error saving selected meals', error });
   }
 });
-
 
 // Route to handle group travel form data
 app.post('/api/groupTravel', async (req, res) => {
@@ -126,6 +123,26 @@ app.post('/api/checkReservation', async (req, res) => {
   }
 });
 
+app.get('/api/reservations/:reservationId', async (req, res) => {
+  try {
+    const { reservationId } = req.params;
+    const reservation = await Reservation.findOne({ reservationId: 'RES655006' }).populate('bookingId');
+
+// Store the bookingId in a constant
+const bookingId = reservation.bookingId;
+
+console.log('Booking ID:', bookingId);
+
+    if (!reservation) {
+      return res.status(404).json({ message: 'Reservation not found' });
+    }
+
+    res.status(200).json(reservation);
+  } catch (error) {
+    console.error('Error retrieving reservation:', error);
+    res.status(500).json({ message: 'Error retrieving reservation', error });
+  }
+});
 
 // Route to handle selected seats
 app.post('/api/selected-seats', async (req, res) => {
@@ -152,8 +169,45 @@ app.post('/api/selected-seats', async (req, res) => {
   }
 });
 
+app.get('/api/selected-seats/:bookingId', async (req, res) => {
+  try {
+    const { bookingId } = req.params;
+
+    if (!bookingId) {
+      return res.status(400).json({ message: 'Booking ID is required' });
+    }
+
+    // Fetch the selected seats from the database using the bookingId
+    const selectedSeats = await SelectedSeat.find({ bookingId });
+
+    if (!selectedSeats.length) {
+      return res.status(404).json({ message: 'No seats found for this booking' });
+    }
+
+    res.status(200).json(selectedSeats);
+  } catch (error) {
+    console.error('Error retrieving selected seats:', error);
+    res.status(500).json({ message: 'Error retrieving selected seats', error });
+  }
+});
 
 
+// Route to fetch all selected seats
+app.get('/api/selected-seats', async (req, res) => {
+  try {
+    // Fetch all selected seats from the database
+    const selectedSeats = await SelectedSeat.find();
+
+    if (selectedSeats.length === 0) {
+      return res.status(404).json({ message: 'No seats found' });
+    }
+
+    res.status(200).json(selectedSeats);
+  } catch (error) {
+    console.error('Error fetching selected seats:', error);
+    res.status(500).json({ message: 'Error fetching selected seats', error });
+  }
+});
 
 
 // Start the server

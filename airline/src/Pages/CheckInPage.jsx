@@ -125,6 +125,25 @@ const CheckInPage = () => {
           background-color: grey;
         }
       `}</style>
+
+            <br/><br/><br/>
+      <img src={logo} alt="Travela Logo" width="150" />
+      <h1 className="heading">ONLINE CHECK-IN</h1>
+      <div className="form">
+        <div className="form-group">
+          <label htmlFor="pnr">Reservation Number (PNR)</label>
+          <p>Example: 41222222</p>
+          <input
+            type="text"
+            id="pnr"
+            value={reservationId}
+            onChange={(e) => setReservationId(e.target.value)}
+          />
+        </div>
+       
+        <button className="button" onClick={handleSubmit}>Find booking</button>
+      </div>
+      <br/><br/><br/><br/>
     </div>
   );
 };
