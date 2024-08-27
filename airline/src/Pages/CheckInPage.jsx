@@ -32,6 +32,7 @@ const CheckInPage = () => {
     }
   };
   return (
+
     <div className="container">
       <style jsx>{`
         .container {
@@ -111,7 +112,7 @@ const CheckInPage = () => {
           ;
         }
       `}</style>
-
+            <br/><br/><br/>
       <img src={logo} alt="Travela Logo" width="150" />
       <h1 className="heading">ONLINE CHECK-IN</h1>
       <div className="form">
@@ -128,6 +129,7 @@ const CheckInPage = () => {
        
         <button className="button" onClick={handleSubmit}>Find booking</button>
       </div>
+      <br/><br/><br/><br/>
     </div>
   );
 };
