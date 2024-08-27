@@ -5,6 +5,7 @@ import './css/bootstrap.min.css'; // Importing Bootstrap CSS
 import './css/style.css'; // Importing custom CSS
 import { Helmet } from 'react-helmet';
 import 'animate.css';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 import MainLayout from './Layouts/MainLayout';
 import HomePage from './Pages/HomePage';
@@ -35,6 +36,7 @@ import BoardingPass from './Pages/BoardingPass';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
+
         <Route path='/' element={<MainLayout />}>
             <Route index element={<HomePage />} />
             <Route path='/book-a-flight' element={<BookFlightPage />} />
