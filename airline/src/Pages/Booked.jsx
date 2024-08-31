@@ -8,11 +8,11 @@ const Booked = () => {
       <br />
       <br />
       <br />
-      <div className="boarding-pass">
-        <div className="boarding-pass-header">
+      <div className="boarding-passes">
+        <div className="boarding-pass-headers">
           <h1>Congratulations</h1>
         </div>
-        <div className="boarding-pass-details">
+        <div className="boarding-pass-detailss">
           <div className="details-left">
             <p><strong>Your flight has been booked successfully!</strong></p>
             <p>We wish you a pleasant journey and a wonderful stay.</p>
@@ -21,7 +21,7 @@ const Booked = () => {
           </div>
         </div>
         <div className="boarding-pass-route">
-        <div className="barcode"></div>
+        <div className="barcodes"></div>
           <span className="plane-icon">✈</span>
         </div>
         <div className="boarding-pass-footer">

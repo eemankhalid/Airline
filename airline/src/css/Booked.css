@@ -1,4 +1,4 @@
-.boarding-pass {
+.boarding-passes {
     width: 600px;
     margin: 20px auto;
     padding: 20px;
@@ -8,20 +8,20 @@
     font-family: Arial, sans-serif;
   }
   
-  .boarding-pass-header {
+  .boarding-pass-headers {
     background-color:#ff4d4f;
     padding: 10px;
     text-align: center;
     border-radius: 8px 8px 0 0;
   }
   
-  .boarding-pass-header h1 {
+  .boarding-pass-headers h1 {
     margin: 0;
     font-size: 24px;
     color: #fff;
   }
   
-  .boarding-pass-details {
+  .boarding-pass-detailss {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
@@ -81,7 +81,7 @@
     font-size: 14px;
   }
   
-  .barcode {
+  .barcodes {
     height: 50px;
     background: repeating-linear-gradient(
       90deg,

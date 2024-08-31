@@ -5,7 +5,7 @@ import './css/bootstrap.min.css'; // Importing Bootstrap CSS
 import './css/style.css'; // Importing custom CSS
 import { Helmet } from 'react-helmet';
 import 'animate.css';
-import ScrollToTop from './components/ScrollToTop.jsx';
+
 
 import MainLayout from './Layouts/MainLayout';
 import HomePage from './Pages/HomePage';
@@ -106,7 +106,7 @@ const App = () => {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Travela - Tourism Website Template</title>
+                <title>Infinity Wings</title>
                 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
                 <meta content="" name="keywords" />
                 <meta content="" name="description" />
