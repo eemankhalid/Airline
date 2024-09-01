@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import DateCarousel from "../components/DateCarousel";
 import FlightHeader from "../components/FlightHeader";
 import FlightPackages from "../components/FlightPackages"
@@ -30,7 +30,7 @@ const SelectFlightPage = () => {
     const [selectedPackage, setSelectedPackage] = useState(null);
     const [showPackages, setShowPackages] = useState(false);
     const [baggageInfo, setBaggageInfo] = useState(null);
-    const [showSummary, setShowSummary] = useState(false); 
+    const [showSummary, setShowSummary] = useState(false);
     const [resetKey, setResetKey] = useState(0);
     const [adultFare, setAdultFare] = useState(0);
     const [childFare, setChildFare] = useState(0);
@@ -75,7 +75,7 @@ const SelectFlightPage = () => {
         }
         return price;
     };
-    
+
     const handleDateSelect = (date) => {
         setSelectedDate(date);
         setSelectedFlight(null);
@@ -100,20 +100,17 @@ const SelectFlightPage = () => {
 
     const handleBookNow = () => {
         setShowPackages(true);
-        if (flightSummaryRef.current) {
-            flightSummaryRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
     };
 
     const handleSelectPackage = (pkg) => {
         setShowSummary(true);
         setSelectedPackage(pkg.id);
         setExtraPrice(pkg.price || 0);
-    
+
         // Extract both Checked Baggage and Carry-on Baggage
         const checkedBaggage = pkg.included.find(item => item.includes('Checked Baggage'));
         const carryOnBaggage = pkg.included.find(item => item.includes('Carry-on Baggage'));
-    
+
         // Store both in sessionStorage
         const baggageInfo = {
             checked: checkedBaggage || 'None',
@@ -121,7 +118,7 @@ const SelectFlightPage = () => {
         };
         sessionStorage.setItem('baggageInfo', JSON.stringify(baggageInfo));
     };
-    
+
     const filteredFlights = flightsData.filter(flight =>
         flight.date === selectedDate &&
         flight.departureCountry === bookingDetails.fromCountry &&
@@ -140,23 +137,23 @@ const SelectFlightPage = () => {
     };
     const navigate = useNavigate();
 
-const handleContinue = () => {
-  navigate('/enter-details', {
-        state: {
-        passengers: {
-        adults: bookingDetails.passengers.adults,
-        children: bookingDetails.passengers.children,
-        infants: bookingDetails.passengers.infants,
-      },
-    },
-  });
-};
+    const handleContinue = () => {
+        navigate('/enter-details', {
+            state: {
+                passengers: {
+                    adults: bookingDetails.passengers.adults,
+                    children: bookingDetails.passengers.children,
+                    infants: bookingDetails.passengers.infants,
+                },
+            },
+        });
+    };
     useEffect(() => {
         const total =
             calculateFare('adult', bookingDetails.passengers?.adults || 0) +
             calculateFare('child', bookingDetails.passengers?.children || 0) +
             calculateFare('infant', bookingDetails.passengers?.infants || 0);
-        
+
         setTotalFare(total);
         setTax(extraPrice - total);
         // Store the price summary in sessionStorage
@@ -166,8 +163,8 @@ const handleContinue = () => {
             extraPrice: extraPrice,
             currency: currency,
         }));
-     
-       
+
+
     }, [adultFare, childFare, infantFare, extraPrice, bookingDetails]);
 
     useEffect(() => {
@@ -199,11 +196,11 @@ const handleContinue = () => {
                 <h1><center>Select Flight From {bookingDetails.fromCountry} to {bookingDetails.toCountry}</center></h1>
                 {showPackages && (
                     <FlightPackages
-                    price={totalFare}
-                    ref={flightSummaryRef}
-                    key={resetKey} // Add key to force re-render
-                    selectedPackage={selectedPackage}
-                    onSelectPackage={handleSelectPackage}
+                        price={totalFare}
+                        ref={flightSummaryRef}
+                        key={resetKey} // Add key to force re-render
+                        selectedPackage={selectedPackage}
+                        onSelectPackage={handleSelectPackage}
                     />
 
                 )}
@@ -249,71 +246,71 @@ const handleContinue = () => {
                 </div>
 
                 <br /><br />
-                
-                {showSummary &&(
+
+                {showSummary && (
                     <>
-                    <h1><center>Summary of Your Selection</center></h1>
-                <div className="summary-container">
-                    <div className="price-summary">
-                        <h4>
-                            Price Breakdown for
-                            {bookingDetails.passengers?.adults > 0 ? ` ${bookingDetails.passengers.adults} Adult${bookingDetails.passengers.adults > 1 ? 's' : ''}` : ''}
-                            {bookingDetails.passengers?.children > 0 ? `, ${bookingDetails.passengers.children} Child${bookingDetails.passengers.children > 1 ? 'ren' : ''}` : ''}
-                            {bookingDetails.passengers?.infants > 0 ? `, ${bookingDetails.passengers.infants} Infant${bookingDetails.passengers.infants > 1 ? 's' : ''}` : ''}
-                        </h4>
+                        <h1><center>Summary of Your Selection</center></h1>
+                        <div className="summary-container">
+                            <div className="price-summary">
+                                <h4>
+                                    Price Breakdown for
+                                    {bookingDetails.passengers?.adults > 0 ? ` ${bookingDetails.passengers.adults} Adult${bookingDetails.passengers.adults > 1 ? 's' : ''}` : ''}
+                                    {bookingDetails.passengers?.children > 0 ? `, ${bookingDetails.passengers.children} Child${bookingDetails.passengers.children > 1 ? 'ren' : ''}` : ''}
+                                    {bookingDetails.passengers?.infants > 0 ? `, ${bookingDetails.passengers.infants} Infant${bookingDetails.passengers.infants > 1 ? 's' : ''}` : ''}
+                                </h4>
 
-                        {bookingDetails.passengers?.adults > 0 && (
-                            <div>
-                                <span>{bookingDetails.passengers.adults > 0 ? ` ${bookingDetails.passengers.adults} x Adult${bookingDetails.passengers.adults > 1 ? 's' : ''}` : ''}: </span>
-                                <span>{formatPrice(adultFare.toString())}</span>
-                            </div>
-                        )}
-                        {bookingDetails.passengers?.children > 0 && (
-                            <div>
-                                <span>{bookingDetails.passengers.children > 0 ? ` ${bookingDetails.passengers.children} x Child${bookingDetails.passengers.children > 1 ? 'ren' : ''}` : ''}: </span>
-                                <span>{Math.round(formatPrice(childFare.toString()))}</span>
-                            </div>
-                        )}
-                        {bookingDetails.passengers?.infants > 0 && (
-                            <div>
-                                <span>{bookingDetails.passengers.infants > 0 ? ` ${bookingDetails.passengers.infants} x Infant${bookingDetails.passengers.infants > 1 ? 's' : ''}` : ''}: </span>
-                                <span>{Math.round(formatPrice(infantFare.toString()))}</span>
-                            </div>
-                        )}
-                        {selectedPackage && (
-                            <div>
-                                <span>Airport Tax & Surcharge: {selectedPackage.name}:</span>
-                                <span>{formatPrice(tax.toString())}</span>
-                            </div>
-                        )}
+                                {bookingDetails.passengers?.adults > 0 && (
+                                    <div>
+                                        <span>{bookingDetails.passengers.adults > 0 ? ` ${bookingDetails.passengers.adults} x Adult${bookingDetails.passengers.adults > 1 ? 's' : ''}` : ''}: </span>
+                                        <span>{formatPrice(adultFare.toString())}</span>
+                                    </div>
+                                )}
+                                {bookingDetails.passengers?.children > 0 && (
+                                    <div>
+                                        <span>{bookingDetails.passengers.children > 0 ? ` ${bookingDetails.passengers.children} x Child${bookingDetails.passengers.children > 1 ? 'ren' : ''}` : ''}: </span>
+                                        <span>{Math.round(formatPrice(childFare.toString()))}</span>
+                                    </div>
+                                )}
+                                {bookingDetails.passengers?.infants > 0 && (
+                                    <div>
+                                        <span>{bookingDetails.passengers.infants > 0 ? ` ${bookingDetails.passengers.infants} x Infant${bookingDetails.passengers.infants > 1 ? 's' : ''}` : ''}: </span>
+                                        <span>{Math.round(formatPrice(infantFare.toString()))}</span>
+                                    </div>
+                                )}
+                                {selectedPackage && (
+                                    <div>
+                                        <span>Airport Tax & Surcharge: {selectedPackage.name}:</span>
+                                        <span>{formatPrice(tax.toString())}</span>
+                                    </div>
+                                )}
 
 
-                        <div>
-                            <strong>Total all inclusive:</strong>
-                            <span>{formatPrice((totalFare + extraPrice).toString())}</span>
+                                <div>
+                                    <strong>Total all inclusive:</strong>
+                                    <span>{formatPrice((totalFare + extraPrice).toString())}</span>
+                                </div>
+
+
+                            </div>
+
+                            <div className="flight-summary">
+                                <div className="flight-summary-details">
+                                    <h4> {bookingDetails.fromCountry} to {bookingDetails.toCountry}</h4>
+                                    <p>Flight Code: {selectedFlight?.flightCode}</p>
+                                    <p>Departure: {selectedFlight?.date} {selectedFlight?.departureTime}</p>
+                                    <p>Arrival: {selectedFlight?.date} {selectedFlight?.arrivalTime}</p>
+                                </div>
+                            </div>
                         </div>
-
-
-                    </div>
-
-                    <div className="flight-summary">
-                        <div className="flight-summary-details">
-                            <h4> {bookingDetails.fromCountry} to {bookingDetails.toCountry}</h4>
-                            <p>Flight Code: {selectedFlight?.flightCode}</p>
-                            <p>Departure: {selectedFlight?.date} {selectedFlight?.departureTime}</p>
-                            <p>Arrival: {selectedFlight?.date} {selectedFlight?.arrivalTime}</p>
+                        {/* Add the "Continue to Passenger Details" button */}
+                        <div className="continue-button-container">
+                            <button className="continue-button" onClick={handleContinue}>
+                                Continue to Passenger Details
+                            </button>
                         </div>
-                    </div>
-                </div>
-                 {/* Add the "Continue to Passenger Details" button */}
-            <div className="continue-button-container">
-                <button className="continue-button" onClick={handleContinue}>
-                    Continue to Passenger Details 
-                </button>
-            </div>  
                     </>
                 )}
-                    
+
             </div>
         </>
     );

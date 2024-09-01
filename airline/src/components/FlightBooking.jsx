@@ -178,7 +178,7 @@ const FlightBooking = () => {
 
                     <form className="group-travel-form" onSubmit={handleSearchFlightClick} style={{ maxWidth: '1000px' }}>
                         <div className="form-row">
-                        <div className="form-group col-md-3">
+                            <div className="form-group col-md-3">
                                 <label htmlFor="fromCountry">From Country<span className='req'>*</span></label>
                                 <select className="form-select" id="fromCountry" aria-label="From Country" onChange={handleFromCountryChange} style={greyBorderStyle} value={selectedFromCountry}>
                                     <option value="">Select a Country</option>
@@ -194,7 +194,7 @@ const FlightBooking = () => {
                             </div>
 
                             {selectedFromCountry && (
-                             <div className="form-group col-md-3">
+                                <div className="form-group col-md-3">
                                     <label htmlFor="fromAirport">From Airport<span className='req'>*</span></label>
                                     <select className="form-select" id="fromAirport" aria-label="From Airport" style={greyBorderStyle} value={fromAirport} onChange={(e) => setFromAirport(e.target.value)}>
                                         <option value="">Select an Airport</option>
@@ -210,7 +210,7 @@ const FlightBooking = () => {
                                 </div>
                             )}
 
-<div className="form-group col-md-3">
+                            <div className="form-group col-md-3">
                                 <label htmlFor="toCountry">To Country<span className='req'>*</span></label>
                                 <select className="form-select" id="toCountry" aria-label="To Country" onChange={handleToCountryChange} style={greyBorderStyle} value={selectedToCountry}>
                                     <option value="">Select a Country</option>
@@ -242,8 +242,8 @@ const FlightBooking = () => {
                                 </div>
                             )}
 
-                            
-<div className="form-group col-md-3">
+
+                            <div className="form-group col-md-3">
                                 <label htmlFor="departDate">Departure Date<span className='req'>*</span></label>
                                 <input
                                     type="date"
@@ -257,80 +257,79 @@ const FlightBooking = () => {
                                 {validationMessages.depart && (
                                     <div className="text-danger">{validationMessages.depart}</div>
                                 )}
-                            
 
-                            {tripType === 'returnTrip' && (
-                              <div>
-                                    <label htmlFor="returnDate">Return Date<span className='req'>*</span></label>
-                                    <input
-                                        type="date"
-                                        className="form-control"
-                                        id="returnDate"
-                                        value={returnDate}
-                                        onChange={(e) => setReturnDate(e.target.value)}
-                                        min={departDate || today}
-                                        style={greyBorderStyle}
-                                    />
-                                    {validationMessages.return && (
-                                        <div className="text-danger">{validationMessages.return}</div>
-                                    )}
-                                </div>
 
-                            )}
-</div>
-                               
-
-<div className="form-group col-md-3">
-    <label htmlFor="adults">Adults<span className='req'>*</span></label>
-    <input type="number" className="form-control" id="adults" value={adults} onChange={(e) => setAdults(Number(e.target.value))} min="1" max="9" style={greyBorderStyle} />
-</div>
-
-<div className="form-group col-md-3">
-    <label htmlFor="children">Children</label>
-    <input type="number" className="form-control" id="children" value={children} onChange={(e) => setChildren(Number(e.target.value))} min="0" max="7" style={greyBorderStyle} />
-</div>
-
-<div className="form-group col-md-3">
-    <label htmlFor="infants">Infants</label>
-    <input type="number" className="form-control" id="infants" value={infants} onChange={(e) => setInfants(Number(e.target.value))} min="0" max="1" style={greyBorderStyle} />
-</div>
-</div>
-                        <div className="form-group col-md-3">
-                                        <label htmlFor="currency">Currency</label>
-                                        <select className="form-select" id="currency" aria-label="Currency" style={greyBorderStyle} value={currency} onChange={(e) => setCurrency(e.target.value)}>
-                                            <option value="PKR">PKR</option>
-                                            <option value="USD">USD</option>
-                                            <option value="EUR">EUR</option>
-                                            <option value="AED">AED</option>
-                                            <option value="AMD">AMD</option>
-                                            <option value="INR">INR</option>
-                                        </select>
-                                    </div>  
-                                    
-                                    <div className="form-group col-md-3">
-                <label>Journey Type</label>
-                <select name="tripType" onChange={handleTripTypeChange}>
-                  <option value="">Select Type</option>
-                  <option value="oneWay">One Way</option>
-                  <option value="returnTrip">Return Trip</option>
-                </select>
-                
-              
-        </div>
-
-                                    <div className="form-group col-md-3">
-                                        <label htmlFor="promoCode">Promo Code</label>
-                                        <input type="text" className="form-control" id="promoCode" placeholder="Enter Promo Code" style={greyBorderStyle} />
-                                    </div>
-                                    <div className="col-md-12">
-                                        {generalMessage && (
-                                            <div className="alert alert-danger">
-                                                {generalMessage}
-                                            </div>
+                                {tripType === 'returnTrip' && (
+                                    <div>
+                                        <label htmlFor="returnDate">Return Date<span className='req'>*</span></label>
+                                        <input
+                                            type="date"
+                                            className="form-control"
+                                            id="returnDate"
+                                            value={returnDate}
+                                            onChange={(e) => setReturnDate(e.target.value)}
+                                            min={departDate || today}
+                                            style={greyBorderStyle}
+                                        />
+                                        {validationMessages.return && (
+                                            <div className="text-danger">{validationMessages.return}</div>
                                         )}
+                                    </div>
+
+                                )}
+                            </div>
+
+
+                            <div className="form-group col-md-3">
+                                <label htmlFor="adults">Adults<span className='req'>*</span></label>
+                                <input type="number" className="form-control" id="adults" value={adults} onChange={(e) => setAdults(Number(e.target.value))} min="1" max="9" style={greyBorderStyle} />
+                            </div>
+
+                            <div className="form-group col-md-3">
+                                <label htmlFor="children">Children</label>
+                                <input type="number" className="form-control" id="children" value={children} onChange={(e) => setChildren(Number(e.target.value))} min="0" max="7" style={greyBorderStyle} />
+                            </div>
+
+                            <div className="form-group col-md-3">
+                                <label htmlFor="infants">Infants</label>
+                                <input type="number" className="form-control" id="infants" value={infants} onChange={(e) => setInfants(Number(e.target.value))} min="0" max="1" style={greyBorderStyle} />
+                            </div>
                         </div>
-                            <button type="submit" >Search</button>
-                        
+                        <div className="form-group col-md-3">
+                            <label htmlFor="currency">Currency</label>
+                            <select className="form-select" id="currency" aria-label="Currency" style={greyBorderStyle} value={currency} onChange={(e) => setCurrency(e.target.value)}>
+                                <option value="PKR">PKR</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="AED">AED</option>
+                                <option value="AMD">AMD</option>
+                                <option value="INR">INR</option>
+                            </select>
+                        </div>
+
+                        <div className="form-group col-md-3">
+                            <label>Journey Type</label>
+                            <select name="tripType" onChange={handleTripTypeChange}>
+                                <option value="oneWay">One Way</option>
+                                <option value="returnTrip">Return Trip</option>
+                            </select>
+
+
+                        </div>
+
+                        <div className="form-group col-md-3">
+                            <label htmlFor="promoCode">Promo Code</label>
+                            <input type="text" className="form-control" id="promoCode" placeholder="Enter Promo Code" style={greyBorderStyle} />
+                        </div>
+                        <div className="col-md-12">
+                            {generalMessage && (
+                                <div className="alert alert-danger">
+                                    {generalMessage}
+                                </div>
+                            )}
+                        </div>
+                        <button type="submit" >Search</button>
+
 
                         {generalMessage && (
                             <div className="text-danger text-center mt-3">{generalMessage}</div>

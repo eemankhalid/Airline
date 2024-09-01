@@ -1,11 +1,11 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 import sharjah from '../assets/img/sharjah.webp';
-import manchestor from '../assets/img/manchestor.jpg';
-import toronto from '../assets/img/toronto.jpg';
-import istanbul from '../assets/img/istanbul.jpg';
+import manchestor from '../assets/img/manchestor.webp';
+import toronto from '../assets/img/toronto.webp';
+import istanbul from '../assets/img/istanbul.webp';
 import paris from '../assets/img/paris.jpg';
-import amsterdam from '../assets/img/amsterdam.jpg';
+import amsterdam from '../assets/img/amsterdam.webp';
 
 const ExploreTour = () => {
     return (

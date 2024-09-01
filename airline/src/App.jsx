@@ -6,6 +6,7 @@ import './css/style.css'; // Importing custom CSS
 import { Helmet } from 'react-helmet';
 import 'animate.css';
 
+
 import MainLayout from './Layouts/MainLayout';
 import HomePage from './Pages/HomePage';
 import BookFlightPage from './Pages/BookFlightPage';
@@ -36,6 +37,7 @@ import BoardingPass from './Pages/BoardingPass';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
+
         <Route path='/' element={<MainLayout />}>
             <Route index element={<HomePage />} />
             <Route path='/book-a-flight' element={<BookFlightPage />} />
@@ -106,7 +108,7 @@ const App = () => {
         <>
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Travela - Tourism Website Template</title>
+                <title>Infinity Wings</title>
                 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
                 <meta content="" name="keywords" />
                 <meta content="" name="description" />
