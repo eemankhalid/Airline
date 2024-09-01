@@ -4,7 +4,7 @@ import '../css/Points.css';
 const WingPointsPage = () => {
     return (
         <div className="wingpoints-container">
-            <div className="sidebar">
+            <div className="sidebars">
                 <div className="user-info">
                     <h2>Amna Ahad</h2>
                     <p>13,87,737 WingPoints</p>
