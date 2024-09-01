@@ -4,10 +4,11 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Booking from './Models/Booking.js';
 import SelectedMeal from './Models/SelectedMeal.js';
-
 import User from './Models/User.js';  // Import the User model
 import Reservation from './Models/Resevation.js'; // Import the Reservation model
 import SelectedSeat from './Models/SelectedSeat.js';
+import jwt from 'jsonwebtoken';
+
 
 // Load environment variables from .env file
 dotenv.config();
@@ -168,6 +169,35 @@ app.post('/api/selected-seats', async (req, res) => {
     res.status(400).json({ message: 'Error saving selected seats', error });
   }
 });
+app.post('/api/login', async (req, res) => {
+  const { email, wingPointId } = req.body;
+
+  try {
+      console.log('Login attempt with:', { email, wingPointId });
+
+      // Check if the user exists in the database
+      const user = await User.findOne({ email, userId: wingPointId });
+      console.log('Database query result:', user);
+
+      if (!user) {
+          console.log('User not found');
+          return res.status(401).json({ message: 'Invalid email or WingPoint ID' });
+      }
+
+      // If user exists, generate a JWT token
+      const token = jwt.sign(
+          { userId: user._id, email: user.email },
+          'your_secret_key', // Replace with your actual secret key
+          { expiresIn: '1h' }
+      );
+
+      console.log('Login successful, token generated:', token);
+      return res.json({ token });
+  } catch (error) {
+      console.error('Error during login:', error);
+      return res.status(500).json({ message: 'Error logging in', error: error.message });
+  }
+});
 
 app.get('/api/selected-seats/:bookingId', async (req, res) => {
   try {
@@ -179,6 +209,7 @@ app.get('/api/selected-seats/:bookingId', async (req, res) => {
 
     // Fetch the selected seats from the database using the bookingId
     const selectedSeats = await SelectedSeat.find({ bookingId });
+
 
     if (!selectedSeats.length) {
       return res.status(404).json({ message: 'No seats found for this booking' });

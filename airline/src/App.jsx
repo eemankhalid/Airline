@@ -10,6 +10,7 @@ import 'animate.css';
 import MainLayout from './Layouts/MainLayout';
 import HomePage from './Pages/HomePage';
 import BookFlightPage from './Pages/BookFlightPage';
+import Points from './Pages/Points'
 import GroupTravelRequestPage from './Pages/GroupTravelRequestPage'
 import CharterFlightRequestPage from './Pages/CharterFlightRequestPage'
 import ModifyFlightPage from './Pages/ModifyFlightPage';
@@ -62,6 +63,7 @@ const router = createBrowserRouter(
             <Route path="/extras-seat" element={<ExtrasSeats />} />
             <Route path="/extras-baggage" element={<ExtrasBaggage/>} />
             <Route path="/boardingpass/:reservationId" element={<BoardingPass/>} />
+            <Route path="/points" element={<Points />} />
         </Route>
 
     )
